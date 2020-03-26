@@ -14,7 +14,7 @@ add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 # Add the executable and store in the bin folder (pre-install)
 #---------------------------------------------------------------------
 add_executable(geos
-    main.F
+    main.F90
 )
 target_link_libraries(geos
     PUBLIC GeosCore
