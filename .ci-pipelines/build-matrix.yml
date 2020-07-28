@@ -58,6 +58,8 @@ container: $[ variables['containerImage'] ]
 
 # Try building GEOS-Chem (this is run for each "matrix" entry above)
 steps:
+- checkout: self
+  submodules: true
 - script: |
     source /init.rc
     module load gcc/${GCC_VERSION}
