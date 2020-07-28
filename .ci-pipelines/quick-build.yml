@@ -15,13 +15,10 @@ trigger:
     include:
       - dev/*
       - bugfix/*
-    exclude:
-
 pr:
   branches:
     include:
       - '*'
-    exclude:
 
 # Basic agent and container set up
 pool:
