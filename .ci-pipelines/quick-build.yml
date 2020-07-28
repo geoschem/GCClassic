@@ -16,14 +16,12 @@ trigger:
       - dev/*
       - bugfix/*
     exclude:
-      - dev/13.0.0
 
 pr:
   branches:
     include:
       - '*'
     exclude:
-      - dev/13.0.0 
 
 # Basic agent and container set up
 pool:
@@ -38,6 +36,7 @@ steps:
     spack load hdf5 
     spack load netcdf 
     spack load netcdf-fortran
+    git -c $(Build.Repository.LocalPath) submodule update --init --recursive
     mkdir build
     cd build
     cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=standard -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
