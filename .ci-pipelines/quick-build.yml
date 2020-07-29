@@ -40,5 +40,4 @@ steps:
     cd build
     cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=standard -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
     make -j
-    make install
   displayName: 'Building GEOS-Chem'
