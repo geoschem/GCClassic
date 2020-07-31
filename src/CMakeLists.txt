@@ -22,5 +22,5 @@ target_link_libraries(geos
 set_target_properties(geos PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 install(TARGETS geos
-    RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}
+    RUNTIME DESTINATION ${RUNDIR}
 )
