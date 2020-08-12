@@ -200,25 +200,6 @@ function(configureGCClassic)
 	INTERFACE USE_REAL8
     )
 
-    #----------------------------------------------------------------
-    # Build with timers?
-    #----------------------------------------------------------------
-    if("${RUNDIR_SIM}" STREQUAL benchmark)
-        set(TIMERS_DEFAULT ON)
-    else()
-        set(TIMERS_DEFAULT OFF)
-    endif()
-    set(TIMERS "${TIMERS_DEFAULT}" CACHE BOOL
-    	"Switch to enable GEOS-Chem's timers"
-    )
-    gc_pretty_print(VARIABLE TIMERS IS_BOOLEAN)
-    # Set USE_TIMERS
-    if(${TIMERS})
-        target_compile_definitions(GEOSChemBuildProperties
-	    INTERFACE USE_TIMERS
-        )
-    endif()
-
     gc_pretty_print(SECTION "Components")
 
     #----------------------------------------------------------------
