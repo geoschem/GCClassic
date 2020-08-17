@@ -98,30 +98,15 @@ function(configureGCClassic)
     #----------------------------------------------------------------
     # Determine the appropriate chemistry mechanism base on the simulation
     #----------------------------------------------------------------
-    set(STANDARD_MECHS
-        standard      benchmark         aciduptake    marinePOA
-        masscons      TransportTracers  POPs          CH4
-        tagCH4        tagO3             tagCO
-        tagHg         CO2               aerosol
-        Hg
-        HEMCO # doesn't matter for the HEMCO standalone
-    )
-    set(TROPCHEM_MECHS
-        tropchem      RRTMG     TOMAS15
-        TOMAS40       APM       complexSOA
-    )
-    set(SOA_SVPOA_MECHS
-        complexSOA_SVPOA
+    set(FULLCHEM_MECHS
+        fullchem   aerosol   Hg      POPs    CH4      CO2
+        tagCH4     tagCO     tagHg   tagO3   TransportTracers  
     )
     set(CUSTOM_MECHS
         custom
     )
-    if("${RUNDIR_SIM}" IN_LIST STANDARD_MECHS)
-        set(RUNDIR_MECH Standard)
-    elseif("${RUNDIR_SIM}" IN_LIST TROPCHEM_MECHS)
-        set(RUNDIR_MECH Tropchem)
-    elseif("${RUNDIR_SIM}" IN_LIST SOA_SVPOA_MECHS)
-        set(RUNDIR_MECH SOA_SVPOA)
+    if("${RUNDIR_SIM}" IN_LIST FULLCHEM_MECHS)
+        set(RUNDIR_MECH fullchem)
     elseif("${RUNDIR_SIM}" IN_LIST CUSTOM_MECHS)
         set(RUNDIR_MECH custom)
     else()
@@ -133,11 +118,7 @@ function(configureGCClassic)
     # Definitions for specific run directories
     #----------------------------------------------------------------
     set(TOMAS FALSE)
-    if("${RUNDIR_SIM}" STREQUAL masscons)
-        target_compile_definitions(GEOSChemBuildProperties
-	    INTERFACE MASSCONS
-	)
-    elseif("${RUNDIR_SIM}" MATCHES TOMAS15)
+    if("${RUNDIR_SIM}" MATCHES TOMAS15)
         target_compile_definitions(GEOSChemBuildProperties
 	    INTERFACE TOMAS TOMAS15
 	)
@@ -156,7 +137,7 @@ function(configureGCClassic)
     #----------------------------------------------------------------
     set(MECH "${RUNDIR_MECH}" CACHE STRING "GEOS-Chem's chemistry mechanism")
     # Check that MECH is a valid
-    set(VALID_MECHS Standard Tropchem SOA_SVPOA)
+    set(VALID_MECHS fullchem custom)
     # print MECH to console
     gc_pretty_print(VARIABLE MECH OPTIONS ${VALID_MECHS})
     if(NOT "${MECH}" IN_LIST VALID_MECHS)
