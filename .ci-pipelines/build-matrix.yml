@@ -69,7 +69,7 @@ steps:
     git -c $(Build.Repository.LocalPath) submodule update --init --recursive
     mkdir build
     cd build
-    cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=standard -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
+    cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=fullchem -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
     make -j
     make -j install
   displayName: 'Building GEOS-Chem'
