@@ -41,7 +41,7 @@ if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "Intel")
         -shared-intel -traceback -DLINUX_IFORT
         $<$<CONFIG:Release>:-O2>
         $<$<CONFIG:RelWithDebInfo>:-O2>
-        $<$<CONFIG:Debug>:-g -O0 -check arg_temp_created -debug all -fpe0 -ftrapuv -check bounds -traceback>
+        $<$<CONFIG:Debug>:-g -O0 -check arg_temp_created -debug all -fpe0 -ftrapuv -check,bounds -traceback>
     )
 elseif("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
     target_compile_options(GEOSChemBuildProperties INTERFACE
