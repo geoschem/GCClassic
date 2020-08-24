@@ -202,7 +202,11 @@ function(configureGCClassic)
     #----------------------------------------------------------------
     # Build RRTMG?
     #----------------------------------------------------------------
-    if("${RUNDIR_SIM}" STREQUAL RRTMG)
+
+    # Inspect the run directory to get if RRTMG is on in input.geos
+    inspect_rundir(IS_RRTMG 6)
+
+    if("${IS_RRTMG}" STREQUAL "T")
         set(RRTMG_DEFAULT TRUE)
     else()
         set(RRTMG_DEFAULT FALSE)
