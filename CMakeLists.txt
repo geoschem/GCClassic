@@ -49,7 +49,7 @@ elseif("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
         -fno-range-check -mcmodel=medium -fbacktrace -g -DLINUX_GFORTRAN
         $<$<CONFIG:Release>:-O3 -funroll-loops>
         $<$<CONFIG:RelWithDebInfo>:-O3 -funroll-loops>
-        $<$<CONFIG:Debug>:-g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries -fcheck-array-temporaries -ffpe-trap=invalid,zero,overflow -finit-real=snan -fbounds-check -fbacktrace>
+        $<$<CONFIG:Debug>:-g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan -fcheck=bounds -fcheck=pointer -fbacktrace>
         -ffree-line-length-none
     )
 else()
