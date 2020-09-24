@@ -46,7 +46,7 @@ function(configureGCClassic)
         if(EXISTS ${RUNDIR}/Makefile AND NOT "${BUILD_WITHOUT_RUNDIR}")
             # Read ${RUNDIR}/Makefile which has the version number
             file(READ ${RUNDIR}/Makefile RUNDIR_MAKEFILE)
-        
+
             # Pull out the major.minor version
             if(RUNDIR_MAKEFILE MATCHES
         		"VERSION[ \t]*:=[ \t]*([0-9]+\\.[0-9]+)\\.[0-9]+")
@@ -56,14 +56,14 @@ function(configureGCClassic)
                                     "version from ${RUNDIR}/Makefile"
         	    )
             endif()
-        
+
             # Get the major.minor version of GEOS-Chem
             if(PROJECT_VERSION MATCHES "([0-9]+\\.[0-9]+)\\.[0-9]+")
                 set(GC_VERSION ${CMAKE_MATCH_1})
             else()
                 message(FATAL_ERROR "Internal error. Bad GEOS-Chem version number.")
             endif()
-        
+
             # Throw error if major.minor versions don't match
             if(NOT "${GC_VERSION}" VERSION_EQUAL "${RUNDIR_VERSION}")
                 message(FATAL_ERROR
@@ -76,7 +76,7 @@ function(configureGCClassic)
     endif()
 
     #----------------------------------------------------------------
-    # Configure the build based on the run directory. 
+    # Configure the build based on the run directory.
     #----------------------------------------------------------------
     # Propagate the configuration variables.
     # Define a macro for inspecting the run directory. Inspecting the run
@@ -100,7 +100,7 @@ function(configureGCClassic)
     #----------------------------------------------------------------
     set(FULLCHEM_MECHS
         fullchem   aerosol   Hg      POPs    CH4      CO2
-        tagCH4     tagCO     tagHg   tagO3   TransportTracers  
+        tagCH4     tagCO     tagHg   tagO3   TransportTracers
     )
     set(CUSTOM_MECHS
         custom
@@ -175,11 +175,18 @@ function(configureGCClassic)
     )
 
     #----------------------------------------------------------------
-    # Always set USE_REAL8. See https://github.com/geoschem/geos-chem/issues/43.
+    # Set USE_REAL8 true by default
+    # See https://github.com/geoschem/geos-chem/issues/43.
     #----------------------------------------------------------------
-    target_compile_definitions(GEOSChemBuildProperties
-	INTERFACE USE_REAL8
+    set(USE_REAL8 ON CACHE BOOL
+    	"Switch to set flexible precision 8-byte floating point real"
     )
+    gc_pretty_print(VARIABLE USE_REAL8 IS_BOOLEAN)
+    if(${USE_REAL8})
+        target_compile_definitions(GEOSChemBuildProperties
+	  INTERFACE USE_REAL8
+        )
+    endif()
 
     gc_pretty_print(SECTION "Components")
 
