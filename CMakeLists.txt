@@ -48,7 +48,8 @@ if(${USE_REAL8})
 endif()
 
 #-----------------------------------------------------------------------------
-# Set default compiler options for both Intel and GNU Fortran
+# Set compiler options for the given release type and precision setting
+# Supported compilers: Intel Fortran and GNU Fortran
 #
 # NOTE: This section must go below the USE_REAL8 definition above, because
 # that definition is used to select the proper compilation flags.
