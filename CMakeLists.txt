@@ -2,13 +2,13 @@
 
 cmake_minimum_required (VERSION 3.5)
 project (geos-chem-classic
-  VERSION 12.7.2
+  VERSION 13.0.0
   LANGUAGES Fortran
 )
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Set policies
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 cmake_policy(SET CMP0054 NEW)
 cmake_policy(SET CMP0057 NEW)
 if(POLICY CMP0074)
@@ -18,55 +18,76 @@ if(POLICY CMP0079)
     cmake_policy(SET CMP0079 NEW)
 endif()
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Add CMakeScripts/ to the module path and import helper functions
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR}/CMakeScripts)
 include(GC-Helpers)
 
-#---------------------------------------------------------------------
-# Declare the GEOSChemBuildProperties 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Declare the GEOSChemBuildProperties
+#
 # All GEOS-Chem targets depend on this. This is used to control
 # the compiler options and definitions for GEOS-Chem targets
 # (via inheritance).
+#-----------------------------------------------------------------------------
 add_library(GEOSChemBuildProperties INTERFACE)
 
-#---------------------------------------------------------------------
-# Set default compiler options
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Set USE_REAL8 as cache variable so as to not override existing definition
+# See https://github.com/geoschem/geos-chem/issues/43.
+#
+# NOTE: This section must go above the setting of the default compiler
+# options, so that USE_REAL8 can be used in generator expressions.
+#-----------------------------------------------------------------------------
+set(USE_REAL8 ON CACHE BOOL
+  "Switch to set flexible precision 8-byte floating point real"
+)
+if(${USE_REAL8})
+  target_compile_definitions(GEOSChemBuildProperties INTERFACE USE_REAL8)
+endif()
+
+#-----------------------------------------------------------------------------
+# Set compiler options for the given release type and precision setting
+# Supported compilers: Intel Fortran and GNU Fortran
+#
+# NOTE: This section must go below the USE_REAL8 definition above, because
+# that definition is used to select the proper compilation flags.
+#-----------------------------------------------------------------------------
 if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "Intel")
     target_compile_options(GEOSChemBuildProperties INTERFACE
-        -cpp -w -auto -noalign -convert big_endian -fp-model source -mcmodel=medium
-        -shared-intel -traceback -DLINUX_IFORT
+        -cpp -w -auto -noalign -convert big_endian -fp-model source
+        -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
+        $<$<BOOL:${USE_REAL8}>:-real-size 64>
         $<$<CONFIG:Release>:-O2>
         $<$<CONFIG:RelWithDebInfo>:-O2>
-        $<$<CONFIG:Debug>:-g -O0 -check arg_temp_created -debug all -fpe0 -ftrapuv -check,bounds -traceback>
+        $<$<CONFIG:Debug>:-g -O0 -check arg_temp_created -debug all -fpe0 -ftrapuv -check,bounds>
     )
 elseif("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
     target_compile_options(GEOSChemBuildProperties INTERFACE
-        -cpp -w -std=legacy -fautomatic -fno-align-commons -fconvert=big-endian
-        -fno-range-check -mcmodel=medium -fbacktrace -g -DLINUX_GFORTRAN
+        -cpp -w -std=legacy -fautomatic -fno-align-commons
+        -fconvert=big-endian -fno-range-check -mcmodel=medium
+        -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
+        $<$<BOOL:${USE_REAL8}>:-fdefault-real-8 -fdefault-double-8>
         $<$<CONFIG:Release>:-O3 -funroll-loops>
         $<$<CONFIG:RelWithDebInfo>:-O3 -funroll-loops>
-        $<$<CONFIG:Debug>:-g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan -fcheck=bounds -fcheck=pointer -fbacktrace>
-        -ffree-line-length-none
+        $<$<CONFIG:Debug>:-g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan -fcheck=bounds -fcheck=pointer>
     )
 else()
     message(FATAL_ERROR "Unknown Fortran compiler: ${CMAKE_Fortran_COMPILER_ID}")
 endif()
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Put all of GEOS-Chem's mod files in build subdir called mod
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod)
 target_include_directories(GEOSChemBuildProperties
     INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/mod
 )
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Find nc-config and nf-config and add to CMAKE_PREFIX_PATH
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 find_program(NC_CONFIG NAMES "nc-config" DOC "Location of nc-config utility")
 find_program(NF_CONFIG NAMES "nf-config" DOC "Location of nf-config utility")
 
@@ -87,25 +108,25 @@ endfunction()
 inspect_netcdf_config(CMAKE_PREFIX_PATH "${NC_CONFIG}" "--prefix")
 inspect_netcdf_config(CMAKE_PREFIX_PATH "${NF_CONFIG}" "--prefix")
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Append GEOS-Chem's environment variables to CMAKE_PREFIX_PATH
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 list(APPEND CMAKE_PREFIX_PATH
     # Possible NetCDF environment variables
     $ENV{NetCDF_F_ROOT}     $ENV{NetCDF_C_ROOT} $ENV{NetCDF_ROOT}
     $ENV{NETCDF_F_ROOT}     $ENV{NETCDF_C_ROOT} $ENV{NETCDF_ROOT}
     $ENV{NetCDF_Fortran_ROOT}
     $ENV{NETCDF_FORTRAN_ROOT}
-    
+
     # Possible GEOS-Chem's environmnet variables
     $ENV{GC_F_BIN} 	    $ENV{GC_BIN}
     $ENV{GC_F_INCLUDE} 	    $ENV{GC_INCLUDE}
     $ENV{GC_F_LIB} 	    $ENV{GC_LIB}
 )
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Link NetCDF-F to GEOSChemBuildProperties
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 find_package(NetCDF REQUIRED)
 target_include_directories(GEOSChemBuildProperties INTERFACE
     ${NETCDF_INCLUDE_DIRS}
@@ -115,9 +136,9 @@ target_link_libraries(GEOSChemBuildProperties INTERFACE
     ${NETCDF_LIBRARIES}
 )
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Use the NC_HAS_COMPRESSION def if nf_def_var_deflate is in netcdf.inc
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 if(EXISTS ${NETCDF_F77_INCLUDE_DIR}/netcdf.inc)
     file(READ ${NETCDF_F77_INCLUDE_DIR}/netcdf.inc NCINC)
     if("${NCINC}" MATCHES ".*nf_def_var_deflate.*")
@@ -127,22 +148,22 @@ if(EXISTS ${NETCDF_F77_INCLUDE_DIR}/netcdf.inc)
     endif()
 endif()
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Print a description of the source code repo's version
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 get_repo_version(GC_REPO_VERSION ${CMAKE_CURRENT_SOURCE_DIR})
 message(STATUS "GEOS-Chem @ ${GC_REPO_VERSION}")
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # For GEOS-Chem Classic only
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 if(NOT GC_EXTERNAL_CONFIG)
-    
+
     # This conditional block configures the GEOS-Chem build
     # for GEOS-Chem Classic. As mentioned above, it sets
     # GCCLASSIC_EXE_TARGETS, RRTMG, GTMM, TOMAS, MECH, and
     # GCHP, and it configures the GEOSChemBuildProperties.
-    
+
     # Set CMAKE_BUILD_TYPE to Release by default
     if(NOT CMAKE_BUILD_TYPE)
         set(CMAKE_BUILD_TYPE "Release"
@@ -151,12 +172,12 @@ if(NOT GC_EXTERNAL_CONFIG)
     	    FORCE
     	)
     endif()
-    
+
     # Display CMAKE_PREFIX_PATH and CMAKE_BUILD_TYPE
     gc_pretty_print(SECTION "Useful CMake variables")
     gc_pretty_print(VARIABLE CMAKE_PREFIX_PATH)
     gc_pretty_print(VARIABLE CMAKE_BUILD_TYPE)
-    
+
     # Get the run directory
     gc_pretty_print(SECTION "Run directory setup")
     set(RUNDIR ".." CACHE PATH "Path to your run directory")
@@ -166,7 +187,7 @@ if(NOT GC_EXTERNAL_CONFIG)
     get_filename_component(RUNDIR "${RUNDIR}"
         ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}"
     )
-    
+
     # Configure the GEOS-Chem build for GCHP or GC-Classic
     set(BUILD_WITHOUT_RUNDIR FALSE)
     if(EXISTS ${RUNDIR}/input.geos)
@@ -189,28 +210,28 @@ if(NOT GC_EXTERNAL_CONFIG)
     # Configure for GCClassic
     include(GC-ConfigureClassic)
     configureGCClassic()
-    
+
 endif()
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Set high-level logicals for using this repository
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 set(GCCLASSIC_WRAPPER TRUE)
 set(GC_EXTERNAL_CONFIG FALSE)
 set(HEMCO_EXTERNAL_CONFIG TRUE)
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Add the directory with source code
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 add_subdirectory(src)
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Write GEOSChemBuildProperties's configuration to a file
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 get_target_property(BT_DEFINITIONS  GEOSChemBuildProperties
     INTERFACE_COMPILE_DEFINITIONS
 )
-get_target_property(BT_OPTIONS      GEOSChemBuildProperties 
+get_target_property(BT_OPTIONS      GEOSChemBuildProperties
     INTERFACE_COMPILE_OPTIONS
 )
 get_target_property(BT_LIBRARIES    GEOSChemBuildProperties
@@ -226,14 +247,11 @@ file(WRITE ${CMAKE_BINARY_DIR}/GEOSChemBuildProperties.txt
     "GEOSChemBuildProperties::INTERFACE_COMPILE_OPTIONS:${BT_OPTIONS}\n"
     "GEOSChemBuildProperties::INTERFACE_LINK_LIBRARIES:${BT_LIBRARIES}\n"
     "GEOSChemBuildProperties::INTERFACE_INCLUDE_DIRECTORIES:${BT_INCLUDES}\n"
-    "CMAKE_Fortran_FLAGS_RELEASE:${CMAKE_Fortran_FLAGS_RELEASE}\n"
-    "CMAKE_Fortran_FLAGS_DEBUG:${CMAKE_Fortran_FLAGS_DEBUG}\n"
-    "CMAKE_Fortran_FLAGS:${CMAKE_Fortran_FLAGS}\n\n"
 )
 
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # Try to compile a simple program that uses NetCDF-Fortran and OpenMP
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 if(NOT GC_EXTERNAL_CONFIG AND NOT GC_TRY_RUN_PASSED)
 
     # Try to compile and run try_compile.F90
@@ -263,7 +281,7 @@ if(NOT GC_EXTERNAL_CONFIG AND NOT GC_TRY_RUN_PASSED)
     else()
         file(REMOVE ${CMAKE_BINARY_DIR}/FailedCompile.txt)
     endif()
-    
+
     # Display a warning if its execution failed
     if(RUN_FAILED)
         if(OMP)
@@ -276,7 +294,7 @@ if(NOT GC_EXTERNAL_CONFIG AND NOT GC_TRY_RUN_PASSED)
             "\"FailedExecution.txt\" for more info."
         )
         file(WRITE ${CMAKE_BINARY_DIR}/FailedEasyRun.txt
-            "${COMPILE_OUTPUT}\n${RUN_OUTPUT}"
+            "${COMPILE_OUTPUTS}\n${RUN_OUTPUT}"
         )
     else()
         file(REMOVE ${CMAKE_BINARY_DIR}/FailedEasyRun.txt

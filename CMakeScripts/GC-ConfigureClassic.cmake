@@ -1,8 +1,8 @@
 function(configureGCClassic)
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Find OpenMP if we're building a multithreaded executable
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     gc_pretty_print(SECTION "Threading")
     set(OMP ON CACHE STRING
         "Switch to enable/disable OpenMP threading in GEOS-Chem"
@@ -16,7 +16,7 @@ function(configureGCClassic)
        # rather than ${OpenMP_Fortran_FLAGS} to specify compilation options
        # for OpenMP.  However, this is not supported in older versions.
        # For backwards compatibility, especially with Azure DevOps, we will
-       # leave the new  syntax commented out.  It can be restored later.
+       # leave the new syntax commented out.  It can be restored later.
        #
        #  -- Bob Yantosca (28 Jul 2020)
        #    target_compile_options(HEMCOBuildProperties
@@ -33,15 +33,16 @@ function(configureGCClassic)
            INTERFACE ${OpenMP_Fortran_FLAGS}
        )
     else()
-        set(NO_OMP "ON" CACHE STRING "Boolean opposite of the OMP switch, needed for backwards compatibility")
+        set(NO_OMP "ON" CACHE STRING
+	  "Boolean opposite of the OMP switch, for backwards compatibility")
         target_compile_definitions(GEOSChemBuildProperties
 		INTERFACE "NO_OMP"
         )
     endif()
 
-    #----------------------------------------------------------------
-    # Check that GEOS-Chem's version number matches the run directory's version
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
+    # Check that GEOS-Chem's version number matches the run dir's version
+    #-------------------------------------------------------------------------
     if(NOT GCCLASSIC_WRAPPER)
         if(EXISTS ${RUNDIR}/Makefile AND NOT "${BUILD_WITHOUT_RUNDIR}")
             # Read ${RUNDIR}/Makefile which has the version number
@@ -75,12 +76,13 @@ function(configureGCClassic)
         endif()
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Configure the build based on the run directory.
-    #----------------------------------------------------------------
+    #
     # Propagate the configuration variables.
     # Define a macro for inspecting the run directory. Inspecting the run
     # directory is how we determine which compiler definitions need to be set.
+    #-------------------------------------------------------------------------
     macro(inspect_rundir VAR ID)
         if(EXISTS ${RUNDIR}/getRunInfo)
             execute_process(COMMAND perl ${RUNDIR}/getRunInfo ${RUNDIR} ${ID}
@@ -90,14 +92,14 @@ function(configureGCClassic)
         endif()
     endmacro()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Inspect the run directory to get simulation type
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     inspect_rundir(RUNDIR_SIM 5)
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Determine the appropriate chemistry mechanism base on the simulation
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     set(FULLCHEM_MECHS
         fullchem   aerosol   Hg      POPs    CH4      CO2
         tagCH4     tagCO     tagHg   tagO3   TransportTracers
@@ -114,9 +116,9 @@ function(configureGCClassic)
                             "Cannot determine MECH.")
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Definitions for specific run directories
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     set(TOMAS FALSE)
     if("${RUNDIR_SIM}" MATCHES TOMAS15)
         target_compile_definitions(GEOSChemBuildProperties
@@ -130,11 +132,12 @@ function(configureGCClassic)
         set(TOMAS TRUE)
     endif()
 
+    # Header for next section
     gc_pretty_print(SECTION "General settings")
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Make MECH an option. This controls which KPP directory is used.
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     set(MECH "${RUNDIR_MECH}" CACHE STRING "GEOS-Chem's chemistry mechanism")
     # Check that MECH is a valid
     set(VALID_MECHS fullchem custom)
@@ -147,9 +150,9 @@ function(configureGCClassic)
     )
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Turn on bpch diagnostics?
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Define simulations that need bpch diagnostics on
     set(BPCH_ON_SIM RRTMG TOMAS12 TOMAS15 TOMAS30 TOMAS40 Hg tagHg POPs)
     if("${RUNDIR_SIM}" IN_LIST BPCH_ON_SIM)
@@ -167,32 +170,30 @@ function(configureGCClassic)
 	)
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
+    # Print if flexible precision is set to REAL*8
+    # See https://github.com/geoschem/geos-chem/issues/43.
+    #
+    # NOTE: USE_REAL8=ON by default.  We have moved this default
+    # definition to the CMakeLists.txt in the root folder of the
+    # GEOS-Chem classic wrapper repository.  It needs to be defined
+    # there for use in conditional statements. (bmy, 9/25/20)
+    #-------------------------------------------------------------------------
+    gc_pretty_print(VARIABLE USE_REAL8 IS_BOOLEAN)
+
+    #-------------------------------------------------------------------------
     # Always set MODEL_CLASSIC when building GEOS-Chem Classic
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     target_compile_definitions(GEOSChemBuildProperties
 	INTERFACE MODEL_CLASSIC
     )
 
-    #----------------------------------------------------------------
-    # Set USE_REAL8 true by default
-    # See https://github.com/geoschem/geos-chem/issues/43.
-    #----------------------------------------------------------------
-    set(USE_REAL8 ON CACHE BOOL
-    	"Switch to set flexible precision 8-byte floating point real"
-    )
-    gc_pretty_print(VARIABLE USE_REAL8 IS_BOOLEAN)
-    if(${USE_REAL8})
-        target_compile_definitions(GEOSChemBuildProperties
-	  INTERFACE USE_REAL8
-        )
-    endif()
-
+    # Header for next section
     gc_pretty_print(SECTION "Components")
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Build APM?
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     if("${RUNDIR_SIM}" STREQUAL APM)
         set(APM_DEFAULT ON)
     else()
@@ -206,9 +207,9 @@ function(configureGCClassic)
         target_compile_definitions(GEOSChemBuildProperties INTERFACE APM)
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Build RRTMG?
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
 
     # Inspect the run directory to get if RRTMG is on in input.geos
     inspect_rundir(IS_RRTMG 6)
@@ -226,9 +227,10 @@ function(configureGCClassic)
         target_compile_definitions(GEOSChemBuildProperties INTERFACE RRTMG)
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Build GTMM?
-    #----------------------------------------------------------------
+    # (This is a deprecated option...needs updating.  Turn OFF by default.)
+    #-------------------------------------------------------------------------
     set(GTMM OFF CACHE BOOL
         "Switch to build GTMM as a component of GEOS-Chem"
     )
@@ -237,9 +239,9 @@ function(configureGCClassic)
         target_compile_definitions(GEOSChemBuildProperties INTERFACE GTMM_Hg)
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Build HEMCO standalone?
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     if(NOT GCCLASSIC_WRAPPER)
         if("${RUNDIR_SIM}" STREQUAL HEMCO)
             set(HCOSA_DEFAULT TRUE)
@@ -252,9 +254,10 @@ function(configureGCClassic)
         gc_pretty_print(VARIABLE HCOSA IS_BOOLEAN)
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Build Luo et al wetdep scheme?
-    #----------------------------------------------------------------
+    # (Currently a research option... turn OFF by default)
+    #-------------------------------------------------------------------------
     set(LUO_WETDEP OFF CACHE BOOL
         "Switch to build the Luo et al (2019) wetdep scheme into GEOS-Chem"
     )
@@ -265,9 +268,9 @@ function(configureGCClassic)
         )
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Determine which executables should be built
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     if(NOT GCCLASSIC_WRAPPER)
         set(GCCLASSIC_EXE_TARGETS geos CACHE STRING
             "Executable targets that get built as a part of \"all\""
@@ -280,9 +283,9 @@ function(configureGCClassic)
         endif()
     endif()
 
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     # Export the following variables to GEOS-Chem directory's scope
-    #----------------------------------------------------------------
+    #-------------------------------------------------------------------------
     if(NOT GCCLASSIC_WRAPPER)
         set(GCCLASSIC_EXE_TARGETS   ${GCCLASSIC_EXE_TARGETS}    PARENT_SCOPE)
     endif()
