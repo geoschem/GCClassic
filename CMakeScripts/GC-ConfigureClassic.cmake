@@ -152,8 +152,8 @@ function(configureGCClassic)
 
     #-------------------------------------------------------------------------
     # Turn on bpch diagnostics?
-    #-------------------------------------------------------------------------
     # Define simulations that need bpch diagnostics on
+    #-------------------------------------------------------------------------
     set(BPCH_ON_SIM RRTMG TOMAS12 TOMAS15 TOMAS30 TOMAS40 Hg tagHg POPs)
     if("${RUNDIR_SIM}" IN_LIST BPCH_ON_SIM)
         set(BPCH_DIAG_DEFAULT ON)
@@ -171,15 +171,15 @@ function(configureGCClassic)
     endif()
 
     #-------------------------------------------------------------------------
-    # Print if flexible precision is set to REAL*8
+    # Set USE_REAL8 as cache variable so as to not override existing definition
     # See https://github.com/geoschem/geos-chem/issues/43.
-    #
-    # NOTE: USE_REAL8=ON by default.  We have moved this default
-    # definition to the CMakeLists.txt in the root folder of the
-    # GEOS-Chem classic wrapper repository.  It needs to be defined
-    # there for use in conditional statements. (bmy, 9/25/20)
     #-------------------------------------------------------------------------
-    gc_pretty_print(VARIABLE USE_REAL8 IS_BOOLEAN)
+    set(USE_REAL8 ON CACHE BOOL
+      "Switch to set flexible precision 8-byte floating point real"
+    )
+    target_compile_definitions(GEOSChemBuildProperties
+      INTERFACE $<$<BOOL:${USE_REAL8}>:USE_REAL8>
+    )
 
     #-------------------------------------------------------------------------
     # Always set MODEL_CLASSIC when building GEOS-Chem Classic
@@ -190,7 +190,7 @@ function(configureGCClassic)
 
     # Header for next section
     gc_pretty_print(SECTION "Components")
-
+    
     #-------------------------------------------------------------------------
     # Build APM?
     #-------------------------------------------------------------------------
@@ -287,7 +287,7 @@ function(configureGCClassic)
     # Export the following variables to GEOS-Chem directory's scope
     #-------------------------------------------------------------------------
     if(NOT GCCLASSIC_WRAPPER)
-        set(GCCLASSIC_EXE_TARGETS   ${GCCLASSIC_EXE_TARGETS}    PARENT_SCOPE)
+        set(GCCLASSIC_EXE_TARGETS ${GCCLASSIC_EXE_TARGETS}  PARENT_SCOPE)
     endif()
     set(GCHP                    FALSE                       PARENT_SCOPE)
     set(MODEL_CLASSIC           TRUE                        PARENT_SCOPE)

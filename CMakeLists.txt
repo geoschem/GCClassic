@@ -19,17 +19,19 @@ if(POLICY CMP0079)
 endif()
 
 #-----------------------------------------------------------------------------
-# Print header
-#-----------------------------------------------------------------------------
-message("-----------------------------------------------------------------")
-message("Wrapper: GCClassic ${PROJECT_VERSION}")
-message("-----------------------------------------------------------------")
-
-#-----------------------------------------------------------------------------
 # Add CMakeScripts/ to the module path and import helper functions
 #-----------------------------------------------------------------------------
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR}/CMakeScripts)
 include(GC-Helpers)
+
+#-----------------------------------------------------------------------------
+# Print header with the CMake project version and the GC repo version
+#-----------------------------------------------------------------------------
+get_repo_version(GC_REPO_VERSION ${CMAKE_CURRENT_SOURCE_DIR})
+message("=================================================================")
+message("GCClassic ${PROJECT_VERSION} (top-level wrapper)")
+message("Current status: ${GC_REPO_VERSION}")
+message("=================================================================")
 
 #-----------------------------------------------------------------------------
 # Declare the GEOSChemBuildProperties
@@ -41,31 +43,13 @@ include(GC-Helpers)
 add_library(GEOSChemBuildProperties INTERFACE)
 
 #-----------------------------------------------------------------------------
-# Set USE_REAL8 as cache variable so as to not override existing definition
-# See https://github.com/geoschem/geos-chem/issues/43.
-#
-# NOTE: This section must go above the setting of the default compiler
-# options, so that USE_REAL8 can be used in generator expressions.
-#-----------------------------------------------------------------------------
-set(USE_REAL8 ON CACHE BOOL
-  "Switch to set flexible precision 8-byte floating point real"
-)
-if(${USE_REAL8})
-  target_compile_definitions(GEOSChemBuildProperties INTERFACE USE_REAL8)
-endif()
-
-#-----------------------------------------------------------------------------
 # Set compiler options for the given release type and precision setting
 # Supported compilers: Intel Fortran and GNU Fortran
-#
-# NOTE: This section must go below the USE_REAL8 definition above, because
-# that definition is used to select the proper compilation flags.
 #-----------------------------------------------------------------------------
 if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "Intel")
     target_compile_options(GEOSChemBuildProperties INTERFACE
         -cpp -w -auto -noalign -convert big_endian -fp-model source
         -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
-        $<$<BOOL:${USE_REAL8}>:-real-size 64>
         $<$<CONFIG:Release>:-O2>
         $<$<CONFIG:RelWithDebInfo>:-O2>
         $<$<CONFIG:Debug>:-g -O0 -check arg_temp_created -debug all -fpe0 -ftrapuv -check,bounds>
@@ -75,7 +59,6 @@ elseif("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
         -cpp -w -std=legacy -fautomatic -fno-align-commons
         -fconvert=big-endian -fno-range-check -mcmodel=medium
         -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
-        $<$<BOOL:${USE_REAL8}>:-fdefault-real-8 -fdefault-double-8>
         $<$<CONFIG:Release>:-O3 -funroll-loops>
         $<$<CONFIG:RelWithDebInfo>:-O3 -funroll-loops>
         $<$<CONFIG:Debug>:-g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan -fcheck=bounds -fcheck=pointer>
@@ -154,12 +137,6 @@ if(EXISTS ${NETCDF_F77_INCLUDE_DIR}/netcdf.inc)
         )
     endif()
 endif()
-
-#-----------------------------------------------------------------------------
-# Print a description of the source code repo's version
-#-----------------------------------------------------------------------------
-get_repo_version(GC_REPO_VERSION ${CMAKE_CURRENT_SOURCE_DIR})
-message(STATUS "GEOS-Chem @ ${GC_REPO_VERSION}")
 
 #-----------------------------------------------------------------------------
 # For GEOS-Chem Classic only

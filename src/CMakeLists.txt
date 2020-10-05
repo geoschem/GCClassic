@@ -1,26 +1,34 @@
 # src/CMakeLists.txt
 
-#---------------------------------------------------------------------
-# Add HEMCO subdirectory
-#---------------------------------------------------------------------
-add_subdirectory(HEMCO EXCLUDE_FROM_ALL)
-
-#---------------------------------------------------------------------
-# Add GEOS-Chem subdirectory
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Tell CMake to look for code in HEMCO and GEOS-Chem directory trees
+#-----------------------------------------------------------------------------
+add_subdirectory(HEMCO     EXCLUDE_FROM_ALL)
 add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
-#---------------------------------------------------------------------
-# Add the executable and store in the bin folder (pre-install)
-#---------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Define the GEOS-Chem executable:
+# 1. Specify the location of the main program
+# 2. Specify libraries that the main program depends on
+# 3. Store the binary exectuable file in the bin folder (pre-install)
+#-----------------------------------------------------------------------------
 add_executable(geos
-    main.F90
+  GEOS-Chem/Interfaces/GCClassic/main.F90
 )
 target_link_libraries(geos
-    PUBLIC GeosCore
+  PUBLIC
+  GeosCore
 )
-set_target_properties(geos PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-install(TARGETS geos
-    RUNTIME DESTINATION ${RUNDIR}
+set_target_properties(geos
+  PROPERTIES
+  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
+#-----------------------------------------------------------------------------
+# When "make install" is run, copy the target to the destination folder
+# (which is typically one directory higher than the CMake build folder)
+#-----------------------------------------------------------------------------
+install(TARGETS
+  geos
+  RUNTIME DESTINATION ${RUNDIR}
 )
