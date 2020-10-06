@@ -177,6 +177,7 @@ function(configureGCClassic)
     set(USE_REAL8 ON CACHE BOOL
       "Switch to set flexible precision 8-byte floating point real"
     )
+    gc_pretty_print(VARIABLE USE_REAL8 IS_BOOLEAN)
     target_compile_definitions(GEOSChemBuildProperties
       INTERFACE $<$<BOOL:${USE_REAL8}>:USE_REAL8>
     )
