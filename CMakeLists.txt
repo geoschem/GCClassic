@@ -1,4 +1,4 @@
-# GEOS-Chem Classic high-level CMakeLists.txt
+# GCClassic high-level CMakeLists.txt
 
 cmake_minimum_required (VERSION 3.5)
 project (geos-chem-classic
@@ -7,15 +7,20 @@ project (geos-chem-classic
 )
 
 #-----------------------------------------------------------------------------
-# Set policies
+# Set CMake policies.  For more information, see:
+#
+# https://cmake.org/cmake/help/latest/policy/CMP0054.html
+# https://cmake.org/cmake/help/latest/policy/CMP0057.html
+# https://cmake.org/cmake/help/latest/policy/CMP0074.html
+# https://cmake.org/cmake/help/latest/policy/CMP0079.html
 #-----------------------------------------------------------------------------
 cmake_policy(SET CMP0054 NEW)
 cmake_policy(SET CMP0057 NEW)
 if(POLICY CMP0074)
-    cmake_policy(SET CMP0074 NEW)
+  cmake_policy(SET CMP0074 NEW)
 endif()
 if(POLICY CMP0079)
-    cmake_policy(SET CMP0079 NEW)
+  cmake_policy(SET CMP0079 NEW)
 endif()
 
 #-----------------------------------------------------------------------------

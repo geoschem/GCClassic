@@ -1,13 +1,15 @@
+#=============================================================================
 # Release pipeline:
-# 
+#
 # This pipeline performs deployment actions upon a GEOS-Chem release.
-# Currently, the only deployment action is to build and push a docker 
-# container with prebuilt GEOS-Chem executables (geos-chem-standard, 
-# geos-chem-tropchem, and geos-chem-soa_svpoa) for the newly released 
+# Currently, the only deployment action is to build and push a docker
+# container with prebuilt GEOS-Chem executables (geos-chem-standard,
+# geos-chem-tropchem, and geos-chem-soa_svpoa) for the newly released
 # version.
-
-# This pipeline is triggered by tagged versions excluding 
+#
+# This pipeline is triggered by tagged versions excluding
 # pre-releases.
+#=============================================================================
 trigger:
   branches:
     exclude:

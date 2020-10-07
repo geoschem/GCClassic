@@ -1,13 +1,13 @@
 ---
-name: Request a new feature for the GEOS-Chem-Classic wrapper
-about: Use this template to request a new feature for GEOS-Chem.
+name: Request a new feature for the GCClassic "superproject"
+about: Use this template to request a new feature for the GCClassic superproject.
 title: "[FEATURE REQUEST]"
 labels: feature
 assignees: ''
 
 ---
 
-# Request a new GEOS-Chem-Classic feature
+# Request a new GCClassic superproject feature
 <!--- STOP!  BEFORE YOU SUBMIT THIS ISSUE, PLEASE READ THE FOLLOWING: -->
 <!--- -->
 <!--- 1. If this is the first time you are submitting a GEOS-Chem issue via Github, we recommend that you first view -->
@@ -16,8 +16,9 @@ assignees: ''
 <!--- (b) Subscribing to Github notifications -->
 <!--- (c) Searching for GEOS-Chem issues and pull requests -->
 <!--- --->
-<!--- 2. Only post a GEOS-Chem-Classic wrapper feature request in this issue.
-<!--- To report a bug, start a discussion, or ask a general question about GEOS-Chem, -->
-<!--- please create an issue on the main GEOS-Chem repository, at this link: -->
+<!--- 2. Only post a GCClassic superproject feature request in this issue.
+<!--- To report a bug in the GEOS-Chem science codebase, start a discussion, -->
+<!--  or ask a general question about GEOS-Chem, please create an issue on 
+<!--- the main GEOS-Chem repository, at this link: -->
 <!--- https://github.com/geoschem/geos-chem/issues/new/choose -->
 <!--- --->

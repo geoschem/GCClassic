@@ -1,19 +1,22 @@
+#=============================================================================
 # Build matrix pipeline:
-# 
-# This pipeline checks that pre-releases and the master branch
+#
+# This pipeline checks that pre-releases and the main branch
 # compile in a wide variety of build environments. This pipeline
 # is intended to be a rigorous check of GEOS-Chem's build.
-
-
-# This pipeline triggers on tagged pre-releases (alpha and beta 
-# versions, as well as release candidates). Commits to the master 
+#
+# This pipeline triggers on tagged pre-releases (alpha and beta
+# versions, as well as release candidates). Commits to the main
 # branch also trigger this pipeline.
+#=============================================================================
 trigger:
   branches:
     include:
-      - master
+      - main
     exclude:
-      - dev/13.0.0
+      - bugfix/*
+      - dev/*
+      - feature/*
   tags:
     include:        # Semantic versioning 2.0.0 examples:
       - '*-alpha*'  # 12.7.1-alpha.3
@@ -63,8 +66,8 @@ steps:
 - script: |
     source /init.rc
     module load gcc/${GCC_VERSION}
-    spack load hdf5 
-    spack load netcdf 
+    spack load hdf5
+    spack load netcdf
     spack load netcdf-fortran
     git -c $(Build.Repository.LocalPath) submodule update --init --recursive
     mkdir build
