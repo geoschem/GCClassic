@@ -273,7 +273,7 @@ function(configureGCClassic)
     # Determine which executables should be built
     #-------------------------------------------------------------------------
     if(NOT GCCLASSIC_WRAPPER)
-        set(GCCLASSIC_EXE_TARGETS geos CACHE STRING
+        set(GCCLASSIC_EXE_TARGETS gcclassic CACHE STRING
             "Executable targets that get built as a part of \"all\""
         )
         if(${HCOSA})

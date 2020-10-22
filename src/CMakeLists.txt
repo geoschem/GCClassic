@@ -12,14 +12,14 @@ add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 # 2. Specify libraries that the main program depends on
 # 3. Store the binary exectuable file in the bin folder (pre-install)
 #-----------------------------------------------------------------------------
-add_executable(geos
+add_executable(gcclassic
   GEOS-Chem/Interfaces/GCClassic/main.F90
 )
-target_link_libraries(geos
+target_link_libraries(gcclassic
   PUBLIC
   GeosCore
 )
-set_target_properties(geos
+set_target_properties(gcclassic
   PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
@@ -29,6 +29,6 @@ set_target_properties(geos
 # (which is typically one directory higher than the CMake build folder)
 #-----------------------------------------------------------------------------
 install(TARGETS
-  geos
+  gcclassic
   RUNTIME DESTINATION ${RUNDIR}
 )

@@ -24,21 +24,21 @@ SHELL ["/bin/bash", "-c"]
 RUN cd /gc-src/build \
 &&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=standard -DCMAKE_COLOR_MAKEFILE=FALSE .. \
 &&  make -j install \
-&&  cp geos /opt/geos-chem/bin/geos-chem-standard \
+&&  cp gcclassic /opt/geos-chem/bin/geos-chem-standard \
 && rm -rf /gc-src/build/*
 
 # Build Tropchem and copy the executable to /opt/geos-chem/bin
 RUN cd /gc-src/build \
 &&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=tropchem -DCMAKE_COLOR_MAKEFILE=FALSE .. \
 &&  make -j install \
-&&  cp geos /opt/geos-chem/bin/geos-chem-tropchem \
+&&  cp gcclassic /opt/geos-chem/bin/geos-chem-tropchem \
 && rm -rf /gc-src/build/*
 
 # Build SOA_SVPOA and copy the executable to /opt/geos-chem/bin
 RUN cd /gc-src/build \
 &&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=complexSOA_SVPOA -DCMAKE_COLOR_MAKEFILE=FALSE .. \
 &&  make -j install \
-&&  cp geos /opt/geos-chem/bin/geos-chem-soa_svpoa\
+&&  cp gcclassic /opt/geos-chem/bin/geos-chem-soa_svpoa\
 && rm -rf /gc-src/build/*
 
 RUN rm -rf /gc-src
