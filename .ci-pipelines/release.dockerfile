@@ -15,33 +15,23 @@ RUN echo "module load gcc/7" >> /init.rc \
 &&  echo "spack load hdf5" >> /init.rc \
 &&  echo "spack load netcdf" >> /init.rc \
 &&  echo "spack load netcdf-fortran" >> /init.rc \
-&&  echo "export PATH=$PATH:/opt/geos-chem/bin" >> /init.rc
+&&  echo 'export PATH=$PATH:/opt/geos-chem/bin' >> /init.rc
 
 # Make bash the default shell
 SHELL ["/bin/bash", "-c"]
 
-# Build Standard and copy the executable to /opt/geos-chem/bin
+# Build fullchem and copy the executable to /opt/geos-chem/bin
 RUN cd /gc-src/build \
-&&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=standard -DCMAKE_COLOR_MAKEFILE=FALSE .. \
+&&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=fullchem -DCMAKE_COLOR_MAKEFILE=FALSE .. \
 &&  make -j install \
-&&  cp gcclassic /opt/geos-chem/bin/geos-chem-standard \
+&&  cp gcclassic /opt/geos-chem/bin/ \
 && rm -rf /gc-src/build/*
 
-# Build Tropchem and copy the executable to /opt/geos-chem/bin
-RUN cd /gc-src/build \
-&&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=tropchem -DCMAKE_COLOR_MAKEFILE=FALSE .. \
-&&  make -j install \
-&&  cp gcclassic /opt/geos-chem/bin/geos-chem-tropchem \
-&& rm -rf /gc-src/build/*
-
-# Build SOA_SVPOA and copy the executable to /opt/geos-chem/bin
-RUN cd /gc-src/build \
-&&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=complexSOA_SVPOA -DCMAKE_COLOR_MAKEFILE=FALSE .. \
-&&  make -j install \
-&&  cp gcclassic /opt/geos-chem/bin/geos-chem-soa_svpoa\
-&& rm -rf /gc-src/build/*
-
-RUN rm -rf /gc-src
+# Create fake createRunDir.sh that calls the actual one
+RUN echo "#!/usr/bin/env bash" > /opt/geos-chem/bin/createRunDir.sh \
+&&  echo "cd /gc-src/run" >> /opt/geos-chem/bin/createRunDir.sh \
+&&  echo "bash createRunDir.sh" >> /opt/geos-chem/bin/createRunDir.sh \
+&&  chmod +x /opt/geos-chem/bin/createRunDir.sh
 
 RUN echo "#!/usr/bin/env bash" > /usr/bin/start-container.sh \
 &&  echo ". /init.rc" >> /usr/bin/start-container.sh \
