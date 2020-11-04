@@ -3,9 +3,8 @@
 #
 # This pipeline performs deployment actions upon a GEOS-Chem release.
 # Currently, the only deployment action is to build and push a docker
-# container with prebuilt GEOS-Chem executables (geos-chem-standard,
-# geos-chem-tropchem, and geos-chem-soa_svpoa) for the newly released
-# version.
+# container with GCClassic for the newly release version. This only includes
+# the executable for fullchem.
 #
 # This pipeline is triggered by tagged versions excluding
 # pre-releases.
@@ -45,12 +44,12 @@ steps:
       command: build
       buildContext: $(Build.Repository.LocalPath)   # The path to the source code repo
       Dockerfile: .ci-pipelines/release.dockerfile
-      repository: geoschemdev/geos-chem             # Docker Hub repository
+      repository: geoschemdev/gcclassic             # Docker Hub repository
       tags: $(VERSION_TAG)                          # Source code repo's tag
   - task: Docker@2
     displayName: Push image
     inputs:
       containerRegistry: DockerHub
-      repository: geoschemdev/geos-chem             # Docker Hub repository
+      repository: geoschemdev/gcclassic             # Docker Hub repository
       command: push
       tags: $(VERSION_TAG)
