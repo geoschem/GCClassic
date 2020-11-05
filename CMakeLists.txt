@@ -169,32 +169,12 @@ if(NOT GC_EXTERNAL_CONFIG)
 
     # Get the run directory
     gc_pretty_print(SECTION "Run directory setup")
-    set(RUNDIR ".." CACHE PATH "Path to your run directory")
-    gc_pretty_print(VARIABLE RUNDIR)
-    message(STATUS "Bootstrapping  ${RUNDIR}")
-    # Make RUNDIR an absolute path
-    get_filename_component(RUNDIR "${RUNDIR}"
-        ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}"
-    )
 
-    # Configure the GEOS-Chem build for GCHP or GC-Classic
-    set(BUILD_WITHOUT_RUNDIR FALSE)
-    if(EXISTS ${RUNDIR}/input.geos)
-        file(STRINGS ${RUNDIR}/input.geos GCHP REGEX ": *gchp_*")
-    elseif(EXISTS ${RUNDIR}/getRunInfo)
-        # getRunInfo is only in GC-Classic run directories
-        set(GCHP FALSE)
-    elseif((NOT EXISTS RUNDIR) AND (DEFINED RUNDIR_SIM))
-        # special case for building without a run directory
-        set(GCHP FALSE)
-        set(RUNDIR ${CMAKE_BINARY_DIR})
-        set(BUILD_WITHOUT_RUNDIR TRUE)
-    else()
-        message(FATAL_ERROR "Your run directory doesn't
-    		have an input.geos or getRunInfo! Set
-    		RUNDIR to a valid run directory."
-    	)
-    endif()
+   # Run directory
+   set(RUNDIR ".." CACHE PATH "Path(s) to run directory (semicolon separated list). Specifies install locations for gchp")
+   set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Fake CMAKE_INSTALL_PREFIX (use RUNDIR instead)" FORCE)
+   set(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT FALSE)
+   gc_pretty_print(VARIABLE RUNDIR)
 
     # Configure for GCClassic
     include(GC-ConfigureClassic)

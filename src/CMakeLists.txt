@@ -28,7 +28,10 @@ set_target_properties(gcclassic
 # When "make install" is run, copy the target to the destination folder
 # (which is typically one directory higher than the CMake build folder)
 #-----------------------------------------------------------------------------
-install(TARGETS
-  gcclassic
-  RUNTIME DESTINATION ${RUNDIR}
-)
+foreach(RUNDIR_PATH ${RUNDIR})
+	# If RUNDIR is not a relative path, make it an absolute path relative to the build directory
+	if(NOT IS_ABSOLUTE "${RUNDIR_PATH}")
+		get_filename_component(RUNDIR_PATH "${RUNDIR_PATH}" ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}")
+	endif()
+	install(TARGETS gcclassic RUNTIME DESTINATION ${RUNDIR_PATH})
+endforeach()
