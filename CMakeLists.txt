@@ -109,11 +109,6 @@ target_compile_options(GEOSChemBuildProperties
       $<$<CONFIG:Release>:${GCClassic_Fortran_FLAGS_RELEASE_GNU}>
    >
 )
-set(CMAKE_Fortran_FLAGS                 "" CACHE INTERNAL "Not used in GCClassic")
-set(CMAKE_Fortran_FLAGS_DEBUG           "" CACHE INTERNAL "Not used in GCClassic")
-set(CMAKE_Fortran_FLAGS_MINSIZEREL      "" CACHE INTERNAL "Not used in GCClassic")
-set(CMAKE_Fortran_FLAGS_RELEASE         "" CACHE INTERNAL "Not used in GCClassic")
-set(CMAKE_Fortran_FLAGS_RELWITHDEBINFO  "" CACHE INTERNAL "Not used in GCClassic")
 
 #-----------------------------------------------------------------------------
 # Put all of GEOS-Chem's mod files in build subdir called mod
