@@ -47,48 +47,48 @@ message("=================================================================")
 #-----------------------------------------------------------------------------
 add_library(GEOSChemBuildProperties INTERFACE)
 
-set(GCClassic_Fortran_FLAGS_Intel
+set(GEOSChem_Fortran_FLAGS_Intel
     -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
     -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
-    CACHE STRING "GCClassic compiler flags for all build types with Intel compilers"
+    CACHE STRING "GEOSChem compiler flags for all build types with Intel compilers"
 )
-set(GCClassic_Fortran_FLAGS_RELEASE_Intel
+set(GEOSChem_Fortran_FLAGS_RELEASE_Intel
    -O2
-    CACHE STRING "GCClassic compiler flags for build type release with Intel compilers"
+    CACHE STRING "GEOSChem compiler flags for build type release with Intel compilers"
 )
-set(GCClassic_Fortran_FLAGS_RELWITHDEBINFO_Intel
+set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
     -O2
-    CACHE STRING "GCClassic compiler flags for build type relwithdebinfo with Intel compilers"
+    CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with Intel compilers"
 )
-set(GCClassic_Fortran_FLAGS_DEBUG_Intel
+set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
     -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
-    CACHE STRING "GCClassic compiler flags for build type debug with Intel compilers"
+    CACHE STRING "GEOSChem compiler flags for build type debug with Intel compilers"
 )
 
-set(GCClassic_Fortran_FLAGS_GNU
+set(GEOSChem_Fortran_FLAGS_GNU
     -cpp -w -std=legacy -fautomatic -fno-align-commons
     -fconvert=big-endian -fno-range-check -mcmodel=medium
     -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
-    CACHE STRING "GCClassic compiler flags for all build types with GNU compilers"
+    CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
 )
-set(GCClassic_Fortran_FLAGS_RELEASE_GNU
+set(GEOSChem_Fortran_FLAGS_RELEASE_GNU
    -O3 -funroll-loops
-   CACHE STRING "GCClassic compiler flags for build type release with GNU compilers"
+   CACHE STRING "GEOSChem compiler flags for build type release with GNU compilers"
 )
-set(GCClassic_Fortran_FLAGS_RELWITHDEBINFO_GNU
+set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU
    -O3 -funroll-loops
-   CACHE STRING "GCClassic compiler flags for build type relwithdebinfo with GNU compilers"
+   CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with GNU compilers"
 )
-set(GCClassic_Fortran_FLAGS_DEBUG_GNU
+set(GEOSChem_Fortran_FLAGS_DEBUG_GNU
     -g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries 
     -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan 
     -fcheck=bounds -fcheck=pointer
-    CACHE STRING "GCClassic compiler flags for build type debug with GNU compilers"
+    CACHE STRING "GEOSChem compiler flags for build type debug with GNU compilers"
 )
 
-set(GCClassic_SUPPORTED_COMPILER_IDS "Intel" "GNU")
-if(NOT CMAKE_Fortran_COMPILER_ID IN_LIST GCClassic_SUPPORTED_COMPILER_IDS)
-   message(FATAL_ERROR "GCClassic does not support ${CMAKE_Fortran_COMPILER_ID} compilers")
+set(GEOSChem_SUPPORTED_COMPILER_IDS "Intel" "GNU")
+if(NOT CMAKE_Fortran_COMPILER_ID IN_LIST GEOSChem_SUPPORTED_COMPILER_IDS)
+   message(FATAL_ERROR "GEOSChem does not support ${CMAKE_Fortran_COMPILER_ID} compilers")
 endif()
 
 #---------------------------------------------------------------------
@@ -97,16 +97,16 @@ endif()
 target_compile_options(GEOSChemBuildProperties
    INTERFACE
    $<$<STREQUAL:${CMAKE_Fortran_COMPILER_ID},Intel>:
-      ${GCClassic_Fortran_FLAGS_Intel}
-      $<$<CONFIG:Debug>:${GCClassic_Fortran_FLAGS_DEBUG_Intel}>
-      $<$<CONFIG:RelWithDebInfo>:${GCClassic_Fortran_FLAGS_RELWITHDEBINFO_Intel}>
-      $<$<CONFIG:Release>:${GCClassic_Fortran_FLAGS_RELEASE_Intel}>
+      ${GEOSChem_Fortran_FLAGS_Intel}
+      $<$<CONFIG:Debug>:${GEOSChem_Fortran_FLAGS_DEBUG_Intel}>
+      $<$<CONFIG:RelWithDebInfo>:${GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel}>
+      $<$<CONFIG:Release>:${GEOSChem_Fortran_FLAGS_RELEASE_Intel}>
    >
    $<$<STREQUAL:${CMAKE_Fortran_COMPILER_ID},GNU>:
-      ${GCClassic_Fortran_FLAGS_GNU}
-      $<$<CONFIG:Debug>:${GCClassic_Fortran_FLAGS_DEBUG_GNU}>
-      $<$<CONFIG:RelWithDebInfo>:${GCClassic_Fortran_FLAGS_RELWITHDEBINFO_GNU}>
-      $<$<CONFIG:Release>:${GCClassic_Fortran_FLAGS_RELEASE_GNU}>
+      ${GEOSChem_Fortran_FLAGS_GNU}
+      $<$<CONFIG:Debug>:${GEOSChem_Fortran_FLAGS_DEBUG_GNU}>
+      $<$<CONFIG:RelWithDebInfo>:${GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU}>
+      $<$<CONFIG:Release>:${GEOSChem_Fortran_FLAGS_RELEASE_GNU}>
    >
 )
 
