@@ -47,6 +47,13 @@ message("=================================================================")
 #-----------------------------------------------------------------------------
 add_library(GEOSChemBuildProperties INTERFACE)
 
+set(GEOSChem_DETECTED_FORTRAN_COMPILER_ID ${CMAKE_Fortran_COMPILER_ID} 
+    CACHE INTERNAL "Logging the COMPILER_ID to CMakeCache.txt"
+)
+set(GEOSChem_DETECTED_FORTRAN_COMPILER_VERSION ${CMAKE_Fortran_COMPILER_VERSION} 
+    CACHE INTERNAL "Logging the compiler version to CMakeCache.txt"
+)
+
 set(GEOSChem_Fortran_FLAGS_Intel
     -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
     -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
@@ -312,3 +319,36 @@ if(NOT GC_EXTERNAL_CONFIG AND NOT GC_TRY_RUN_PASSED)
         )
     endif()
 endif()
+
+#-----------------------------------------------------------------------------
+# Copy build information files to each RUNDIR and INSTALLCOPY directory
+#----------------------------------------------------------------------------
+set(COMBINED_INSTALL_DIRS "")
+list(APPEND COMBINED_INSTALL_DIRS ${RUNDIR})
+list(APPEND COMBINED_INSTALL_DIRS ${INSTALLCOPY})
+# Install to run directories
+foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
+    if(INSTALL_PATH IN_LIST RUNDIR)
+        set(CHECK_IS_RUNDIR TRUE)
+    else()
+        set(CHECK_IS_RUNDIR FALSE)
+    endif()
+
+    # Convert INSTALL_PATH to absolute
+	if(NOT IS_ABSOLUTE "${INSTALL_PATH}")
+		get_filename_component(INSTALL_PATH "${INSTALL_PATH}" ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}")
+    endif()
+    # Issue warning and skip if input.geos doesn't exist (i.e. if it doens't look like a run directory)
+    if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/input.geos))
+        message(WARNING 
+            "RUNDIR path \"${INSTALL_PATH}\" "
+            "doesn't have input.geos. Is it a run directory? If it "
+            "isn't, and you still want to install to it, you should "
+            "use COPYINSTALL rather than RUNDIR.\nSkipping installing to "
+            "${INSTALL_PATH}"
+        )
+    else()
+        install(FILES ${CMAKE_BINARY_DIR}/CMakeCache.txt DESTINATION ${INSTALL_PATH}/build_info)
+        install(PROGRAMS ${CMAKE_SOURCE_DIR}/CMakeScripts/summarize_build DESTINATION ${INSTALL_PATH}/build_info)
+    endif()
+endforeach()
