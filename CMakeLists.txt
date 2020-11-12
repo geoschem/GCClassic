@@ -47,30 +47,75 @@ message("=================================================================")
 #-----------------------------------------------------------------------------
 add_library(GEOSChemBuildProperties INTERFACE)
 
-#-----------------------------------------------------------------------------
-# Set compiler options for the given release type and precision setting
-# Supported compilers: Intel Fortran and GNU Fortran
-#-----------------------------------------------------------------------------
-if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "Intel")
-    target_compile_options(GEOSChemBuildProperties INTERFACE
-        -cpp -w -auto -noalign -convert big_endian -fp-model source
-        -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
-        $<$<CONFIG:Release>:-O2>
-        $<$<CONFIG:RelWithDebInfo>:-O2>
-        $<$<CONFIG:Debug>:-g -O0 -check arg_temp_created -debug all -fpe0 -ftrapuv -check,bounds>
-    )
-elseif("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
-    target_compile_options(GEOSChemBuildProperties INTERFACE
-        -cpp -w -std=legacy -fautomatic -fno-align-commons
-        -fconvert=big-endian -fno-range-check -mcmodel=medium
-        -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
-        $<$<CONFIG:Release>:-O3 -funroll-loops>
-        $<$<CONFIG:RelWithDebInfo>:-O3 -funroll-loops>
-        $<$<CONFIG:Debug>:-g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan -fcheck=bounds -fcheck=pointer>
-    )
-else()
-    message(FATAL_ERROR "Unknown Fortran compiler: ${CMAKE_Fortran_COMPILER_ID}")
+set(GEOSChem_DETECTED_FORTRAN_COMPILER_ID ${CMAKE_Fortran_COMPILER_ID} 
+    CACHE INTERNAL "Logging the COMPILER_ID to CMakeCache.txt"
+)
+set(GEOSChem_DETECTED_FORTRAN_COMPILER_VERSION ${CMAKE_Fortran_COMPILER_VERSION} 
+    CACHE INTERNAL "Logging the compiler version to CMakeCache.txt"
+)
+
+set(GEOSChem_Fortran_FLAGS_Intel
+    -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
+    -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
+    CACHE STRING "GEOSChem compiler flags for all build types with Intel compilers"
+)
+set(GEOSChem_Fortran_FLAGS_RELEASE_Intel
+   -O2
+    CACHE STRING "GEOSChem compiler flags for build type release with Intel compilers"
+)
+set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
+    -O2
+    CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with Intel compilers"
+)
+set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
+    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
+    CACHE STRING "GEOSChem compiler flags for build type debug with Intel compilers"
+)
+
+set(GEOSChem_Fortran_FLAGS_GNU
+    -cpp -w -std=legacy -fautomatic -fno-align-commons
+    -fconvert=big-endian -fno-range-check -mcmodel=medium
+    -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
+    CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
+)
+set(GEOSChem_Fortran_FLAGS_RELEASE_GNU
+   -O3 -funroll-loops
+   CACHE STRING "GEOSChem compiler flags for build type release with GNU compilers"
+)
+set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU
+   -O3 -funroll-loops
+   CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with GNU compilers"
+)
+set(GEOSChem_Fortran_FLAGS_DEBUG_GNU
+    -g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries 
+    -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan 
+    -fcheck=bounds -fcheck=pointer
+    CACHE STRING "GEOSChem compiler flags for build type debug with GNU compilers"
+)
+
+set(GEOSChem_SUPPORTED_COMPILER_IDS "Intel" "GNU")
+if(NOT CMAKE_Fortran_COMPILER_ID IN_LIST GEOSChem_SUPPORTED_COMPILER_IDS)
+   message(FATAL_ERROR "GEOSChem does not support ${CMAKE_Fortran_COMPILER_ID} compilers")
 endif()
+
+#---------------------------------------------------------------------
+# Assign comiler options to build properties
+#---------------------------------------------------------------------
+target_compile_options(GEOSChemBuildProperties
+   INTERFACE
+   $<$<STREQUAL:${CMAKE_Fortran_COMPILER_ID},Intel>:
+      ${GEOSChem_Fortran_FLAGS_Intel}
+      $<$<CONFIG:Debug>:${GEOSChem_Fortran_FLAGS_DEBUG_Intel}>
+      $<$<CONFIG:RelWithDebInfo>:${GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel}>
+      $<$<CONFIG:Release>:${GEOSChem_Fortran_FLAGS_RELEASE_Intel}>
+   >
+   $<$<STREQUAL:${CMAKE_Fortran_COMPILER_ID},GNU>:
+      ${GEOSChem_Fortran_FLAGS_GNU}
+      $<$<CONFIG:Debug>:${GEOSChem_Fortran_FLAGS_DEBUG_GNU}>
+      $<$<CONFIG:RelWithDebInfo>:${GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU}>
+      $<$<CONFIG:Release>:${GEOSChem_Fortran_FLAGS_RELEASE_GNU}>
+   >
+)
 
 #-----------------------------------------------------------------------------
 # Put all of GEOS-Chem's mod files in build subdir called mod
@@ -169,32 +214,12 @@ if(NOT GC_EXTERNAL_CONFIG)
 
     # Get the run directory
     gc_pretty_print(SECTION "Run directory setup")
-    set(RUNDIR ".." CACHE PATH "Path to your run directory")
-    gc_pretty_print(VARIABLE RUNDIR)
-    message(STATUS "Bootstrapping  ${RUNDIR}")
-    # Make RUNDIR an absolute path
-    get_filename_component(RUNDIR "${RUNDIR}"
-        ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}"
-    )
 
-    # Configure the GEOS-Chem build for GCHP or GC-Classic
-    set(BUILD_WITHOUT_RUNDIR FALSE)
-    if(EXISTS ${RUNDIR}/input.geos)
-        file(STRINGS ${RUNDIR}/input.geos GCHP REGEX ": *gchp_*")
-    elseif(EXISTS ${RUNDIR}/getRunInfo)
-        # getRunInfo is only in GC-Classic run directories
-        set(GCHP FALSE)
-    elseif((NOT EXISTS RUNDIR) AND (DEFINED RUNDIR_SIM))
-        # special case for building without a run directory
-        set(GCHP FALSE)
-        set(RUNDIR ${CMAKE_BINARY_DIR})
-        set(BUILD_WITHOUT_RUNDIR TRUE)
-    else()
-        message(FATAL_ERROR "Your run directory doesn't
-    		have an input.geos or getRunInfo! Set
-    		RUNDIR to a valid run directory."
-    	)
-    endif()
+   # Run directory
+   set(RUNDIR ".." CACHE PATH "Path(s) to run directory (semicolon separated list). Specifies install locations for gchp")
+   set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Fake CMAKE_INSTALL_PREFIX (use RUNDIR instead)" FORCE)
+   set(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT FALSE)
+   gc_pretty_print(VARIABLE RUNDIR)
 
     # Configure for GCClassic
     include(GC-ConfigureClassic)
@@ -294,3 +319,36 @@ if(NOT GC_EXTERNAL_CONFIG AND NOT GC_TRY_RUN_PASSED)
         )
     endif()
 endif()
+
+#-----------------------------------------------------------------------------
+# Copy build information files to each RUNDIR and INSTALLCOPY directory
+#----------------------------------------------------------------------------
+set(COMBINED_INSTALL_DIRS "")
+list(APPEND COMBINED_INSTALL_DIRS ${RUNDIR})
+list(APPEND COMBINED_INSTALL_DIRS ${INSTALLCOPY})
+# Install to run directories
+foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
+    if(INSTALL_PATH IN_LIST RUNDIR)
+        set(CHECK_IS_RUNDIR TRUE)
+    else()
+        set(CHECK_IS_RUNDIR FALSE)
+    endif()
+
+    # Convert INSTALL_PATH to absolute
+	if(NOT IS_ABSOLUTE "${INSTALL_PATH}")
+		get_filename_component(INSTALL_PATH "${INSTALL_PATH}" ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}")
+    endif()
+    # Issue warning and skip if input.geos doesn't exist (i.e. if it doens't look like a run directory)
+    if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/input.geos))
+        message(WARNING 
+            "RUNDIR path \"${INSTALL_PATH}\" "
+            "doesn't have input.geos. Is it a run directory? If it "
+            "isn't, and you still want to install to it, you should "
+            "use COPYINSTALL rather than RUNDIR.\nSkipping installing to "
+            "${INSTALL_PATH}"
+        )
+    else()
+        install(FILES ${CMAKE_BINARY_DIR}/CMakeCache.txt DESTINATION ${INSTALL_PATH}/build_info)
+        install(PROGRAMS ${CMAKE_SOURCE_DIR}/CMakeScripts/summarize_build DESTINATION ${INSTALL_PATH}/build_info)
+    endif()
+endforeach()

@@ -28,7 +28,24 @@ set_target_properties(gcclassic
 # When "make install" is run, copy the target to the destination folder
 # (which is typically one directory higher than the CMake build folder)
 #-----------------------------------------------------------------------------
-install(TARGETS
-  gcclassic
-  RUNTIME DESTINATION ${RUNDIR}
-)
+set(COMBINED_INSTALL_DIRS "")
+list(APPEND COMBINED_INSTALL_DIRS ${RUNDIR})
+list(APPEND COMBINED_INSTALL_DIRS ${INSTALLCOPY})
+# Install to run directories
+foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
+    if(INSTALL_PATH IN_LIST RUNDIR)
+        set(CHECK_IS_RUNDIR TRUE)
+    else()
+        set(CHECK_IS_RUNDIR FALSE)
+    endif()
+    # Convert INSTALL_PATH to absolute
+	if(NOT IS_ABSOLUTE "${INSTALL_PATH}")
+		get_filename_component(INSTALL_PATH "${INSTALL_PATH}" ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}")
+    endif()
+    # Issue warning and skip if input.geos doesn't exist (i.e. if it doens't look like a run directory)
+    if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/input.geos))
+        continue() # Warning is raise elsewhere
+    else()
+	    install(TARGETS gcclassic RUNTIME DESTINATION ${INSTALL_PATH})
+    endif()
+endforeach()
