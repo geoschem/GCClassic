@@ -8,18 +8,23 @@ add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
 #-----------------------------------------------------------------------------
 # Define the GEOS-Chem executable:
-# 1. Specify the location of the main program
-# 2. Specify libraries that the main program depends on
-# 3. Store the binary exectuable file in the bin folder (pre-install)
+# 1. Specify a cache variable with the default target name
+# 2. Specify the location of the main program
+# 3. Specify libraries that the main program depends on
+# 4. Store the binary exectuable file in the bin folder (pre-install)
 #-----------------------------------------------------------------------------
-add_executable(gcclassic
+set(EXE_FILE_NAME gcclassic CACHE STRING
+  "Default name for the GEOS-Chem Classic executable file")
+mark_as_advanced(EXE_FILE_NAME)
+
+add_executable(${EXE_FILE_NAME}
   GEOS-Chem/Interfaces/GCClassic/main.F90
 )
-target_link_libraries(gcclassic
+target_link_libraries(${EXE_FILE_NAME}
   PUBLIC
   GeosCore
 )
-set_target_properties(gcclassic
+set_target_properties(${EXE_FILE_NAME}
   PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
@@ -46,6 +51,6 @@ foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
     if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/input.geos))
         continue() # Warning is raise elsewhere
     else()
-	    install(TARGETS gcclassic RUNTIME DESTINATION ${INSTALL_PATH})
+	    install(TARGETS ${EXE_FILE_NAME} RUNTIME DESTINATION ${INSTALL_PATH})
     endif()
 endforeach()
