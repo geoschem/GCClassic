@@ -41,5 +41,4 @@ steps:
     cd build
     cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=fullchem -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
     make -j
-    make -j install
   displayName: 'Building GEOS-Chem'
