@@ -95,7 +95,7 @@ function(configureGCClassic)
     # Build TOMAS
     #-------------------------------------------------------------------------
     set(TOMAS "OFF" CACHE BOOL "Switch to enable TOMAS")
-    set(TOMAS_BINS "NA" CACHE BOOL "Number of TOMAS bins (only used if TOMAS is true)")
+    set(TOMAS_BINS "NA" CACHE STRING "Number of TOMAS bins (only used if TOMAS is true)")
     gc_pretty_print(VARIABLE TOMAS IS_BOOLEAN)
     gc_pretty_print(VARIABLE TOMAS_BINS OPTIONS "NA" "15" "40")
     if(${TOMAS})
