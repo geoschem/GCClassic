@@ -216,7 +216,7 @@ if(NOT GC_EXTERNAL_CONFIG)
     gc_pretty_print(SECTION "Run directory setup")
 
    # Run directory
-   set(RUNDIR ".." CACHE PATH "Path(s) to run directory (semicolon separated list). Specifies install locations for gchp")
+   set(RUNDIR "" CACHE PATH "Path(s) to run directory (semicolon separated list). Specifies install locations for gchp")
    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Fake CMAKE_INSTALL_PREFIX (use RUNDIR instead)" FORCE)
    set(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT FALSE)
    gc_pretty_print(VARIABLE RUNDIR)
