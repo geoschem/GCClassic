@@ -4,6 +4,13 @@
 # Tell CMake to look for code in HEMCO and GEOS-Chem directory trees
 #-----------------------------------------------------------------------------
 add_subdirectory(HEMCO     EXCLUDE_FROM_ALL)
+target_compile_definitions(HEMCOBuildProperties 
+    INTERFACE 
+        $<$<BOOL:${TOMAS}>:TOMAS>
+        $<$<STREQUAL:${TOMAS_BINS},15>:TOMAS15>
+        $<$<STREQUAL:${TOMAS_BINS},40>:TOMAS40>
+        ""
+)
 add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
 #-----------------------------------------------------------------------------
