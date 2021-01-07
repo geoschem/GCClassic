@@ -187,4 +187,60 @@ function(configureGCClassic)
     set(RRTMG                   ${RRTMG}                    PARENT_SCOPE)
     set(GTMM                    ${GTMM}                     PARENT_SCOPE)
     set(LUO_WETDEP              ${LUO_WETDEP}               PARENT_SCOPE)
+
+    #-------------------------------------------------------------------------
+    # Export information about Git status
+    #-------------------------------------------------------------------------
+
+    # Get branch nane in code repository
+    macro(get_git_branch VAR)
+      execute_process(
+        COMMAND git -C ${CMAKE_CURRENT_SOURCE_DIR} rev-parse --abbrev-ref HEAD
+        OUTPUT_VARIABLE ${VAR}
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+	)
+    endmacro()
+    get_git_branch(CODE_BRANCH)
+    set(GIT_BRANCH ${CODE_BRANCH} CACHE STRING "Current branch in code repo")
+
+    # Get last commit name from code repository
+    macro(get_git_commit VAR)
+      execute_process(
+        COMMAND git -C ${CMAKE_CURRENT_SOURCE_DIR} log -n 1 --pretty=format:"%s"
+        OUTPUT_VARIABLE ${VAR}
+	)
+    endmacro()
+    get_git_commit(LAST_COMMIT)
+    set(GIT_COMMIT ${LAST_COMMIT} CACHE STRING "Last commit in Git repo")
+
+    # Get last commit hash from code repository
+    macro(get_git_commit_hash VAR)
+      execute_process(
+        COMMAND git -C ${CMAKE_CURRENT_SOURCE_DIR} log -n 1 --pretty=format:"%h"
+        OUTPUT_VARIABLE ${VAR}
+	)
+    endmacro()
+    get_git_commit_hash(COMMIT_HASH)
+    set(GIT_COMMIT_HASH ${COMMIT_HASH} CACHE STRING "Last commit hash in Git repo")
+
+    # Get last commit date from code repository
+    macro(get_git_commit_date VAR)
+      execute_process(
+        COMMAND git -C ${CMAKE_CURRENT_SOURCE_DIR} log -n 1 --pretty=format:"%cd"
+        OUTPUT_VARIABLE ${VAR}
+	)
+    endmacro()
+    get_git_commit_date(COMMIT_DATE)
+    set(GIT_COMMIT_DATE ${COMMIT_DATE} CACHE STRING "Date of last Git commit")
+
+    # Get list of uncommitted files (if any) in the code repository
+    macro(get_git_status VAR)
+      execute_process(
+        COMMAND git -C ${CMAKE_CURRENT_SOURCE_DIR} status -s
+        OUTPUT_VARIABLE ${VAR}
+	)
+    endmacro()
+    get_git_status(CODE_STATUS)
+    set(GIT_UNCOMMITTED_FILES ${CODE_STATUS} CACHE STRING "List of uncommitted files (if any)")
+    
 endfunction()
