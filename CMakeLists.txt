@@ -1,6 +1,6 @@
 # GCClassic high-level CMakeLists.txt
 
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required (VERSION 3.13)
 project (geos-chem-classic
   VERSION 13.0.0
   LANGUAGES Fortran
