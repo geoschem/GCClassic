@@ -24,7 +24,7 @@ pr:
 # Basic agent and container set up
 pool:
   vmImage: 'ubuntu-latest'
-container: liambindle/penelope:0.1.0-ubuntu16.04-gcc7-netcdf4.5.0-netcdff4.4.4
+container: liambindle/penelope:0.1.0-centos7-gcc8-netcdf4.5.0-netcdff4.4.4
 
 
 # Try building GEOS-Chem
@@ -32,7 +32,8 @@ steps:
 - checkout: self
   submodules: true
 - script: |
-    module load gcc/7
+    source /init.rc
+    module load gcc/8
     spack load hdf5
     spack load netcdf
     spack load netcdf-fortran
