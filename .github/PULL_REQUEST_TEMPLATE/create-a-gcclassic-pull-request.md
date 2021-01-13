@@ -1,8 +1,9 @@
+
 ---
 name: Submit updates via pull request to the GCClassic superproject
 about: This template instructs users to submit a pull request to the GCClassic superproject
 title: "[PULL REQUEST]"
-labels: never-stale
+labels: 'never stale'
 assignees: ''
 
 ---
