@@ -1,10 +1,10 @@
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/geoschem/geos-chem/blob/master/LICENSE.txt)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/geoschem/geos-chem/blob/master/LICENSE.txt) ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4429177.svg)
 
 # README for the GEOS-Chem Classic wrapper
 
 ## Overview
 
-This repository (https://github.com/geoschem/geos-chem) contains is a wrapper containing:
+This repository (https://github.com/geoschem/GCClassic) is a wrapper containing:
 
   * GEOS-Chem (science code base);
 
@@ -48,7 +48,7 @@ All benchmarked GEOS-Chem versions are tagged in the Git history. Use _git tag_ 
 
 You can now cite GEOS-Chem in publications with a Digital Object Identifier (DOI). Each GEOS-Chem release will be assigned its own individual DOI.  DOI's for each GEOS-Chem version will be posted on the [GEOS-Chem website](http://geos-chem.org) and [GEOS-Chem wiki](http://wiki.geos-chem.org).
 
-We have also generated a concept DOI, which will always point to the current stable version of GEOS-Chem (i.e. corresponding to the __master__ branch): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1343546.svg)](https://doi.org/10.5281/zenodo.1343546)
+We have also generated a concept DOI, which will always point to the current stable version of GEOS-Chem (i.e. corresponding to the __main__ branch): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4429177.svg)](https://doi.org/10.5281/zenodo.4429177)
 
 # Documentation
 
@@ -82,13 +82,15 @@ We have created several tutorial videos at our GEOS-Chem Youtube channel (https:
   * [Getting started with GCPy](https://www.youtube.com/watch?v=eC6203eF05g)
 
 ## Support
-We encourage GEOS-Chem users to use [the Github issue tracker attached to this repository](https://github.com/geoschem/geos-chem/issues/new/choose) to report bugs or technical issues with the GEOS-Chem code.
+Please report issues specific to the GCClassic wrapper at the [Github issue tracker attached to this repository](https://github.com/geoschem/GCClassic/issues/new/choose).
+
+To report bugs or issues in the GEOS-Chem science code or run directory configuration files, please use the [Github issue tracker on the geoschem/geos-chem repository](https://github.com/geoschem/geos-chem/issues/new/choose).
 
 ## License
 
 GEOS-Chem (and related software) is distributed under the MIT license. Please see the license documents LICENSE.txt and AUTHORS.txt in the root folder.
 
 
-06 Jan 2021
+13 Jan 2021
 GEOS-Chem Support Team
 geos-chem-support@g.harvard.edu
