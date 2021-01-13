@@ -2,7 +2,7 @@
 name: Request a new feature for the GCClassic "superproject"
 about: Use this template to request a new feature for the GCClassic superproject.
 title: "[FEATURE REQUEST]"
-labels: feature
+labels: feature, never-stale
 assignees: ''
 
 ---
