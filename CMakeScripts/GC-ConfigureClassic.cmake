@@ -232,15 +232,5 @@ function(configureGCClassic)
     endmacro()
     get_git_commit_date(COMMIT_DATE)
     set(GIT_COMMIT_DATE ${COMMIT_DATE} CACHE STRING "Date of last Git commit")
-
-    # Get list of uncommitted files (if any) in the code repository
-    macro(get_git_status VAR)
-      execute_process(
-        COMMAND git -C ${CMAKE_CURRENT_SOURCE_DIR} status -s
-        OUTPUT_VARIABLE ${VAR}
-	)
-    endmacro()
-    get_git_status(CODE_STATUS)
-    set(GIT_UNCOMMITTED_FILES ${CODE_STATUS} CACHE STRING "List of uncommitted files (if any)")
     
 endfunction()
