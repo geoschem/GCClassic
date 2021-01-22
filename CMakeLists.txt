@@ -34,7 +34,7 @@ include(GC-Helpers)
 #-----------------------------------------------------------------------------
 get_repo_version(GC_REPO_VERSION ${CMAKE_CURRENT_SOURCE_DIR})
 message("=================================================================")
-message("GCClassic ${PROJECT_VERSION} (top-level wrapper)")
+message("GCClassic ${PROJECT_VERSION} (superproject wrapper)")
 message("Current status: ${GC_REPO_VERSION}")
 message("=================================================================")
 
