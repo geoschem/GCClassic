@@ -24,7 +24,7 @@ pr:
 # Basic agent and container set up
 pool:
   vmImage: 'ubuntu-latest'
-container: liambindle/penelope:0.1.0-centos7-gcc8-netcdf4.5.0-netcdff4.4.4
+container: geoschem/buildmatrix:netcdf-ubuntu
 
 
 # Try building GEOS-Chem
@@ -32,14 +32,16 @@ steps:
 - checkout: self
   submodules: true
 - script: |
-    source /init.rc
-    module load gcc/8
-    spack load hdf5
-    spack load netcdf
+    . /opt/spack/share/spack/setup-env.sh
+    export CC=gcc
+    export CXX=g++
+    export FC=gfortran
+    set -x
+    spack load cmake
+    spack load netcdf-c
     spack load netcdf-fortran
-    git -c $(Build.Repository.LocalPath) submodule update --init --recursive
     mkdir build
     cd build
-    cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=fullchem -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
+    cmake -DCMAKE_COLOR_MAKEFILE=FALSE $(Build.Repository.LocalPath)
     make -j
   displayName: 'Building GEOS-Chem'
