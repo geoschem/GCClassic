@@ -25,9 +25,9 @@ SHELL ["/bin/bash", "-c"]
 # Build fullchem and copy the executable to /opt/geos-chem/bin
 RUN source /init.rc \
 &&  cd /gc-src/build \
-&&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=fullchem -DCMAKE_COLOR_MAKEFILE=FALSE .. \
-&&  make -j install \
-&&  cp gcclassic /opt/geos-chem/bin/ \
+&&  cmake -DCMAKE_COLOR_MAKEFILE=FALSE .. \
+&&  make \
+&&  cp bin/gcclassic /opt/geos-chem/bin/ \
 && rm -rf /gc-src/build/*
 
 # Create fake createRunDir.sh that calls the actual one
