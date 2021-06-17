@@ -1,4 +1,4 @@
-FROM liambindle/penelope:0.1.0-ubuntu16.04-gcc7-netcdf4.5.0-netcdff4.4.4
+FROM geoschem/buildmatrix:netcdf-ubuntu
 
 # Make a directory to install GEOS-Chem to
 RUN mkdir /opt/geos-chem && mkdir /opt/geos-chem/bin
@@ -10,10 +10,12 @@ COPY . /gc-src
 RUN cd /gc-src \
 &&  mkdir build
 
-# Commands to properly set up the environment inside the container
-RUN echo "module load gcc/7" >> /init.rc \
-&&  echo "spack load hdf5" >> /init.rc \
-&&  echo "spack load netcdf" >> /init.rc \
+RUN echo ". /opt/spack/share/spack/setup-env.sh" >> /init.rc \
+&&  echo "export CC=gcc" >> /init.rc \
+&&  echo "export CXX=g++" >> /init.rc \
+&&  echo "export FC=gfortran" >> /init.rc \
+&&  echo "spack load cmake" >> /init.rc \
+&&  echo "spack load netcdf-c" >> /init.rc \
 &&  echo "spack load netcdf-fortran" >> /init.rc \
 &&  echo 'export PATH=$PATH:/opt/geos-chem/bin' >> /init.rc
 
@@ -21,7 +23,8 @@ RUN echo "module load gcc/7" >> /init.rc \
 SHELL ["/bin/bash", "-c"]
 
 # Build fullchem and copy the executable to /opt/geos-chem/bin
-RUN cd /gc-src/build \
+RUN source /init.rc \
+&&  cd /gc-src/build \
 &&  cmake -DRUNDIR=IGNORE -DRUNDIR_SIM=fullchem -DCMAKE_COLOR_MAKEFILE=FALSE .. \
 &&  make -j install \
 &&  cp gcclassic /opt/geos-chem/bin/ \
