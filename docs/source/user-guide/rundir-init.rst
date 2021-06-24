@@ -2,45 +2,415 @@
 Creating a run directory
 ========================
 
-First, make a high-level directory to contain all the run directories associated with this version
-of GCHP. This should be somewhere with plenty of space, as all run output will be in subdirectories
-of this directory. You can optionally create one or more build directories here for storage and easy
-access to GCHP builds specific to a certain version (see previous section on building GCHP).
+Overview
+--------
 
-.. code-block:: console
+We have greatly simplified run directory creation in `GEOS-Chem
+13.0.0 <GEOS-Chem_13.0.0>`__ and later versions. You no longer need to
+download the separate `GEOS-Chem Unit Tester <GEOS-Chem_Unit_Tester>`__
+repository any longer, but can create run directories from a script in
+the GEOS-Chem source code itself.
 
-   $ mkdir /scratch/testruns/GCHP/13.0.0
+.. _example_1_creating_a_run_directory_for_a_full_chemistry_simulation:
 
-Next, enter the :file:`run/` subdirectory in :file:`Code.GCHP`. Do not edit this directory - this is the template for
-all other run directories! Instead, use the script there to create a new run directory, following
-the instructions printed to the screen.
+Example 1: Creating a run directory for a full-chemistry simulation
+-------------------------------------------------------------------
 
+Let us walk through the process of creating a run directory for a global
+GEOS-Chem full-chemistry simulation.
 
-.. code-block:: console
+**1.** Navigate to the <tt>GCClassic</tt> superproject folder and get a
+directory listing:
 
-   $ cd Code.GCHP
-   $ cd run
-   $ ./createRunDir.sh
+| ``     cd /path/to/your/GCClassic``
+| ``     ls -CF``
 
-For example, to create a standard (full-chemistry) run directory, choose (actual responses in brackets):
+   You should see this output:
 
-* Standard simulation (2)
-* MERRA2 meteorology (2)
-* The directory you just created in step 1 (:file:`/scratch/rundirs/GCHP/13.0.0`)
-* A distinctive run directory name (fullchem_first_test)
-* Use git to track run directory changes (y)
+``     CMakeLists.txt  LICENSE  run@  src/``
 
-This will create and set up a full-chemistry, MERRA-2, GCHP run directory in
-:file:`/scratch/testruns/GCHP/13.0.0/fullchem_first_test`. Note that these options only affect the run
-directory contents, and NOT the build process - the same GCHP executable is usable for almost all
-simulation types and supported met data options.
+   As mentioned previously, <tt>run@</tt> is a symbolic link. It
+   actually points to the to the <tt>src/GEOS-Chem/run/GCClassic</tt>
+   folder. This folder contains several scripts and template files for
+   run directory creation.
 
-Navigate to your new run directory, and set it up for the first run:
+**2.** Navigate to the <tt>run</tt> folder and get a directory listing:
 
-.. code-block:: console
+| ``     cd run``
+| ``     ls -CF``
 
-   $ cd /scratch/testruns/GCHP/13.0.0/fullchem_first_test
-   $ ./setEnvironment /home/envs/gchpctm_ifort18.0.5_openmpi4.0.1.env # This sets up the gchp.env symlink
-   $ source gchp.env # Set up build environment, if not already done
-   $ cp runScriptSamples/gchp.run . # Set up run script - your system is likely to be different! See also gchp.local.run.
-   $ cp CodeDir/build/bin/geos . # Get the compiled executable
+   and you should see this output:
+
+| ``     archiveRun.sh*    gitignore                   HISTORY.rc.templates/  runScriptSamples/``
+| ``     createRunDir.sh*  HEMCO_Config.rc.templates/  input.geos.templates/``
+| ``     getRunInfo*       HEMCO_Diagn.rc.templates/   README``
+
+   You can see several folders (highlighted in the directory display
+   with <tt>/</tt>) and a few executable scripts (highlighted with
+   <tt>*</tt>). The script we are interested in is
+   <tt>createRunDir.sh</tt>.
+
+**3.** Run the <tt>createRunDir.sh</tt> script. Type:
+
+``     ./createRunDir.sh``
+
+**4.** You will then be prompted to supply information about the run
+directory that you wish to create:
+
+| ``     ===========================================================``
+| ``     GEOS-CHEM RUN DIRECTORY CREATION``
+| ``     ===========================================================``
+| `` ``
+| ``     -----------------------------------------------------------``
+| ``     Choose simulation type:``
+| ``     -----------------------------------------------------------``
+| ``        1. Full chemistry``
+| ``        2. Aerosols only``
+| ``        3. CH4``
+| ``        4. CO2``
+| ``        5. Hg``
+| ``        6. POPs``
+| ``        7. Tagged CH4``
+| ``        8. Tagged CO``
+| ``        9. Tagged O3``
+| ``       10. TransportTracers``
+
+   To create a run directory for the full-chemistry simulation, type
+   <tt>1</tt> followed by the <tt>ENTER</tt> key.
+
+**5.** You will then be prompted to specify whether you want to perform
+chemistry in the stratosphere or not:
+
+| ``     -----------------------------------------------------------``
+| ``     Choose chemistry domain:``
+| ``     -----------------------------------------------------------``
+| ``       1. Troposphere + stratosphere (Recommended)``
+| ``       2. Troposphere only``
+
+   Select the recommended option: Type <tt>1</tt> and then
+   <tt>ENTER</tt>.
+
+**6.** You will then be asked to specify any additional options for the
+full-chemistry simulation (such as adding the RRTMG radiative transfer
+model, APM or TOMAS microphysics, etc.)
+
+| ``     -----------------------------------------------------------``
+| ``     Choose additional simulation option:``
+| ``     -----------------------------------------------------------``
+| ``       1. Standard``
+| ``       2. Benchmark``
+| ``       3. Complex SOA``
+| ``       4. Marine POA``
+| ``       5. Acid uptake on dust``
+| ``       6. TOMAS``
+| ``       7. APM``
+| ``       8. RRTMG``
+
+   **6a**: For the standard full-chemistry simulation, type <tt>1</tt>
+   followed by <tt>ENTER</tt>.
+
+   **6b**: To add an option to the full-chemistry simulation, type a
+   number between <tt>2</tt> to <tt>8</tt> and press <tt>ENTER</tt>.
+
+**7.** You will then be asked to specify the meteorology type for the
+simulation (GEOS-FP or MERRA-2):
+
+| ``     -----------------------------------------------------------``
+| ``     Choose meteorology source:``
+| ``     -----------------------------------------------------------``
+| ``       1. MERRA-2 (Recommended)``
+| ``       2. GEOS-FP ``
+
+   You should use the recommended option (MERRA-2) if possible. Type
+   <tt>1</tt> followed by <tt>ENTER</tt>.
+
+**8.** The next menu will prompt you for the horizontal resolution that
+you wish to use:
+
+| ``     -----------------------------------------------------------``
+| ``     Choose horizontal resolution:``
+| ``     -----------------------------------------------------------``
+| ``       1. 4.0  x 5.0``
+| ``       2. 2.0  x 2.5``
+| ``       3. 0.5  x 0.625``
+
+   **8a.** If you wish to set up a global simulation, type either
+   <tt>1</tt> or <tt>2</tt> followed by <tt>ENTER</tt>.
+
+   **8b.** If you wish to set up a nested-grid simulation, type
+   <tt>3</tt> and hit <tt>ENTER</tt>. Then you will be followed by a
+   nested-grid menu:
+
+| ``      -----------------------------------------------------------``
+| ``      Choose horizontal grid domain:``
+| ``      -----------------------------------------------------------``
+| ``        1. Global``
+| ``        2. Asia``
+| ``        3. Europe``
+| ``        4. North America``
+| ``        5. Custom``
+
+   Select your preferred horizontal domain, followed by <tt>ENTER</tt>.
+
+**9.** You will then be prompted for the vertical dimension of the grid.
+
+| ``     -----------------------------------------------------------``
+| ``     Choose number of levels:``
+| ``     -----------------------------------------------------------``
+| ``       1. 72 (native)``
+| ``       2. 47 (reduced)``
+
+   **9a.** For most simulations, you will want to use 72 levels. Type
+   <tt>1</tt> followed by <tt>ENTER</tt>.
+
+   **9b.** For some memory-intensive simulations (such as nested-grid
+   simulations), you can use 47 levels. Type <tt>2</tt> followed by
+   <tt>ENTER</tt>.
+
+**10.** You will then be prompted for the folder in which you wish to
+create the run directory.
+
+| ``     -----------------------------------------------------------``
+| ``     Enter path where the run directory will be created:``
+| ``     -----------------------------------------------------------``
+
+   **10a.** You can enter an absolute path (such as
+   <tt>/n/home09/ryantosca/</tt> followed by <tt>ENTER</tt>).
+
+   **10b.** Or you can enter a relative path (such as <tt>~/rundirs</tt>
+   followed by <tt>ENTER</tt>). In this case you will see that the
+   <tt>./createRunDir.sh</tt> script will expand the path to:
+
+``     Expanding to: /n/home09/ryantosca/rundirs``
+
+**11.** The next menu will prompt you for the run directory name.
+
+| ``     -----------------------------------------------------------``
+| ``     Enter run directory name, or press return to use default:``
+| `` ``
+| ``     NOTE: This will be a subfolder of the path you entered above.``
+| ``     -----------------------------------------------------------``
+
+   You should use the default run directory name whenever possible. Type
+   <tt>ENTER</tt> to select the default.
+
+   The script will display the following output:
+
+``     -- Using default directory name gc_4x5_fullchem        ``
+
+   or if you are creating a nested grid simulation:
+
+``     -- Using default directory name gc_05x0625_fullchem``
+
+   and then:
+
+| ``     -- This run directory has been set up for 20190701 - 20190801.``
+| ``        You may modify these settings in input.geos.``
+| `` ``
+| ``     -- The default frequency and duration of diagnostics is set to monthly.``
+| ``        You may modify these settings in HISTORY.rc and HEMCO_Config.rc.``
+
+**12.** The last menu will prompt you with:
+
+| ``     -----------------------------------------------------------``
+| ``     Do you want to track run directory changes with git? (y/n)``
+| ``     -----------------------------------------------------------``
+
+   Type <tt>y</tt> and then <tt>ENTER</tt>/ Then you will be able to
+   track changes that you make to GEOS-Chem configuration files with
+   Git. This can be a lifesaver when debugging -- you can revert to an
+   earlier state and then start fresh.
+
+**13.** The script will display the full path to the run directory. You
+can navigate there and then start editing the GEOS-Chem configuration
+files.
+
+.. _example_2_creating_a_run_directory_for_the_methane_simulation:
+
+Example 2: Creating a run directory for the methane simulation
+--------------------------------------------------------------
+
+The process of creating run directories for the GEOS-Chem specialty
+simulations is similar to that as listed in Example 1 above. However,
+the number of menus that you need to select from will likely be fewer
+than for the full-chemistry simulation. We'll use the methane simulation
+as an example.
+
+**1.** Navigate to the <tt>GCClassic</tt> superproject folder and get a
+directory listing:
+
+| ``     cd /path/to/your/GCClassic``
+| ``     ls -CF``
+
+   You should see this output:
+
+``     CMakeLists.txt  LICENSE  run@  src/``
+
+   As mentioned previously, <tt>run@</tt> is a symbolic link. It
+   actually points to the to the <tt>src/GEOS-Chem/run/GCClassic</tt>
+   folder. This folder contains several scripts and template files for
+   run directory creation.
+
+**2.** Navigate to the <tt>run</tt> folder and get a directory listing:
+
+| ``     cd run``
+| ``     ls -CF``
+
+   and you should see this output:
+
+| ``     archiveRun.sh*    gitignore                   HISTORY.rc.templates/  runScriptSamples/``
+| ``     createRunDir.sh*  HEMCO_Config.rc.templates/  input.geos.templates/``
+| ``     getRunInfo*       HEMCO_Diagn.rc.templates/   README``
+
+   You can see several folders (highlighted in the directory display
+   with <tt>/</tt>) and a few executable scripts (highlighted with
+   <tt>*</tt>). The script we are interested in is
+   <tt>createRunDir.sh</tt>.
+
+**3.** Run the <tt>createRunDir.sh</tt>. Type:
+
+``     ./createRunDir.sh``
+
+**4.** You will then be prompted to supply information about the run
+directory that you wish to create:
+
+| ``     ===========================================================``
+| ``     GEOS-CHEM RUN DIRECTORY CREATION``
+| ``     ===========================================================``
+| `` ``
+| ``     -----------------------------------------------------------``
+| ``     Choose simulation type:``
+| ``     -----------------------------------------------------------``
+| ``        1. Full chemistry``
+| ``        2. Aerosols only``
+| ``        3. CH4``
+| ``        4. CO2``
+| ``        5. Hg``
+| ``        6. POPs``
+| ``        7. Tagged CH4``
+| ``        8. Tagged CO``
+| ``        9. Tagged O3``
+| ``       10. TransportTracers``
+
+   To select the GEOS-Chem methane specialty simulation, type <tt>3</tt>
+   followed by <tt>ENTER</tt>.
+
+**5.** You will then be asked to specify the meteorology type for the
+simulation (GEOS-FP or MERRA-2):
+
+| ``     -----------------------------------------------------------``
+| ``     Choose meteorology source:``
+| ``     -----------------------------------------------------------``
+| ``       1. MERRA-2 (Recommended)``
+| ``       2. GEOS-FP ``
+
+   To accept the recommended meteorology (MERRA-2), type <tt>1</tt>
+   followed by <tt>ENTER</tt>.
+
+**6.** The next menu will prompt you for the horizontal resolution that
+you wish to use:
+
+| ``     -----------------------------------------------------------``
+| ``     Choose horizontal resolution:``
+| ``     -----------------------------------------------------------``
+| ``       1. 4.0  x 5.0``
+| ``       2. 2.0  x 2.5``
+| ``       3. 0.5  x 0.625``
+
+   **6a.** If you wish to set up global simulation, type either
+   <tt>1</tt> or <tt>2</tt> followed by <tt>ENTER</tt>.
+
+   **6b.** If you wish to set up a nested-grid simulation, type
+   <tt>3</tt> and hit <tt>ENTER</tt>. Then you will be followed by a
+   nested-grid menu:
+
+| ``     -----------------------------------------------------------``
+| ``     Choose horizontal grid domain:``
+| ``     -----------------------------------------------------------``
+| ``       1. Global``
+| ``       2. Asia``
+| ``       3. Europe``
+| ``       4. North America``
+| ``       5. Custom``
+
+   Type the number of your preferred option and then hit <tt>ENTER</tt>.
+
+**7.** You will then be prompted for the vertical dimension of the grid.
+
+| ``     -----------------------------------------------------------``
+| ``     Choose number of levels:``
+| ``     -----------------------------------------------------------``
+| ``       1. 72 (native)``
+| ``       2. 47 (reduced)``
+
+   **7a.** For most simulations, you will want to use 72 levels. Type
+   <tt>1</tt> followed by <tt>ENTER</tt>
+
+   **7b.** For some memory-intensive simulations (such as nested-grid
+   simulations), you can use 47 levels. Type <tt>2</tt> followed by
+   <tt>ENTER</tt>.
+
+**8.** You will then be prompted for the folder in which you wish to
+create the run directory.
+
+| ``     -----------------------------------------------------------``
+| ``     Enter path where the run directory will be created:``
+| ``     -----------------------------------------------------------``
+
+   **8a.** You enter this an absolute path (such as
+   <tt>/n/home09/ryantosca/</tt> followed by <tt>ENTER</tt>).
+
+   **8b.** Or you can enter a relative path (such as <tt>~/rundirs</tt>
+   followed by <tt>ENTER</tt>). In this case you will see that the
+   <tt>./createRunDir.sh</tt> script will expand the path to:
+
+``Expanding to: /n/home09/ryantosca/rundirs``
+
+**9.** The next menu will prompt you for the run directory name.
+
+| ``     -----------------------------------------------------------``
+| ``     Enter run directory name, or press return to use default:``
+| ``  ``
+| ``     NOTE: This will be a subfolder of the path you entered above.``
+| ``     -----------------------------------------------------------``
+
+   You should use the default run directory name whenever possible. Type
+   <tt>ENTER</tt>. The script will display the following output:
+
+| ``     -- Using default directory name gc_4x5_CH4       ``
+| `` ``
+
+   or if you are creating a nested grid simulation:
+
+``     -- Using default directory name gc_05x0625_CH4``
+
+   and then:
+
+| ``     -- This run directory has been set up for 20190701 - 20190801.``
+| ``        You may modify these settings in input.geos.``
+| `` ``
+| ``     -- The default frequency and duration of diagnostics is set to monthly.``
+| ``        You may modify these settings in HISTORY.rc and HEMCO_Config.rc.``
+
+**10.** The last menu will prompt you with:
+
+| ``     -----------------------------------------------------------``
+| ``     Do you want to track run directory changes with git? (y/n)``
+| ``     -----------------------------------------------------------``
+
+   Type <tt>y</tt> and then <tt>ENTER</tt>/ Then you will be able to
+   track changes that you make to GEOS-Chem configuration files with
+   Git. This can be a lifesaver when debugging -- you can revert to an
+   earlier state and then start fresh.
+
+**11.** The script will display the full path to the run directory. You
+can navigate there and then start editing the GEOS-Chem configuration
+files.
+
+.. _configuring_runs:
+
+Configuring runs
+----------------
+
+You may now skip ahead to our `Configuring
+runs <GEOS-Chem_configuration_files>`__ chapter.

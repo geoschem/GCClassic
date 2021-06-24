@@ -1,80 +1,366 @@
 Requirements
 ============
 
+.. include:: <isonum.txt>
+
+.. role:: raw-html(raw)
+    :format: html
+
+Hardware requirements
+---------------------
+
+Computer system requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before you can run HEMCO, you will need to have one the following items.
+
++----------------------------------+----------------------------------+
+| Item                             | Description                      |
++==================================+==================================+
+| EITHER                           | You will need a Unix operating   |
+|                                  | system environment in order to   |
+| A Unix-based computer system     | run HEMCO. Any flavor of         |
+|                                  | Unix (e.g. CentOS, Ubuntu,       |
+|                                  | Fedora, etc.) should work just   |
+|                                  | fine.                            |
++----------------------------------+----------------------------------+
+| OR                               | If your institution has          |
+|                                  | computational resources (e.g. a  |
+| An account on the `Amazon Web    | shared computer cluster with     |
+| Services                         | many cores, sufficient disk      |
+| cloud <http://cloud-             | storage and memory), then you    |
+| gc.readthedocs.io/en/stable/>`__ | can run GEOS-Chem there. Contact |
+|                                  | your IT staff for assistance.    |
+|                                  | :raw-html:`<br/>`                |
+|                                  | :raw-html:`<br/>`                |
+|                                  | If your institution lacks        |
+|                                  | computational resources (or if   |
+|                                  | you need additional              |
+|                                  | computational resources beyond   |
+|                                  | what is available), then you     |
+|                                  | should consider signing up for   |
+|                                  | access to the Amazon Web         |
+|                                  | Services cloud. Using the cloud  |
+|                                  | has the following advantages:    |
+|                                  |                                  |
+|                                  | -  You can run GEOS-Chem without |
+|                                  |    having to invest in local     |
+|                                  |    hardware and maintenance      |
+|                                  |    personnel.                    |
+|                                  | -  You won't have to download    |
+|                                  |    any meteorological fields or  |
+|                                  |    emissions data. All of the    |
+|                                  |    necessary data input for      |
+|                                  |    GEOS-Chem will be available   |
+|                                  |    on the cloud.                 |
+|                                  | -  You can initialize your       |
+|                                  |    computational environment     |
+|                                  |    with all of the required      |
+|                                  |    software (e.g. compilers,     |
+|                                  |    libraries, utilities) that    |
+|                                  |    you need for GEOS-Chem.       |
+|                                  | -  Your GEOS-Chem runs will be   |
+|                                  |    100% reproducible, because    |
+|                                  |    you will initialize your      |
+|                                  |    computational environment the |
+|                                  |    same way every time.          |
+|                                  | -  You will avoid GEOS-Chem      |
+|                                  |    compilation errors due to     |
+|                                  |    library incompatibilities.    |
+|                                  | -  You will be charged for the   |
+|                                  |    computational time that you   |
+|                                  |    use, and if you download data |
+|                                  |    off the cloud.                |
+|                                  |                                  |
+|                                  | GEOS-Chem 12.0.0                 |
+|                                  | and later versions can be used   |
+|                                  | on the Amazon Web Services cloud |
+|                                  | computing platform. You can      |
+|                                  | learn more about how to use      |
+|                                  | GEOS-Chem on the cloud by        |
+|                                  | `visiting this tutorial          |
+|                                  | (cloud.geos-chem.org)            |
+|                                  | <http://cloud.geos-chem.org>`__. |
++----------------------------------+----------------------------------+
+
+
+Memory requirements
+~~~~~~~~~~~~~~~~~~~
+
+If you plan to run GEOS-Chem on a local computer system, please make
+sure that your system has sufficient memory and disk space:
+
+
 Software requirements
 ---------------------
 
-The following are GCHP's required dependencies:
 
-* Git
-* Fortran compiler (gfortran 8.3 or greater, ifort 18 or greater)
-* CMake (version 3.13 or greater)
-* NetCDF-C, NetCDF-CXX, NetCDF-Fortran
-* MPI (C, C++, and Fortran)
-* ESMF (version 8.0.0 or greater)
+Supported compilers for HEMCO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You must load your environment file prior to building and running GCHP.
+The table below lists the supported compilers for HEMCO.
 
-.. code-block:: console
+HEMCO is written in the Fortran programming language. However, you
+will also need C and C++ compilers to install certain libraries (like
+netCDF) on your system.
 
-   $ source /home/envs/gchpctm_ifort18.0.5_openmpi4.0.1.env
++----------------+----------------+----------------+----------------+
+| Item           | Description    | Versions       | Best way to    |
+|                |                |                | install        |
++================+================+================+================+
+| `Intel         | **The Intel    | The            | `Install from  |
+| Compiler Suite | Compiler Suite | `              | Intel <http    |
+| (icc, icpc,    | is our         | GCST <GCST>`__ | s://software.i |
+| ifort)         | recommended    | has tested     | ntel.com/conte |
+|  <Intel_Fortra | proprietary    | with these     | nt/www/us/en/d |
+| n_Compiler>`__ | compiler       | versions (but  | evelop/tools/o |
+|                | collection.**  | others may     | neapi/componen |
+|                |                | work as well): | ts/fortran-com |
+|                | Intel          |                | piler.html>`__ |
+|                | compilers      | -  19.0.5.281  | (requires      |
+|                | produce        | -  18.0.5      | purchase of a  |
+|                | well-optimized | -  17.0.4      | site license   |
+|                | code that runs | -  15.0.0      | or a student   |
+|                | extremely      | -  13.0.079    | license)       |
+|                | efficiency on  | -  11.1.069    |                |
+|                | machines with  |                |                |
+|                | Intel CPUs.    |                |                |
+|                | Many           |                |                |
+|                | universities   |                |                |
+|                | and            |                |                |
+|                | institutions   |                |                |
+|                | will have an   |                |                |
+|                | Intel site     |                |                |
+|                | license that   |                |                |
+|                | allows you to  |                |                |
+|                | use these      |                |                |
+|                | compilers.     |                |                |
++----------------+----------------+----------------+----------------+
+| `GNU Compiler  | **The GNU      | The            | `Install via   |
+| Collection     | Compiler       | `              | Spack <http:   |
+| (gcc, g++,     | Collection is  | GCST <GCST>`__ | //github.com/s |
+| gfortra        | our            | has tested     | pack/spack>`__ |
+| n) <GNU_Fortra | recommended    | with these     |                |
+| n_compiler>`__ | open-source    | versions (but  |                |
+|                | compiler       | others may     |                |
+|                | collection.**  | work as well): |                |
+|                |                |                |                |
+|                | Because the    | -  10.2.0      |                |
+|                | GNU Compiler   | -  9.3.0       |                |
+|                | Collection is  | -  9.2.0       |                |
+|                | free and open  | -  8.2.0       |                |
+|                | source, this   | -  7.4.0       |                |
+|                | is a good      | -  7.3.0       |                |
+|                | choice if your | -  7.1.0       |                |
+|                | institution    | -  6.2.0       |                |
+|                | lacks an Intel |                |                |
+|                | site license,  |                |                |
+|                | or if you are  |                |                |
+|                | running        |                |                |
+|                | GEOS-Chem on   |                |                |
+|                | the Amazon EC2 |                |                |
+|                | cloud          |                |                |
+|                | environment.   |                |                |
++----------------+----------------+----------------+----------------+
 
-If you don't already have ESMF 8.0.0+, you will need to download and build it. You only need to
-build ESMF once per compiler and MPI configuration (this includes for ALL users on a cluster!). It
-is therefore worth downloading and building somewhere stable and permanent, as almost no users of
-GCHP would be expected to need to modify or rebuild ESMF except when adding a new compiler or MPI.
-Instructions for downloading and building ESMF are available at the GCHP wiki.
 
-It is good practice to store your environment setup in a text file for reuse. Below are a couple
-examples that load libraries and export the necessary environment variables for building and running
-GCHP. Note that library version information is included in the filename for easy reference. Be sure
-to use the same libraries that were used to create the ESMF build install directory stored in
-environment variable :envvar:`ESMF_ROOT`.
+Required software packages for HEMCO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Environment file example 1**
++----------------------+----------------------+----------------------+
+| Item                 | Description          | Best way to install  |
++======================+======================+======================+
+| `Git (a source code  | GEOS-Chem source     | Direct install from  |
+| management           | code can be          | `Git-SCM.com         |
+| system) <#T          | downloaded using the | <https://git-s       |
+| he_Git_source_code_m | Git source code      | cm.com/downloads>`__ |
+| anagement_system>`__ | management system.   |                      |
+|                      | GEOS-Chem software   |                      |
+|                      | repositories are     |                      |
+|                      | stored at the        |                      |
+|                      | https:/              |                      |
+|                      | /github.com/geoschem |                      |
+|                      | organization page.   |                      |
+|                      | Please see our       |                      |
+|                      | `Guide to using Git  |                      |
+|                      | with                 |                      |
+|                      | GEOS-Chem            |                      |
+|                      | <Guide_to_using_Gi   |                      |
+|                      | t_with_GEOS-Chem>`__ |                      |
+|                      | for more information |                      |
+|                      | about how to use Git |                      |
+|                      | with GEOS-Chem.      |                      |
++----------------------+----------------------+----------------------+
+| `CMake <ht           | CMake is software    | `Install with        |
+| tps://cmake.org/>`__ | that directs how the | Spack <http://github |
+|                      | GEOS-Chem source     | .com/spack/spack>`__ |
+|                      | code is compiled     |                      |
+|                      | into an executable.  |                      |
+|                      |                      |                      |
+|                      | -  CMake is optional |                      |
+|                      |    for GEOS-Chem     |                      |
+|                      |    versions 12.6.0   |                      |
+|                      |    through 12.9.3.   |                      |
+|                      | -  CMake is          |                      |
+|                      |    **REQUIRED** for  |                      |
+|                      |    GEOS-Chem         |                      |
+|                      |    versions 13.0.0   |                      |
+|                      |    and later.        |                      |
++----------------------+----------------------+----------------------+
+| `GNU                 | GNU Make is software | `Install with        |
+| Make <ht             | that can build       | Spack <http://github |
+| tps://cmake.org/>`__ | executables from     | .com/spack/spack>`__ |
+|                      | source code.         |                      |
+|                      |                      |                      |
+|                      | -  NOTE: While GNU   |                      |
+|                      |    Make is not       |                      |
+|                      |    required for      |                      |
+|                      |    GEOS-Chem 13.0.0  |                      |
+|                      |    and later, some   |                      |
+|                      |    external          |                      |
+|                      |    libraries that    |                      |
+|                      |    you might need to |                      |
+|                      |    build will        |                      |
+|                      |    require GNU Make. |                      |
+|                      |    Therefore it is   |                      |
+|                      |    best to download  |                      |
+|                      |    GNU Make along    |                      |
+|                      |    with CMake.       |                      |
++----------------------+----------------------+----------------------+
+| `netCDF and          | GEOS-Chem input and  | `Install with        |
+| netCDF-Fortran <#Th  | output data files    | Spack <http://github |
+| e_netCDF_library>`__ | use the netCDF file  | .com/spack/spack>`__ |
+|                      | format. This is a    |                      |
+| -  plus dependencies | self-describing file |                      |
+|    (e.g. HDF5, zlib, | format that allows   |                      |
+|    etc)              | metadata             |                      |
+|                      | (descriptive text)   |                      |
+|                      | to be stored         |                      |
+|                      | alongside data       |                      |
+|                      | values. Please see   |                      |
+|                      | our `Guide to netCDF |                      |
+|                      | in                   |                      |
+|                      | GEO                  |                      |
+|                      | S-Chem <Guide_to_net |                      |
+|                      | CDF_in_GEOS-Chem>`__ |                      |
+|                      | for more information |                      |
+|                      | about the netCDF     |                      |
+|                      | file format and      |                      |
+|                      | software library.    |                      |
++----------------------+----------------------+----------------------+
 
-.. code-block:: bash
 
-   # file: gchpctm_ifort18.0.5_openmpi4.0.1.env
+Optional but recommended software packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   # Start fresh
-   module --force purge
++----------------------+----------------------+----------------------+
+| Item                 | Description          | Best way to install  |
++======================+======================+======================+
+| `GCPy <https://gcp   | GCPy is our          | Install from         |
+| y.readthedocs.io>`__ | recommended python   | conda-forge          |
+|                      | companion software   |                      |
+|                      | to GEOS-Chem. While  |                      |
+|                      | this is not a        |                      |
+|                      | general-purpose      |                      |
+|                      | plotting package, it |                      |
+|                      | does contain many    |                      |
+|                      | useful functions for |                      |
+|                      | creating zonal mean  |                      |
+|                      | and horizontal plots |                      |
+|                      | from GEOS-Chem       |                      |
+|                      | output. It also      |                      |
+|                      | contains scripts to  |                      |
+|                      | generate plots and   |                      |
+|                      | tables from          |                      |
+|                      | GEOS-Chem benchmark  |                      |
+|                      | simulations.         |                      |
++----------------------+----------------------+----------------------+
+| `gdb                 | The GNU debugger     | `Install with        |
+| <https://www.gnu.    | (gdb) and its        | Spack <http://github |
+| org/software/gdb>`__ | graphical interface  | .com/spack/spack>`__ |
+| and                  | (cgdb) are very      |                      |
+| `cgdb <https:/       | useful tools for     |                      |
+| /cgdb.github.io/>`__ | tracking down the    |                      |
+|                      | source of GEOS-Chem  |                      |
+|                      | errors, such as      |                      |
+|                      | segmentation faults, |                      |
+|                      | out-of-bounds        |                      |
+|                      | errors, etc.         |                      |
++----------------------+----------------------+----------------------+
+| `ncview              | ncview is a netCDF   | `Install with        |
+| <http://meteora.uc   | file viewer. While   | Spack <http://github |
+| sd.edu/~pierce/ncvie | it does not produce  | .com/spack/spack>`__ |
+| w_home_page.html>`__ | publication-quality  |                      |
+|                      | output, ncview can   |                      |
+|                      | let you easily       |                      |
+|                      | examine the contents |                      |
+|                      | of a netCDF data     |                      |
+|                      | file (such as those  |                      |
+|                      | which are input and  |                      |
+|                      | output by            |                      |
+|                      | GEOS-Chem). Ncview   |                      |
+|                      | is very useful for   |                      |
+|                      | debugging and        |                      |
+|                      | development.         |                      |
++----------------------+----------------------+----------------------+
+| `nco                 | NCO are the netCDF   | `Install with        |
+| <http://meteora.uc   | operators. These are | Spack <http://github |
+| sd.edu/~pierce/ncvie | very powerful        | .com/spack/spack>`__ |
+| w_home_page.html>`__ | command-line tools   |                      |
+|                      | for editing and      |                      |
+|                      | manipulating data in |                      |
+|                      | netCDF format.       |                      |
++----------------------+----------------------+----------------------+
+| `cdo <https          | CDO are the Climate  | `Install with        |
+| ://code.mpimet.mpg.d | Data Operators.      | Spack <http://github |
+| e/projects/cdo/l>`__ | These are very       | .com/spack/spack>`__ |
+|                      | powerful             |                      |
+|                      | command-line tools   |                      |
+|                      | for editing and      |                      |
+|                      | manipulating data in |                      |
+|                      | netCDF format.       |                      |
++----------------------+----------------------+----------------------+
+| `The Kinetic         | KPP translates a     | `Install with        |
+| PreProcessor (KPP)   | chemical mechanism   | Git <FlexChem        |
+| chemical             | specification from   | #KPP_source_code>`__ |
+| sol                  | user-configurable    |                      |
+| ver <https://github. | input files to       |                      |
+| com/geoschem/kpp>`__ | Fortran-90 source    |                      |
+|                      | code.                |                      |
++----------------------+----------------------+----------------------+
+| `flex                | Flex is the Fast     | `Install with        |
+| <https://github      | Lexical Analyzer.    | Spack <http://github |
+| .com/westes/flex>`__ | This is a required   | .com/spack/spack>`__ |
+|                      | library for the  KPP |                      |
+|                      | chemical solver.     |                      |
++----------------------+----------------------+----------------------+
 
-   # Load modules (some include loading other libraries such as netcdf-C and hdf5)
-   module load intel/18.0.5
-   module load openmpi/4.0.1
-   module load netcdf-fortran/4.5.2
-   module load cmake/3.16.1
 
-   # Set environment variables
-   export CC=gcc
-   export CXX=g++
-   export FC=ifort
+Required source code and data for HEMCO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   # Set location of ESMF
-   export ESMF_ROOT=/n/lab_shared/libraries/ESMF/ESMF_8_0_1/INSTALL_ifort18_openmpi4
-
-**Environment file example 2**
-
-.. code-block:: bash
-
-   # file: gchpctm_gcc7.4_openmpi.rc
-
-   # Start fresh
-   module --force purge
-
-   # Load modules
-   module load gcc-7.4.0
-   spack load cmake
-   spack load openmpi%gcc@7.4.0
-   spack load hdf5%gcc@7.4.0
-   spack load netcdf%gcc@7.4.0
-   spack load netcdf-fortran%gcc@7.4.0
-
-   # Set environment variables
-   export CC=gcc
-   export CXX=g++
-   export FC=gfortran
-
-   # Set location of ESMF
-   export ESMF_ROOT=/n/home/ESMFv8/DEFAULTINSTALLDIR
++----------------------+----------------------+----------------------+
+| Item                 | Description          | Best way to install  |
++======================+======================+======================+
+| `A clone of the      | The HEMCO            | Git clone from       |
+| geoschem/HEMCO       | (Harmonized          | geoschem/HEMCO       |
+| repository           | Emissions Component  |                      |
+| repository <h        | codebase.            |                      |
+| ttps://github.com/ge |                      |                      |
+| oschem/HEMCO>`__     |                      |                      |
++----------------------+----------------------+----------------------+
+| The GEOS-Chem shared | This is the          | `Perform a HEMCO     |
+| data directories     | directory structure  | dry                  |
+|                      | containing the       | run <Downloading_da  |
+|                      | meteorology and      | ta_with_the_GEOS-Che |
+|                      | emissions data that  | m_dry-run_option>`__ |
+|                      | GEOS-Chem reads as   |                      |
+|                      | input. For more      |                      |
+|                      | information, please  |                      |
+|                      | see our `Downloading |                      |
+|                      | GEOS-Chem data       |                      |
+|                      | directories <Do      |                      |
+|                      | wnloading_GEOS-Chem_ |                      |
+|                      | data_directories>`__ |                      |
+|                      | wiki page.           |                      |
++----------------------+----------------------+----------------------+
