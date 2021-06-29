@@ -1,9 +1,9 @@
-.. _loading-required-libraries-for-geos-chem:
+.. _load-required-libraries-for-geos-chem:
 
-Loading required libraries for GEOS-Chem
+Load required libraries for GEOS-Chem
 ========================================
 
-This chapter describes the how to load the :ref:`required libraries for GEOS-Chem <software-requirements>`
+This supplemental guide describes the how to load the :ref:`required libraries for GEOS-Chem <software-requirements>`
 into your computational environment.
 
 .. _on-the-amazon-web-services-cloud:
@@ -59,7 +59,12 @@ commands such as these:
    module purge
    module load git/2.17.0-fasrc01
    module load gcc/8.2.0-fasrc01
+   module load openmpi/3.1.1-fasrc01
    module load netcdf/4.1.3-fasrc02
+   module load perl/5.26.1-fasrc01
+   module load jdk/1.8.0_172-fasrc01
+   module load cmake/3.17.3-fasrc-01
+   module load emacs/26.1-fasrc01
    ... etc ...
    
 where
@@ -75,37 +80,7 @@ where
 - and so forth...
 
 .. _environment-files:
-  
-Environment files
-^^^^^^^^^^^^^^^^^
-We recommend that you place module load commands into a separate
-**environment file**  rather than directly into your :file:`~/.bashrc`
-or :file:`~/.bash_aliases` startup scripts.
-
-For example, if you place the module load commands listed :ref:`in the example above <example-loading-gcc-820>`  into a file named :file:`~/gcclassic.gnu820.env`, you can activate those
-settings with the command ``source /gcclassic.gnu820.env``.  This can
-be done directly at the  command line, or from within a
-:ref:`GEOS-Chem run script <sample-geos-chem-run-scripts>`.
-
-.. tip:: Keep a separate environment file for each combination of
-	 modules that you will load.
-
-Module managers make it easy to load many different library versions.
-For example, to load software libraries that were built with the Intel
-Fortran Compiler instead of the GNU Compiler Collection, you can
-simply use a different set of ``module load`` statements: 
-
-.. code-block:: bash
-
-   module load intel/17.0.4-fasrc01
-   module load openmpi/2.1.0-fasrc02
-   module load netcdf/4.3.2-fasrc05
-   module load netcdf-fortran/4.4.0-fasrc03
-   ... etc ...
-
-And then you can save these into a separate environment file named
-:file:``~/gcclassic.intel17.env`.
-   
+     
 Auto-setting of environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

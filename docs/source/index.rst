@@ -13,11 +13,10 @@ GEOS-Chem Classic
 
 
 .. important:: This is a prerelease of the GEOS-Chem Classic user guide.
-   These pages are the most up-to-date and accurate instructions for GCHP, but they
-   are still a work in progress. 
-   
+   These pages are still a work in progress.
+
    Contributions (e.g., suggestions, edits, revisions) would be greatly appreciated. See
-   :ref:`editing this guide <editing_this_user_guide>` and our :doc:`contributing guidelines <reference/CONTRIBUTING.md>`. 
+   :ref:`editing this guide <editing_this_user_guide>` and our :doc:`contributing guidelines <reference/CONTRIBUTING.md>`.
    If you find a something hard to understand---let us know!
 
 The `GEOS--Chem model <http://acmg.seas.harvard.edu/geos/>`_ is a
@@ -36,7 +35,7 @@ downloading and compiling GEOS-Chem Classic, plus its required
 software libraries.
 
 Cloning and building from source code ensures you will have direct
-access to the latest available versions of GEOS-Chem CLassic, provides 
+access to the latest available versions of GEOS-Chem CLassic, provides
 additional compile-time options, and allows you to make your own
 modifications to GEOS-Chem Classic source code.
 
@@ -54,13 +53,12 @@ instructions specifically for using a clone of the source code.
    getting-started/hardware-requirements.rst
    getting-started/software-requirements.rst
    getting-started/key-references.rst
-   
+
 .. toctree::
    :maxdepth: 4
    :caption: User Guide
 
-   user-guide/libraries.rst
-   user-guide/environment.rst
+   user-guide/configure-environment.rst
    user-guide/download-source-code.rst
    user-guide/create-rundir.rst
 
@@ -69,12 +67,13 @@ instructions specifically for using a clone of the source code.
    :caption: Supplemental guides
 
    supplement/directory-structure.rst
+   supplement/libraries.rst
    supplement/run-script-examples.rst
    supplement/spack.rst
-    
+
 .. toctree::
    :maxdepth: 4
    :caption: Reference
-	     
+
    geos-chem-shared-docs/editing_these_docs.rst
    reference/known-bugs.rst

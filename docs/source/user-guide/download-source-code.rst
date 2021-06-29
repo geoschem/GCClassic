@@ -1,12 +1,12 @@
 .. _downloading-source-code:
 
-Downloading source code
-=======================
+Download source code
+====================
 
 .. _geos-chem-classic-source-code-repositories:
 
 GEOS-Chem Classic source code repositories
-----------------------------------------------
+------------------------------------------
 
 The GEOS-Chem Classic source code is distributed into 3 Github
 repositories, as described below. This setup allows the GEOS-Chem core
@@ -19,7 +19,7 @@ NASA/GEOS ESM, as GEOS-Chem within CESM, etc). This aligns with our
 .. _geos-chem-science-codebase:
 
 GEOS-Chem Science Codebase
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The GEOS-Chem "Science" Codebase repository
 (`https://github.com/geoschem/geos-chem <https://github.com/geoschem/geos-chem>`_) 

@@ -25,7 +25,7 @@ directory listing:
 
 You should see this output:
 
-.. code-block:: console
+.. code-block::
 
    CMakeLists.txt  LICENSE  run@  src/
 
@@ -39,11 +39,11 @@ creation.
 .. code-block:: console
 
    $ cd run
-   $ ls -CF`
+   $ ls -CF
 
 and you should see this output:
 
-.. code-block:: console
+.. code-block::
 
    archiveRun.sh*    gitignore                   HISTORY.rc.templates/  runScriptSamples/
    createRunDir.sh*  HEMCO_Config.rc.templates/  input.geos.templates/
@@ -62,7 +62,7 @@ script we are interested in is :file:`createRunDir.sh`.
 **4.** You will then be prompted to supply information about the run
 directory that you wish to create:
 
-.. code-block:: console
+.. code-block::
 
    ===========================================================
    GEOS-CHEM RUN DIRECTORY CREATION
@@ -87,7 +87,7 @@ To create a run directory for the full-chemistry simulation, type ``1`` followed
 **5.** You will then be prompted to specify whether you want to perform
 chemistry in the stratosphere or not:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose chemistry domain:
@@ -101,7 +101,7 @@ Select the recommended option: Type ``1`` and then ``ENTER``.
 full-chemistry simulation (such as adding the RRTMG radiative transfer
 model, APM or TOMAS microphysics, etc.)
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose additional simulation option:
@@ -122,7 +122,7 @@ model, APM or TOMAS microphysics, etc.)
 **7.** You will then be asked to specify the meteorology type for the
 simulation (GEOS-FP or MERRA-2):
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose meteorology source:
@@ -135,7 +135,7 @@ You should use the recommended option (MERRA-2) if possible. Type ``1`` followed
 **8.** The next menu will prompt you for the horizontal resolution that
 you wish to use:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose horizontal resolution:
@@ -148,7 +148,7 @@ you wish to use:
 
 **8b.** If you wish to set up a nested-grid simulation, type ``3`` and hit ``ENTER``. Then you will be followed by a nested-grid menu:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose horizontal grid domain:
@@ -163,7 +163,7 @@ Select your preferred horizontal domain, followed by ``ENTER``.
 
 **9.** You will then be prompted for the vertical dimension of the grid.
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose number of levels:
@@ -179,7 +179,7 @@ simulations), you can use 47 levels. Type ``2`` followed by ``ENTER``.
 **10.** You will then be prompted for the folder in which you wish to
 create the run directory.
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Enter path where the run directory will be created:
@@ -192,13 +192,14 @@ create the run directory.
 followed by ENTER). In this case you will see that the
 :file:`./createRunDir.sh`  script will expand the path to:
 
-.. code-block:: console
+.. code-block::
 
    Expanding to: /n/home09/myusername/rundirs
 
 **11.** The next menu will prompt you for the run directory name.
 
-.. code-block:: console
+.. code-block::
+
    -----------------------------------------------------------
    Enter run directory name, or press return to use default:
 
@@ -210,29 +211,29 @@ You should use the default run directory name whenever possible. Type
 
 The script will display the following output:
 
-.. code-block:: console
+.. code-block::
 
-    -- Using default directory name gc_4x5_fullchem
+      -- Using default directory name gc_4x5_fullchem
 
 or if you are creating a nested grid simulation:
 
-.. code-block:: console
+.. code-block::
 
-    -- Using default directory name gc_05x0625_fullchem
+      -- Using default directory name gc_05x0625_fullchem
 
 and then:
 
-.. code-block:: console
+.. code-block::
 
-    -- This run directory has been set up for 20190701 - 20190801.
-       You may modify these settings in input.geos.
+      -- This run directory has been set up for 20190701 - 20190801.
+         You may modify these settings in input.geos.
 
-    -- The default frequency and duration of diagnostics is set to monthly.
-       You may modify these settings in HISTORY.rc and HEMCO_Config.rc.
+      -- The default frequency and duration of diagnostics is set to monthly.
+         You may modify these settings in HISTORY.rc and HEMCO_Config.rc.
 
 **12.** The last menu will prompt you with:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Do you want to track run directory changes with git? (y/n)
@@ -268,8 +269,7 @@ d irectory listing:
 
 You should see this output:
 
-.. code-block:: console
-
+.. code-block::
 
   CMakeLists.txt  LICENSE  run@  src/
 
@@ -286,7 +286,7 @@ contains several scripts and template files for run directory creation.
 
 and you should see this output:
 
-.. code-block:: console
+.. code-block::
 
    archiveRun.sh*    gitignore                   HISTORY.rc.templates/  runScriptSamples/
    createRunDir.sh*  HEMCO_Config.rc.templates/  input.geos.templates/
@@ -305,7 +305,7 @@ are interested in is :file:`createRunDir.sh`.
 **4.** You will then be prompted to supply information about the run
 directory that you wish to create:
 
-.. code-block:: console
+.. code-block::
 
    ===========================================================
    GEOS-CHEM RUN DIRECTORY CREATION
@@ -330,7 +330,7 @@ To select the GEOS-Chem methane specialty simulation, type ``3`` followed by ``E
 **5.** You will then be asked to specify the meteorology type for the
 simulation (GEOS-FP or MERRA-2):
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose meteorology source:
@@ -343,7 +343,7 @@ To accept the recommended meteorology (MERRA-2), type ``1`` followed by ``ENTER`
 **6.** The next menu will prompt you for the horizontal resolution that
 you wish to use:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose horizontal resolution:
@@ -356,7 +356,7 @@ you wish to use:
 
 **6b.** If you wish to set up a nested-grid simulation, type ``3`` and hit ENTER. Then you will be followed by a nested-grid menu:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose horizontal grid domain:
@@ -371,7 +371,7 @@ Type the number of your preferred option and then hit ``ENTER``.
 
 **7.** You will then be prompted for the vertical dimension of the grid.
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Choose number of levels:
@@ -388,7 +388,7 @@ simulations), you can use 47 levels. Type ``2`` followed by ``ENTER``.
 **8.** You will then be prompted for the folder in which you wish to
 create the run directory.
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Enter path where the run directory will be created:
@@ -401,13 +401,13 @@ create the run directory.
 followed by ENTER). In this case you will see that the
 :file:`./createRunDir.sh` script will expand the path to:
 
-.. code-block:: console
+.. code-block::
 
    Expanding to: /n/home09/myusername/rundirs
 
 **9.** The next menu will prompt you for the run directory name.
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Enter run directory name, or press return to use default:
@@ -418,27 +418,27 @@ followed by ENTER). In this case you will see that the
 You should use the default run directory name whenever possible. Type
 ``ENTER``. The script will display the following output:
 
-.. code-block:: console
+.. code-block::
 
-    -- Using default directory name gc_4x5_CH4
+      -- Using default directory name gc_4x5_CH4
 
 or if you are creating a nested grid simulation:
 
-.. code-block:: console
+.. code-block::
 
-    -- Using default directory name gc_05x0625_CH4
+      -- Using default directory name gc_05x0625_CH4
 
- and then:
+.. code-block::
 
-    -- This run directory has been set up for 20190701 - 20190801.
-       You may modify these settings in input.geos.
+      -- This run directory has been set up for 20190701 - 20190801.
+         You may modify these settings in input.geos.
 
-    -- The default frequency and duration of diagnostics is set to monthly.
-       You may modify these settings in HISTORY.rc and HEMCO_Config.rc.
+      -- The default frequency and duration of diagnostics is set to monthly.
+         You may modify these settings in HISTORY.rc and HEMCO_Config.rc.
 
 **10.** The last menu will prompt you with:
 
-.. code-block:: console
+.. code-block::
 
    -----------------------------------------------------------
    Do you want to track run directory changes with git? (y/n)
