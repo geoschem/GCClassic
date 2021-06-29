@@ -67,6 +67,7 @@ instructions specifically for using a clone of the source code.
    :maxdepth: 4
    :caption: Supplemental guides
 
+   supplement/directory-structure.rst
    supplement/run-script-examples.rst
    supplement/spack.rst
     
