@@ -50,6 +50,7 @@ instructions specifically for using a clone of the source code.
 
    user-guide/libraries.rst
    user-guide/environment.rst
+   user-guide/download-source-code.rst
 
 .. toctree::
    :maxdepth: 4
