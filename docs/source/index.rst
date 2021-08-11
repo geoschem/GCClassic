@@ -1,5 +1,6 @@
+#################
 GEOS-Chem Classic
-=================
+#################
 .. raw:: html
 
    <p>
@@ -18,21 +19,23 @@ GEOS-Chem Classic
    Contributions (e.g., suggestions, edits, revisions) would be greatly appreciated. See
    :ref:`editing this guide <editing_this_user_guide>` and our :doc:`contributing guidelines <reference/CONTRIBUTING.md>`.
    If you find a something hard to understand---let us know!
+   
 
-The `GEOS--Chem model <http://acmg.seas.harvard.edu/geos/>`_ is a
-global 3-D model of atmospheric composition driven by assimilated
-meteorological observations from the Goddard Earth Observing System (GEOS) of the `NASA Global Modeling and Assimilation Office <http://gmao.gsfc.nasa.gov/>`_.
+This site provides instructions for :program:`GEOS-Chem Classic`,
+the single-node mode of operation of the
+`GEOS-Chem model <http://acmg.seas.harvard.edu/geos/>`_.  We provide instruction for
+downloading and compiling GEOS-Chem Classic, plus its required software libraries.
+   
+GEOS-Chem is a global 3-D model of atmospheric composition driven by
+assimilated meteorological observations from the Goddard Earth
+Observing System (GEOS) of the `NASA Global Modeling and Assimilation
+Office <http://gmao.gsfc.nasa.gov/>`_. 
 It is applied by `research groups around the world
-<http://acmg.seas.harvard.edu/geos/geos_people.html>`_ to a wide range
+<http://acmg.seas.harvard.edu/geos/geos_people.html>`_  to a wide range
 of atmospheric composition problems.
 
 * `GEOS-Chem Overview <http://acmg.seas.harvard.edu/geos/geos_overview.html>`_
 * `Narrative description of GEOS-Chem <http://acmg.seas.harvard.edu/geos/geos_chem_narrative.html>`_
-
-This site provides instructions for GEOS-Chem Classic,
-GEOS-Chem's single-node variant. We provide instruction for
-downloading and compiling GEOS-Chem Classic, plus its required
-software libraries.
 
 Cloning and building from source code ensures you will have direct
 access to the latest available versions of GEOS-Chem CLassic, provides
@@ -61,14 +64,16 @@ instructions specifically for using a clone of the source code.
    user-guide/configure-environment.rst
    user-guide/download-source-code.rst
    user-guide/create-rundir.rst
-
+   user-guide/compile-geos-chem.rst
+   user-guide/dry-run.rst
+   
 .. toctree::
    :maxdepth: 4
    :caption: Supplemental guides
 
    supplement/directory-structure.rst
-   supplement/libraries.rst
    supplement/run-script-examples.rst
+   supplement/libraries.rst
    supplement/spack.rst
 
 .. toctree::

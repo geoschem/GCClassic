@@ -6,7 +6,7 @@ GEOS-Chem Classic folder tree
 The tables below list the folders in which various components of
 GEOS-Chem and HEMCO reside.
 
-.. _geos-chem-code-structure:
+.. _geos-chem-folder-tree:
 
 GEOS-Chem folder tree
 ---------------------
@@ -40,24 +40,24 @@ GEOS-Chem folder tree
   Contains the ISORROPIA II source code, which is used for aerosol
   thermodynamical equilibrium computations.
 
-:file:`GEOS-Chem/KPP`
+:file:`GCClassic/src/GEOS-Chem/KPP`
   Main folder for chemical mechanisms built with `KPP-for-GEOS-Chem <http://kpp.readthedocs.io>`_.
 
-:file:`GEOS-Chem/NcdfUtil`
+:file:`GCClassic/src/GEOS-Chem/NcdfUtil`
   Contains modules & routines for netCDF file I/O.
 
-:file:`GEOS-Chem/ObsPack`
+:file:`GCClassic/src/GEOS-Chem/ObsPack`
   Contains modules & routines for generating GEOS-Chem diagnostic
   output at the same locations of NOAA ObsPack observational stations.
 
-:file:`GEOS-Chem/PKUCPL`
+:file:`GCClassic/src/GEOS-Chem/PKUCPL`
   Contains the coupler code for the PKU 2-way nesting algorithm.
   (This option has fallen into disuse.)
 
 :file:`GEOS-Chem/Interfaces/GCClassic`
   Contains the GCClassic driver program (main.F90).
 
-.. _hemco-code-structure:
+.. _hemco-folder-tree:
 
 HEMCO folder tree
 -----------------
@@ -68,7 +68,7 @@ HEMCO folder tree
 :file:`GCClassic/src/HEMCO/src/Extensions`
   Contains modules for calculating emissions that depend on meterological variables or parameterizations.
 
-:file:`HEMCO/src/Interfaces`
+:file:`GCClassic/src/HEMCO/src/Interfaces`
   Contains modules and routines for linking HEMCO to GEOS-Chem
   Classic and other external models.
 

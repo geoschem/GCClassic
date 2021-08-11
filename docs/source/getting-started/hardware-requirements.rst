@@ -12,7 +12,7 @@ computational resources in order to use GEOS-Chem Classic:
 .. _a-unix-based-computer-system:
 
 A Unix-based computer system
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 GEOS-Chem can only be used within a Unix-like operating system
 environment.  Any flavor of Unix (e.g. RHEL/Fedora/Centos, Ubuntu,
@@ -40,7 +40,7 @@ the following advantages:
 - You will avoid GEOS-Chem compilation errors due to library incompatibilities.
 - You will be charged for the computational time that you use, and if you download data off the cloud.
 
-You can learn more about how to use GEOS-Chem on the cloud by `visiting this tutorial (**cloud.geos-chem.org**) <http://cloud.geos-chem.org>`_.
+You can learn more about how to use GEOS-Chem on the cloud by `visiting this tutorial (cloud.geos-chem.org) <http://cloud.geos-chem.org>`_.
 
 .. _memory-requirements:
 

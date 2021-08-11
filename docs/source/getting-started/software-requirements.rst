@@ -66,6 +66,7 @@ are running GEOS-Chem on the Amazon EC2 cloud environment.
 
 The GCST has tested with these versions (but others may work as well):
 
+- 11.1.0
 - 10.2.0
 - 9.3.0
 - 9.2.0
