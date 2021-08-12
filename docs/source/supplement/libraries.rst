@@ -3,7 +3,8 @@
 Load required libraries for GEOS-Chem
 ========================================
 
-This supplemental guide describes the how to load the :ref:`required libraries for GEOS-Chem <software-requirements>`
+This supplemental guide describes the how to load the
+:ref:`required libraries for GEOS-Chem <software-requirements>`
 into your computational environment.
 
 .. _on-the-amazon-web-services-cloud:
@@ -37,7 +38,7 @@ Check if libraries are available as modules
 Many high-performance computing (HPC) clusters use a module manager such
 as `Lmod <https://lmod.readthedocs.io/en/latest/>`_ or
 `environment-modules <https://modules.readthedocs.io/en/latest/>`_
-to load software packages and libraries. A module manager allows you to 
+to load software packages and libraries. A module manager allows you to
 load different compilers and libraries with simple commands.
 
 One downside of using a module manager is that you are locked into using
@@ -66,7 +67,7 @@ commands such as these:
    module load cmake/3.17.3-fasrc-01
    module load emacs/26.1-fasrc01
    ... etc ...
-   
+
 where
 
 - The first command (``module purge``) removes all
@@ -80,7 +81,7 @@ where
 - and so forth...
 
 .. _environment-files:
-     
+
 Auto-setting of environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -105,8 +106,8 @@ chapter.
 
 .. important:: The names of these environment variables may be
 	       different on your system (ask your sysadmin/IT staff
-	       for more information). 
-   
+	       for more information).
+
 If netCDF-Fortran is installed as a separate module, then your module
 manager may also define additional environment variables for you. For
 example, on the Harvard Odyssey cluster, the following environment
@@ -115,13 +116,13 @@ variables are defined when a netCDF-Fortran module is loaded:
 .. code-block:: bash
 
    $NETCDF_FORTRAN_HOME     # netCDF home folder`
-   $NETCDF_FORTRAN_INCLUDE  # Folder for netCDF include files (*.mod, *.h)
-   $NETCDF_FORTRAN_LIB      # Folder for netCDF library files (*.a, *.so)
+   $NETCDF_FORTRAN_INCLUDE  # Folder for netCDF include files (.mod, .h)
+   $NETCDF_FORTRAN_LIB      # Folder for netCDF library files (.a, .so)
 
 .. note:: Starting with netCDF 4.2.0 and later, the netCDF Fortran
           library has been split off from the netCDF main library.  That is why
-          you will sometimes need to load netCDF and netCDF-Fortran separately.  
-   
+          you will sometimes need to load netCDF and netCDF-Fortran separately.
+
 .. _check-if-libraries-are-available-via-spack:
 
 Check if libraries are available via Spack
@@ -151,7 +152,7 @@ module manager installed, then you can load libraries with the
 	  version number.  In the example above, ``spack load
 	  gcc@10.2.0`` tells Spack to load the GNU Compiler Collection
 	  version 10.2.0.
-	  
+
 	  You may also specify a library by the compiler it was built
 	  with.  For example, ``spack load netcdf-fortran%gcc@10.2.0`` tells
 	  Spack to load the version of netCDF-Fortran that
@@ -163,7 +164,7 @@ module manager installed, then you can load libraries with the
 
 We recommend that you place ``spack load`` commands can also be placed into an environment
 file, :ref:`as mentioned above <environment-files>`.
-   
+
 .. _check-if-libraries-have-been-manually-installed:
 
 Check if libaries have been manually installed

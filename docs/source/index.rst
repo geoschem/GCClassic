@@ -66,6 +66,15 @@ instructions specifically for using a clone of the source code.
    user-guide/create-rundir.rst
    user-guide/compile-geos-chem.rst
    user-guide/dry-run.rst
+
+.. toctree::
+   :maxdepth: 4
+   :caption: GEOS-Chem diagnostics
+
+   diagnostics/hemco.rst
+   diagnostics/history.rst
+   diagnostics/obspack.rst
+   diagnostics/planeflight.rst
    
 .. toctree::
    :maxdepth: 4
@@ -75,6 +84,9 @@ instructions specifically for using a clone of the source code.
    supplement/run-script-examples.rst
    supplement/libraries.rst
    supplement/spack.rst
+   supplement/netcdf-guide.rst
+   supplement/video-tutorials.rst
+
 
 .. toctree::
    :maxdepth: 4

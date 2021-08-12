@@ -5,7 +5,7 @@ Sample GEOS-Chem run scripts
 
 Here are some sample run scripts that you can adapt for your own purposes.
 
-.. _run-script-for-slurm-scheduler
+.. _run-script-for-slurm-scheduler:
 
 Run script for SLURM scheduler
 ------------------------------
@@ -36,7 +36,7 @@ use the SLURM batch scheduler.
     # Load your environment settings and software modules
     source ~/.bashrc
     source ~/gcclassic.env
-    
+
     # Set the proper # of threads for OpenMP
     # SLURM_CPUS_PER_TASK ensures this matches the number you set with -c above
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -45,7 +45,7 @@ use the SLURM batch scheduler.
     # Stdout and stderr will be directed to the "GC.log" log file
     # (you can change the log file name below if you wish)
     srun -c $OMP_NUM_THREADS time -p ./gcclassic >> GC.log
-    
+
 .. important:: If you forget to define ``OMP_NUM_THREADS`` in your Unix
                environment and/or run scripts, then GEOS-Chem will only execute using
 	       one core. This can cause GEOS-Chem to execute much more slowly than
@@ -66,7 +66,7 @@ has 2 cores).
 	 you can use then ``nproc`` command. The ``nproc`` command can
 	 also be embedded in your shell startup scripts such as
 	 (``.bashrc`` or ``.bash_aliases``), as well as into your
-	 GEOS-Chem run script. 
+	 GEOS-Chem run script.
 
 Here is a sample run script for GEOS-Chem on the AWS cloud:
 
@@ -85,7 +85,7 @@ Here is a sample run script for GEOS-Chem on the AWS cloud:
     # to use a scheduler like SLURM.  You can just use the `nproc` command
     # to specify the number of cores that GEOS-Chem should use.
     export OMP_NUM_THREADS=$(nproc)
-    
+
     # Run GEOS_Chem.  The "time" command will return CPU and wall times.
     # Stdout and stderr will be directed to the "GC.log" log file
     # (you can change the log file name below if you wish)
