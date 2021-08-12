@@ -1,1 +1,6 @@
-docutils==0.16
+# Requirements for building the KPP documentation
+sphinx
+sphinx_rtd_theme
+sphinxcontrib-bibtex 
+recommonmark
+docutils==0.16  # Avoid bullet-point issue in docutils 0.17

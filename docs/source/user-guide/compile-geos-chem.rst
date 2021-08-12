@@ -28,7 +28,7 @@ numbers, CMake will print an error message that describes the problem.
 
 If you are new to CMake and would like a rundown of how to use the
 0=cmake= command, check out `Liam Bindle's Cmake Tutorial <https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`_. This
-tutorial is not necessary, but it will make you more 
+tutorial is not necessary, but it will make you more
 familiar with using CMake and help you better understand what is going
 on.
 
@@ -87,7 +87,7 @@ Next, we need to initialize the build directory. Type:
     $ cmake ../CodeDir -DRUNDIR=..
 
 where :file:`../CodeDir` is the symbolic link from our run directory
-to the GEOS-Chem source code directory. CMake will 
+to the GEOS-Chem source code directory. CMake will
 generate output similar to this:
 
 .. code-block::
@@ -160,7 +160,7 @@ displayed or highlighted.
 .. tip:: If you are colorblind or if you are using a terminal that
 	 does not support colors, refer to the CMake FAQ for
 	 instructions on disabling colorized output. For a detailed
-	 explanation of CMake output, see the next section. 
+	 explanation of CMake output, see the next section.
 
 The table below contains the list of GEOS-Chem build options that you
 can pass to CMake. GEOS-Chem will be compiled with the default build
@@ -174,7 +174,7 @@ options, unless you explicitly specify otherwise.
 
   :option:`CMAKE_BUILD_TYPE`
      Specifies whether
-      
+
     +---------------------------------------------------------------+--------------------------------+------------------------------+
     | CMAKE\ :sub:`BUILD`\ \ :sub:`TYPE`\                           |
     ``-DCMAKE_BUILD_TYPE=Release`` |
@@ -245,7 +245,7 @@ As you can see from the example CMake output listed above, GEOS-Chem
 Classic 13.0.0 and later versions contain code from 3 independent repositories:
 
 1. GCClassic wrapper (aka "the superproject"),
-   `https://github.com/geoschem/GCClassic.git <https://github.com/geoschem/GCClassic.git>`_: 
+   `https://github.com/geoschem/GCClassic.git <https://github.com/geoschem/GCClassic.git>`_:
 
 .. code-block::
 
@@ -265,7 +265,7 @@ Classic 13.0.0 and later versions contain code from 3 independent repositories:
     ==================================================================
 
 3. GEOS-Chem submodule, `https://github.com/geoschem/geos-chem.git
-   <https://github.com/geoschem/geos-chem.git>`_: 
+   <https://github.com/geoschem/geos-chem.git>`_:
 
 .. code-block::
 
@@ -311,14 +311,14 @@ Under each header are printed the various build options that have been
 selected, as well as other relevant information:
 
   :option:`CMAKE_BUILD_TYPE`
-       Indicates the type of build that was selected.                               
-       1. Release: Debugging flags are turned off.                                  
+       Indicates the type of build that was selected.
+       1. Release: Debugging flags are turned off.
        2. Debug: Debugging flags are turned on (this will slow down
 	  the simulation).
 
 
 
-	  
+
     +----------------------------------+-------------------------------------------------------------------------------+
     | ``\* MECH: fullchem=`` custom= | Indicates which chemistry mechanism is being used.                            |
     +----------------------------------+-------------------------------------------------------------------------------+
