@@ -3,31 +3,28 @@
 Compiling GEOS-Chem
 ===================
 
-In this chapter,, we will describe the basic steps that you need to compile
-GEOS-Chem with CMake. For a deeper dive into CMake, we recommend that
-you visit the CMake Frequently Asked Questions (FAQ
-page] that has been prepared by GCST member Liam Bindle.
-
-`CMake <http://cmake.org>`_ is a platform-independent build system. It
-creates Makefiles that can be used to compile GEOS-Chem source code into
-an executable file.
+In this chapter, we will describe the basic steps that you need to
+compile GEOS-Chem into an executable file.
 
 .. _building-geos-chem:
 
-Using CMake to configure and build GEOS-Chem
---------------------------------------------
+Use CMake to configure and build GEOS-Chem
+------------------------------------------
 
-You should think of CMake as an interactive tool for configuring
-GEOS-Chem's build. For example, compile-time options like disabling
-multithreading and turning on components (e.g. APM, RRTMG) are all
-configured with CMake commands. Besides configuring GEOS-Chem's build,
-CMake also performs checks on your build environment to detect problems
-that would cause the build to fail. If it identifies a problem, like a
-missing dependency or mismatched run directory and source code version
-numbers, CMake will print an error message that describes the problem.
+You should think of `CMake <http://cmake.org>`_ as an interactive tool
+for configuring GEOS-Chem's build. For example, compile-time options
+like disabling multithreading and turning on components (e.g. APM,
+RRTMG) are all configured with CMake commands.
+
+Besides configuring GEOS-Chem's build, CMake also performs checks on
+your build environment to detect problems that would cause the build
+to fail. If it identifies a problem, like a missing dependency or
+mismatched run directory and source code version numbers, CMake will
+print an error message that describes the problem.
 
 If you are new to CMake and would like a rundown of how to use the
-0=cmake= command, check out `Liam Bindle's Cmake Tutorial <https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`_. This
+:command:`cmake` command, check out `Liam Bindle's Cmake Tutorial
+<https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`_. This
 tutorial is not necessary, but it will make you more
 familiar with using CMake and help you better understand what is going
 on.
@@ -45,14 +42,14 @@ directory listing as shown below:
 
 .. code-block:: console
 
-    $ cd ~/gc_4x5_fullchem
+    $ cd ~/gc_merra2_fullchem
     $ ls
-    archiveRun.sh*                       getRunInfo*      OutputDir/
-    build/                               HEMCO_Config.rc  README
-    cleanRunDir.sh*                      HEMCO_Diagn.rc   rundir.version
-    CodeDir@                             HISTORY.rc       runScriptSamples/
-    download_data.py*                    input.geos       species_database.yml
-    GEOSChem.Restart.20190701_0000z.nc4  metrics.py*
+    archiveRun.sh*      GEOSChem.Restart.20190701_0000z.nc4   metrics.py
+    build/              getrunInfo*                           OutputDir/
+    cleanRunDir.sh*     HEMCO_Config.rc                       README
+    CodeDir@            HEMCO_Diagn.rc                        rundir.version
+    download_data.py*   HISTORY.rc                            runScriptSamples
+    download_data.yml   input.geos                            species_database.yml
 
 Note that each GEOS-Chem run directory that you generate has a folder
 named :file:`build/`. This is where we will run CMake.
@@ -77,8 +74,8 @@ directory. For GCHP you will need to create one.
 
 .. _initialize-your-build-directory:
 
-1.4 3. Initialize your build directory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Initialize the build directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Next, we need to initialize the build directory. Type:
 
@@ -90,7 +87,7 @@ where :file:`../CodeDir` is the symbolic link from our run directory
 to the GEOS-Chem source code directory. CMake will
 generate output similar to this:
 
-.. code-block::
+.. code-block:: text
 
     =================================================================
     GCClassic 13.0.0 (top-level wrapper)
@@ -142,7 +139,7 @@ Configure your build
 
 Your build directory is now configured to compile GEOS-Chem using all
 default options. If you do not wish to change anything further,
-you may skip ahead to the next section/
+you may skip ahead to the next section (LINK NEEDED).
 
 However, if you wish to modify your build's configuration, simply invoke
 CMake once more with optional parameters. Use this format:
@@ -166,52 +163,99 @@ The table below contains the list of GEOS-Chem build options that you
 can pass to CMake. GEOS-Chem will be compiled with the default build
 options, unless you explicitly specify otherwise.
 
-  :option:`RUNDIR`
-      Defines the path tho the run directory.  In this example, our
-      build directory is a subfolder of the run directory, so we must
-      use :option:`-DRUNDIR=..`.  If your build directory is somewhere
-      else, then specify the path to the run directory as an absolute path.
+:file:`RUNDIR`
+  Defines the path tho the run directory.
 
-  :option:`CMAKE_BUILD_TYPE`
-     Specifies whether
+  In this example, our build directory is a subfolder of the run
+  directory, so we can use :option:`-DRUNDIR=..`.  If your build
+  directory is somewhere else, then specify the path to the run
+  directory as an absolute path.
 
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | CMAKE\ :sub:`BUILD`\ \ :sub:`TYPE`\                           |
-    ``-DCMAKE_BUILD_TYPE=Release`` |
-    ``-DCMAKE_BUILD_TYPE=Debug`` |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Chemistry mechanism\\\\                                       | ``-DMECH=fullchem``            | ``-DMECH=custom``            |
-    | Build GEOS-Chem with OpenMP parallelization                   | ``-DOMP=y``                    | ``-DOMP=n``                  |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with binary punch (BPCH) diagnostics          | ``-DBPCH_DIAG=n``              | ``-DBPCH_DIAG=y``            |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with 64-byte (REAL\*8) precision\\\\          | ``-DUSE_REAL8=y``              | ``-DUSE_REAL8=n``            |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | NOTE: Not fully implemented!                                  | \                              | \                            |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with TOMAS Microphysics                       | ``-DTOMAS=n``                  | ``-DTOMAS=y``                |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with TOMAS Microphysics using 15 or 40 bins   | ``-DTOMAS_BINS=NA``            | ``-DTOMAS_BINS=15`` or\\\\   |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | \                                                             | \                              | ``-DTOMAS_BINS=40``          |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with APM Microphysics                         | ``-DAPM=n``                    | ``-DAPM=y``                  |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with the RRTMG radiative transfer model       | ``-DRRTMG=n``                  | ``-DRRTMG=y``                |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with the Global Terrestrial Mercury Model\\\\ | ``-DHCOSA=n``                  | ``-DHCOSA=y``                |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | NOTE: Currently disabled                                      | \                              | \                            |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with the HEMCO standalone                     | ``-DHCOSA=n``                  | ``-DHCOSA=y``                |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
-    | Build GEOS-Chem with the Luo et al 2019 wet deposition scheme | ``-DLUO_WETDEP=n``             | ``-DLUO_WETDEP=y``           |
-    +---------------------------------------------------------------+--------------------------------+------------------------------+
+:file:`CMAKE_BUILD_TYPE`
+  Specifies how to build GEOS-Chem Classic:
+
+  :option:`-DCMAKE_BUILD_TYPE=Release`
+    Turns on compiler optimizations for balancing speed and numerical
+    stability. Use this option for production runs and benchmarking.
+
+  :option:`-DCMAKE_BUILD_TYPE=Debug`
+    Turns on several runtime error checks.  This will make it easier
+    to find errors but will adversely impact performance. Only use
+    this option if you are actively debugging.
+
+:file:`MECH`
+   Specifies the chemistry mechanism to be used.  Currently there
+   are only two options:
+
+   :option:`-DMECH=fullchem`
+     Activates the default "fullchem" mechanism.  The source code
+     files that define this mechanism are stored in :file:`KPP/fullchem`.
+
+   :option:`-DMECH=custom`
+     Activates a custom mechanism defined by the user.  The source
+     code files that define this mechanism are stored in :file:`KPP/custom.`.
+
+:file:`OMP`
+  Toggles OpenMP parallelization on (:option:`-DOMP=y`) or off
+  (:option:`-DOMP=y`).
+
+  OpenMP parallelization is turned on by default.
+
+:file:`BPCH_DIAG`
+  Toggles the legacy binary punch diagnostics on
+  (:option:`-DBPCH_DIAG=y`) or off (:option:`-DBPCH_DIAG=n`).
+  Builds GEOS_Chem with binary punch diagnostics.
+
+  Binary punch diagnostics are turned off by default.  Except for a
+  few diagnostics, these have been replaced by the :ref:`netCDF-based
+  History diagnostics <history_diagnostics>`.
+
+:file:`USE_REAL8`
+  This defines the default floating-point precision for GEOS-Chem
+  Classic.  By default :option:`-DUSE_REAL8=y` is used.
+
+  You should not compile with :option:`-DUSE_REAL8=n`, as this will
+  likely result in an error caused by numerical roundoff and
+  underflow.  This option is still experimental.
+
+:file:`TOMAS` and :file:`TOMAS_BINS`
+  Toggles the `TOMAS aerosol microphysics package
+  <http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`_  on
+  (:option:`-DTOMAS=y`) or off (:option:`-DTOMAS=n`).
+
+  You may also set the number of size bins to 15
+  (:option:`-DTOMAS_BINS=15`) or 40 (:option:`-DTOMAS_BINS=40`).
+
+  TOMAS is turned off by default.
+
+:file:`APM`
+  Toggles the `APM microphysics package
+  <http://wiki.geos-chem.org/APM_aerosol_microphysics>`_ on
+  (:option:`-DAPM=y`) or off (:option:`-DAPM=n`).
+
+  APM is turned off by default.
+
+:file:`RRTMG`
+  Toggles the RRTMG radiative transfer model on (:option:`-DRRTMG=y`)
+  or off (:option:`-DRRTMG=n`).
+
+  RRTMG is turned off by default.
+
+:file:`LUO_WETDEP`
+  Toggles the Luo et al 2020 wet deposition scheme on (:option:`-DLUO_WETDEP=y`)
+  or off (:option:`-DLUO_WETDEP=n`).
+
+  The Luo et al 2020 wet deposition scheme is turned off by default.
+
+  .. note:: The Luo et al 2020 wet deposition scheme will eventually
+	    become the default wet deposition schem in GEOS-Chem.  We
+	    have made it an option for the time being while further
+	    evaluation is being done.
 
 For example if you wanted to build GEOS-Chem with all debugging flags
 on, you would type:
 
-..code-block:: console
+.. code-block:: console
 
     $ cmake . -DCMAKE_BUILD_TYPE=Debug
 
@@ -224,22 +268,22 @@ executes only on one computational core), you would type:
 
 etc.
 
-If you plan to use the ``make install`` option (recommended) to copy your
-executable to your run directory, you must reconfigure CMake with the
-``-DRUNDIR`` option. Multiple run directories can be specified by a
-semicolon separated list. A warning is issues if one of these
-directories does not look like a run directory. These paths can be
-relative paths or absolute paths. Relative paths are interpreted as
-relative to your build directory. For example:
+If you plan to use the :option:`make -j install` option (recommended)
+to copy your executable to your run directory, you must reconfigure
+CMake with the :option:`-DRUNDIR` option. Multiple run directories can
+be specified by a semicolon separated list. A warning is issues if one
+of these directories does not look like a run directory. These paths
+can be relative paths or absolute paths. Relative paths are
+interpreted as relative to your build directory. For example:
 
 .. code-block:: console
 
     $ cmake . -DRUNDIR=/path/to/rundir
 
-.. _understanding-the-output-from-cmake:
+.. _understand-the-output-from-cmake:
 
-1.6 5. Understanding the output from CMake
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Understand the output from CMake
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As you can see from the example CMake output listed above, GEOS-Chem
 Classic 13.0.0 and later versions contain code from 3 independent repositories:
@@ -275,15 +319,15 @@ Classic 13.0.0 and later versions contain code from 3 independent repositories:
    ==================================================================
 
 During the build configuration stage, CMake will display the VERSION
-NUMBER (e.g. ``13.0.0``) as well as the CURRENT STATUS OF THE GIT
-REPOSITORY (e.g. ``13.0.0-alpha.8-27-g1158ac1.dirty`` for GCClassic,
+NUMBER (e.g. :file:`13.0.0`) as well as the CURRENT STATUS OF THE GIT
+REPOSITORY (e.g. :file:`13.0.0-alpha.8-27-g1158ac1.dirty` for GCClassic,
 GEOS-Chem, and HEMCO.
 
 Let's take the Git repository status of GCClassic as our example. The
-status string uses the same format as the :command:`git describe --tags` command,
-namely:
+status string uses the same format as the :command:`git describe
+--tags` command, namely:
 
-.. code-block::
+.. code-block:: text
 
     13.0.0-alpha.8-27-g1158ac1.dirty
 
@@ -307,39 +351,29 @@ where
       Indicates that there are uncommitted updates atop the :file:`1158ac1`
       commit in the GCClassic repository.
 
-Under each header are printed the various build options that have been
-selected, as well as other relevant information:
-
-  :option:`CMAKE_BUILD_TYPE`
-       Indicates the type of build that was selected.
-       1. Release: Debugging flags are turned off.
-       2. Debug: Debugging flags are turned on (this will slow down
-	  the simulation).
-
-
-
-
-    +----------------------------------+-------------------------------------------------------------------------------+
-    | ``\* MECH: fullchem=`` custom= | Indicates which chemistry mechanism is being used.                            |
-    +----------------------------------+-------------------------------------------------------------------------------+
-    | ``\* X: ==ON=`` OFF=             | Indicates whether option ``X`` has been turned on or off.                     |
-    +----------------------------------+-------------------------------------------------------------------------------+
+Under each header are printed the various :ref:`options that have been
+selected <configure-your-build>`.
 
 .. _compile-geos-chem:
 
-1.7 6. Compile GEOS-Chem
-~~~~~~~~~~~~~~~~~~~~~~~~
+Compile GEOS-Chem
+-----------------
 
-Now that CMake has written build files to your build directory, you can
-compile GEOS-Chem with the ``make`` command:
+Now that CMake has created the Makefiles that are needed to compile
+GEOS-Chem, you may proceed as follows:
 
-::
+Build the GEOS-Chem Classic executable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    *[gc_fullchem_4x5/build]$* $ make -j
+Use the :command:`make` command to build the GEOS-Chem executable.  Type:
+
+.. code-block:: console:
+
+    $ make -j
 
 You will see output similar to this:
 
-::
+.. code-block:: text
 
     [  1%] Built target KPPFirstPass_fullchem
     [  3%] Built target HeadersHco
@@ -366,32 +400,35 @@ You will see output similar to this:
     [ 98%] Building Fortran object src/CMakeFiles/geos.dir/GEOS-Chem/Interfaces/GCClassic/main.F90.o
     [100%] Linking Fortran executable ../bin/geos
     [100%] Built target geos
-    [gc_fullchem_4x5/build]$
 
-Note that the ``-j`` argument tells ``make`` that it can execute as many
-jobs as it wants simultaneously. If you want to restrict the number of
-simultaneous jobs (e.g. you are compiling on a machine with limited
-memory), you can add a number after ``-j``. For example, to restrict the
-number of jobs to 4, you would do ``make -j4``. If you don't want ``make``
-to run simultaneous jobs, don't use the ``-j`` argument.
+.. tip:: The :option:`-j` argument tells :command:`make` that it can
+	 execute as many jobs as it wants simultaneously. For
+	 example, if you have 8 cores, then the build process may
+	 attempt to compile 8 files at a time.
+
+	 If you want to restrict the number of simultaneous jobs
+	 (e.g. you are compiling on a machine with limited memory),
+	 you can can use e.g. :command:`make -j4`, which should only
+	 try to compile 4 files at a time.
 
 .. _install-the-geos-executable-in-your-run-directory:
 
-1.8 7. Install the geos executable in your run directory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install the executable in your run directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that ``geos`` is built, install it to your run directory with
-``make install``. For this to work properly, you must tell CMake where to
-find your run directory by configuring CMake with ``-DRUNDIR`` as
-described in Step 4.  Type the following:
+Now that the :file:`gcclassic` executable is built, install it to your
+run directory with :command:`make install`. For this to work properly,
+you must tell CMake where to find your run directory by configuring
+CMake with :option:`-DRUNDIR` :ref:`as described above
+<configure-your-build>`.  Type:
 
-::
+.. code-block:: console:
 
-    [gc_fullchem_4x5/build]$ make install
+    $ make install
 
 and you will see output similar to this:
 
-::
+.. code-block:: text
 
     [  1%] Built target KPPFirstPass_fullchem
     [ 10%] Built target Headers
@@ -422,10 +459,10 @@ and you will see output similar to this:
 Let's now navigate back to the run directory and get a directory
 listing:
 
-::
+.. code-block:: text
 
-    [gc_fullchem_4x5/build]$ cd ..
-    [gc_fullchem_4x5]$ ls
+    $ cd ..
+    $ ls
     archiveRun.sh*     GEOSChem.Restart.20190701_0000z.nc4  OutputDir/
     build/             getRunInfo*                          README
     build_info/        HEMCO_Config.rc                      rundir.version
@@ -433,9 +470,44 @@ listing:
     CodeDir@           HISTORY.rc                           species_database.yml
     download_data.py*  input.geos
     gcclassic*         metrics.py*
-    [gc_fullchem_4x5]$
+    $
 
-You should now see the ``gcclassic`` executable and a ``build_info``
+You should now see the :program:`gcclassic` executable and a :file:`build_info`
 directory there. GEOS-Chem has now been configured, compiled, and
-installed in your run directory. You are now ready to run a GEOS-Chem
-simulation! Please skip ahead to our Running GEOS-Chem chapter.
+installed in your run directory.
+
+You are now ready to run a GEOS-Chem simulation!
+
+.. _how-do-i-make-clean:
+
+How do I make clean?
+--------------------
+
+In older versions of GEOS-Chem, you could use a GNU Make command such
+as :command:`make clean` or :command:`make realclean` to remove all
+object (:file:`.o`), library (:file:`.a`), module (:file:`.mod`)
+files, as well as the previously-built executable file from the
+GEOS-Chem source code folder.
+
+All of the files created by Cmake during the configuration and
+compilation stages are placed in the :file:`build/` folder in your run
+directory (or in the location that you have specified with the
+:option:`RUNDIR` option.).  Therefore, if you wish to build the
+GEOS-Chem Classic executable from scratch, all you have to do is to
+remove all of the files from the build folder.  It's as simple as that!
+
+You can also create a new build folder with this command:
+
+.. code-block:: console
+
+   $ mv build was.build
+   $ mkdir build
+
+and then later on, you can remove the old build folder:
+
+.. code-block:: console
+
+   $ rm -rf was.build
+
+This avoids the temptation to use :command:`rm -rf *`, which can
+potentially wipe out all of your files if used incorrectly.
