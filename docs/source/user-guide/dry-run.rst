@@ -29,12 +29,12 @@ How to perform a GEOS-Chem Classic dry-run
 
 Follow the steps below to perform a GEOS-Chem dry-run.
 
-.. note:: Also be sure to watch our video tutorial `Using the updated
-	  dry-run capability in GEOS-Chem 13.2.1 and later versions
-	  <https://www.youtube.com/watch?v=ZLSXrjHqJAs&t=35s>`_ 
-	  at our `GEOS-Chem Youtube Channel
-	  <https://youtube.com/c/geoschem/>`_, which will guide you
-	  through these steps.
+.. tip:: Also be sure to watch our video tutorial `Using the updated
+         dry-run capability in GEOS-Chem 13.2.1 and later versions
+	 <https://www.youtube.com/watch?v=ZLSXrjHqJAs&t=35s>`_
+	 at our `GEOS-Chem Youtube Channel
+	 <https://youtube.com/c/geoschem/>`_, which will guide you
+	 through these steps.
 
 Create a run directory (if not done yet)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,7 +51,7 @@ Navigate to the run directory and compile GEOS-Chem.  For an
 out-of-the-box build, type these commands:
 
 .. code-block:: console
-   
+
    $ cd gc_merra2_fullchem
    $ cd build
    $ cmake ../CodeDir -DRUNDIR=..
@@ -72,7 +72,7 @@ Of these the most important settings are:
 :file:`input.geos`
   Set the start and end dates of the simulation. This setting will determine how much data needs to be downloaded
   from one of the GEOS-Chem data mirrors to your local disk space.
-  Also doublecheck that the path to your data directory (ExtData) is correct. 
+  Also doublecheck that the path to your data directory (ExtData) is correct.
 
 :file:`HISTORY.rc`
   Make sure to set the frequency and duration for
@@ -91,7 +91,7 @@ Of these the most important settings are:
 
 Run GEOS-Chem Classic with the --dryrun flag
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	 
+
 Run GEOS-Chem with the :file:`--dryrun` command-line argument, and pipe the
 output to a log file. Type:
 
@@ -102,7 +102,7 @@ output to a log file. Type:
 This will pipe the output of the :file:`gcclassic` executable to the
 Unix :program:`tee` command, which will send it to the screen and to a
 log file named :file:`log.dryrun`.
-    
+
 The :file:`log.dryrun` file will look somewhat like a regular
 GEOS-Chem log file but will also contain a list of data files and
 whether each file was found on disk or not.  This information will be
@@ -131,11 +131,11 @@ sections.
 	       Also make sure that you have installed the PyYAML module to your
 	       conda environment.  PyYAML will allow the
 	       :file:`download_data.py` script to read certain
-		     configurable settings from a YAML file in your
-		     run directory.
+  	       configurable settings from a YAML file in your
+	       run directory.
 
 You can download GEOS-Chem data from one of the following mirror sites:
-		     
+
 .. _downloading-data-from-washu:
 
 The geoschemdata.wustl.edu mirror (aka WashU)
@@ -147,6 +147,12 @@ University in St. Louis) mirror site** (`http://geoschemdata.wustl.edu
 <http://geoschemdata.wustl.edu.ca>`_).  This mirror, which is
 maintained by Randall Martin's group at WashU, is the main data mirror
 mirror for GEOS-Chem.
+
+.. tip:: We have also set up a `Globus
+	 <https://www.globus.org/data-transfer>`_ endpoint named
+	 **GEOS-Chem data (WashU)** on the WashU mirror site.  If you
+	 need to download many years of data, it may be faster to use
+	 Globus (particularly if your home institution supports it).
 
 Navigate to your GEOS-Chem run directory where you executed the dry-run
 and type:
@@ -164,7 +170,7 @@ The :file:`download_data.py` program will also generate a **log of
 unique data files** (i.e. with all duplicate listings removed), which
 looks similar to this:
 
-.. code-block::
+.. code-block:: text
 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     !!! LIST OF (UNIQUE) FILES REQUIRED FOR THE SIMULATION
@@ -214,11 +220,11 @@ commands, which should execute much more quickly than if you were to
 download the data from Compute Canada. It will also produce the **log
 of unique data files**.
 
-.. important:: *NOTE: Copying data from :file:`s3://gcgrid` to the EBS
-	       volume of an AWS cloud instance is always free. But if
-	       you download data from :file:`s3://gcgrid` to your own
-	       local computer cluster, you will incur an egress fee.
-	       Use with caution! !
+.. important:: Copying data from :file:`s3://gcgrid` to the EBS
+	       volume of an Amazon EC2 cloud instance is always free.
+	       But if you download data from :file:`s3://gcgrid` to your own
+	       computer system, you will incur an egress fee.
+	       **PROCEED WITH CAUTION!**
 
 .. _downloading-data-from-rochester:
 
@@ -242,7 +248,7 @@ The geoschemdata.computecanada.ca mirror (akaComputeCanada)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ComputeCanada data mirror (`http://geoschemdata.computecanada.ca
-<http://geoschemdata.computecanada.ca>`_) contains the same 
+<http://geoschemdata.computecanada.ca>`_) contains the same
 data as at the WashU mirror. But its status is uncertain, and it may
 be deactivated in the near future.  For this reason we recommend that
 you download data from the WashU server, as described above.
@@ -250,7 +256,7 @@ you download data from the WashU server, as described above.
 But if you absolutely have to download data from ComputeCanada, use
 this command:
 
-.. console::
+.. code-block:: console
 
    ./download_data.py log.dryrun computecanada
 

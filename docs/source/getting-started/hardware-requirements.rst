@@ -31,7 +31,7 @@ An account on the Amazon Web Services cloud
 If your institution lacks computational resources (or if you need
 additional computational resources), then you should consider signing
 up for access to the Amazon Web Services cloud. Using the cloud has
-the following advantages: 
+the following advantages:
 
 - You can run GEOS-Chem without having to invest in local hardware and maintenance personnel.
 - You won't have to download any meteorological fields or emissions data. All of the necessary data input for GEOS-Chem will be available on the cloud.
@@ -103,7 +103,7 @@ a standard file format used for Earth Science applications.
 Emissions fields
 ^^^^^^^^^^^^^^^^
 
-Please see our `HEMCO data directories <https://wiki.geos-chem.org/HEMCO_data_directories>`_ page to see how much disk space each of the emissions inventory requires.  Emissions inventories will be read into GEOS-Chem by   
+Please see our `HEMCO data directories <https://wiki.geos-chem.org/HEMCO_data_directories>`_ page to see how much disk space each of the emissions inventory requires.  Emissions inventories will be read into GEOS-Chem by
 
 .. _emissions-fields:
 
@@ -169,10 +169,14 @@ TODO
 Obtaining emissions data and met fields
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You may use a GEOS-Chem "dry-run" simulation to only download as many
-emissions inventories and met field data files as your simulation
-needs.  For more information, please see our chapter on Downloading
-data with the GEOS-Chem dry-run option. 
+You may use a :ref:`GEOS-Chem "dry-run" simulation <download-data-with-a-dry-run-simulation>`
+to only download as many emissions inventories and met field data files as your simulation
+needs.
+
+If you need to download large amounts of data, consider using
+`Globus <https://www.globus.org/data-transfer>`_.  We have created a
+Globus Endpoint named **GEOS-Chem data (WashU)** on the WashU mirror
+site from which you may access the entire GEOS-Chem data archive.
 
 .. _data-generated-by-geos-chem:
 
@@ -185,23 +189,25 @@ Monthly-mean output
 ^^^^^^^^^^^^^^^^^^^
 
 For GEOS-Chem full-chemistry simulations, we can look to the GEOS-Chem
-benchmarks as a rough upper limit of how 
+benchmarks as a rough upper limit of how
 much disk space is needed for diagnostic output.  The `GEOS-Chem 13.0.0
-vs. 12.9.0 1-month benchmark simulation <https://wiki.geos-chem.org/GEOS-Chem_13.0.0#GEOS-Chem_Classic_13.0.0_vs_12.9.0>`_  generated approximately 837 
-MB/month of output.  Of this amount, diagnostic output files
-accounted for ~646 MB and restart files accounted for ~191 MB.   
+vs. 12.9.0 1-month benchmark simulation
+<https://wiki.geos-chem.org/GEOS-Chem_13.0.0#GEOS-Chem_Classic_13.0.0_vs_12.9.0>`_
+generated approximately 837 MB/month of output.  Of this amount,
+diagnostic output files accounted for ~646 MB and restart files
+accounted for ~191 MB.
 
 We say that this is an upper limit, because benchmark simulations
 archive the "kitchen sink"&mdash;all species concentrations, various
 aerosol diagnostics, convective fluxes, dry dep fluxes and velocities,
 J-values, various chemical and meteorological quantities, transport
 fluxes,  wet deposition diagnostics, and emissions diagnostics.  Most
-GEOS-Chem users would probably not need to archive this much output. 
+GEOS-Chem users would probably not need to archive this much output.
 
 The GEOS-Chem specialty simulations--simulations for species with
 first-order loss by prescribed oxidant fields (i.e. Hg, CH4, CO2,
 CO)--will produce much less output than the benchmark simulations.
-This is because these simulations typically only have a few species. 
+This is because these simulations typically only have a few species.
 
 .. _reducing-output-file-sizes:
 
@@ -218,7 +224,7 @@ elements necessary to save out the required output.  For example, if
 you only wish to output the SpeciesConc_O3 diagnostic, GEOS-Chem will
 dimension the relevant array with (NX,NY,NZ,1) elements (1 because we
 are only archiving 1 species).  This can drastically reduce the amount
-of memory that your simulation will require. 
+of memory that your simulation will require.
 
 .. _timeseries-output:
 
@@ -228,4 +234,4 @@ Timeseries output
 Archiving hourly or daily timeseries output would require much more
 disk space than the monthly-mean output.  The disk space actually used
 will depend on how many quantities are archived and what the archival
-frequency is. 
+frequency is.
