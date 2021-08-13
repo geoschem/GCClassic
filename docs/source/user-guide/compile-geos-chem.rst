@@ -12,9 +12,9 @@ Use CMake to configure and build GEOS-Chem
 ------------------------------------------
 
 You should think of `CMake <http://cmake.org>`_ as an interactive tool
-for configuring GEOS-Chem's build. For example, compile-time options
-like disabling multithreading and turning on components (e.g. APM,
-RRTMG) are all configured with CMake commands.
+for configuring :program:`GEOS-Chem Classic's` build. For example,
+compile-time options like disabling multithreading and turning on
+components (e.g. APM, RRTMG) are all configured with CMake commands.
 
 Besides configuring GEOS-Chem's build, CMake also performs checks on
 your build environment to detect problems that would cause the build
