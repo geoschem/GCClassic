@@ -167,7 +167,7 @@ function(configureGCClassic)
     # (Currently a research option... turn OFF by default)
     #-------------------------------------------------------------------------
     set(LUO_WETDEP OFF CACHE BOOL
-        "Switch to build the Luo et al (2019) wetdep scheme into GEOS-Chem"
+        "Switch to build the Luo et al (2020) wetdep scheme into GEOS-Chem"
     )
     gc_pretty_print(VARIABLE LUO_WETDEP IS_BOOLEAN)
     if(${LUO_WETDEP})
