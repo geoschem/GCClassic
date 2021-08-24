@@ -7,8 +7,12 @@
 
 ## Description
 
-This is the GEOS-Chem source code. You can find the documentation here:
-- **http://wiki.seas.harvard.edu/geos-chem/index.php/Getting_Started_with_GEOS-Chem**
+This is the offical repository for GEOS-Chem Classic. 
+
+:bulb: Documentation: http://wiki.seas.harvard.edu/geos-chem/index.php/Getting_Started_with_GEOS-Chem
+
+:book: Publications: [GEOS-Chem on Google Scholar](https://scholar.google.com/citations?user=ho-sNj4AAAAJ)
+
 
 ## About GEOS-Chem
 
