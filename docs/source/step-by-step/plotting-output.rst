@@ -1,6 +1,0 @@
-
-
-Plotting GCHP output
-====================
-
-todo
