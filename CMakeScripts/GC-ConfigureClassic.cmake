@@ -203,6 +203,19 @@ function(configureGCClassic)
     endif()
 
     #-------------------------------------------------------------------------
+    # Use Cloud-J rather than Fast-J?
+    #-------------------------------------------------------------------------
+    set(CLOUDJ "OFF" CACHE BOOL
+        "Switch to enable using Cloud-J"
+    )
+    gc_pretty_print(VARIABLE CLOUDJ IS_BOOLEAN)
+    if(${CLOUDJ})
+        target_compile_definitions(GEOSChemBuildProperties
+	    INTERFACE CLOUDJ
+	)
+    endif()
+
+    #-------------------------------------------------------------------------
     # Export the following variables to GEOS-Chem directory's scope
     #-------------------------------------------------------------------------
     set(GCHP                    FALSE                       PARENT_SCOPE)
@@ -214,6 +227,7 @@ function(configureGCClassic)
     set(GTMM                    ${GTMM}                     PARENT_SCOPE)
     set(LUO_WETDEP              ${LUO_WETDEP}               PARENT_SCOPE)
     set(SANITIZE                ${SANITIZE}                 PARENT_SCOPE)
+    set(CLOUDJ                  ${CLOUDJ}                   PARENT_SCOPE)
 
     #-------------------------------------------------------------------------
     # Export information about Git status
