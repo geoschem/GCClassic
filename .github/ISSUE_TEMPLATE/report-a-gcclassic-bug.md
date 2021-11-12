@@ -10,6 +10,9 @@ assignees: ''
 ### Before you submit
 NOTE: Please only submit problems pertaining to the GCClassic repository to this issue tracker.  To report problems in the GEOS-Chem "science codebase" source code, run directory generation scripts, configuration files, or main.F90 driver routine, please [submit a bug report on the geoschem/geos-chem issue tracker](https://github.com/geoschem/geos-chem/issues/new?assignees=&labels=bug&template=report-a-bug-or-technical-issue.md&title=%5BBUG%2FISSUE%5D).
 
+### What institution are you from?
+Please tell us what institution you are from.
+
 ### Description of the problem
 Describe your problem here.  Describe the steps to reproduce the problem here, if possible.
 
