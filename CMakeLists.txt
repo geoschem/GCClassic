@@ -2,7 +2,7 @@
 
 cmake_minimum_required (VERSION 3.13)
 project (geos-chem-classic
-  VERSION 13.3.2
+  VERSION 13.3.3
   LANGUAGES Fortran
 )
 
