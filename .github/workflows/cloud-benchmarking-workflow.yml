@@ -42,14 +42,13 @@ jobs:
 
         # Note the step function input is sent in as a single json string
         run: |
-          export NAME_SUFFIX="${GITHUB_REF}_${GITHUB_SHA}"
           export WORKFLOW_ARN=$(aws stepfunctions list-state-machines \
             --output text \
             --query 'stateMachines[?name==`benchmarks-cloud-workflow`].stateMachineArn | [0]')
           aws stepfunctions start-execution \
             --state-machine-arn ${WORKFLOW_ARN} \
             --input "{\"event\": {"`
-                `"\"nameSuffix\": \"${NAME_SUFFIX}\","`
+                `"\"nameSuffix\": \"${GITHUB_SHA}\","`
                 `"\"simulationType\": \"GCC\","`
                 `"\"runType\": \"SPOT\","`
                 `"\"timePeriod\": \"1Day\","`
