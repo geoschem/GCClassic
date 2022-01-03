@@ -44,6 +44,7 @@ jobs:
         run: |
           export NAME_SUFFIX="${GITHUB_REF}_${GITHUB_SHA}"
           export WORKFLOW_ARN=$(aws stepfunctions list-state-machines \
+            --output text \
             --query 'stateMachines[?name==`benchmarks-cloud-workflow`].stateMachineArn | [0]')
           aws stepfunctions start-execution \
             --state-machine-arn ${WORKFLOW_ARN} \
