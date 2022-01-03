@@ -18,7 +18,7 @@ name: cloud_benchmarking
 on:
   push:
     branches:
-      - dev
+      - feature/cloud-benchmarking-workflow
 
 jobs:
   trigger_step_function:
@@ -39,7 +39,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
           AWS_DEFAULT_OUTPUT: json
-          
+
         # Note the step function input is sent in as a single json string
         run: |
           NAME_SUFFIX = "${GITHUB_REF}_${GITHUB_SHA}"
