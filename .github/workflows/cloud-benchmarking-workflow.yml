@@ -24,13 +24,15 @@ jobs:
   trigger_step_function:
     runs-on: ubuntu-latest # aws cli comes pre-installed
     steps:
-      - name: Set Time Period
+      - name: Set Variables For Tags
         run: |
           echo "TIME_PERIOD=1Mon" >> $GITHUB_ENV
+          echo "STEP_FN_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
         if: startsWith(github.ref, 'refs/tags/')
-      - name: Set Time Period
+      - name: Set Variables For Commits
         run: |
           echo "TIME_PERIOD=1Day" >> $GITHUB_ENV
+          echo "STEP_FN_NAME=${GITHUB_SHA}" >> $GITHUB_ENV
         if: startsWith(github.ref, 'refs/heads/')
       - name: Trigger Step Function
         env:
@@ -45,6 +47,7 @@ jobs:
             --output text \
             --query 'stateMachines[?name==`benchmarks-cloud-workflow`].stateMachineArn | [0]')
           aws stepfunctions start-execution \
+            --name ${STEP_FN_NAME}
             --state-machine-arn ${WORKFLOW_ARN} \
             --input "{\"event\": {"`
                 `"\"nameSuffix\": \"${GITHUB_SHA}\","`
