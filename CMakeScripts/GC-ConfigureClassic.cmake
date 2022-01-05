@@ -46,15 +46,8 @@ function(configureGCClassic)
     #-------------------------------------------------------------------------
     # Make MECH an option. This controls which KPP directory is used.
     #-------------------------------------------------------------------------
-    set(CUSTOMMECH OFF CACHE BOOL
-        "Switch to build with a custom mech"
-    )
-    gc_pretty_print(VARIABLE CUSTOMMECH IS_BOOLEAN)
-    if(${CUSTOMMECH})
-        set(MECH "custom")
-    else()
-        set(MECH "fullchem")
-    endif()
+    set(MECH "fullchem" CACHE STRING "Name of the chemistry mechanism to use")
+    gc_pretty_print(VARIABLE MECH OPTIONS "fullchem" "Hg" "custom")
 
     #-------------------------------------------------------------------------
     # Turn on bpch diagnostics?
