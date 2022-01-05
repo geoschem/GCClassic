@@ -47,14 +47,14 @@ jobs:
             --output text \
             --query 'stateMachines[?name==`benchmarks-cloud-workflow`].stateMachineArn | [0]')
           aws stepfunctions start-execution \
-            --name ${STEP_FN_NAME}
+            --name ${STEP_FN_NAME} \
             --state-machine-arn ${WORKFLOW_ARN} \
             --input "{\"event\": {"`
                 `"\"nameSuffix\": \"${GITHUB_SHA}\","`
                 `"\"simulationType\": \"GCC\","`
                 `"\"runType\": \"SPOT\","`
                 `"\"timePeriod\": \"${TIME_PERIOD}\","`
-                `"\"tag\": \"${GITHUB_SHA}\","`
+                `"\"tag\": \"${STEP_FN_NAME}\","`
                 `"\"numCores\": \"48\","`
                 `"\"memory\": \"16000\","` 
                 `"\"resolution\": \"24\","`
