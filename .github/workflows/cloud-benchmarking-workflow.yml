@@ -29,20 +29,19 @@ jobs:
   trigger_step_function:
     runs-on: ubuntu-latest # aws cli comes pre-installed
     steps:
-      # conditionally set step function variables based on whether a tag or commit
       # for now both use Spot instances -- may need to update to use on demand
-      - name: Set Variables For Tags
+      - name: Set Initial Variables
+        # By default we use 1Day benchmarks
+        run: |
+          echo "TIME_PERIOD=1Day" >> $GITHUB_ENV
+          echo "STEP_FN_NAME=${GITHUB_SHA}" >> $GITHUB_ENV
+      # conditionally overwrite variables if a tag was the triggering event
+      - name: Reset Variables For Tags
         # We do a 1Month benchmark for tags
         run: |
           echo "TIME_PERIOD=1Mon" >> $GITHUB_ENV
           echo "STEP_FN_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
         if: startsWith(github.ref, 'refs/tags/')
-      - name: Set Variables For Commits
-        # We do a 1Day benchmark for tags
-        run: |
-          echo "TIME_PERIOD=1Day" >> $GITHUB_ENV
-          echo "STEP_FN_NAME=${GITHUB_SHA}" >> $GITHUB_ENV
-        if: startsWith(github.ref, 'refs/heads/')
       - name: Trigger Step Function
         env:
           # Set config options for aws cli
