@@ -24,15 +24,14 @@ jobs:
   trigger_step_function:
     runs-on: ubuntu-latest # aws cli comes pre-installed
     steps:
-      - uses: actions/checkout@v2
-      - name: Get release tag
-        id: vars
+      - name: Set Time Period
         run: |
-          GEOSCHEM_VERSION=${GITHUB_REF#refs/*/}
-          echo ::set-output name=release_tag::${GEOSCHEM_VERSION}
-          cd ${GITHUB_WORKSPACE}
-          git checkout $GEOSCHEM_VERSION
-          echo ::set-output name=release_sha::$(git rev-list -n 1 $GEOSCHEM_VERSION)
+          echo "TIME_PERIOD=1Mon" >> $GITHUB_ENV
+        if: startsWith(github.ref, 'refs/tags/')
+      - name: Set Time Period
+        run: |
+          echo "TIME_PERIOD=1Day" >> $GITHUB_ENV
+        if: startsWith(github.ref, 'refs/heads/')
       - name: Trigger Step Function
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -51,11 +50,12 @@ jobs:
                 `"\"nameSuffix\": \"${GITHUB_SHA}\","`
                 `"\"simulationType\": \"GCC\","`
                 `"\"runType\": \"SPOT\","`
-                `"\"timePeriod\": \"1Day\","`
+                `"\"timePeriod\": \"${TIME_PERIOD}\","`
                 `"\"tag\": \"${GITHUB_SHA}\","`
                 `"\"numCores\": \"48\","`
                 `"\"memory\": \"16000\","` 
                 `"\"resolution\": \"24\","`
+                `"\"sendEmailNotification\": \"true\","`
                 `"\"updateInputData\": \"0\""`
               `"}}"
       
