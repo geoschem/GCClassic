@@ -45,6 +45,8 @@ jobs:
       - name: Trigger Step Function
         env:
           # Set config options for aws cli
+          NUM_CORES: 62
+          EC2_TYPE: SPOT # SPOT or DEMAND
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
@@ -61,10 +63,10 @@ jobs:
             --input "{\"event\": {"`
                 `"\"nameSuffix\": \"${GITHUB_SHA}\","`
                 `"\"simulationType\": \"GCC\","`
-                `"\"runType\": \"SPOT\","`
+                `"\"runType\": \"${EC2_TYPE}\","`
                 `"\"timePeriod\": \"${TIME_PERIOD}\","`
                 `"\"tag\": \"${STEP_FN_NAME}\","`
-                `"\"numCores\": \"48\","`
+                `"\"numCores\": \"${NUM_CORES}\","`
                 `"\"memory\": \"16000\","` 
                 `"\"resolution\": \"24\","`
                 `"\"sendEmailNotification\": \"true\","`
