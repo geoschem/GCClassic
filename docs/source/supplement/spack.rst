@@ -38,7 +38,12 @@ To initialize Spack type these commands:
 Make sure the default compiler is in compilers.yaml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open the compilers.yaml file with your favorite editor, e.g.:
+Tell Spack to search for compilers:
+
+.. code-block:: console
+    $ spack compiler find
+
+You can confirm that the default compiler was found by inspecing compilers.yaml file with your favorite editor, e.g.:
 
 .. code-block:: console
 
@@ -87,41 +92,13 @@ the GNU Compiler Collection 10.2.0 using the default compilers.
 Update compilers.yaml
 ~~~~~~~~~~~~~~~~~~~~~
 
-First, find the path to the compiler with the spack location command.
-This will generate a very long path name such as this (yours will be
-different):
+In order for Spack to use this new compiler to build other packages, 
+the compilers.yaml file must be updated using these commands:
 
 .. code-block:: console
+    $ spack load gcc@10.2.0
+    $ spack compiler find
 
-    $ spack location -i gcc@10.2.0
-    /home/ubuntu/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.4.0/gcc-10.2.0-55gqd2sskfouetylmy7iozwreoie6rb4
-
-Then open the compilers.yaml file with your favorite editor (mine is
-Emacs):
-
-.. code-block:: console
-
-    $ emacs ~/.spack/linux/compilers.yaml
-
-And then add the long path name + ``/bin`` to the ``cc``, ``cxx``, ``f77``, and
-``fc`` entries in ``compilers.yaml``. For example, my new entry for
-gcc/gfortran 10.2.0 looked like this:
-
-.. code-block:: console
-
-    - compiler:
-        spec: gcc@10.2.0
-        paths:
-          cc: /home/ubuntu/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.4.0/gcc-10.2.0-55gqd2sskfouetylmy7iozwreoie6rb4/bin/gcc
-          cxx: /home/ubuntu/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.4.0/gcc-10.2.0-55gqd2sskfouetylmy7iozwreoie6rb4/bin/g++
-          f77: /home/ubuntu/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.4.0/gcc-10.2.0-55gqd2sskfouetylmy7iozwreoie6rb4/bin/gfortran
-          fc: /home/ubuntu/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.4.0/gcc-10.2.0-55gqd2sskfouetylmy7iozwreoie6rb4/bin/gfortran
-        flags: {}
-        operating_system: ubuntu18.04
-        target: x86_64
-        modules: []
-        environment: {}
-        extra_rpaths: []
 
 Install required libraries for GEOS-Chem
 ----------------------------------------
