@@ -41,6 +41,7 @@ Make sure the default compiler is in compilers.yaml
 Tell Spack to search for compilers:
 
 .. code-block:: console
+
     $ spack compiler find
 
 You can confirm that the default compiler was found by inspecing compilers.yaml file with your favorite editor, e.g.:
@@ -96,6 +97,7 @@ In order for Spack to use this new compiler to build other packages,
 the compilers.yaml file must be updated using these commands:
 
 .. code-block:: console
+
     $ spack load gcc@10.2.0
     $ spack compiler find
 
