@@ -19,6 +19,7 @@ on:
   push:
     branches:
       - dev
+      - feature/benchmarking-updates
     tags:
       - '*'
   pull_request:
@@ -34,7 +35,8 @@ jobs:
         # By default we use 1Day benchmarks
         run: |
           echo "TIME_PERIOD=1Hr" >> $GITHUB_ENV
-          echo "STEP_FN_NAME=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          echo "GITHUB_SHA_SHORT=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
+          echo "STEP_FN_NAME=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
       # conditionally overwrite variables if a tag was the triggering event
       - name: Reset Variables For Tags
         # We do a 1Month benchmark for tags
@@ -61,7 +63,7 @@ jobs:
             --name ${STEP_FN_NAME} \
             --state-machine-arn ${WORKFLOW_ARN} \
             --input "{\"event\": {"`
-                `"\"nameSuffix\": \"${GITHUB_SHA}\","`
+                `"\"nameSuffix\": \"${GITHUB_SHA_SHORT}\","`
                 `"\"simulationType\": \"gcc\","`
                 `"\"runType\": \"${EC2_TYPE}\","`
                 `"\"timePeriod\": \"${TIME_PERIOD}\","`
