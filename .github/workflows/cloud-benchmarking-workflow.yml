@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "TIME_PERIOD=1Hr" >> $GITHUB_ENV
           echo "GITHUB_SHA_SHORT=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
-          echo "STEP_FN_NAME=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
+          echo "STEP_FN_NAME=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
       # conditionally overwrite variables if a tag was the triggering event
       - name: Reset Variables For Tags
         # We do a 1Month benchmark for tags
