@@ -19,7 +19,6 @@ on:
   push:
     branches:
       - dev
-      - feature/benchmarking-updates
     tags:
       - '*'
   pull_request:
