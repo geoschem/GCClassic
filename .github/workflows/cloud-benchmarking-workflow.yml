@@ -34,7 +34,7 @@ jobs:
         # By default we use 1Day benchmarks
         run: |
           echo "TIME_PERIOD=1Hr" >> $GITHUB_ENV
-          echo "STEP_FN_NAME=`git rev-parse --short HEAD`" >> $GITHUB_ENV
+          echo "STEP_FN_NAME=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       # conditionally overwrite variables if a tag was the triggering event
       - name: Reset Variables For Tags
         # We do a 1Month benchmark for tags
