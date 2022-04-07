@@ -31,10 +31,13 @@ jobs:
     steps:
       # for now both use Spot instances -- may need to update to use on demand
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
       - name: Set Initial Variables
         # By default we use 1Hr benchmarks
         run: |
           cd ${{ github.workspace }}
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           echo "TIME_PERIOD=1Hr" >> $GITHUB_ENV
           echo "RESOLUTION=24" >> $GITHUB_ENV
           echo "DEV_PRIMARY_KEY=gcc-${RESOLUTION}-${TIME_PERIOD}-`git describe --tags`" >> $GITHUB_ENV
