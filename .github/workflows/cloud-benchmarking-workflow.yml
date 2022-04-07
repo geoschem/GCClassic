@@ -55,7 +55,7 @@ jobs:
       - name: Generate Primary Key
         run: |
           cd ${{ github.workspace }}
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+          git fetch --deepen=30 --depth=1 origin +refs/tags/*:refs/tags/*
           echo "DEV_PRIMARY_KEY=gcc-${RESOLUTION}-${TIME_PERIOD}-`git describe --tags`" >> $GITHUB_ENV
           echo "REF_PRIMARY_KEY=`./.github/workflows/findRefKey.sh ${RESOLUTION} ${TIME_PERIOD} ${GITHUB_SHA}`" >> $GITHUB_ENV
       - name: Trigger Step Function
@@ -88,7 +88,7 @@ jobs:
                 `"\"resolution\": \"${RESOLUTION}\","`
                 `"\"sendEmailNotification\": \"true\""`
               `"},"`
-              \"plotting\": {"`
+              `"\"plotting\": {"`
                 `"\"devPrimaryKey\": \"${DEV_PRIMARY_KEY}\","`
                 `"\"refPrimaryKey\": \"${REF_PRIMARY_KEY}\","`
               `"}}"
