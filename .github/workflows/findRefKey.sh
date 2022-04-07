@@ -21,9 +21,10 @@ MAX_COMMITS=30 # number of commits to check for successful simulations
 # Set parameters
 resolution=$1
 time_period=$2
+hash=$3
 
 
-commits=`git rev-list --max-count=${MAX_COMMITS} head`
+commits=`git rev-list --max-count=${MAX_COMMITS} ${hash}`
 describe_command="git describe --tags"
 
 # in reverse chronological order we query dynamodb for the last
