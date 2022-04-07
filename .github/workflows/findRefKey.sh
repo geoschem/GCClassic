@@ -36,7 +36,8 @@ do
     # query dynamodb for the given primary key simulation
     output=`aws dynamodb get-item \
         --table-name geoschem_testing \
-        --key "{\"InstanceID\": {\"S\": \"${primary_key}\"}}"`
+        --key "{\"InstanceID\": {\"S\": \"${primary_key}\"}}" \
+        --profile github | jq .`
     # Check if the simulation for given primary key exists and ran
     # successfully print out the first successful primary key and exit
     if [[ `echo $output | jq '.Item.ExecStatus.S | contains("SUCCESSFUL")'` == "true" ]] \
