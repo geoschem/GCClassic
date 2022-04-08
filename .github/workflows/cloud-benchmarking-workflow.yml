@@ -53,6 +53,11 @@ jobs:
           echo "COMMIT_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
         if: startsWith(github.ref, 'refs/tags/')
       - name: Generate Primary Key
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_DEFAULT_OUTPUT: json
         run: |
           cd ${{ github.workspace }}
           echo "DEV_PRIMARY_KEY=gcc-${RESOLUTION}-${TIME_PERIOD}-`git describe --tags`" >> $GITHUB_ENV
@@ -69,9 +74,8 @@ jobs:
 
         # Note the step function input is sent in as a single json string
         run: |
-          export WORKFLOW_ARN=$(aws stepfunctions list-state-machines \
-            --output text \
-            --query 'stateMachines[?name==`benchmarks-cloud-workflow`].stateMachineArn | [0]')
+          export WORKFLOW_ARN=$(aws stepfunctions list-state-machines --output json \
+            | jq '.stateMachines[] | select(.name == "benchmarks-cloud-workflow").stateMachineArn')
           aws stepfunctions start-execution \
             --name "${PRIMARY_KEY}" \
             --state-machine-arn ${WORKFLOW_ARN} \
