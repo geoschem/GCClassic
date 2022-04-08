@@ -74,10 +74,10 @@ jobs:
 
         # Note the step function input is sent in as a single json string
         run: |
-          export WORKFLOW_ARN=$(aws stepfunctions list-state-machines --output json \
-            | jq '.stateMachines[] | select(.name == "benchmarks-cloud-workflow").stateMachineArn')
+          export WORKFLOW_ARN=`aws stepfunctions list-state-machines --output json \
+            | jq -r '.stateMachines[] | select(.name == "benchmarks-cloud-workflow").stateMachineArn'`
           aws stepfunctions start-execution \
-            --name "${PRIMARY_KEY}" \
+            --name ${DEV_PRIMARY_KEY} \
             --state-machine-arn ${WORKFLOW_ARN} \
             --input "{\"event\": {"`
                 `"\"nameSuffix\": \"${GITHUB_SHA_SHORT}\","`
@@ -93,6 +93,6 @@ jobs:
               `"},"`
               `"\"plotting\": {"`
                 `"\"devPrimaryKey\": \"${DEV_PRIMARY_KEY}\","`
-                `"\"refPrimaryKey\": \"${REF_PRIMARY_KEY}\","`
+                `"\"refPrimaryKey\": \"${REF_PRIMARY_KEY}\""`
               `"}}"
       

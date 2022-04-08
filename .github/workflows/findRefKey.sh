@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+
 # findRefKey.sh: Find last successful benchmark run
 #   primary key (ref) for automatically determining the simulation to 
 #   create benchmark plots against in the cloud benchmarking workflow
