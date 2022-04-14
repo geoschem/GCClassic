@@ -37,7 +37,7 @@ jobs:
         # By default we use 1Hr benchmarks
         run: |
           echo "TIME_PERIOD=1Hr" >> $GITHUB_ENV
-          echo "RESOLUTION=24" >> $GITHUB_ENV
+          echo "RESOLUTION=4x5" >> $GITHUB_ENV
           echo "GITHUB_SHA_SHORT=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
           echo "COMMIT_NAME=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
       # conditionally overwrite variables if a tag was the triggering event
@@ -60,7 +60,7 @@ jobs:
           AWS_DEFAULT_OUTPUT: json
         run: |
           cd ${{ github.workspace }}
-          echo "DEV_PRIMARY_KEY=gcc-c${RESOLUTION}-${TIME_PERIOD}-`git describe --tags`" >> $GITHUB_ENV
+          echo "DEV_PRIMARY_KEY=gcc-${RESOLUTION}-${TIME_PERIOD}-`git describe --tags`" >> $GITHUB_ENV
           echo "REF_PRIMARY_KEY=`./.github/workflows/findRefKey.sh ${RESOLUTION} ${TIME_PERIOD} ${GITHUB_SHA}`" >> $GITHUB_ENV
       - name: Trigger Step Function
         env:
