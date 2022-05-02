@@ -247,7 +247,7 @@ you will specify the points that make up the flight track.
 	       <https://github.com/geoschem/geos-chem/blob/d7baeb8fe51a66914408e9d1f655dd062bd5d4df/GeosCore/planeflight_mod.F90#L1057-L1126>`_
 	       if you do not wish to use L=1 for that type value.
 
-.. plane_log_file::
+.. _plane_log_file:
 
 The plane.log.YYYYMMDD output file
 ----------------------------------
