@@ -4,8 +4,8 @@
 # Tell CMake to look for code in HEMCO and GEOS-Chem directory trees
 #-----------------------------------------------------------------------------
 add_subdirectory(HEMCO     EXCLUDE_FROM_ALL)
-target_compile_definitions(HEMCOBuildProperties 
-    INTERFACE 
+target_compile_definitions(HEMCOBuildProperties
+    INTERFACE
         $<$<BOOL:${TOMAS}>:TOMAS>
         $<$<STREQUAL:${TOMAS_BINS},15>:TOMAS15>
         $<$<STREQUAL:${TOMAS_BINS},40>:TOMAS40>
@@ -59,9 +59,9 @@ foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
       get_filename_component(INSTALL_PATH "${INSTALL_PATH}" ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}")
     endif()
 
-    # Issue warning and skip if input.geos doesn't exist
+    # Issue warning and skip if geoschem_config.yml doesn't exist
     # (i.e. if it doens't look like a run directory)
-    if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/input.geos))
+    if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/geoschem_config.yml))
       # Installation path is not a GEOS-Chem run directory
       # Skip ahead -- a warning will be raised elsewhere.
       continue()
