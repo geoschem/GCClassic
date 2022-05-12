@@ -47,7 +47,7 @@ function(configureGCClassic)
     # Make MECH an option. This controls which KPP directory is used.
     #-------------------------------------------------------------------------
     set(MECH "fullchem" CACHE STRING "Name of the chemistry mechanism to use")
-    gc_pretty_print(VARIABLE MECH OPTIONS "fullchem" "ccycle" "Hg" "custom")
+    gc_pretty_print(VARIABLE MECH OPTIONS "fullchem" "carboncycle" "Hg" "custom")
 
     #-------------------------------------------------------------------------
     # Turn on bpch diagnostics?
