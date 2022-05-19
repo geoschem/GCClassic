@@ -99,7 +99,7 @@ html_context = {
     }
     
 # Display GEOS-Chem logo
-html_favicon = 'geos-chem-shared-docs/_static/gc-favicon.ico'
+html_favicon = 'geos-chem-shared-docs/_static/gc-o-logo-favicon.ico'
 html_logo = "geos-chem-shared-docs/_static/geos-chem-logo.svg"
 html_theme_options = {
     'logo_only': True,
