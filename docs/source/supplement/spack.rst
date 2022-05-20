@@ -1,18 +1,20 @@
 .. _build-libraries-for-geos-chem-with-spack:
 
+########################################
 Build libraries for GEOS-Chem with Spack
-========================================
+########################################
 
 Here are some up-to-date instructions on installing a software stack for
-GEOS-Chem Classic with Spack. 
+GEOS-Chem Classic with Spack.
 
+===================
 Initial Spack setup
------------------------
+===================
 
 .. _installing-spack-to-your-home-directory:
 
 Install spack to your home directory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 Spack can be installed with Git, as follows:
 
@@ -24,7 +26,7 @@ Spack can be installed with Git, as follows:
 .. _initialize-spack:
 
 Initialize Spack
-~~~~~~~~~~~~~~~~~~~~
+----------------
 
 To initialize Spack type these commands:
 
@@ -36,7 +38,7 @@ To initialize Spack type these commands:
 .. _make-sure-the-default-compiler-is-in-compilers.yaml:
 
 Make sure the default compiler is in compilers.yaml
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------
 
 Tell Spack to search for compilers:
 
@@ -76,9 +78,10 @@ As you can see, the default compiler executables are located in the
 /usr/bin folder. This is where many of the system-supplied executable
 files are located.
 exec
-	
+
+==============================
 Build the GCC 10.2.0 compilers
-------------------------------
+==============================
 
 Let's build a newer compiler verion with Spack. In this case we'll build
 the GNU Compiler Collection 10.2.0 using the default compilers.
@@ -91,9 +94,9 @@ the GNU Compiler Collection 10.2.0 using the default compilers.
 .. _update-compilers.yaml-with-the-compiler-you-just-built:
 
 Update compilers.yaml
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
-In order for Spack to use this new compiler to build other packages, 
+In order for Spack to use this new compiler to build other packages,
 the compilers.yaml file must be updated using these commands:
 
 .. code-block:: console
@@ -102,19 +105,22 @@ the compilers.yaml file must be updated using these commands:
     $ spack compiler find
 
 
+.. _install-libs:
+
+========================================
 Install required libraries for GEOS-Chem
-----------------------------------------
+========================================
 
 .. _install-hdf5:
 
 Now that we have installed a the GNU Compiler Collection 10.2.0, we
 can use it to build the required libraries for GEOS-Chem Classic.
 
-HDF5
-~~~~
 
-Now we can start installing libraries. First, let's install HDF5,
-which is a dependency of netCDF.
+HDF5
+----
+Now we can start installing libraries. First, let's install :program:`HDF5`,
+which is a dependency of :program:`netCDF`.
 
 .. code-block:: console
 
@@ -122,14 +128,14 @@ which is a dependency of netCDF.
     $ spack load hdf5%gcc@10.2.0
 
 The ``+cxx+fortran+hl+pic+shared+threadsafe`` specifies necessary options for building HDF5.
-    
+
 .. _install-netcdf-fortran-and-netcdf-c:
 
 netCDF-Fortran and netCDF-C
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
-Now that we have installed HDF5, we may proceed to installing
-netCDF-Fortran (which will install netCDF-C as a dependency).  
+Now that we have installed :program:, we may proceed to installing
+netCDF-Fortran (which will install netCDF-C as a dependency).
 
 .. code-block:: console
 
@@ -140,14 +146,14 @@ netCDF-Fortran (which will install netCDF-C as a dependency).
 We tell Spack to use the same version of HDF5 that we just built by appending
 ``^hdf5+cxx+fortran+hl+pic+shared+threadsafe`` to the spack install
 command.  Otherwise, Spack will try to build a new version of HDF5
-with default options (which is not what we want). 
-    
+with default options (which is not what we want).
+
 .. _install-ncview:
 
 ncview
-~~~~~~
+------
 
-``ncview`` is a convenient viewer for browsing netCDF files. Install it with:
+:program:`Ncview` is a convenient viewer for browsing netCDF files. Install it with:
 
 .. code-block:: console
 
@@ -157,10 +163,11 @@ ncview
 .. _install-the-netcdf-operators-nco:
 
 nco (The netCDF Operators)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
-The netCDF operators (``nco``) are useful programs for manipulating netCDF files
-and attributes.  Install (``nco``) with:
+The netCDF operators (:program:`nco`) are useful programs for
+manipulating netCDF files and attributes.  Install (:program:`nco`)
+with:
 
 .. code-block:: console
 
@@ -170,9 +177,10 @@ and attributes.  Install (``nco``) with:
 .. _install-climate-data-operators-cdo:
 
 cdo (The Climate Data Operators)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
-The Climate Data Operators (``cdo``) are utilities for processing data in netCDF files.
+The Climate Data Operators (:program:`cdo`) are utilities for
+processing data in netCDF files.
 
 .. code-block:: console
 
@@ -182,10 +190,10 @@ The Climate Data Operators (``cdo``) are utilities for processing data in netCDF
 .. _install-flex:
 
 flex
-~~~~~
+----
 
-The ``flex`` library is a lexical parser. It is a dependency for
-`KPP-for-GEOS-Chem <https://kpp.readthedocs.io>`_.
+The :program:`flex` library is a lexical parser. It is a dependency for
+`KPP <https://kpp.readthedocs.io>`_.
 
 .. code-block:: console
 
@@ -197,7 +205,8 @@ The ``flex`` library is a lexical parser. It is a dependency for
 gdb and cgdb
 ~~~~~~~~~~~~
 
-``gdb`` is the GNU Debugger. ``cgdb`` is a visual, user-friendly interface for GDB.
+:program:`Gdb`` is the GNU Debugger. :program:`Cgdb`` is a visual,
+user-friendly interface for :program:`gdb`.
 
 .. code-block:: console
 
@@ -212,9 +221,8 @@ gdb and cgdb
 cmake and gmake
 ~~~~~~~~~~~~~~~
 
-``cmake`` and ``gmake`` are used to build source code into executables.
-GEOS-Chem 13.0.0 and later uses ``cmake`` by default. But you need ``gmake``
-to build other software packages, so it's good to have both installed.
+:program:`Cmake` and :program:`gmake` are used to build source code
+into executables.
 
 .. code-block:: console
 
@@ -226,17 +234,18 @@ to build other software packages, so it's good to have both installed.
 
 .. _installing-optional-packages:
 
+============================
 Installing optional packages
-----------------------------
+============================
 
 These packages are useful not strictly necessary for GEOS-Chem.
 
 .. _openjdk-java:
 
 OpenJDK (Java)
-~~~~~~~~~~~~~~~~~~~
+--------------
 
-Some programs might need the ``openjdk`` Java Runtime Environment:
+Some programs might need the :program:`openjdk` Java Runtime Environment:
 
 .. code-block:: console
 
@@ -246,10 +255,10 @@ Some programs might need the ``openjdk`` Java Runtime Environment:
 .. _tau-performance-profiler:
 
 TAU performance profiler
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
-The Tuning and Analysis Utilities (``tau``) lets you profile GEOS-Chem in
-order to locate computational bottlenecks:
+The Tuning and Analysis Utilities (;program:`tau`) lets you profile
+:program:`GEOS-Chem` in order to locate computational bottlenecks:
 
 .. code-block:: console
 
@@ -258,18 +267,19 @@ order to locate computational bottlenecks:
 
 .. _loading-spack-packages-at-startup:
 
+=================================
 Loading Spack packages at startup
----------------------------------
+=================================
 
 .. _creating-an-environment-file-for-spack:
 
 Creating an environment file for Spack
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
-Once you have finished installing libraries with Spack, you can create
-an environment file to load the Spack libraries whenever you start a new
-Unix shell. Here is a sample environment file that can be used (or
-modified) to load the Spack libraries described above.
+Once you have finished installing libraries with :program:`Spack`, you
+can create an environment file to load the Spack libraries whenever
+you start a new Unix shell. Here is a sample environment file that can
+be used (or modified) to load the Spack libraries described above.
 
 .. code-block:: bash
 
@@ -310,7 +320,7 @@ modified) to load the Spack libraries described above.
       openmpi%gcc@10.2.0        \
       netcdf-fortran%gcc@10.2.0 \
       netcdf-c%gcc@10.2.0       \
-      hdf5%gcc@10.2.0           \ 
+      hdf5%gcc@10.2.0           \
       gdb%gcc@10.2.0            \
       flex%gcc@10.2.0           \
       openjdk%gcc@10.2.0        \
@@ -348,7 +358,7 @@ modified) to load the Spack libraries described above.
         export OMP_NUM_THREADS=${1}
       fi
     fi
-    echo "Number of OpenMP threads: $OMP_NUM_THREADS"   
+    echo "Number of OpenMP threads: $OMP_NUM_THREADS"
 
     #==============================================================================
     # %%%%% Define relevant environment variables %%%%%
@@ -401,19 +411,19 @@ or ``.bash_aliases``.
 .. _loading-spack-built-libraries:
 
 Loading Spack-built libraries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+-----------------------------
 Whenever you start a new Unix session (either by opening a terminal
-window or running a new job), your ``.bashrc`` and ``.bash_aliases`` files
-will be sourced, and the commands contained within them applied. You
-should then load the Spack modules by typing at the terminal prompt:
+window or running a new job), your :file:`.bashrc` and
+:file:`.bash_aliases` files will be sourced, and the commands
+contained within them applied. You should then load the Spack
+modules by typing at the terminal prompt:
 
 .. code-block:: console
 
     $ source ~/.spack.env
 
-You can also add some code to your ``.bash_aliases`` so that this will be
-done automatically:
+You can also add some code to your :file:`.bash_aliases` so that this
+will be done automatically:
 
 .. code-block:: bash
 
@@ -460,7 +470,7 @@ these Spack-built libraries.
 .. _setting-the-number-of-cores-for-openmp:
 
 Setting the number of cores for OpenMP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 If you type:
 
@@ -468,8 +478,9 @@ If you type:
 
     $ source ~/.spack.env
 
-by itself, this will set the ``OMP_NUM_THREADS`` variable to 1. This
-variable sets the number of computational cores that OpenMP should use.
+by itself, this will set the :envvar:`OMP_NUM_THREADS` variable
+to 1. This variable sets the number of computational cores that OpenMP
+should use.
 
 You can change this with, e.g.
 
@@ -477,14 +488,14 @@ You can change this with, e.g.
 
     source ~/.spack.env 6
 
-which will set ``OMP_NUM_THREADS`` to 6. In this case, GEOS-Chem Classic
-(and other programs that use OpenMP parallelization) will parallelize
-with 6 cores.
+which will set :envvar:`OMP_NUM_THREADS` to 6. In this case, GEOS-Chem
+Classic (and other programs that use OpenMP parallelization) will
+parallelize with 6 cores.
 
-If you are using the SLURM scheduler and are source ``.spack.env`` in your
-job script, then ``OMP_NUM_THREADS`` will be automatically set to
-``SLURM_CPUS_PER_TASK``, which is then number of cores requested. If you
-are not using SLURM then you should add e.g.
+If you are using the SLURM scheduler and are source :file:`.spack.env`
+in your job script, then :file:`OMP_NUM_THREADS` will be automatically
+set to :file:`SLURM_CPUS_PER_TASK`, which is then number of cores
+requested. If you are not using SLURM then you should add e.g.
 
 .. code-block:: bash
 
