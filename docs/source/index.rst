@@ -85,6 +85,7 @@ instructions specifically for using a clone of the source code.
    supplement/libraries.rst
    supplement/spack.rst
    supplement/netcdf-guide.rst
+   supplement/using-kpp-with-gc.rst
    supplement/video-tutorials.rst
 
 
