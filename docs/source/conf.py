@@ -23,7 +23,7 @@ copyright = '2022, GEOS-Chem Support Team'
 author = 'GEOS-Chem Support Team'
 
 # The full version, including alpha/beta/rc tags
-release = '13.4.0'
+release = '14.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -94,7 +94,7 @@ html_static_path = ['_static']
 
 html_context = {
     'css_files': [
-        '_static/theme_overrides.css',  # overrides for wide tables in RTD theme
+        'theme_overrides.css',  # overrides for wide tables in RTD theme
         ],
     }
     

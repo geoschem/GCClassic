@@ -1,7 +1,8 @@
-.. _history_diagnostics:
+.. _history-diagnostics:
 
-History diagnostics
-===================
+#############################
+GEOS-Chem History diagnostics
+#############################
 
 At present, our `Guide to GEOS-Chem History diagnostics
 <http://wiki.geos-chem.org/Guide_to_GEOS-Chem_History_diagnostics>`_

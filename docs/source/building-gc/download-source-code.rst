@@ -1,12 +1,14 @@
 .. _downloading-source-code:
 
+####################
 Download source code
-====================
+####################
 
 .. _geos-chem-classic-source-code-repositories:
 
+==========================================
 GEOS-Chem Classic source code repositories
-------------------------------------------
+==========================================
 
 The :program:`GEOS-Chem Classic` source code is distributed into 3
 Github repositories, as described below. This setup allows the
@@ -20,7 +22,7 @@ etc). This aligns with our `GEOS-Chem Vision
 .. _geos-chem-science-codebase:
 
 GEOS-Chem Science Codebase
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 The GEOS-Chem "Science" Codebase repository
 (`https://github.com/geoschem/geos-chem
@@ -37,7 +39,7 @@ science routines, plus:
 .. _hemco:
 
 HEMCO
-~~~~~
+-----
 
 The HEMCO repository (`https://github.com/geoschem/HEMCO
 <https://github.com/geoschem/HEMCO>`_) contains the source code for
@@ -48,7 +50,7 @@ inputs to GEOS-Chem.
 .. _gcclassic:
 
 GCClassic
-~~~~~~~~~
+---------
 
 The GCClassic repository (`https://github.com/geoschem/GCClassic
 <https://github.com/geoschem/GCClassic>`_) is a lightweight wrapper
@@ -58,15 +60,16 @@ GEOS-Chem (science codebase) and HEMCO are **submodules**.
 
 .. _download-instructions:
 
+=====================
 Download instructions
----------------------
+=====================
 
 Follow these directions to download the GEOS-Chem Classic source code:
 
 .. _clone-the-gcclassic-superproject-repository:
 
 Clone the GCClassic superproject repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 Type this command to download the latest stable :program:`GEOS-Chem
 Classic` version
@@ -77,11 +80,15 @@ Classic` version
 
 This will clone the code into a local folder named :file:`GCClassic`.
     
-.. tip:: If you wish, you can clone the GCClassic superproject
-	 repository into a different local folder by supplying the
-	 name of the folder at the end of the :command:`git clone` command:
-	 ::
-	    git clone https://github.com/geoschem/GCClassic.git my-code
+.. tip::
+
+   If you wish, you can clone the GCClassic superproject
+   repository into a different local folder by supplying the
+   name of the folder at the end of the :command:`git clone` command:
+
+   .. code-block :: console
+   
+      git clone https://github.com/geoschem/GCClassic.git my-code
    
 Once the :command:`git clone` process starts, you should see output
 similar to this: 
@@ -103,10 +110,10 @@ local folder:
 
    $ cd GCClassic
    
-.. _examine-the-contents-of-the-gcclassic-folder:
+.. _fetch-gc-and-hemco:
 
 Fetch the GEOS-Chem and HEMCO source codes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------
 
 At this point we have cloned the GCClassic superproject
 repository but we have not fetched source code from the underlying
@@ -120,39 +127,39 @@ To fetch the submodule codes, type:
 
 You should see output similar to this:
 
-.. code-block:: text
+.. code-block:: console
 
-    Submodule 'src/GEOS-Chem' (https://github.com/geoschem/geos-chem.git) registered for path 'src/GEOS-Chem'
-    Submodule 'src/HEMCO' (https://github.com/geoschem/hemco.git) registered for path 'src/HEMCO'
-    Cloning into 'GCClassic/src/GEOS-Chem'...
-    Cloning into 'GCClassic/src/HEMCO'...
-    Submodule path 'src/GEOS-Chem': checked out '22c503be96fa2dd848eb2fba142beb6d92a09889'
-    Submodule path 'src/HEMCO': checked out 'edf987e03f23be2d7588324bd62a52eb9c646248'
+   Submodule 'src/GEOS-Chem' (https://github.com/geoschem/geos-chem.git) registered for path 'src/GEOS-Chem'
+   Submodule 'src/HEMCO' (https://github.com/geoschem/hemco.git) registered for path 'src/HEMCO'
+   Cloning into 'GCClassic/src/GEOS-Chem'...
+   Cloning into 'GCClassic/src/HEMCO'...
+   Submodule path 'src/GEOS-Chem': checked out '22c503be96fa2dd848eb2fba142beb6d92a09889'
+   Submodule path 'src/HEMCO': checked out 'edf987e03f23be2d7588324bd62a52eb9c646248'
 
-The ``Submodule path`` statements indicate the commits on which the
+The :code:`Submodule path` statements indicate the commits on which the
 :file:`src/GEOS-Chem` and :file:`src/HEMCO` codes were placed on
 
 If we now get a directory listing:
 
 .. code-block:: console
 
-    $ ls -CF src/*
+   $ ls -CF src/*
 
 we see that the ":file:`src/GEOS-Chem` and :file:`src/HEMCO` folders contain
 directory structures full of source code:
 
 .. code-block:: text
 
-    src/CMakeLists.txt  src/gc_classic_version.H@  src/main.F90@
+   src/CMakeLists.txt  src/gc_classic_version.H@  src/main.F90@
 
-    src/GEOS-Chem:
-    APM/            CMakeScripts/  GeosUtil/  History/     lib/         ObsPack/   run/
-    AUTHORS.txt     doc/           GTMM/      Interfaces/  LICENSE.txt  PKUCPL/
-    bin/            GeosCore/      Headers/   ISORROPIA/   mod/         README.md
-    CMakeLists.txt  GeosRad/       help/      KPP/         NcdfUtil/    REVISIONS
+   src/GEOS-Chem:
+   APM/            CMakeScripts/  GeosUtil/  History/     lib/         ObsPack/   run/
+   AUTHORS.txt     doc/           GTMM/      Interfaces/  LICENSE.txt  PKUCPL/
+   bin/            GeosCore/      Headers/   ISORROPIA/   mod/         README.md
+   CMakeLists.txt  GeosRad/       help/      KPP/         NcdfUtil/    REVISIONS
 
-    src/HEMCO:
-    AUTHORS.txt  CMakeLists.txt  CMakeScripts/  LICENSE.txt  README.md  run/  src/
+   src/HEMCO:
+   AUTHORS.txt  CMakeLists.txt  CMakeScripts/  LICENSE.txt  README.md  run/  src/
 
 and now you can see the various files and subdirectories that make up
 the GEOS-Chem and HEMCO source codes.
@@ -160,7 +167,7 @@ the GEOS-Chem and HEMCO source codes.
 .. _pro-tip-define-an-alias-for-the-git-submodule-update-command:   
 
 Pro tip: Define an alias for git submodule update
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because you will use the :command:`git submodule update` command very
 often, we recommend that you define an alias for it. Simply add this
@@ -182,12 +189,11 @@ update --init --recursive`.
 .. _create_a_new_branch_in_src_geos_chem:
 
 Create a branch in src/GEOS-Chem for your work
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------------
 
 When you fetch the code in the GEOS-Chem and HEMCO submodules with the
 :command:`git submodule update --init --recursive` command
-:ref:`as described above
-<fetch-the-geos-chem-and-hemco-source-codes>`, the GEOS-Chem and
+(cf :ref:`fetch-gc-and-hemco`), the GEOS-Chem and
 HEMCO submodule codes will be in **detached HEAD state**. In
 other words, the code is checked out but a branch is not
 created. Adding new code to a detached HEAD state is very
@@ -219,10 +225,12 @@ modifications to the GEOS-Chem science codebase.  Type:
    $ git branch feature/my-git-updates
    $ git checkout feature/my-git-updates
 
-.. note::  This naming convention adheres to the
-	   `Github Flow <https://guides.github.com/introduction/flow/>`_ 
-	   conventions (i.e. new feature branches start with
-	   :file:`feature/`, bug fix branches start with :file:`bugfix/`, etc.
+.. note::
+
+   This naming convention adheres to the
+   `Github Flow <https://guides.github.com/introduction/flow/>`_ 
+   conventions (i.e. new feature branches start with
+   :file:`feature/`, bug fix branches start with :file:`bugfix/`, etc.
 
 Instead of :file:`feature/my-git-updates`, you may choose a name that reflects
 the nature of your updates (e.g. :file:`feature/new_reactions`, etc.)  If

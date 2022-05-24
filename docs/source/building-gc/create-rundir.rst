@@ -1,5 +1,8 @@
+.. _create-rundir:
+
+######################
 Create a run directory
-======================
+######################
 
 We have greatly simplified run directory creation in `GEOS-Chem
 13.0.0 <GEOS-Chem_13.0.0>`__ and later versions. You no longer need to
@@ -7,10 +10,11 @@ download the separate `GEOS-Chem Unit Tester <GEOS-Chem_Unit_Tester>`__
 repository any longer, but can create run directories from a script in
 the GEOS-Chem source code itself.
 
-.. _example_1_creating_a_run_directory_for_a_full_chemistry_simulation:
+.. _example1-fullchem:
 
+===========================================================
 Example 1: Create a full-chemistry simulation run directory
------------------------------------------------------------
+===========================================================
 
 Let us walk through the process of creating a run directory for a global
 GEOS-Chem full-chemistry simulation.
@@ -62,7 +66,9 @@ script we are interested in is :file:`createRunDir.sh`.
 **4.** You will then be prompted to supply information about the run
 directory that you wish to create:
 
-.. code-block::
+** TODO: Update w/ GEOS-Chem 14.0.0 output **
+
+.. code-block:: console
 
    ===========================================================
    GEOS-CHEM RUN DIRECTORY CREATION
@@ -82,7 +88,8 @@ directory that you wish to create:
       9. Tagged O3
      10. TransportTracers
 
-To create a run directory for the full-chemistry simulation, type ``1`` followed by the ``ENTER`` key.
+To create a run directory for the full-chemistry simulation, type
+``1`` followed by the ``ENTER`` key. 
 
 **5.** You will then be prompted to specify whether you want to perform
 chemistry in the stratosphere or not:
@@ -248,10 +255,11 @@ then start fresh.
 can navigate there and then start editing the GEOS-Chem configuration
 files.
 
-.. _example_2_creating_a_run_directory_for_the_methane_simulation:
+.. _example2-ch4:
 
+================================================
 Example 2: Create a CH4 simulation run directory
-------------------------------------------------
+================================================
 
 The process of creating run directories for the GEOS-Chem specialty
 simulations is similar to that as listed in Example 1 above. However,
@@ -452,3 +460,41 @@ then start fresh.
 **11.** The script will display the full path to the run directory. You
 can navigate there and then start editing the GEOS-Chem configuration
 files.
+
+.. _important-rundir-files:
+
+=============================
+Important run directory files
+=============================
+
+Each :program:`GEOS-Chem Classic` run directory that you create will
+contain the following files:
+
+.. table:: Run directory files
+
+   +--------------------------+---------------------------------------------+
+   | File                     | Description                                 |
+   +==========================+=============================================+
+   | A restart file           | Contains initial conditions for the         |
+   |                          | simulation. (cf :ref:`restart-files`)       |
+   +--------------------------+---------------------------------------------+
+   | ``species_database.yml`` | Contains species metadata (e.g. molecular   |
+   |                          | weights, Henry's law constants, etc.)       |
+   +--------------------------+---------------------------------------------+
+   | `` geoschem_config.yml`` | Contains user-editable settings that        |
+   |                          | specify options for the given GEOS-Chem     |
+   |                          | simulation. (cf :ref:`geoschem-config`)     |
+   +--------------------------+---------------------------------------------+
+   | ``HEMCO_Config.rc``      | Contain user-editable settings that control |
+   |                          | which emission inventories and other data   |
+   |                          | sets will be read into GEOS-Chem via HEMCO. |
+   |                          | (cf. :ref:`hemco-config`).                  |
+   +--------------------------+---------------------------------------------+
+   | ``HEMCO_Diagn.rc``       | Contains user-editable settings that tell   |
+   |                          | HEMCO which diagnostic quantities to        |
+   |                          | archive. (cf. :ref:`hemco-diagn`)           |
+   +--------------------------+---------------------------------------------+
+   | ``HISTORY.rc``           | Contains user-editable settings that        |
+   |                          | specify which GEOS-Chem diagnostics will    |
+   |                          | be archived. (cf. :ref:`history`)           |
+   +--------------------------+---------------------------------------------+

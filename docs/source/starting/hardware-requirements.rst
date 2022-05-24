@@ -1,10 +1,14 @@
+.. _hardware_requirements:
+
+#####################
 Hardware requirements
-=====================
+#####################
 
 .. _computer-system-requirements:
 
+===============
 Computer system
--------------------
+===============
 
 You will need to have access to one (or both) of these types of
 computational resources in order to use :program:`GEOS-Chem Classic`:
@@ -12,7 +16,7 @@ computational resources in order to use :program:`GEOS-Chem Classic`:
 .. _a-unix-based-computer-system:
 
 A Unix-based computer system
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 GEOS-Chem can only be used within a Unix-like operating system
 environment.  Any flavor of Unix (e.g. RHEL/Fedora/Centos, Ubuntu,
@@ -26,7 +30,7 @@ assistance.
 .. _an-account-on-the-amazon-web-services-cloud:
 
 An account on the Amazon Web Services cloud
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 If your institution lacks computational resources (or if you need
 additional computational resources), then you should consider signing
@@ -44,8 +48,9 @@ You can learn more about how to use GEOS-Chem on the cloud by `visiting this tut
 
 .. _memory-requirements:
 
+===================
 Memory requirements
--------------------
+===================
 
 If you plan to run GEOS-Chem on a local computer system, please make
 sure that your system has sufficient memory and disk space:
@@ -53,13 +58,13 @@ sure that your system has sufficient memory and disk space:
 .. _enough-memory-to-run-GEOS-Chem:
 
 Enough memory to run GEOS-Chem
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
-For the 4 :sup:`o`  by 5 :sup:`o` "standard" simulation
+For the :math:`4^{\circ}{\times}5^{\circ}` "standard" simulation
 
   - 8-15 GB RAM
 
-For the 2 :sup:`o` by 2.5\ :sup:`o` "standard" simulation:
+For the :math:`2^{\circ}{\times} 2.5^{\circ}` "standard" simulation:
 
   - 30-40 GB RAM
   - 20 GB memory (MaxRSS)
@@ -77,36 +82,36 @@ benchmark simulations.
 .. _extra-memory-for-special-simulations:
 
 Extra memory for special simulations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
-You may want to consider at least 30 GB RAM if you plan on doing any of the following:
+You may want to consider at least 30 GB RAM if you plan on doing any
+of the following: 
 
-  - Running high-resolution (e.g. 1\ :sup:`o` \ x 1\ :sup:`o` \; or
+  - Running high-resolution (e.g. :math:`1^{\circ}{\times}1.25^{\circ}` or
     higher resolution) global simulations
 
-  - Running high-resolution (e.g. 0.25\ :sup:`o` \ x 0.3125\ :sup:`o` \
-    or 0.5\ :sup:`o` \ x 0.625\ :sup:`o`\) nested-grid simulations 
+  - Running high-resolution (e.g. :math:`0.25^{\circ}{\times}0.3125^{\circ}`
+    or  :math:`0.5^{\circ}{\times}0.625^{\circ}` 
 
-  - Running 2\ :sup:`o` \ x 2.5\ :sup:`o` \ global simulation and saving a
-    lot of  output fields (the more output you generate the more
-    memory :program:`GEOS-Chem Classic` will require).
+  - Running :math:`2^{\circ}{\times}2.5^{\circ}` and generating a lot
+    of diagnostic output.  The more diagnostics you turn on, the more
+    memory GEOS-Chem Classic will require).
 
-.. _disk space:
+.. _disk_space:
 
+==========
 Disk space
-----------
+==========
 
 .. _input-data-for-geos-chem:
 
-
 Input data for GEOS-Chem
-~~~~~~~~~~~~~~~~~~~~~~~~
-
+-------------------------
 The following sections will help you assess how much disk space you
-will need on your server to store :program:`GEOS-Chem Classic` input
+will need on your server to store GEOS-Chem Classic input
 data. 
 
-The data format used by :program:`GEOS-Chem Classic` is
+The data format used by GEOS-Chem Classic is
 `COARDS-compliant netCDF
 <http://wiki.seas.harvard.edu/geos-chem/index.php/The_COARDS_netCDF_conventions_for_earth_science_data>`_. This
 is a standard file format used for Earth Science applications. 
@@ -114,77 +119,75 @@ is a standard file format used for Earth Science applications.
 .. _emissions-fields:
 
 Emissions fields
-^^^^^^^^^^^^^^^^
-
-Please see our `HEMCO data directories
-<https://wiki.geos-chem.org/HEMCO_data_directories>`_ page to see how
-much disk space each of the emissions inventory requires.  Emissions
-inventories will be read into GEOS-Chem by 
+~~~~~~~~~~~~~~~~
+Please see our :ref:`hemco-data-dirs.rst` page for more information.
 
 .. _meteorology-fields:
 
 Meterorology fields
-^^^^^^^^^^^^^^^^^^^
-
+~~~~~~~~~~~~~~~~~~~
 The amount of disk space that you will need depends on two things:
 
   1. Which type of met data you will use, and
   2. How many years of met data you will download
 
-.. _merra2-disk-space:
+.. _merra2-size-table:
+     
+.. table:: Disk space needed for 1-year of MERRA-2 data
 
-MERRA-2
-^^^^^^^
+   +--------------------------------------------+------------------+--------+
+   | Resolution                                 | Type             | Size   |
+   |                                            |                  | GB/yr  |
+   +============================================+==================+========+
+   | :math:`1^{\circ}{\times}1.25^{\circ}`      | Global           | ~30    |
+   +--------------------------------------------+------------------+--------+
+   | :math:`2^{\circ}{\times}2.5^{\circ}`       | Global           | ~110   |
+   +--------------------------------------------+------------------+--------+
+   | :math:`0.5^{\circ}{\times}0.625^{\circ}`   | Nested Asia      | ~115   |
+   |                                            | (aka AS)         |        |
+   +--------------------------------------------+------------------+--------+
+   | :math:`0.5^{\circ}{\times}0.625^{\circ}`   | Nested Europe    | ~58    |
+   |                                            | (aka EU)         |        |
+   +--------------------------------------------+------------------+--------+
+   | :math:`0.5^{\circ}{\times}0.625^{\circ}`   | Nested North     | ~110   |
+   |                                            | America (aka NA) |        |
+   +--------------------------------------------+------------------+--------+
 
-+-----------------------------------------------------------+----------+
-| Resolution                                                | Size     |
-+===========================================================+==========+
-|Global 4\ :sup:`o`\ x 5\ :sup:`o`\                         |~30 GB/yr |
-+-----------------------------------------------------------+----------+
-|Global 2\ :sup:`o`\ x 2.5\ :sup:`o`\                       |~110 GB/yr|
-+-----------------------------------------------------------+----------+
-|Asia (AS) Nested 0.5\ :sup:`o`\ x 0.625\ :sup:`o`\         |~115 GB/yr|
-+-----------------------------------------------------------+----------+
-|Europe (EU) Nested 0.5\ :sup:`o`\ x 0.625\ :sup:`o`\       |~58 GB/yr |
-+-----------------------------------------------------------+----------+
-|North America (NA) Nested 0.5\ :sup:`o`\ x 0.625\ :sup:`o`\|~110 GB/yr|
-+-----------------------------------------------------------+----------+
+.. _geosfp-size-table:
+     
+.. table:: Disk space needed for 1-year of GEOS-FP data
 
-.. _geosfp-disk-space:
+   +--------------------------------------------+------------------+--------+
+   | Resolution                                 | Type             | Size   |
+   |                                            |                  | GB/yr  |
+   +============================================+==================+========+
+   | :math:`1^{\circ}{\times}1.25^{\circ}`      | Global           | ~30    |
+   +--------------------------------------------+------------------+--------+
+   | :math:`2^{\circ}{\times}2.5^{\circ}`       | Global           | ~120   |
+   +--------------------------------------------+------------------+--------+
+   | :math:`0.25^{\circ}{\times}0.3125^{\circ}` | Nested Asia      | ~175   |
+   |                                            | (aka AS)         |        |
+   +--------------------------------------------+------------------+--------+
+   | :math:`0.25^{\circ}{\times}0.3125^{\circ}` | Nested Europe    | ~175   |
+   |                                            | (aka EU)         |        |
+   +--------------------------------------------+------------------+--------+
+   | :math:`0.25^{\circ}{\times}0.3125^{\circ}` | Nested North     | ~175   |
+   |                                            | America (aka NA) |        |
+   +--------------------------------------------+------------------+--------+
 
-GEOS-FP
-^^^^^^^
-
-+-------------------------------------------------------------+----------+
-| Resolution                                                  | Size     |
-+=============================================================+==========+
-|Global 4\ :sup:`o`\ x 5\ :sup:`o`\                           |~30 GB/yr |
-+-------------------------------------------------------------+----------+
-|Global 2\ :sup:`o`\ x 2.5\ :sup:`o`\                         |~120 GB/yr|
-+-------------------------------------------------------------+----------+
-|China (CH) Nested 0.25\ :sup:`o`\ x 0.3125\ :sup:`o`\        |~175 GB/yr|
-+-------------------------------------------------------------+----------+
-|Europe (EU) Nested 0.25\ :sup:`o`\ x 0.3125\ :sup:`o`\       |~58 GB/yr |
-+-------------------------------------------------------------+----------+
-|North America (NA) Nested 0.25\ :sup:`o`\ x 0.3125\ :sup:`o`\|~225 GB/yr|
-+-------------------------------------------------------------+----------+
-
-.. _gcap2-disk-space:
-
-GCAP-2.0
-^^^^^^^^
-
-To be added
+GCAP 2.0: to be added
 
 .. _obtaining-emissions-data-and-met-fields:
 
 Obtaining emissions data and met fields
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You may use a :ref:`GEOS-Chem Classic "dry-run" simulation
-<download-data-with-a-dry-run-simulation>` to only download as many
+You may use a GEOS-Chem Classic dry-run simulation
+(cf. :ref:`download-data-with-a-dry-run-simulation`) download as many 
 emissions inventories and met field data files as your simulation
 needs.   
+
+You may also use the bashdatacatalog (TODO add explanation)
 
 If you need to download large amounts of data, consider using
 `Globus <https://www.globus.org/data-transfer>`_.  We have created a
@@ -230,7 +233,7 @@ Reducing output file sizes
 
 You may subset the horizontal and vertical size of the diagnostic
 output files in order to save space.  For more information, please see
-our section on :ref:`History diagnostics <history_diagnostics>`.
+our section on :ref:`history-diagnostics`.
 
 Furthermore, since GEOS-Chem 13.0.0, we have modified the diagnostic
 code so that diagnostic arrays are only dimensioned with enough
