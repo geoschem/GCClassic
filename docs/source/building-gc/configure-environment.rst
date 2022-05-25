@@ -35,7 +35,7 @@ Environment files
    Classic` on an Amazon EC2 cloud instance.  When you initialize the
    EC2 instance with one of the pre-configured Amazon Machine Images
    (AMIs) all of the required software libraries will be automatically
-   loaded. 
+   loaded.
 
 We recommend that you place module load commands into a separate
 **environment file**  rather than directly into your :file:`~/.bashrc`
@@ -220,7 +220,7 @@ Use the following environment variables to specify compilers:
 
 .. table:: Environment variables that specify the choice of compiler
    :align: center
-	   
+
    +---------------+------------------+--------------------+-----------------+
    | Variable      | Specifies the:   | GNU name           | Intel name      |
    +===============+==================+====================+=================+
@@ -239,7 +239,7 @@ These environment variables should be defined in your
    Only the Fortran compiler is needed to compile :program:`GEOS-Chem
    Classic`.  But if you will be building other software packages
    (cf  :ref:`kppguide`), or :ref:`manually installing libraries
-   <build-libraries-for-geos-chem-with-spack>`, 
+   <build-libraries-for-geos-chem-with-spack>`,
    you will also need the C and C++ compilers.
 
 .. _specifying-parallelization-settings:
@@ -250,21 +250,21 @@ Set environment variables for parallelization
 
 :program:`GEOS-Chem Classic` uses `OpenMP parallelization
 <Parallelizing_GEOS-Chem>`_, which is an implementation of
-shared-memory (aka serial) parallelization. Two environment variables
-control the OpenMP parallelization settings, as defined below.
+shared-memory (aka serial) parallelization.
 
 .. important::
 
    OpenMP-parallelized programs (such as GEOS-Chem Classic) cannot
-   execute on more than 1 computational node.
-
-   Most modern computational nodes typically contain  between 16 and
-   64 cores. Therefore, :program:`GEOS-Chem Classic` simulations will
+   execute on more than 1 computational node.  Most modern
+   computational nodes typically contain  between 16 and 64
+   cores. Therefore, :program:`GEOS-Chem Classic` simulations will
    not be able to take advantage of more cores than these.
- 
+
    We recommend that you consider using `GCHP
    <https://gchp.readthedocs.io>`_ for more computationally-intensive
    simulations.
+
+Two environment variables control the OpenMP parallelization settings:
 
 .. option:: OMP_NUM_THREADS
 
@@ -291,25 +291,26 @@ control the OpenMP parallelization settings, as defined below.
    (The stack memory is where local automatic variables and temporary
    :envvar:`!$OMP PRIVATE` variables will be created.) Add the following lines to
    your system startup file and to your GEOS-Chem run scripts:
-   
+
    .. code-block:: bash
-   
+
       ulimit -s unlimited
       export OMP_STACKSIZE=500m
-   
+
    The :command:`ulimit -s unlimited` will tell the bash shell to use the
    maximum amount of stack memory that is available.
-   
+
    The environment variable :envvar:`OMP_STACKSIZE` must also be set to a very
    large number. In this example, we are nominally requesting 500 MB of
    memory. But in practice, this will tell the GNU Fortran compiler to use
    the maximum amount of stack memory available on your system. The value
    **500m** is a good round number that is larger than the amount of stack
    memory on most computer clusters, but you can increase this if you wish.
-   
-   We recommend that you set :envvar:`OMP_STACKSIZE` not only in your Bash startup
-   script, but in also each :ref:`GEOS-Chem run script <Sample GEOS-Chem
-   run scripts>`  that you use.
+
+   We recommend that you set :envvar:`OMP_STACKSIZE` not only in your
+   Bash startup script, but in also each `GEOS-Chem run script
+   <https://github.com/geoschem/geos-chem/tree/main/run/GCClassic/runScriptSamples>`_
+   that you use.
 
 .. _errors_caused_by_incorrect_settings:
 
@@ -318,16 +319,16 @@ Errors caused by incorrect environment variable settings
 
 Be on the lookout for these errors:
 
-  1. If :option:`OMP_NUM_THREADS` is set to 1, then your
+  #. If :option:`OMP_NUM_THREADS` is set to 1, then your
      :program:`GEOS-Chem Classic` simulation will execute using only
      one  computational core.  This will make your simulation take much
      longer than is necessary.
 
-  2. If :option:`OMP_STACKSIZE` environment variable is not included
+  #. If :option:`OMP_STACKSIZE` environment variable is not included
      in your environment file (or if it is set to a very low value),
-     you might encounter a segmentation fault `segmentation fault
-     error after the TPCORE transport module is initialized
-     <Segmentation_faults#Segmentation_fault_encountered_after_TPCORE_initialization>`_.
+     you might encounter a `segmentation fault error after the TPCORE
+     transport module is initialized
+     <Segmentation_faults#Segmentation_fault_encountered_after_TPCORE_initialization>`_. 
      In this case, :program:`GEOS-Chem Classic` "thinks" that it does
      not have enough memory to perform the simulation, even though
-     sufficient memory may be present. 
+     sufficient memory may be present.

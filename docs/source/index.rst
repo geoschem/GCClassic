@@ -18,18 +18,18 @@ GEOS-Chem Classic
    Contributions (e.g., suggestions, edits, revisions) would be greatly appreciated. See
    :ref:`editing this guide <editing_this_user_guide>` and our :doc:`contributing guidelines <reference/CONTRIBUTING.md>`.
    If you find a something hard to understand---let us know!
-   
+
 
 This site provides instructions for :program:`GEOS-Chem Classic`,
 the single-node mode of operation of the
 `GEOS-Chem model <http://acmg.seas.harvard.edu/geos/>`_.  We provide
 instruction for downloading and compiling GEOS-Chem Classic, plus its
 required software libraries.
-   
+
 GEOS-Chem is a global 3-D model of atmospheric composition driven by
 assimilated meteorological observations from the Goddard Earth
 Observing System (GEOS) of the `NASA Global Modeling and Assimilation
-Office <http://gmao.gsfc.nasa.gov/>`_. 
+Office <http://gmao.gsfc.nasa.gov/>`_.
 It is applied by `research groups around the world
 <http://acmg.seas.harvard.edu/geos/geos_people.html>`_  to a wide
 range of atmospheric composition problems.
@@ -40,7 +40,7 @@ range of atmospheric composition problems.
 Cloning and building from source code ensures you will have direct
 access to the latest available versions of GEOS-Chem CLassic, provides
 additional compile-time options, and allows you to make your own
-modifications to GEOS-Chem Classic source code. 
+modifications to GEOS-Chem Classic source code.
 
 Our `Quick Start Guide <getting-started/quick-start.html>`__ and the
 `downloading <user-guide/downloading.html>`__, `compiling
@@ -66,7 +66,7 @@ instructions specifically for using a clone of the source code.
    building-gc/create-rundir.rst
    building-gc/compile-geos-chem.rst
 
-.. toctree::  
+.. toctree::
    :caption: Downloading input data
    :maxdepth: 6
 
@@ -80,13 +80,14 @@ instructions specifically for using a clone of the source code.
    :caption: Configuring runs
    :maxdepth: 6
 
+   config/config-overview.rst
    config/geoschem-config.rst
    config/hemco-config.rst
    config/hemco-diagn.rst
    config/history.rst
-	     
+
 .. toctree::
-   :caption: Output from GEOS-Chem     
+   :caption: Output from GEOS-Chem
    :maxdepth: 6
 
 .. toctree::
@@ -97,11 +98,11 @@ instructions specifically for using a clone of the source code.
    diagnostics/history.rst
    diagnostics/obspack.rst
    diagnostics/planeflight.rst
-   
+
 .. toctree::
-   :caption: Supplemental guides   
+   :caption: Supplemental guides
    :maxdepth: 6
-   
+
    supplement/directory-structure.rst
    supplement/run-script-examples.rst
    supplement/libraries.rst

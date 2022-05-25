@@ -8,7 +8,7 @@ On this page we provide information about the GEOS-Chem planeflight
 diagnostic, which allows you to save certain diagnostic quantities
 along flight tracks or at the position of ground observations.  This
 can be more efficient in terms of storage than saving out 3-D data
-files via the :ref:`GEOS-Chem History diagnostics <history_diagnostics>`.
+files via the :ref:`GEOS-Chem History diagnostics <history-diagnostics>`.
 
 .. attention::
 

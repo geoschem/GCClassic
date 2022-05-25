@@ -24,7 +24,7 @@ GEOS-Chem folder tree
 
   Contains most GEOS-Chem modules & routines
 
-.. optoin:: GCClassic/src/GEOS-Chem/GeosRad
+.. option:: GCClassic/src/GEOS-Chem/GeosRad
 
   Contains the RRTMG radiative transfer model source code.
 

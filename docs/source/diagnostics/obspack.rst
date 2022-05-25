@@ -1,7 +1,8 @@
 .. _obspack-diagnostic:
 
+##################
 ObsPack diagnostic
-==================
+##################
 
 On this page we provide information about the ObsPack diagnostic in
 GEOS-Chem, which is intended to sample GEOS-Chem data at specified
@@ -12,30 +13,32 @@ Andrew Schuh of Colorado State University and implemented in GEOS-Chem
 
 .. _specifying_obspack_diagnostic_options:
 
+=====================================
 Specifying ObsPack diagnostic options
--------------------------------------
+=====================================
 
 `The ObsPack Menu section of input.geos <http://wiki.geos-chem.org/The_input.geos_file#ObsPack_diagnostic>`_ is where you define the following settings:
 
-1. Turning ObsPack or off
+#. Turning ObsPack or off
 
-2. Specifying which GEOS-Chem species you would like to archive.
+#. Specifying which GEOS-Chem species you would like to archive.
 
    - At present, you can archive individual species, or all advected species.
 
-3. Specifying the names of input files
+#. Specifying the names of input files
 
    - These are the files from which coordinate data will be read)
 
-4. Specifying the names of output files
+#. Specifying the names of output files
 
    - These are the files that will contain GEOS-Chem data sampled by the
      ObsPack diagnostic.
 
 .. _input_file_format:
 
+=================
 Input file format
------------------
+=================
 
 The ObsPack diagnostic reads input information (such as coordinates,
 sampling method, and observation ID's) from netCDF files having the
@@ -48,17 +51,18 @@ ObsPack input files can be downloaded from NOAA (see
 `https://www.esrl.noaa.gov/gmd/ccgg/obspack/
 <https://www.esrl.noaa.gov/gmd/ccgg/obspack/>`_).
 
-.. important::  Starting in ObsPack v6, :file:`time_components`
-		indicates the start-time of the sampling interval, not
-		the center time. For the center time, we need to read
-		the :file:`time` variable. The :file:`time` variable
-		represents the center of the averaging window in all
-		ObsPack data versions.
+.. attention::
+
+   Starting in ObsPack v6, :file:`time_components` indicates the
+   start-time of the sampling interval, not the center time. For the
+   center time, we need to read the :file:`time` variable. The
+   :file:`time` variable represents the center of the averaging window
+    in all ObsPack data versions.
 
 .. _obspack_file_metadata:
 
 Obspack file metadata
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Here is the metadata from an ObsPack data file. We have only displayed
 the variables that the ObsPack module needs to read.
@@ -143,8 +147,9 @@ Notes
 
 .. _output_file_format:
 
+==================
 Output file format
-------------------
+==================
 
 The ObsPack diagnostic will produce a file called
 :file:`GEOSChem.ObsPack.YYYYMMDD_hhmmz.nc4` for each day where an
@@ -227,13 +232,14 @@ either Python scripts or Jupyter notebooks.
 
 .. _known_issues:
 
+============
 Known issues
-----------------
+============
 
 .. _unit_conversions_are_currently_done_for_all_species:
 
 Unit conversions are currently done for all species
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------
 
 In routine :file:`ObsPack_Sample` (located in module
 :file:`ObsPack/obspack_mod.F90`), the following algorithm is used:
@@ -254,17 +260,17 @@ In routine :file:`ObsPack_Sample` (located in module
     call Convert_Spc_Units( am_I_root, Input_Opt, State_Met,                 &
 
 
-The routine :file:`Convert_Spc_Units` performs unit conversions for all of the
-species in the :file:`State_Chm%Species` array, regardless of whether they are
-being archived with ObsPack or not. This can lead to a bottleneck in
-performance, as :file:`ObsPack_Sample` is called on every GEOS-Chem
-"heartbeat" timestep.
+The routine :file:`Convert_Spc_Units` performs unit conversions for
+all of the species in the :file:`State_Chm%Species` array, regardless
+of whether they are being archived with ObsPack or not. This can lead
+to a bottleneck in performance, as :file:`ObsPack_Sample` is called on
+every GEOS-Chem "heartbeat" timestep.
 
-What would be more efficient would be to do the unit conversion only for
-those species that are being archived by ObsPack. A typical
-full-chemistry simulation includes about 200 species. But if we are only
-using ObsPack to archive 10 of these species, GEOS-Chem would execute
-much faster if we were doing unit conversions for only the 10 archived
-species instead of all 200 species.
+What would be more efficient would be to do the unit conversion only
+for hose species that are being archived by ObsPack. A typical
+full-chemistry simulation includes about 200 species. But if we are
+only using ObsPack to archive 10 of these species, GEOS-Chem would
+execute much faster if we were doing unit conversions for only the 10
+archived species instead of all 200 species.
 
 This issue is currently unresolved.

@@ -4,7 +4,7 @@
 Software requirements
 #####################
 
-This chapter lists the required software libraries that you must have installed on your system in order to use GEOS-Chem. 
+This chapter lists the required software libraries that you must have installed on your system in order to use GEOS-Chem.
 
 - If you are using a shared computer cluster, then many of these
   libraries have probably already been pre-installed by your IT
@@ -12,11 +12,11 @@ This chapter lists the required software libraries that you must have installed 
 
 - If you plan to use GEOS-Chem on the Amazon Web services cloud, then
   all of these libraries will be included with the Amazon Machine
-  Image (AMI) that you will use to start your cloud instance. 
+  Image (AMI) that you will use to start your cloud instance.
 
 - If your computer cluster has none of these libraries installed, then
   you will have to install them yourself
-  (cf. :ref:`build-libraries-for-geos-chem-with-spack`). 
+  (cf. :ref:`build-libraries-for-geos-chem-with-spack`).
 
 .. _supported-compilers-for-GEOS-Chem-Classic:
 
@@ -28,7 +28,7 @@ GEOS-Chem is written in the Fortran programming language. However, you
 will also need C and C++ compilers to install certain libraries (like
 :ref:`netcdf`) on your system.
 
-.. _the-intel-compiler-suite:
+.. _ifort-req:
 
 The Intel Compiler Suite
 ------------------------
@@ -41,7 +41,7 @@ institutions will have an Intel site license that allows you to use
 these compilers.
 
 The GCST has tested :program:`GEOS-Chem Classic` with these versions
-(but others may work as well): 
+(but others may work as well):
 
 - 19.0.5.281
 - 19.0.4
@@ -51,7 +51,7 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 - 13.0.079
 - 11.1.069
 
-Best way to install: `Direct from Intel
+**Best way to install:**  `Direct from Intel
 <https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html>`_
 (may require purchase of a site license or a student license)
 
@@ -60,7 +60,7 @@ Best way to install: `Direct from Intel
    Intel 2021 may be obtained for free, or installed with a
    package manager such as `Spack <https://spack.readthedocs.io>`_.
 
-.. _the-gnu-compiler-collection:
+.. _gcc-req:
 
 The GNU Compiler Collection
 ---------------------------
@@ -72,7 +72,7 @@ good choice if your institution lacks an Intel site license, or if you
 are running GEOS-Chem on the Amazon EC2 cloud environment.
 
 The GCST has tested :program:`GEOS-Chem Classic` with these versions
-(but others may work as well): 
+(but others may work as well):
 
 - 11.2.0
 - 11.1.0
@@ -85,55 +85,58 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 - 7.1.0
 - 6.2.0
 
-Best way to install: :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`, 
-  
+**Best way to install:**  :ref:`With Spack
+<build-libraries-for-geos-chem-with-spack>`.
+
 .. _required-software-packages-for-geos-chem:
 
 ========================================
 Required software packages for GEOS-Chem
 ========================================
 
-.. _git:
+.. _git-req:
 
 Git
 ---
 `Git <https://git-scm.com>`_ is the de-facto software industry
-standard package for source code management.
+standard package for source code management. A version of Git usually
+ships with most Linux OS builds.
 
-The GEOS-Chem source code can be downloaded using the Git source code 
+The GEOS-Chem source code can be downloaded using the Git source code
 management system. GEOS-Chem software repositories are stored at the
 `https://github.com/geoschem <https://github.com/geoschem>`_
 organization page.
 
-Best way to install: `git-scm.com/downloads <https://git-scm.com/downloads>`_.
+**Best way to install:** `git-scm.com/downloads
+<https://git-scm.com/downloads>`_.  But first check if you have a version of
+Git pre-installed.
 
-.. _cmake:
+.. _cmake-req:
 
 CMake
 -----
 `CMake <https://cmake.org/>`_ is software that directs how the
 GEOS-Chem source code is compiled into an executable.  You will need
-:program:`CMake` version 3.13 or later to build GEOS-Chem Classic. 
+:program:`CMake` version 3.13 or later to build GEOS-Chem Classic.
 
-Best way to install: :ref:`With Spack
+**Best way to install:**  :ref:`With Spack
 <build-libraries-for-geos-chem-with-spack>`.
 
-.. _gnu-make:
+.. _gnu-make-req:
 
 GNU Make
 --------
 :program:`GNU Make` is software that can build executables from source
-code. 
+code.
 
 While GNU Make is not required for GEOS-Chem 13.0.0 and later, some
 external libraries that you might need to build will require GNU
 Make. Therefore it is best to download GNU Make along with CMake.
 
-Best way to install: :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`. 
+**Best way to install:**  :ref:`With Spack
+<build-libraries-for-geos-chem-with-spack>`.
 
-.. _netcdf:
+.. _netcdf-req:
 
 The netCDF library (plus dependencies)
 --------------------------------------
@@ -143,7 +146,7 @@ GEOS-Chem input and output data files use the netCDF file format
 that allows meadata (descriptive text) to be stored alongside data
 values.
 
-Best way to install: :ref:`With Spack
+**Best way to install:**  :ref:`With Spack
 <build-libraries-for-geos-chem-with-spack>`.
 
 .. _optional-but-recommended-software-packages:
@@ -152,7 +155,7 @@ Best way to install: :ref:`With Spack
 Optional but recommended software packages
 ==========================================
 
-.. _gcpy:
+.. _gcpy-req:
 
 GCPy
 ----
@@ -165,10 +168,10 @@ does contain many useful functions for creating zonal mean and
 horizontal plots from GEOS-Chem output. It also contains scripts to
 generate plots and tables from GEOS-Chem benchmark simulations.
 
-Best way to install:
+**Best way to install:** 
 `With Conda (see gcpy.readthedocs.io) <https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html>`__
 
-.. _gdb:
+.. _gdb-req:
 
 gdb and cgdb
 ------------
@@ -177,10 +180,10 @@ graphical interface (cgdb) <https://cgdb.github.io/>`_ are very useful
 tools for tracking down the source of GEOS-Chem errors, such
 as segmentation faults, out-of-bounds errors, etc.
 
-Best way to install: :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`. 
+**Best way to install:**  :ref:`With Spack
+<build-libraries-for-geos-chem-with-spack>`.
 
-.. _ncview:
+.. _ncview-req:
 
 ncview
 ------
@@ -190,31 +193,31 @@ publication-quality output, ncview can let you easily examine the
 contents of a netCDF data file (such as those which are input and
 output by GEOS-Chem). Ncview is very useful for debugging and development.
 
-.. _nco:
+.. _nco-req:
 
 nco
 ---
 `The netCDF operators (nco)
 <http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`_ are
 powerful command-line tools for editing and manipulating data in
-netCDF format. 
+netCDF format.
 
-Best way to install: :ref:`With Spack
+**Best way to install:**  :ref:`With Spack
 <build-libraries-for-geos-chem-with-spack>`.
 
-.. _cdo:
+.. _cdo-req:
 
 cdo
 ---
 `The Climate Data Operators (cdo)
 <https://code.mpimet.mpg.de/projects/cdo/l>`_ are powerful
 command-line utilities for editing and manipulating data in netCDF
-format.  
+format.
 
-Best way to install: :ref:`With Spack
+**Best way to install:** :ref:`With Spack
 <build-libraries-for-geos-chem-with-spack>`.
 
-.. _kpp:
+.. _kpp-req:
 
 KPP
 ---
@@ -224,10 +227,10 @@ input files to Fortran-90 source code.  You will need to use
 :program:`KPP` if you plan on updating any of the chemical mechanisms
 that ship with GEOS-Chem.
 
-Best way to install: `Clone from github.com/KineticPreProcessor/KPP
+**Best way to install:**  `Clone from github.com/KineticPreProcessor/KPP
 <https://github.com/KineticPreProcessor/KPP>`_.
 
-.. _flex:
+.. _flex-req:
 
 flex
 ----
@@ -235,5 +238,5 @@ flex
 Analyzer. :program:`KPP` requires :program:`flex` to parse the
 chemical mechanism input files.
 
-Best way to install: :ref:`With Spack
+**Best way to install:** :ref:`With Spack
 <build-libraries-for-geos-chem-with-spack>`.

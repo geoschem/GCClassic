@@ -92,45 +92,53 @@ generate output similar to this:
 
 .. code-block:: text
 
+   -- The Fortran compiler identification is GNU 9.3.0
+   -- Check for working Fortran compiler: /usr/bin/gfortran
+   -- Check for working Fortran compiler: /usr/bin/gfortran  -- works
+   -- Detecting Fortran compiler ABI info
+   -- Detecting Fortran compiler ABI info - done
+   -- Checking whether /usr/bin/gfortran supports Fortran 90
+   -- Checking whether /usr/bin/gfortran supports Fortran 90 -- yes
    =================================================================
-   GCClassic 13.0.0 (top-level wrapper)
-   Current status: 13.0.0-beta.1-16-ged3eabe.dirty
+   GCClassic 14.0.0 (superproject wrapper)
+   Current status: 14.0.0-alpha.3-1-g289a460
    =================================================================
+   -- Found NetCDF: /usr/lib/x86_64-linux-gnu/libnetcdff.so  
    -- Useful CMake variables:
-     + CMAKE_PREFIX_PATH:    /path/to/libraries/...
+     + CMAKE_PREFIX_PATH:    /usr  /usr
      + CMAKE_BUILD_TYPE:     Release
    -- Run directory setup:
-     + RUNDIR:       ..
-   -- Bootstrapping  ..
+     + RUNDIR:       /home/ubuntu/test_gcc
    -- Threading:
-     * OMP:          *ON*  OFF
+     * OMP:          ON  OFF
+   -- Found OpenMP_Fortran: -fopenmp (found version "4.5") 
+   -- Found OpenMP: TRUE (found version "4.5")  
    -- General settings:
-     * MECH:         *fullchem*  Hg  custom
-     * BPCH_DIAG:    ON  *OFF*
-     * USE_REAL8:    *ON*  OFF
+     * MECH:         **fullchem**  Hg  custom
+     * BPCH_DIAG:    ON  **OFF**
+     * USE_REAL8:    ON  **OFF**
    -- Components:
-     * TOMAS:        ON  *OFF*
-     * TOMAS_BINS:   *NA* 15 40
-     * APM:          ON  *OFF*
-     * RRTMG:        ON  *OFF*
-     * GTMM:         ON  *OFF*
-     * HCOSA:        ON  *OFF*
-     * LUO_WETDEP:   ON  *OFF*
+     * TOMAS:        ON  **OFF**
+     * TOMAS_BINS:   **NA**  15  40
+     * APM:          ON  **OFF**
+     * RRTMG:        ON  **OFF**
+     * GTMM:         ON  **OFF**
+     * HCOSA:        ON  **OFF**
+     * LUO_WETDEP:   ON  **OFF**
    =================================================================
-   HEMCO 3.0.0
-   Current status: 3.0.0-beta.0-2-g777c2ae.dirty
+   HEMCO 3.5.0
+   Current status: 3.4.0-10-g18b61cd
    =================================================================
-   -- Settings:
-     * OMP:          *ON*  OFF
-     * USE_REAL8:    *ON*  OFF
+   -- Found OpenMP_Fortran: -fopenmp  
+   -- Found OpenMP: TRUE   
    =================================================================
-   GEOS-Chem 13.0.0 (science codebase)
-   Current status: gcc_13.0.0-alpha.13-93-gdc4999053
+   GEOS-Chem 14.0.0 (science codebase)
+   Current status: 14.0.0-alpha.3-4-gf833fba4f
    =================================================================
-   Creating /home/gc_4x5_fullchem/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
+   Creating /home/ubuntu/test_gcc/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
    -- Configuring done
    -- Generating done
-   -- Build files have been written to: /home/gc_4x5_fullchem/build=
+   -- Build files have been written to: /home/ubuntu/test_gcc/gc_merra2_fullchem
 
 Your CMake command's output contains important information about your
 build's configuration.
@@ -168,7 +176,7 @@ The table below contains the list of GEOS-Chem build options that you
 can pass to CMake. GEOS-Chem will be compiled with the default build
 options, unless you explicitly specify otherwise.
 
-.. option:: -DRUNDIR=/path/to/run/directory
+.. option:: -DRUNDIR=/path/to/run/dir
 
    Defines the path to the run directory.
 
@@ -176,8 +184,6 @@ options, unless you explicitly specify otherwise.
    directory, so we can use :envvar:`-DRUNDIR=..`.  If your build
    directory is somewhere else, then specify the path to the run
    directory as an absolute path.
-
-.. program:: cmake
 
 .. option:: -DCMAKE_BUILD_TYPE=Debug
 
@@ -258,24 +264,25 @@ options, unless you explicitly specify otherwise.
 
    The Luo et al 2020 wet deposition scheme is turned off by default.
 
-  .. note:: 
+   .. note:: 
 
-    The Luo et al 2020 wet deposition scheme will eventually
-    become the default wet deposition schem in GEOS-Chem.  We
-    have made it an option for the time being while further
-    evaluation is being done.
+      The Luo et al 2020 wet deposition scheme will eventually
+      become the default wet deposition schem in GEOS-Chem.  We
+      have made it an option for the time being while further
+      evaluation is being done.
 
-If you plan to use the :option:`make -j install` option (recommended)
+If you plan to use the :command:`make -j install` option (recommended)
 to copy your executable to your run directory, you must reconfigure
-CMake with the :option:`-DRUNDIR` option. Multiple run directories can
-be specified by a semicolon separated list. A warning is issues if one
-of these directories does not look like a run directory. These paths
-can be relative paths or absolute paths. Relative paths are
-interpreted as relative to your build directory. For example:
+CMake with the :envvar:`-DRUNDIR=/path/to/run/dir`
+option. Multiple run directories can be specified by a semicolon
+separated list. A warning is issues if one of these directories does
+not look like a run directory. These paths can be relative paths or
+absolute paths. Relative paths are interpreted as relative to your
+build directory. For example:
 
 .. code-block:: console
 
-   $ cmake . -DRUNDIR=/path/to/rundir
+   $ cmake . -DRUNDIR=/path/to/run/dir
 
 For example if you wanted to build GEOS-Chem with all debugging flags
 on, you would type:
@@ -305,32 +312,32 @@ Classic 13.0.0 and later versions contain code from 3 independent repositories:
 
 .. code-block:: none
 
-    =================================================================
-    GCClassic 13.0.0 (superproject wrapper)
-    Current status: 13.0.0-alpha.8-27-g1158ac1.dirty
-    ==================================================================
+   =================================================================
+   GCClassic 14.0.0 (superproject wrapper)
+   Current status: 14.0.0-alpha.3-1-g289a460
+   =================================================================
 
 2. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
 
 .. code-block:: none
 
-    =================================================================
-    HEMCO 3.0.0
-    Current status: gcc_13.0.0-alpha.4-12-g3b0a804
-    ==================================================================
+   =================================================================
+   HEMCO 3.5.0
+   Current status: 3.4.0-10-g18b61cd
+   =================================================================
 
 3. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
 
 .. code-block:: none
 
    =================================================================
-   GEOS-Chem 13.0.0 (science codebase)
-   Current status: gcc_13.0.0-alpha.8-57-gdd726b48
-   ==================================================================
+   GEOS-Chem 14.0.0 (science codebase)
+   Current status: 14.0.0-alpha.3-4-gf833fba4f
+   =================================================================
 
-During the build configuration stage, CMake will display the VERSION
-NUMBER (e.g. :file:`13.0.0`) as well as the CURRENT STATUS OF THE GIT
-REPOSITORY (e.g. :file:`13.0.0-alpha.8-27-g1158ac1.dirty` for GCClassic,
+During the build configuration stage, CMake will display the **version
+number** (e.g. :file:`14.0.0`) as well as the **current status of the Git
+repository** (e.g. :file:`14.0.0-alpha.3-1-g289a460`) for GCClassic,
 GEOS-Chem, and HEMCO.
 
 Let's take the Git repository status of GCClassic as our example. The
@@ -339,28 +346,34 @@ status string uses the same format as the :command:`git describe
 
 .. code-block:: text
 
-    13.0.0-alpha.8-27-g1158ac1.dirty
+    14.0.0-alpha.3-1-g289a460
 
 where
 
-  :file:`13.0.0-alpha.8`
-      Indicates the most recent tag in the GCClassic superproject
-      repository.
+.. option:: 14.0.0-alpha.3
 
-  :file:`27`
-      Indicates the number of commits that were made atop 13.0.0-alpha.8.
+    Indicates the most recent tag in the `GCClassic superproject
+    repository ` <https://github.com/geoschem/GCClassic>`_.
 
-  :file:`g`
-      Indicates that the version control system is Git.
+.. option:: 1
+	    
+   Indicates the number of commits that were made atop
+   :file:`14.0.0-alpha.3`.
 
-  :file:`1158ac1`
-      Indicates the Git commit (short form) at the HEAD of the
-      GCClassic repository.
+.. option:: g
+	    
+   Indicates that the version control system is Git.
 
-  :file:`.dirty`
-      Indicates that there are uncommitted updates atop the :file:`1158ac1`
-      commit in the GCClassic repository.
+.. option:: 289a460
+   
+   Indicates the Git commit (short form) at the HEAD of the
+   GCClassic repository.
 
+.. option:: .dirty
+
+   If present, indicates that there are uncommitted updates atop the
+   :file:`289a460` commit in the GCClassic repository.
+  
 Under each header are printed the various :ref:`options that have been
 selected <configure-your-build>`.
 
@@ -378,7 +391,7 @@ GEOS-Chem, you may proceed as follows:
 
 Use the :command:`make` command to build the GEOS-Chem executable.  Type:
 
-.. code-block:: console:
+.. code-block:: console
 
     $ make -j
 
@@ -386,41 +399,54 @@ You will see output similar to this:
 
 .. code-block:: text
 
-    [  1%] Built target KPPFirstPass_fullchem
-    [  3%] Built target HeadersHco
-    [  4%] Building Fortran object src/GEOS-Chem/ISORROPIA/CMakeFiles/Isorropia.dir/isorropiaII_main_mod.F.o
-    [  6%] Built target JulDayHco
-    [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/state_chm_mod.F90.o
-    [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/state_met_mod.F90.o
-    [  7%] Building Fortran object src/HEMCO/src/Shared/NcdfUtil/CMakeFiles/NcdfUtilHco.dir/hco_ncdf_mod.F90.o
-    [  7%] Linking Fortran static library libNcdfUtilHco.a
-    [ 10%] Built target NcdfUtilHco
-    Scanning dependencies of target GeosUtilHco
-    [ 12%] Building Fortran object src/HEMCO/src/Shared/GeosUtil/CMakeFiles/GeosUtilHco.dir/hco_henry_mod.F90.o
-    [ 12%] Building Fortran object src/HEMCO/src/Shared/GeosUtil/CMakeFiles/GeosUtilHco.dir/hco_regrid_a2a_mod.F90.o
-    [ 13%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/state_diag_mod.F90.o
-    [ 13%] Linking Fortran static library libGeosUtilHco.a
-    [ 13%] Built target GeosUtilHco
-    ...
-    [ 98%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/gc_environment_mod.F90.o
-    [ 98%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/chemistry_mod.F90.o
-    [ 98%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/cleanup.F90.o
-    [ 98%] Linking Fortran static library libGeosCore.a
-    [ 98%] Built target GeosCore
-    Scanning dependencies of target geos
-    [ 98%] Building Fortran object src/CMakeFiles/geos.dir/GEOS-Chem/Interfaces/GCClassic/main.F90.o
-    [100%] Linking Fortran executable ../bin/geos
-    [100%] Built target geos
+   Scanning dependencies of target HeadersHco
+   Scanning dependencies of target Isorropia
+   Scanning dependencies of target KPP_FirstPass
+   [  1%] Building Fortran object src/HEMCO/src/Shared/Headers/CMakeFiles/HeadersHco.dir/hco_inquireMod.F90.o
+   [  1%] Building Fortran object src/HEMCO/src/Shared/Headers/CMakeFiles/HeadersHco.dir/hco_precision_mod.F90.o
+   [  1%] Building Fortran object src/HEMCO/src/Shared/Headers/CMakeFiles/HeadersHco.dir/hco_charpak_mod.F90.o
+   [  3%] Building Fortran object src/GEOS-Chem/KPP/fullchem/CMakeFiles/KPP_FirstPass.dir/gckpp_Monitor.F90.o
+   [  3%] Building Fortran object src/GEOS-Chem/KPP/fullchem/CMakeFiles/KPP_FirstPass.dir/gckpp_Precision.F90.o
+   [  3%] Building Fortran object src/GEOS-Chem/KPP/fullchem/CMakeFiles/KPP_FirstPass.dir/gckpp_Parameters.F90.o
+   [  3%] Linking Fortran static library libKPP_FirstPass.a
+   [  3%] Built target KPP_FirstPass
+   Scanning dependencies of target Headers
+   [  3%] Building Fortran object src/GEOS-Chem/ISORROPIA/CMakeFiles/Isorropia.dir/isorropiaII_main_mod.F.o
+   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/charpak_mod.F90.o
+   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/dictionary_m.F90.o
+   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_SIZE_mod.F90.o
+   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/qfyaml_mod.F90.o
+   [  4%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_O3_mod.F90.o
+   [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/inquireMod.F90.o
+   
+   ... etc ...
+   
+   [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/sulfate_mod.F90.o
+   [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/fullchem_mod.F90.o
+   [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/mixing_mod.F90.o
+   [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/carbon_mod.F90.o
+   [ 95%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/chemistry_mod.F90.o
+   [ 95%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/gc_environment_mod.F90.o
+   [ 96%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/emissions_mod.F90.o
+   [ 96%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/cleanup.F90.o
+   [ 98%] Linking Fortran static library libGeosCore.a
+   [ 98%] Built target GeosCore
+   Scanning dependencies of target gcclassic
+   [ 98%] Building Fortran object src/CMakeFiles/gcclassic.dir/GEOS-Chem/Interfaces/GCClassic/main.F90.o
+   [100%] Linking Fortran executable ../bin/gcclassic
+   [100%] Built target gcclassic
+		
+.. tip::
 
-.. tip:: The :option:`-j` argument tells :command:`make` that it can
- execute as many jobs as it wants simultaneously. For
- example, if you have 8 cores, then the build process may
- attempt to compile 8 files at a time.
+   The :command:`-j` argument tells :command:`make` that it can
+   execute as many jobs as it wants simultaneously. For example, if
+   you have 8 cores, then the build process may attempt to compile 8
+   files at a time.
 
- If you want to restrict the number of simultaneous jobs
- (e.g. you are compiling on a machine with limited memory),
- you can can use e.g. :command:`make -j4`, which should only
- try to compile 4 files at a time.
+   If you want to restrict the number of simultaneous jobs (e.g. you
+   are compiling on a machine with limited memory), you can can use
+   e.g. :command:`make -j4`, which should only try to compile 4 files
+   at a time.
 
 .. _install-the-geos-executable-in-your-run-directory:
 
@@ -430,10 +456,10 @@ You will see output similar to this:
 Now that the :file:`gcclassic` executable is built, install it to your
 run directory with :command:`make install`. For this to work properly,
 you must tell CMake where to find your run directory by configuring
-CMake with :option:`-DRUNDIR` :ref:`as described above
-<configure-your-build>`.  Type:
+CMake with :envvar:`-DRUNDIR=/path/to/run/directory` :ref:`as
+described above <configure-your-build>`.  Type:
 
-.. code-block:: console:
+.. code-block:: console
 
     $ make install
 
@@ -441,52 +467,57 @@ and you will see output similar to this:
 
 .. code-block:: console
 
-    [  1%] Built target KPPFirstPass_fullchem
-    [ 10%] Built target Headers
-    [ 10%] Built target JulDay
-    [ 16%] Built target NcdfUtil
-    [ 22%] Built target GeosUtil
-    [ 25%] Built target Transport
-    [ 27%] Built target HeadersHco
-    [ 28%] Built target JulDayHco
-    [ 33%] Built target NcdfUtilHco
-    [ 34%] Built target GeosUtilHco
-    [ 50%] Built target HCO
-    [ 59%] Built target HCOX
-    [ 59%] Built target HCOI_Shared
-    [ 65%] Built target KPP_fullchem
-    [ 68%] Built target History
-    [ 69%] Built target ObsPack
-    [ 71%] Built target Isorropia
-    [ 98%] Built target GeosCore
-    [100%] Built target geos
-    Install the project...
-    -- Install configuration: "Release"
-    -- Installing: /n/home05/msulprizio/RD/gc_4x5_fullchem/build_info/CMakeCache.txt
-    -- Installing: /n/home05/msulprizio/RD/gc_4x5_fullchem/build_info/summarize_build
-    -- Installing: /n/home05/msulprizio/RD/gc_4x5_fullchem/gcclassic
-    [gc_fullchem_4x5/build]$
+   [  1%] Built target HeadersHco
+   [  3%] Built target KPP_FirstPass
+   [  3%] Built target Isorropia
+   [  4%] Built target JulDayHco
+   [ 13%] Built target Headers
+   [ 18%] Built target NcdfUtilHco
+   [ 19%] Built target JulDay
+   [ 19%] Built target GeosUtilHco
+   [ 25%] Built target NcdfUtil
+   [ 40%] Built target HCO
+   [ 46%] Built target GeosUtil
+   [ 56%] Built target HCOX
+   [ 59%] Built target Transport
+   [ 62%] Built target History
+   [ 63%] Built target ObsPack
+   [ 71%] Built target KPP
+   [ 71%] Built target HCOI_Shared
+   [ 98%] Built target GeosCore
+   [100%] Built target gcclassic
+   Install the project...
+   -- Install configuration: "Release"
+   -- Up-to-date: /home/ubuntu/gc_merra2_fullchem/build_info/CMakeCache.txt
+   -- Up-to-date: /home/ubuntu/gc_merra2_fullchem/build_info/summarize_build
+   -- Up-to-date: /home/ubuntu/gc_merra2_fullchem/gcclassic
 
 Let's now navigate back to the run directory and get a directory
 listing:
 
 .. code-block:: console
 
-    $ cd ..
-    $ ls
-    archiveRun.sh*     GEOSChem.Restart.20190701_0000z.nc4  OutputDir/
-    build/             getRunInfo*                          README
-    build_info/        HEMCO_Config.rc                      rundir.version
-    cleanRunDir.sh*    HEMCO_Diagn.rc                       runScriptSamples/
-    CodeDir@           HISTORY.rc                           species_database.yml
-    download_data.py*  input.geos
-    gcclassic*         metrics.py*
-    $
+   $ cd ..
+   $ ls
+   CodeDir@                             cleanRunDir.sh*
+   GEOSChem.Restart.20190701_0000z.nc4  download_data.py*
+   HEMCO_Config.rc                      download_data.yml
+   HEMCO_Config.rc.gmao_metfields       gcclassic*
+   HEMCO_Diagn.rc                       geoschem_config.yml
+   HISTORY.rc                           getRunInfo*
+   OutputDir/                           metrics.py*
+   README                               runScriptSamples@
+   archiveRun.sh*                       rundirConfig/
+   build/                               species_database.yml
+   build_info/
 
 You should now see the :program:`gcclassic` executable and a :file:`build_info`
 directory there. GEOS-Chem has now been configured, compiled, and
 installed in your run directory.
 
+Please see the :ref:`rundir-files` section for more information about
+the contents of the run directory.
+ 
 You are now ready to run a GEOS-Chem simulation!
 
 .. _how-do-i-make-clean:
@@ -503,9 +534,10 @@ GEOS-Chem source code folder.
 All of the files created by Cmake during the configuration and
 compilation stages are placed in the :file:`build/` folder in your run
 directory (or in the location that you have specified with the
-:option:`RUNDIR` option.).  Therefore, if you wish to build the
-GEOS-Chem Classic executable from scratch, all you have to do is to
-remove all of the files from the build folder.  It's as simple as that!
+:envvar:`-DRUNDIR=/path/to/run/dir` option.).  Therefore, if you
+wish to build the :program:`GEOS-Chem Classic` executable from
+scratch, all you have to do is to remove all of the files from the
+build folder.  It's as simple as that!
 
 You can also create a new build folder with this command:
 

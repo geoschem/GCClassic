@@ -77,7 +77,7 @@ is mostly due to the fact that the benchmark simulations archive the
 that the benchmark simulation can be properly evaluated. But a typical
 GEOS-Chem Classic production simulation would not require all of these
 diagnostic outputs, and thus would use much less memory than the
-benchmark simulations. 
+benchmark simulations.
 
 .. _extra-memory-for-special-simulations:
 
@@ -85,13 +85,13 @@ Extra memory for special simulations
 ------------------------------------
 
 You may want to consider at least 30 GB RAM if you plan on doing any
-of the following: 
+of the following:
 
   - Running high-resolution (e.g. :math:`1^{\circ}{\times}1.25^{\circ}` or
     higher resolution) global simulations
 
   - Running high-resolution (e.g. :math:`0.25^{\circ}{\times}0.3125^{\circ}`
-    or  :math:`0.5^{\circ}{\times}0.625^{\circ}` 
+    or  :math:`0.5^{\circ}{\times}0.625^{\circ}`
 
   - Running :math:`2^{\circ}{\times}2.5^{\circ}` and generating a lot
     of diagnostic output.  The more diagnostics you turn on, the more
@@ -109,18 +109,18 @@ Input data for GEOS-Chem
 -------------------------
 The following sections will help you assess how much disk space you
 will need on your server to store GEOS-Chem Classic input
-data. 
+data.
 
 The data format used by GEOS-Chem Classic is
 `COARDS-compliant netCDF
 <http://wiki.seas.harvard.edu/geos-chem/index.php/The_COARDS_netCDF_conventions_for_earth_science_data>`_. This
-is a standard file format used for Earth Science applications. 
+is a standard file format used for Earth Science applications.
 
 .. _emissions-fields:
 
 Emissions fields
 ~~~~~~~~~~~~~~~~
-Please see our :ref:`hemco-data-dirs.rst` page for more information.
+Please see our :ref:`hemco-data-dirs` page for more information.
 
 .. _meteorology-fields:
 
@@ -132,7 +132,7 @@ The amount of disk space that you will need depends on two things:
   2. How many years of met data you will download
 
 .. _merra2-size-table:
-     
+
 .. table:: Disk space needed for 1-year of MERRA-2 data
 
    +--------------------------------------------+------------------+--------+
@@ -154,7 +154,7 @@ The amount of disk space that you will need depends on two things:
    +--------------------------------------------+------------------+--------+
 
 .. _geosfp-size-table:
-     
+
 .. table:: Disk space needed for 1-year of GEOS-FP data
 
    +--------------------------------------------+------------------+--------+
@@ -183,9 +183,8 @@ Obtaining emissions data and met fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You may use a GEOS-Chem Classic dry-run simulation
-(cf. :ref:`download-data-with-a-dry-run-simulation`) download as many 
-emissions inventories and met field data files as your simulation
-needs.   
+(cf. :ref:`dry-run-simulation`) to download as many emissions
+inventories and met field data files as your simulation needs.
 
 You may also use the bashdatacatalog (TODO add explanation)
 
@@ -208,10 +207,10 @@ We can look to the :program:`GEOS-Chem Classic` full-chemistry
 benchmark simulations for a rough upper limit of how much disk space
 is needed for diagnostic output.  The `GEOS-Chem 13.0.0 vs. 12.9.0
 1-month benchmark simulation
-<https://wiki.geos-chem.org/GEOS-Chem_13.0.0#GEOS-Chem_Classic_13.0.0_vs_12.9.0>`_  
+<https://wiki.geos-chem.org/GEOS-Chem_13.0.0#GEOS-Chem_Classic_13.0.0_vs_12.9.0>`_
 generated approximately 837 MB/month of output.  Of this amount,
 diagnostic output files accounted for ~646 MB and restart files
-accounted for ~191 MB. 
+accounted for ~191 MB.
 
 We say that this is an upper limit, because benchmark simulations
 archive the "kitchen sink"--all species concentrations, various
@@ -224,7 +223,7 @@ GEOS-Chem users would probably not need to archive this much output.
 species with first-order loss by prescribed oxidant fields (i.e. Hg,
 CH4, CO2, CO)--will produce much less output than the benchmark
 simulations. This is because these simulations typically only have a
-few species. 
+few species.
 
 .. _reducing-output-file-sizes:
 

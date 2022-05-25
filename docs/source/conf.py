@@ -100,7 +100,7 @@ html_context = {
     
 # Display GEOS-Chem logo
 html_favicon = 'geos-chem-shared-docs/_static/gc-o-logo-favicon.ico'
-html_logo = "geos-chem-shared-docs/_static/geos-chem-logo.svg"
+html_logo = "geos-chem-shared-docs/_static/GEOS-Chem_Logo_Light_Background.png"
 html_theme_options = {
     'logo_only': True,
     'display_version': False,

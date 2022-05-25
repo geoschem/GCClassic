@@ -1,4 +1,4 @@
-.. _input-overview:
+.. _met-inputs:
 
 ###################################
 Meteorological inputs for GEOS-Chem

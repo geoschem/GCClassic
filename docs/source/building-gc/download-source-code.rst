@@ -13,11 +13,17 @@ GEOS-Chem Classic source code repositories
 The :program:`GEOS-Chem Classic` source code is distributed into 3
 Github repositories, as described below. This setup allows the
 GEOS-Chem core science routines to be easily integrated into several
-modeling contexts (e.g. as :program:`GEOS-Chem Classic`, as :program:`GCHP`, as
-GEOS-Chem within the NASA/GEOS ESM, as GEOS-Chem within CESM,
-etc). This aligns with our `GEOS-Chem Vision
+modeling contexts, such as:
+
+- :program:`GEOS-Chem Classic`
+- :program:`GCHP`
+- GEOS-Chem within the :program:`NASA/GEOS ESM`
+- GEOS-Chem within :program:`CESM`
+- GEOS-Chem withn :program:`WRF`
+  
+This repository setup also aligns with our `GEOS-Chem Vision
 <http://acmg.seas.harvard.edu/geos/geos_overview.html>`_ and `Mission
-<http://acmg.seas.harvard.edu/geos/index.htmlGEOS-Chem>`_ statements. 
+<http://acmg.seas.harvard.edu/geos/index.htmlGEOS-Chem>`_ statements.
 
 .. _geos-chem-science-codebase:
 

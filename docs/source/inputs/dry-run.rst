@@ -1,4 +1,4 @@
-.. _download-data-with-a-dry-run-simulation:
+.. _dry-run-simulation:
 
 #######################################
 Download data with a dry-run simulation
@@ -228,7 +228,7 @@ The s3://gcgrid mirror (aka Amazon)
 
 If you are running GEOS-Chem Classic on the Amazon Web Services cloud,
 you can quickly **download the necessary data for your GEOS-Chem
-simulation from the ``s3://gcgrid`` bucket** to the Elastic Block
+simulation from the :file:`s3://gcgrid` bucket** to the Elastic Block
 Storage (EBS) volume attached to your cloud instance.
 
 Navigate to your GEOS-Chem Classic run directory and type:
