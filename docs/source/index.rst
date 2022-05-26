@@ -1,3 +1,5 @@
+.. _geos-chem-classic:
+
 #################
 GEOS-Chem Classic
 #################
@@ -59,7 +61,7 @@ instructions specifically for using a clone of the source code.
    starting/key-references.rst
 
 .. toctree::
-   :caption: Building GEOS-Chem
+   :caption: Building GEOS-Chem Classic
    :maxdepth: 6
 
    building-gc/configure-environment.rst
@@ -72,9 +74,7 @@ instructions specifically for using a clone of the source code.
    :maxdepth: 6
 
    inputs/input-overview.rst
-   inputs/met-fields.rst
    inputs/restart-files.rst
-   inputs/hemco-data-dirs.rst
    inputs/dry-run.rst
 
 .. toctree::
@@ -88,7 +88,7 @@ instructions specifically for using a clone of the source code.
    config/history.rst
 
 .. toctree::
-   :caption: Output from GEOS-Chem
+   :caption: Output from GEOS-Chem Classic
    :maxdepth: 6
 
 .. toctree::

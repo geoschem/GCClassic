@@ -26,7 +26,7 @@ Supported compilers for GEOS-Chem Classic
 
 GEOS-Chem is written in the Fortran programming language. However, you
 will also need C and C++ compilers to install certain libraries (like
-:ref:`netcdf`) on your system.
+:ref:`netCDF <ncguide>`) on your system.
 
 .. _ifort-req:
 
@@ -90,9 +90,9 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 
 .. _required-software-packages-for-geos-chem:
 
-========================================
-Required software packages for GEOS-Chem
-========================================
+================================================
+Required software packages for GEOS-Chem Classic
+================================================
 
 .. _git-req:
 
@@ -142,7 +142,7 @@ The netCDF library (plus dependencies)
 --------------------------------------
 
 GEOS-Chem input and output data files use the netCDF file format
-(cf. :ref:`netcdf-guide`). NetCDF is a self-describing file format
+(cf. :ref:`netCDF <ncguide>`). NetCDF is a self-describing file format
 that allows meadata (descriptive text) to be stored alongside data
 values.
 

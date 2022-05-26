@@ -13,7 +13,7 @@ This page describes the configuration files that are read by
 Run directory configuration files
 =================================
 
-As discussed previously (cf. :ref:`create-rundir`) each run directory
+:ref:`As discussed previously <create-rundir>`, each run directory
 contains several user-editable configuration files that control the
 runtime behavior of GEOS-Chem.  These are listed below:
 

@@ -13,8 +13,8 @@ Classic` restart files and how they are used.
 What is a restart file?
 =======================
 
-Restart files contain the initial conditions for a GEOS-Chem
-simulation. There are two restart files for GEOS-Chem:
+Restart files contain the initial conditions (cf. :ref:`init-cond`)
+for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
 
 .. option:: GEOSChem.Restart.YYYYMMDD_hhmmz.nc4
 
@@ -48,7 +48,7 @@ simulation. There are two restart files for GEOS-Chem:
    several run stages.
 
    HEMCO restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <create-run-dir>` directory (and NOT
+   :ref:`GEOS-Chem run directory <create-rundir>` directory (and NOT
    in the :option:`OutputDir/` folder, which is where History
    diagnostic files are created.
    HEMCO restart files are created in the top-level of your GEOS-Chem run
