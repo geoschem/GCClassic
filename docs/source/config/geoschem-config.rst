@@ -1,7 +1,7 @@
 .. _geoschem-config:
 
 ############################
-The geoschem-config.yml file
+The geoschem_config.yml file
 ############################
 
 TBD

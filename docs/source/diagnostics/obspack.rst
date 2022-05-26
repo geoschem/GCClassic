@@ -57,7 +57,7 @@ ObsPack input files can be downloaded from NOAA (see
    start-time of the sampling interval, not the center time. For the
    center time, we need to read the :file:`time` variable. The
    :file:`time` variable represents the center of the averaging window
-    in all ObsPack data versions.
+   in all ObsPack data versions.
 
 .. _obspack_file_metadata:
 

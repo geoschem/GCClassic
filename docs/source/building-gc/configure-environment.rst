@@ -20,8 +20,7 @@ libraries.  For example, you can keep one environment file to load the
 Intel Compilers for GEOS-Chem and another to load the GNU Compilers.
 
 For general information about how libraries are loaded, see our
-:ref:`Library Guide <load-required-libraries-for-geos-chem>` in the
-Supplement section.
+:ref:`Library Guide <libguide>` in the Supplemental Guides section.
 
 .. _environment_files:
 
@@ -328,7 +327,7 @@ Be on the lookout for these errors:
      in your environment file (or if it is set to a very low value),
      you might encounter a `segmentation fault error after the TPCORE
      transport module is initialized
-     <Segmentation_faults#Segmentation_fault_encountered_after_TPCORE_initialization>`_. 
+     <Segmentation_faults#Segmentation_fault_encountered_after_TPCORE_initialization>`_.
      In this case, :program:`GEOS-Chem Classic` "thinks" that it does
      not have enough memory to perform the simulation, even though
      sufficient memory may be present.

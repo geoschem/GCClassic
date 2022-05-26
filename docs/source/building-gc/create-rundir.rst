@@ -321,7 +321,7 @@ directory that you wish to create:
    ===========================================================
    GEOS-CHEM RUN DIRECTORY CREATION
    ===========================================================
-   
+
    -----------------------------------------------------------
    Choose simulation type:
    -----------------------------------------------------------
@@ -338,7 +338,7 @@ directory that you wish to create:
      11. Trace metals
 
 To select the GEOS-Chem methane specialty simulation, type
-:command:`3` followed by :command:`ENTER`. 
+:command:`3` followed by :command:`ENTER`.
 
 **5.** You will then be asked to specify the meteorology type for the
 simulation (GEOS-FP or MERRA-2):
@@ -349,11 +349,11 @@ simulation (GEOS-FP or MERRA-2):
    Choose meteorology source:
    -----------------------------------------------------------
      1. MERRA-2 (Recommended)
-     2. GEOS-FP 
+     2. GEOS-FP
      3. GISS ModelE2.1 (GCAP 2.0)
 
 To accept the recommended meteorology (MERRA-2), type :command:`1` followed
-by :command:`ENTER`. 
+by :command:`ENTER`.
 
 **6.** The next menu will prompt you for the horizontal resolution that
 you wish to use:
@@ -368,11 +368,11 @@ you wish to use:
      3. 0.5  x 0.625
 
 **6a.** If you wish to set up global simulation, type either
-:command:`1` or :command:`2` followed by :command:`ENTER`. 
+:command:`1` or :command:`2` followed by :command:`ENTER`.
 
 **6b.** If you wish to set up a nested-grid simulation, type
 :command:`3` and hit :command:`ENTER`. Then you will be followed by a
-nested-grid menu:  
+nested-grid menu:
 
 .. code-block:: console
 
@@ -402,8 +402,8 @@ Type the number of your preferred option and then hit :command:`ENTER`.
 
 **7b.** For some memory-intensive simulations (such as nested-grid
 simulations), you can use 47 levels. Type :command:`2` followed by
-:command:`ENTER`. 
- 
+:command:`ENTER`.
+
 **8.** You will then be prompted for the folder in which you wish to
 create the run directory.
 
@@ -503,7 +503,7 @@ Each run directory also contains the following files, folders, and scripts:
    <compiling-geos-chem>`.  It contains information about the options
    that were passed to :program:`CMake` during the configuration and
    build process.
-   
+
 .. option:: cleanRunDir.sh
 
    Typing
@@ -518,8 +518,8 @@ Each run directory also contains the following files, folders, and scripts:
 .. option:: CodeDir
 
    Symbolic link to the top-level source code folder (i.e. the
-   GCClassic superproject folder).	    
-   
+   GCClassic superproject folder).
+
 .. option:: download_data.py
 
    Use this Python script (which reads the associated configuration file
@@ -538,11 +538,11 @@ Each run directory also contains the following files, folders, and scripts:
       should not be used to start a production simulation. We recommend
       that you "spin up" your simulation for at least 6 months to a year
       in order to remove the signature of the initial conditions.
-   
+
 .. option:: getRunInfo
- 
+
    This file is now deprecated and will be removed in a future version.
-	    
+
 .. option:: metrics.py
 
    This Python script can be used to print the OH metrics for a
@@ -555,18 +555,18 @@ Each run directory also contains the following files, folders, and scripts:
    will generate output such as:
 
    .. code-block:: console
-   
+
       ==============================================================================
       GEOS-Chem FULL-CHEMISTRY SIMULATION METRICS
-      
+
       Simulation start : 2019-07-01 00:00:00z
       Simulation end   : 2019-07-01 01:00:00z
-      ============================================================================== 
-      
+      ==============================================================================
+
       Mass-weighted mean OH concentration    = 10.04682154969 x 10^5 molec cm-3
-      
+
       CH3CCl3 lifetime w/r/t tropospheric OH = 6.3189 years
-      
+
       CH4 lifetime w/r/t tropospheric OH     = 10.6590 years
 
 .. option:: OutputDir/
@@ -578,8 +578,8 @@ Each run directory also contains the following files, folders, and scripts:
 
    Folder containing the :file:`rundir_vars.txt` file, which contains
    information about the environment variable settings that were used
-   by the :file:`createRunDir.sh`.	    
-   
+   by the :file:`createRunDir.sh`.
+
 .. option:: runScriptSamples
 
    Symbolic link to the folder in the `GEOS-Chem "Science Codebase"

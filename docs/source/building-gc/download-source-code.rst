@@ -20,7 +20,7 @@ modeling contexts, such as:
 - GEOS-Chem within the :program:`NASA/GEOS ESM`
 - GEOS-Chem within :program:`CESM`
 - GEOS-Chem withn :program:`WRF`
-  
+
 This repository setup also aligns with our `GEOS-Chem Vision
 <http://acmg.seas.harvard.edu/geos/geos_overview.html>`_ and `Mission
 <http://acmg.seas.harvard.edu/geos/index.htmlGEOS-Chem>`_ statements.
@@ -51,7 +51,7 @@ The HEMCO repository (`https://github.com/geoschem/HEMCO
 <https://github.com/geoschem/HEMCO>`_) contains the source code for
 the `Harmonized Emissions Component <https://hemco.readthedocs.io>`_,
 which is used to read and regrid emissions, met fields, and other
-inputs to GEOS-Chem. 
+inputs to GEOS-Chem.
 
 .. _gcclassic:
 
@@ -62,7 +62,7 @@ The GCClassic repository (`https://github.com/geoschem/GCClassic
 <https://github.com/geoschem/GCClassic>`_) is a lightweight wrapper
 that encompasses GEOS-Chem and HEMCO. We say that GCClassic is the
 **superproject** (i.e. top-level source code folder), and that
-GEOS-Chem (science codebase) and HEMCO are **submodules**. 
+GEOS-Chem (science codebase) and HEMCO are **submodules**.
 
 .. _download-instructions:
 
@@ -85,7 +85,7 @@ Classic` version
     $ git clone https://github.com/geoschem/GCClassic.git
 
 This will clone the code into a local folder named :file:`GCClassic`.
-    
+
 .. tip::
 
    If you wish, you can clone the GCClassic superproject
@@ -93,11 +93,11 @@ This will clone the code into a local folder named :file:`GCClassic`.
    name of the folder at the end of the :command:`git clone` command:
 
    .. code-block :: console
-   
+
       git clone https://github.com/geoschem/GCClassic.git my-code
-   
+
 Once the :command:`git clone` process starts, you should see output
-similar to this: 
+similar to this:
 
 .. code-block:: text
 
@@ -115,7 +115,7 @@ local folder:
 .. code-block:: console
 
    $ cd GCClassic
-   
+
 .. _fetch-gc-and-hemco:
 
 Fetch the GEOS-Chem and HEMCO source codes
@@ -123,7 +123,7 @@ Fetch the GEOS-Chem and HEMCO source codes
 
 At this point we have cloned the GCClassic superproject
 repository but we have not fetched source code from the underlying
-GEOS-Chem science codebase and HEMCO submodules.  
+GEOS-Chem science codebase and HEMCO submodules.
 
 To fetch the submodule codes, type:
 
@@ -170,7 +170,7 @@ directory structures full of source code:
 and now you can see the various files and subdirectories that make up
 the GEOS-Chem and HEMCO source codes.
 
-.. _pro-tip-define-an-alias-for-the-git-submodule-update-command:   
+.. _pro-tip-define-an-alias-for-the-git-submodule-update-command:
 
 Pro tip: Define an alias for git submodule update
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,7 +190,7 @@ and then apply the changes with:
     $ source ~/.bash_aliases
 
 Now you can type :command:gsu` instead of :command:`git submodule
-update --init --recursive`. 
+update --init --recursive`.
 
 .. _create_a_new_branch_in_src_geos_chem:
 
@@ -234,7 +234,7 @@ modifications to the GEOS-Chem science codebase.  Type:
 .. note::
 
    This naming convention adheres to the
-   `Github Flow <https://guides.github.com/introduction/flow/>`_ 
+   `Github Flow <https://guides.github.com/introduction/flow/>`_
    conventions (i.e. new feature branches start with
    :file:`feature/`, bug fix branches start with :file:`bugfix/`, etc.
 
@@ -248,7 +248,7 @@ you now type:
 
 You will see that we are checked out onto the branch that you just
 created and are no longer in detached HEAD state.
-  
+
 .. code-block:: text
 
    * feature/my-git-updates

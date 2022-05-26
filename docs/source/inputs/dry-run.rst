@@ -22,7 +22,7 @@ A dry-run simulation is also a good way to check if you have properly
 :ref:`configured your computational environment
 <configure-your-computational-environment>`.  This is especially
 important if you are porrting GEOS-Chem to run on a new computer
-system, or on the Amazon Web Services cloud environment. 
+system, or on the Amazon Web Services cloud environment.
 
 You may generate dry-run output for any of the GEOS-Chem Classic
 simulation types (fullchem, CH4, TransportTracers, etc.)
@@ -43,7 +43,7 @@ Follow the steps below to perform a GEOS-Chem dry-run.
    at our `GEOS-Chem Youtube Channel
    <https://youtube.com/c/geoschem/>`_, which will guide you
    through these steps.
-   
+
 1. Create a run directory (if not done yet)
 -------------------------------------------
 
@@ -87,7 +87,7 @@ Of these the most important settings are:
    #. Also doublecheck that the path to your data directory (ExtData)
       is correct.
    #. Also see :ref:`geoschem-config` for more information.
-      
+
 .. option:: HISTORY.rc
 
    #. Set the frequency and duration for the :ref:`HISTORY diagnostic
@@ -100,7 +100,7 @@ Of these the most important settings are:
       with the simulation length defined in
       :option:`geoschem_config.yml`
    #. Select the emission inventories and data sets that
-      you wish to use in your GEOS-Chem simulation.  
+      you wish to use in your GEOS-Chem simulation.
 
 .. tip::
 
@@ -148,7 +148,7 @@ sections.
    Before you use the :file:`download_data.py` script, make sure to
    initialize a Conda environment by typing :command:`conda activate
    ENV-NAME` (where ENV-NAME is the name of your environment).
-   
+
    Also make sure that you have installed the PyYAML module to your
    conda environment.  PyYAML will allow the :file:`download_data.py`
    script to read certain configurable settings from a YAML file in
@@ -174,7 +174,7 @@ mirror for GEOS-Chem.
    <https://www.globus.org/data-transfer>`_ endpoint named **GEOS-Chem
    data (WashU)** on the WashU mirror site.  If you need to
    download many years of data, it may be faster to use	 Globus
-   (particularly if your home institution supports it). 
+   (particularly if your home institution supports it).
 
 Navigate to your GEOS-Chem run directory where you executed the dry-run
 and type:

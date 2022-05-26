@@ -103,7 +103,7 @@ generate output similar to this:
    GCClassic 14.0.0 (superproject wrapper)
    Current status: 14.0.0-alpha.3-1-g289a460
    =================================================================
-   -- Found NetCDF: /usr/lib/x86_64-linux-gnu/libnetcdff.so  
+   -- Found NetCDF: /usr/lib/x86_64-linux-gnu/libnetcdff.so
    -- Useful CMake variables:
      + CMAKE_PREFIX_PATH:    /usr  /usr
      + CMAKE_BUILD_TYPE:     Release
@@ -111,8 +111,8 @@ generate output similar to this:
      + RUNDIR:       /home/ubuntu/test_gcc
    -- Threading:
      * OMP:          ON  OFF
-   -- Found OpenMP_Fortran: -fopenmp (found version "4.5") 
-   -- Found OpenMP: TRUE (found version "4.5")  
+   -- Found OpenMP_Fortran: -fopenmp (found version "4.5")
+   -- Found OpenMP: TRUE (found version "4.5")
    -- General settings:
      * MECH:         **fullchem**  Hg  custom
      * BPCH_DIAG:    ON  **OFF**
@@ -129,8 +129,8 @@ generate output similar to this:
    HEMCO 3.5.0
    Current status: 3.4.0-10-g18b61cd
    =================================================================
-   -- Found OpenMP_Fortran: -fopenmp  
-   -- Found OpenMP: TRUE   
+   -- Found OpenMP_Fortran: -fopenmp
+   -- Found OpenMP: TRUE
    =================================================================
    GEOS-Chem 14.0.0 (science codebase)
    Current status: 14.0.0-alpha.3-4-gf833fba4f
@@ -264,7 +264,7 @@ options, unless you explicitly specify otherwise.
 
    The Luo et al 2020 wet deposition scheme is turned off by default.
 
-   .. note:: 
+   .. note::
 
       The Luo et al 2020 wet deposition scheme will eventually
       become the default wet deposition schem in GEOS-Chem.  We
@@ -356,16 +356,16 @@ where
     repository ` <https://github.com/geoschem/GCClassic>`_.
 
 .. option:: 1
-	    
+
    Indicates the number of commits that were made atop
    :file:`14.0.0-alpha.3`.
 
 .. option:: g
-	    
+
    Indicates that the version control system is Git.
 
 .. option:: 289a460
-   
+
    Indicates the Git commit (short form) at the HEAD of the
    GCClassic repository.
 
@@ -373,7 +373,7 @@ where
 
    If present, indicates that there are uncommitted updates atop the
    :file:`289a460` commit in the GCClassic repository.
-  
+
 Under each header are printed the various :ref:`options that have been
 selected <configure-your-build>`.
 
@@ -418,9 +418,9 @@ You will see output similar to this:
    [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/qfyaml_mod.F90.o
    [  4%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_O3_mod.F90.o
    [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/inquireMod.F90.o
-   
+
    ... etc ...
-   
+
    [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/sulfate_mod.F90.o
    [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/fullchem_mod.F90.o
    [ 93%] Building Fortran object src/GEOS-Chem/GeosCore/CMakeFiles/GeosCore.dir/mixing_mod.F90.o
@@ -435,7 +435,7 @@ You will see output similar to this:
    [ 98%] Building Fortran object src/CMakeFiles/gcclassic.dir/GEOS-Chem/Interfaces/GCClassic/main.F90.o
    [100%] Linking Fortran executable ../bin/gcclassic
    [100%] Built target gcclassic
-		
+
 .. tip::
 
    The :command:`-j` argument tells :command:`make` that it can
@@ -517,7 +517,7 @@ installed in your run directory.
 
 Please see the :ref:`rundir-files` section for more information about
 the contents of the run directory.
- 
+
 You are now ready to run a GEOS-Chem simulation!
 
 .. _how-do-i-make-clean:

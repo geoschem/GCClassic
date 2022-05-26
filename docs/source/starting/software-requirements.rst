@@ -168,7 +168,7 @@ does contain many useful functions for creating zonal mean and
 horizontal plots from GEOS-Chem output. It also contains scripts to
 generate plots and tables from GEOS-Chem benchmark simulations.
 
-**Best way to install:** 
+**Best way to install:**
 `With Conda (see gcpy.readthedocs.io) <https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html>`__
 
 .. _gdb-req:
