@@ -24,9 +24,6 @@ for representing dictionary-like data structures.
 Simulation settings
 ===================
 
-This section of :file:`geoschem_config.yml` is included for all
-simulations.
-
 .. code-block:: yaml
 
    #============================================================================
@@ -42,7 +39,9 @@ simulations.
      debug_printout: false
      use_gcclassic_timers: false
 
-.. option:: simulation:name
+The :command:`simulation` section contains general simulation options:
+	    
+.. option:: name
 
    Specifies the type of GEOS-Chem Classic simulation.  Accepted
    values are
@@ -100,22 +99,22 @@ simulations.
 
       Trace metals simulation
 
-.. option:: simulation:start_date
+.. option:: start_date
 
    Specifies the starting date and time of the simulation in list
    notation [YYYYMMDD, hhmmss].
 
-.. option:: simulation:end_date
+.. option:: end_date
 
    Specifies the ending date and time of the simulation in list
    notation [YYYYMMDD, hhmmss].
 
-.. option:: simulation:root_data_dir
+.. option:: root_data_dir
 
    Path to the root data directory.  All of the data that GEOS-Chem
    Classic reads must be located in subfolders of this directory.
 
-.. option:: simulation:met_field
+.. option:: met_field
 
    Name of the meteorology product that will be used to drive
    GEOS-Chem Classic.  Accepted values are:
@@ -124,7 +123,8 @@ simulations.
 
       The `MERRA-2 <https://wiki.geos-chem.org/MERRA-2>`_ meteorology
       product from NASA/GMAO.  MERRA-2 is a stable reanalysis product,
-      and extends from approximately 1980 to present.  **(Recommended option)**
+      and extends from approximately 1980 to present.
+	 **(Recommended option)** 
 
    .. option:: GEOS-FP
 
@@ -138,7 +138,7 @@ simulations.
       GCAP-2 has hundreds of years of data available, making it useful
       for simulations of historical climate.
 
-.. option:: simulation:species_database_file
+.. option:: species_database_file
 
    Path to the `GEOS-Chem Species Database
    <http://wiki.geos-chem.org/GEOS-Chem_species_database>`_ file.
@@ -146,12 +146,12 @@ simulations.
    :file:`./species_database.yml`.  You should not have to edit this
    setting.
 
-.. option:: simulation:debug_printout
+.. option:: debug_printout
 
    Activates (:command:`true`) or deactivates (:command:`false`)
    debug print statements to the screen or log file.
 
-.. option:: simulation:use_gcclassic_timers
+.. option:: use_gcclassic_timers
 
    Activates (:command:`true`) or deactivates (:command:`false`)
    the GEOS-Chem Classic timers.  If activated, information about how
@@ -163,9 +163,6 @@ simulations.
 =============
 Grid settings
 =============
-
-This section of :file:`geoschem_config.yml` is included for all
-simulations.
 
 .. code-block:: YAML
 
@@ -185,10 +182,12 @@ simulations.
        activate: true
        buffer_zone_NSEW: [0, 0, 0, 0]
 
-.. option:: grid:resolution
+The :command:`grid` section contains setings that define the grid used
+by GEOS-Chem Classic
+       
+.. option:: resolution
 
-   Specifies the horizontal resolution of the grid.  Accepted values
-   are:
+   Specifies the horizontal resolution of the grid.  Accepted values are:
 
    .. option:: 4.0x5.0
 
@@ -212,7 +211,7 @@ simulations.
       Classic grid (:option:`GEOS-FP` and :option:`MERRA2`).  Can be
       used for global or  nested simulations.
 
-.. option:: grid:number_of_levels
+.. option:: number_of_levels
 
    Number of vertical levels to use in the simulation.  Accepted
    values are:
@@ -230,52 +229,66 @@ simulations.
 
       Use 40 vertical levels (for :option:`GCAP2`).
 
-.. option:: grid:longitude:range
+.. option:: longitude
 
-   The minimum and maximum longitude values (grid box centers),
-   specified in list format.
+   Settings that define the longitude dimension of the grid.  There are
+   two sub-options:
 
-.. option:: grid:longitude:center_at_180
+   .. option:: range
 
-   If :command:`true`, then westernmost grid boxes are centered
-   at :math:`-180^{\circ}` longitude (the International Date Line).
-   This is true for both :option:`MERRA2` and :option:`GEOS-FP`.
+      The minimum and maximum longitude values (grid box centers),
+      specified in list format.
 
-   If :command:`false`, then the westernmost grid boxes have their
-   westernmost edges at :math:`-180^{\circ}` longitude.  This is
-   true for the :option:`GCAP2` grid.
+   .. option:: center_at_180
 
-.. option:: grid:latitude:range
+      If :command:`true`, then westernmost grid boxes are centered
+      at :math:`-180^{\circ}` longitude (the International Date Line).
+      This is true for both :option:`MERRA2` and :option:`GEOS-FP`.
+      
+      If :command:`false`, then the westernmost grid boxes have their
+      westernmost edges at :math:`-180^{\circ}` longitude.  This is
+      true for the :option:`GCAP2` grid.
 
-   The minimum and maximum latitude values (grid box centers),
-   specified in list format.
+.. option:: latitude
 
-.. option:: grid:latitude:use_halfpolar_boxes
+   Settings to define the latitude dimension of the grid.  There are
+   two sub-options:	    
+      
+   .. option:: range
 
-   If :command:`true`, then the northernmost and southernmost grid
-   boxes will be :math:`\frac{1}{2}` the extent of other grid boxes.
-   This is true for both :option:`MERRA2` and :option:`GEOS-FP`.
+      The minimum and maximum latitude values (grid box centers),
+      specified in list format.
 
-   If :command:`false`, then all grid boxes will have the same extent
-   in latitude. This is true for the :option:`GCAP2` grid.
+   .. option:: use_halfpolar_boxes
+   
+      If :command:`true`, then the northernmost and southernmost grid
+      boxes will be :math:`\frac{1}{2}` the extent of other grid boxes.
+      This is true for both :option:`MERRA2` and :option:`GEOS-FP`.
+   
+      If :command:`false`, then all grid boxes will have the same extent
+      in latitude. This is true for the :option:`GCAP2` grid.
 
-.. option:: grid:nested_grid_simulation:activate
+.. option:: nested_grid_simulation
 
-   If :command:`true`, this indicates that the simulation will use a
-   sub-window of the horizontal grid.
-
-   If :command:`false`, this indicates that the simulation will use
-   the entire global grid extent.
-
-.. option:: grid:nested_grid_simulation:buffer_zone_NSEW
-
-   Specifies the nested grid latitude offsets (# of grid boxes) in list
-   format :code:`[N-offset, S-offset, E-offset, W-offset]`.  These
-   offsets are used to define an inner window region in which
-   transport is actually done (aka the "transport window").  This
-   "transport window" is always smaller than the actual size of the
-   nested grid region in order to properly account for the boundary
-   conditions.
+   Settings for nested-grid simulations.  There are two sub-options:	    
+      
+   .. option:: activate
+   
+      If :command:`true`, this indicates that the simulation will use a
+      sub-window of the horizontal grid.
+   
+      If :command:`false`, this indicates that the simulation will use
+      the entire global grid extent.
+   
+   .. option:: buffer_zone_NSEW
+   
+      Specifies the nested grid latitude offsets (# of grid boxes) in list
+      format :code:`[N-offset, S-offset, E-offset, W-offset]`.  These
+      offsets are used to define an inner window region in which
+      transport is actually done (aka the "transport window").  This
+      "transport window" is always smaller than the actual size of the
+      nested grid region in order to properly account for the boundary
+      conditions.
 
    - For global simulations, use: :code:`[0, 0, 0, 0]`.
    - For nested-grid simulations, we recommend using: :code:`[3, 3, 3, 3]`.
@@ -285,9 +298,6 @@ simulations.
 ==================
 Timesteps settings
 ==================
-
-This section of :file:`geoschem_config.yml` is included for all
-simulations.
 
 .. code-block:: YAML
 
@@ -299,7 +309,10 @@ simulations.
      chemistry_timestep_in_s: 1200
      radiation_timestep_in_s: 10800
 
-.. option:: timesteps:transport_timestep_in_s
+The :command:`timesteps` section specifies the frequency at which
+various GEOS-Chem operations occur: 
+     
+.. option:: transport_timestep_in_s
 
    Specifies the "heartbeat" timestep of GEOS-Chem Classic.  This is
    the frequency at which transport, cloud convection, PBL mixing, and
@@ -308,7 +321,7 @@ simulations.
    - Recommended value for global simulations: :code:`600`
    - Recommended value for nested simluations: :code:`300` or smaller
 
-.. option:: timesteps:chemistry_timestep_in_s
+.. option:: chemistry_timestep_in_s
 
    Specifies the frequency at which chemistry and emissions will be
    done.
@@ -316,7 +329,7 @@ simulations.
    - Recommended value for global simulations :code:`1200`
    - Recommended value for nested simulations :code:`600` or smaller
 
-.. option:: timesteps:radiation_timestep_in_s
+.. option:: radiation_timestep_in_s
 
    Specifies the frequency at which the `RRTMG
    <http://wiki.geos-chem.org/Coupling_GEOS-Chem_with_RRTMG>`_ radiative
@@ -333,12 +346,12 @@ This section of :file:`geoschem_config.yml` is included for all
 simulations.  However, some of the options listed below will be omitted for
 simulations that do not require them.
 
+There are several sub-sections under :code:`operations`:
+
 .. _gc-yml-operations-chemistry:
 
 Chemistry
 ----------
-This section contains settings that control how chemistry is done in
-GEOS-Chem Classic.  There are several sub-sections under :code:`operations`:
 
 .. code-block:: YAML
 
@@ -359,12 +372,15 @@ GEOS-Chem Classic.  There are several sub-sections under :code:`operations`:
 
        # ... following sub-sections omitted ...
 
-.. option:: operations:chemistry:activate
+The :command:`operations:chemistry` section contains settings that control how
+chemistry is done in GEOS-Chem Classic:
+
+.. option:: activate
 
    Activates (:command:`true`) or deactivates (:command:`false`)
    chemistry in GEOS-Chem Classic.
 
-.. option:: operations:chemistry:linear_chemistry_aloft
+.. option:: linear_chemistry_aloft
 
    Determines how linearized chemistry will be applied in the
    stratosphere and/or mesosphere.  (Only valid for :option:`fullchem`
@@ -387,7 +403,7 @@ GEOS-Chem Classic.  There are several sub-sections under :code:`operations`:
       If :command:`false`, Synoz (i.e. a synthetic flux of ozone across
       the tropopause) will be used instead of Linoz.
 
-.. option:: operations:chemistry:active_strat_H2O
+.. option:: active_strat_H2O
 
    Determines if water vapor as modeled by GEOS-Chem classic will be
    allowed to influence humidity fields. (Only valid for
@@ -408,7 +424,7 @@ GEOS-Chem Classic.  There are several sub-sections under :code:`operations`:
 
       **TODO** Clarify this
 
-.. option:: operations:chemistry:gamma_HO2
+.. option:: gamma_HO2
 
    Specifies :math:`\gamma`, the uptake coefficient for :math:`HO_2`
    heterogeneous chemistry.
@@ -419,9 +435,6 @@ GEOS-Chem Classic.  There are several sub-sections under :code:`operations`:
 
 Convection
 ----------
-This section contains settings that control how `cloud convection
-<http://wiki.geos-chem.org/Cloud_convection>`_ is done in GEOS-Chem
-Classic:
 
 .. code-block:: YAML
 
@@ -437,8 +450,12 @@ Classic:
 
      # ... following sub-sections omitted ...
 
-.. option:: operations:convection:activate
-
+The :command:`operations:convection` section contains settings that control how
+`cloud convection <http://wiki.geos-chem.org/Cloud_convection>`_ is
+done in GEOS-Chem Classic:
+     
+.. option:: activate
+   
    Activates (:command:`true`) or deactivates (:command:`false`)
    cloud convection in GEOS-Chem Classic.
 
@@ -469,15 +486,15 @@ Classic:
 
      # ... following sub-sections omitted ...
 
+The :command:`operations:dry_deposition` section contains settings
+that control how dry deposition is done in GEOS-Chem Classic.
+     
 **TODO** add options here
 
 .. _gc-yml-operations-pblmix:
 
 PBL mixing
 ----------
-This section contains settings that control how `planetary boundary
-layer (PBL) mixing <http://wiki.geos-chem.org/Boundary_layer_mixing>`_
-is done in GEOS-Chem Classic:
 
 .. code-block:: YAML
 
@@ -494,12 +511,18 @@ is done in GEOS-Chem Classic:
 
      # ... following sub-sections omitted ...
 
-.. option:: operations:pbl_mixing:activate
+
+The :command:`operations:pbl_mixing` section contains settings that
+control how `planetary boundary layer (PBL) mixing
+<http://wiki.geos-chem.org/Boundary_layer_mixing>`_  is done in
+GEOS-Chem Classic:
+
+.. option:: activate
 
    Activates (:command:`true`) or deactivates (:command:`false`)
    planetary boundary layer mixing in GEOS-Chem Classic.
 
-.. option:: operations:pbl_mixing:use_non_local_pbl
+.. option:: use_non_local_pbl
 
    If :command:`true`, then the `non-local PBL mixing scheme (VDIFF)
    <http://wiki.geos-chem.org/Boundary_layer_mixing#VDIFF>`_ will
@@ -604,9 +627,6 @@ Transport
 Wet deposition
 --------------
 
-This section contains settings that control how `wet deposition
-<http://wiki.geos-chem.org/Wet_deposition>`_ is done in GEOS-Chem Classic:
-
 .. code-block:: YAML
 
    #============================================================================
@@ -619,7 +639,10 @@ This section contains settings that control how `wet deposition
      wet_deposition:
        activate: true
 
-.. option:: operations:wet_deposition:activate
+The :command:`operations:wet_deposition` section contains settings
+that control how wet deposition is done in GEOS-Chem Classic:
+
+.. option:: activate
 
    Activates (:command:`true`) or deactivates (:command:`false`)
    wet deposition in GEOS-Chem Classic.
