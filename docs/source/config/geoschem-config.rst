@@ -10,11 +10,15 @@ file (plain text) has been replaced with by the
 <https://yaml.org>`_ format, which is a text-based markup syntax used
 for representing dictionary-like data structures.
 
-The :file:`geoschem_config.yml` file contains several sections.  Only
-the sections relevant to a given type of simulation are present.
-(For example, :option:`fullchem` simulation options such as aerosol
-settings and photolysis settings are omitted from the
-:file:`geoschem_config.yml` file for the :option:`CH4` simulation.)
+.. note::
+
+   The :file:`geoschem_config.yml` file contains several sections.  Only
+   the sections relevant to a given type of simulation are present.
+   For example, :option:`fullchem` simulation options (such as aerosol
+   settings and photolysis settings) are omitted from the
+   :file:`geoschem_config.yml` file for the :option:`CH4` simulation.
+
+.. _gc-yml-simulation:
 
 ===================
 Simulation settings
@@ -154,6 +158,8 @@ simulations.
    long each component of GEOS-Chem took to execute will be printed to
    the screen or log file.
 
+.. _gc-yml-grid:
+
 =============
 Grid settings
 =============
@@ -274,6 +280,8 @@ simulations.
    - For global simulations, use: :code:`[0, 0, 0, 0]`.
    - For nested-grid simulations, we recommend using: :code:`[3, 3, 3, 3]`.
 
+.. _gc-yml-timesteps:
+
 ==================
 Timesteps settings
 ==================
@@ -314,3 +322,304 @@ simulations.
    <http://wiki.geos-chem.org/Coupling_GEOS-Chem_with_RRTMG>`_ radiative
    transfer model will be called (valid for :option:`fullchem`
    simulations only).
+
+.. _gc-yml-operations:
+
+===================
+Operations settings
+===================
+
+This section of :file:`geoschem_config.yml` is included for all
+simulations.  However, some of the options listed below will be omitted for
+simulations that do not require them.
+
+.. _gc-yml-operations-chemistry:
+
+Chemistry
+----------
+This section contains settings that control how chemistry is done in
+GEOS-Chem Classic.  There are several sub-sections under :code:`operations`:
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     chemistry:
+       activate: true
+       linear_chemistry_aloft:
+         activate: true
+         use_linoz_for_O3: true
+       active_strat_H2O:
+         activate: true
+         use_static_bnd_cond: true
+       gamma_HO2: 0.2
+
+       # ... following sub-sections omitted ...
+
+.. option:: operations:chemistry:activate
+
+   Activates (:command:`true`) or deactivates (:command:`false`)
+   chemistry in GEOS-Chem Classic.
+
+.. option:: operations:chemistry:linear_chemistry_aloft
+
+   Determines how linearized chemistry will be applied in the
+   stratosphere and/or mesosphere.  (Only valid for :option:`fullchem`
+   simulations).
+
+   There are two sub-options:
+
+   .. option:: activate
+
+      Activates (:command:`true`) or deactivates (:command:`false`)
+      linearized stratospheric chemistry in the stratosphere and/or
+      mesosphere.
+
+   .. option:: use_linoz_for_O3
+
+      If :command:`true`, `Linoz stratospheric ozone chemistry
+      <http://wiki.geos-chem.org/Linoz_stratospheric_ozone_chemistry>`_
+      will be used.
+
+      If :command:`false`, Synoz (i.e. a synthetic flux of ozone across
+      the tropopause) will be used instead of Linoz.
+
+.. option:: operations:chemistry:active_strat_H2O
+
+   Determines if water vapor as modeled by GEOS-Chem classic will be
+   allowed to influence humidity fields. (Only valid for
+   :option:`fullchem` simulations)
+
+   There are two sub-options:
+
+   .. option:: activate
+
+      Allows (:command:`true`) or disallows (:command:`false` the H2O
+      species in GEOS-Chem classic to influence specific humidity and
+      relative humidity.
+
+   .. option:: use_static_bnd_cond
+
+      Allows (:command:`true`) or diasallows (:command:`false`) a
+      static boundary condition.
+
+      **TODO** Clarify this
+
+.. option:: operations:chemistry:gamma_HO2
+
+   Specifies :math:`\gamma`, the uptake coefficient for :math:`HO_2`
+   heterogeneous chemistry.
+
+   Recommended value: :code:`0.2`.
+
+.. _gc-yml-operations-convection:
+
+Convection
+----------
+This section contains settings that control how `cloud convection
+<http://wiki.geos-chem.org/Cloud_convection>`_ is done in GEOS-Chem
+Classic:
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     convection:
+       activate: true
+
+     # ... following sub-sections omitted ...
+
+.. option:: operations:convection:activate
+
+   Activates (:command:`true`) or deactivates (:command:`false`)
+   cloud convection in GEOS-Chem Classic.
+
+.. _gc-yml-operations-drydep:
+
+Dry deposition
+--------------
+This section contains settings that control how `dry deposition
+<http://wiki.geos-chem.org/Dry_deposition>`_ is done in GEOS-Chem
+Classic:
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     dry_deposition:
+       activate: true
+       CO2_effect:
+         activate: false
+         CO2_level: 600.0
+         reference_CO2_level: 380.0
+       diag_alt_above_sfc_in_m: 10
+
+     # ... following sub-sections omitted ...
+
+**TODO** add options here
+
+.. _gc-yml-operations-pblmix:
+
+PBL mixing
+----------
+This section contains settings that control how `planetary boundary
+layer (PBL) mixing <http://wiki.geos-chem.org/Boundary_layer_mixing>`_
+is done in GEOS-Chem Classic:
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     pbl_mixing:
+       activate: true
+       use_non_local_pbl: true
+
+     # ... following sub-sections omitted ...
+
+.. option:: operations:pbl_mixing:activate
+
+   Activates (:command:`true`) or deactivates (:command:`false`)
+   planetary boundary layer mixing in GEOS-Chem Classic.
+
+.. option:: operations:pbl_mixing:use_non_local_pbl
+
+   If :command:`true`, then the `non-local PBL mixing scheme (VDIFF)
+   <http://wiki.geos-chem.org/Boundary_layer_mixing#VDIFF>`_ will
+   be used.
+
+   If :command:`false`, then the `full PBL mixing scheme (TURBDAY)
+   <http://wiki.geos-chem.org/Boundary_layer_mixing#VDIFF>`_ will
+   be used.
+
+.. _gc-yml-operations-photolysis:
+
+Photolysis
+----------
+This section contains settings that control how `photolysis
+<http://wiki.geos-chem.org/FAST-JX_v7.0_photolysis_mechanism>`_ is
+done in GEOS-Chem Classic.
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     photolysis:
+       input_dir: ${RUNDIR_DATA_ROOT}/CHEM_INPUTS/FAST_JX/v2021-10/
+       overhead_O3:
+         use_online_O3_from_model: ${RUNDIR_USE_ONLINE_O3}
+         use_column_O3_from_met: true
+         use_TOMS_SBUV_O3: false
+       photolyze_nitrate_aerosol:
+         activate: false
+         NITs_Jscale_JHNO3: 0.0
+         NIT_Jscale_JHNO2: 0.0
+         percent_channel_A_HONO: 66.667
+         percent_channel_B_NO2: 33.333
+
+     # ... following sub-sections omitted ...
+
+**TODO** add options here
+
+.. _gc-yml-rrtmg:
+
+RRTMG radiative transfer model
+------------------------------
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     rrtmg_rad_transfer_model:
+       activate: ${RUNDIR_USE_RRTMG}
+       aod_wavelengths_in_nm:
+         - 550
+       longwave_fluxes: ${RUNDIR_RRTMG_OPTS}
+       shortwave_fluxes: ${RUNDIR_RRTMG_OPTS}
+       clear_sky_flux: ${RUNDIR_RRTMG_OPTS}
+       all_sky_flux: ${RUNDIR_RRTMG_OPTS}
+
+     # .. following sub-sections omitted ...
+
+**TODO** add options here
+
+.. _gc-yml-transport:
+
+Transport
+---------
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     transport:
+       gcclassic_tpcore:                 # GEOS-Chem Classic only
+         activate: true                  # GEOS-Chem Classic only
+         fill_negative_values: true      # GEOS-Chem Classic only
+         iord_jord_kord: [3, 3, 7]       # GEOS-Chem Classic only
+       transported_species:
+         - ACET
+         - ACTA
+         - AERI
+	 - ... etc more species ...
+
+     # .. following sub-sections omitted ...
+
+**TODO** add options here
+
+.. _gc-yml-wetdep:
+
+Wet deposition
+--------------
+
+This section contains settings that control how `wet deposition
+<http://wiki.geos-chem.org/Wet_deposition>`_ is done in GEOS-Chem Classic:
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for GEOS-Chem operations
+   #============================================================================
+   operations:
+
+     # .. preceding sub-sections omitted ...
+
+     wet_deposition:
+       activate: true
+
+.. option:: operations:wet_deposition:activate
+
+   Activates (:command:`true`) or deactivates (:command:`false`)
+   wet deposition in GEOS-Chem Classic.
