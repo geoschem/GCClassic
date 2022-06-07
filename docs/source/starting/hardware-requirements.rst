@@ -1,4 +1,4 @@
-.. _hardware_requirements:
+.. _hardware-requirements:
 
 #####################
 Hardware requirements
