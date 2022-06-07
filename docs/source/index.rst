@@ -70,14 +70,6 @@ instructions specifically for using a clone of the source code.
    building-gc/compile-geos-chem.rst
 
 .. toctree::
-   :caption: Downloading input data
-   :maxdepth: 6
-
-   inputs/input-overview.rst
-   inputs/restart-files.rst
-   inputs/dry-run.rst
-
-.. toctree::
    :caption: Configuring runs
    :maxdepth: 6
 
@@ -86,6 +78,20 @@ instructions specifically for using a clone of the source code.
    config/hemco-config.rst
    config/hemco-diagn.rst
    config/history.rst
+
+.. toctree::
+   :caption: Downloading input data
+   :maxdepth: 6
+
+   inputs/input-overview.rst
+   inputs/restart-files.rst
+   inputs/dry-run.rst
+
+.. toctree::
+   :caption: Running GEOS-Chem Classic
+   :maxdepth: 6
+   
+   running/running-gcclassic.rst
 
 .. toctree::
    :caption: Output from GEOS-Chem Classic
