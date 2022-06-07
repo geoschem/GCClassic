@@ -1,8 +1,8 @@
 .. _geoschem-config:
 
-############################
-The geoschem_config.yml file
-############################
+###########################
+Editing geoschem_config.yml
+###########################
 
 Starting with GEOS-Chem 14.0.0, the :file:`input.geos` configuration
 file (plain text) has been replaced with by the
@@ -39,8 +39,8 @@ Simulation settings
      debug_printout: false
      use_gcclassic_timers: false
 
-The :command:`simulation` section contains general simulation options:
-	    
+The :code:`simulation` section contains general simulation options:
+
 .. option:: name
 
    Specifies the type of GEOS-Chem Classic simulation.  Accepted
@@ -102,12 +102,12 @@ The :command:`simulation` section contains general simulation options:
 .. option:: start_date
 
    Specifies the starting date and time of the simulation in list
-   notation [YYYYMMDD, hhmmss].
+   notation :code:`[YYYYMMDD, hhmmss]`.
 
 .. option:: end_date
 
    Specifies the ending date and time of the simulation in list
-   notation [YYYYMMDD, hhmmss].
+   notation :code:`[YYYYMMDD, hhmmss]`.
 
 .. option:: root_data_dir
 
@@ -124,7 +124,7 @@ The :command:`simulation` section contains general simulation options:
       The `MERRA-2 <https://wiki.geos-chem.org/MERRA-2>`_ meteorology
       product from NASA/GMAO.  MERRA-2 is a stable reanalysis product,
       and extends from approximately 1980 to present.
-	 **(Recommended option)** 
+      **(Recommended option)**
 
    .. option:: GEOS-FP
 
@@ -148,12 +148,12 @@ The :command:`simulation` section contains general simulation options:
 
 .. option:: debug_printout
 
-   Activates (:command:`true`) or deactivates (:command:`false`)
+   Activates (:code:`true`) or deactivates (:code:`false`)
    debug print statements to the screen or log file.
 
 .. option:: use_gcclassic_timers
 
-   Activates (:command:`true`) or deactivates (:command:`false`)
+   Activates (:code:`true`) or deactivates (:code:`false`)
    the GEOS-Chem Classic timers.  If activated, information about how
    long each component of GEOS-Chem took to execute will be printed to
    the screen or log file.
@@ -182,9 +182,9 @@ Grid settings
        activate: true
        buffer_zone_NSEW: [0, 0, 0, 0]
 
-The :command:`grid` section contains setings that define the grid used
+The :code:`grid` section contains setings that define the grid used
 by GEOS-Chem Classic
-       
+
 .. option:: resolution
 
    Specifies the horizontal resolution of the grid.  Accepted values are:
@@ -241,47 +241,47 @@ by GEOS-Chem Classic
 
    .. option:: center_at_180
 
-      If :command:`true`, then westernmost grid boxes are centered
+      If :code:`true`, then westernmost grid boxes are centered
       at :math:`-180^{\circ}` longitude (the International Date Line).
       This is true for both :option:`MERRA2` and :option:`GEOS-FP`.
-      
-      If :command:`false`, then the westernmost grid boxes have their
+
+      If :code:`false`, then the westernmost grid boxes have their
       westernmost edges at :math:`-180^{\circ}` longitude.  This is
       true for the :option:`GCAP2` grid.
 
 .. option:: latitude
 
    Settings to define the latitude dimension of the grid.  There are
-   two sub-options:	    
-      
+   two sub-options:
+
    .. option:: range
 
       The minimum and maximum latitude values (grid box centers),
       specified in list format.
 
    .. option:: use_halfpolar_boxes
-   
-      If :command:`true`, then the northernmost and southernmost grid
+
+      If :code:`true`, then the northernmost and southernmost grid
       boxes will be :math:`\frac{1}{2}` the extent of other grid boxes.
       This is true for both :option:`MERRA2` and :option:`GEOS-FP`.
-   
-      If :command:`false`, then all grid boxes will have the same extent
+
+      If :code:`false`, then all grid boxes will have the same extent
       in latitude. This is true for the :option:`GCAP2` grid.
 
 .. option:: nested_grid_simulation
 
-   Settings for nested-grid simulations.  There are two sub-options:	    
-      
+   Settings for nested-grid simulations.  There are two sub-options:
+
    .. option:: activate
-   
-      If :command:`true`, this indicates that the simulation will use a
+
+      If :code:`true`, this indicates that the simulation will use a
       sub-window of the horizontal grid.
-   
-      If :command:`false`, this indicates that the simulation will use
+
+      If :code:`false`, this indicates that the simulation will use
       the entire global grid extent.
-   
+
    .. option:: buffer_zone_NSEW
-   
+
       Specifies the nested grid latitude offsets (# of grid boxes) in list
       format :code:`[N-offset, S-offset, E-offset, W-offset]`.  These
       offsets are used to define an inner window region in which
@@ -309,9 +309,9 @@ Timesteps settings
      chemistry_timestep_in_s: 1200
      radiation_timestep_in_s: 10800
 
-The :command:`timesteps` section specifies the frequency at which
-various GEOS-Chem operations occur: 
-     
+The :code:`timesteps` section specifies the frequency at which
+various GEOS-Chem operations occur:
+
 .. option:: transport_timestep_in_s
 
    Specifies the "heartbeat" timestep of GEOS-Chem Classic.  This is
@@ -372,12 +372,12 @@ Chemistry
 
        # ... following sub-sections omitted ...
 
-The :command:`operations:chemistry` section contains settings that control how
+The :code:`operations:chemistry` section contains settings that control how
 chemistry is done in GEOS-Chem Classic:
 
 .. option:: activate
 
-   Activates (:command:`true`) or deactivates (:command:`false`)
+   Activates (:code:`true`) or deactivates (:code:`false`)
    chemistry in GEOS-Chem Classic.
 
 .. option:: linear_chemistry_aloft
@@ -390,17 +390,17 @@ chemistry is done in GEOS-Chem Classic:
 
    .. option:: activate
 
-      Activates (:command:`true`) or deactivates (:command:`false`)
+      Activates (:code:`true`) or deactivates (:code:`false`)
       linearized stratospheric chemistry in the stratosphere and/or
       mesosphere.
 
    .. option:: use_linoz_for_O3
 
-      If :command:`true`, `Linoz stratospheric ozone chemistry
+      If :code:`true`, `Linoz stratospheric ozone chemistry
       <http://wiki.geos-chem.org/Linoz_stratospheric_ozone_chemistry>`_
       will be used.
 
-      If :command:`false`, Synoz (i.e. a synthetic flux of ozone across
+      If :code:`false`, Synoz (i.e. a synthetic flux of ozone across
       the tropopause) will be used instead of Linoz.
 
 .. option:: active_strat_H2O
@@ -413,13 +413,13 @@ chemistry is done in GEOS-Chem Classic:
 
    .. option:: activate
 
-      Allows (:command:`true`) or disallows (:command:`false` the H2O
+      Allows (:code:`true`) or disallows (:code:`false` the H2O
       species in GEOS-Chem classic to influence specific humidity and
       relative humidity.
 
    .. option:: use_static_bnd_cond
 
-      Allows (:command:`true`) or diasallows (:command:`false`) a
+      Allows (:code:`true`) or diasallows (:code:`false`) a
       static boundary condition.
 
       **TODO** Clarify this
@@ -453,19 +453,16 @@ Convection
 The :command:`operations:convection` section contains settings that control how
 `cloud convection <http://wiki.geos-chem.org/Cloud_convection>`_ is
 done in GEOS-Chem Classic:
-     
+
 .. option:: activate
-   
-   Activates (:command:`true`) or deactivates (:command:`false`)
+
+   Activates (:code:`true`) or deactivates (:code:`false`)
    cloud convection in GEOS-Chem Classic.
 
 .. _gc-yml-operations-drydep:
 
 Dry deposition
 --------------
-This section contains settings that control how `dry deposition
-<http://wiki.geos-chem.org/Dry_deposition>`_ is done in GEOS-Chem
-Classic:
 
 .. code-block:: YAML
 
@@ -486,10 +483,41 @@ Classic:
 
      # ... following sub-sections omitted ...
 
-The :command:`operations:dry_deposition` section contains settings
-that control how dry deposition is done in GEOS-Chem Classic.
-     
-**TODO** add options here
+The :code:`operations:dry_deposition` section contains settings that
+control how `dry deposition
+<http://wiki.geos-chem.org/Dry_deposition>`_ is done in GEOS-Chem
+Classic:
+
+.. option:: activate
+
+   Activates (:code:`true`) or deactivates (:code:`false`)
+   dry deposition.
+
+.. option:: CO2_effect
+
+   This sub-section contains options for applying the
+   `simple parameterization for the CO2 effect on stomatal resistance
+   <http://wiki.geos-chem.org/Dry_deposition#Simple_parameterization_for_CO2_dependence_of_stomatal_resistance>`_.
+
+   .. option:: activate
+
+      Activates (:code:`true`) or deactivates (:code:`false`) the CO2
+      effect on stomatal resistance in dry deposition.  
+
+      Default value: :code:`false`.
+
+   .. option:: CO2_level
+
+      Specifies the CO2 level (in ppb).
+
+   .. option:: reference_CO2_level
+
+      Specifies the reference CO2 level (in ppb).
+
+.. option:: diag_alt_above_sfc_in_m:
+
+   Specifies the altitude above the surface (in m) to used with the
+   `ConcAboveSfc diagnostic collection <http://wiki.seas.harvard.edu/geos-chem/index.php/History_collections_for_dry_deposition#The_ConcAboveSfc_collection>`_.
 
 .. _gc-yml-operations-pblmix:
 
@@ -511,24 +539,23 @@ PBL mixing
 
      # ... following sub-sections omitted ...
 
-
-The :command:`operations:pbl_mixing` section contains settings that
+The :code:`operations:pbl_mixing` section contains settings that
 control how `planetary boundary layer (PBL) mixing
 <http://wiki.geos-chem.org/Boundary_layer_mixing>`_  is done in
 GEOS-Chem Classic:
 
 .. option:: activate
 
-   Activates (:command:`true`) or deactivates (:command:`false`)
+   Activates (:code:`true`) or deactivates (:code:`false`)
    planetary boundary layer mixing in GEOS-Chem Classic.
 
 .. option:: use_non_local_pbl
 
-   If :command:`true`, then the `non-local PBL mixing scheme (VDIFF)
+   If :code:`true`, then the `non-local PBL mixing scheme (VDIFF)
    <http://wiki.geos-chem.org/Boundary_layer_mixing#VDIFF>`_ will
-   be used.
+   be used. (Default option)
 
-   If :command:`false`, then the `full PBL mixing scheme (TURBDAY)
+   If :code:`false`, then the `full PBL mixing scheme (TURBDAY)
    <http://wiki.geos-chem.org/Boundary_layer_mixing#VDIFF>`_ will
    be used.
 
@@ -536,9 +563,6 @@ GEOS-Chem Classic:
 
 Photolysis
 ----------
-This section contains settings that control how `photolysis
-<http://wiki.geos-chem.org/FAST-JX_v7.0_photolysis_mechanism>`_ is
-done in GEOS-Chem Classic.
 
 .. code-block:: YAML
 
@@ -550,9 +574,9 @@ done in GEOS-Chem Classic.
      # .. preceding sub-sections omitted ...
 
      photolysis:
-       input_dir: ${RUNDIR_DATA_ROOT}/CHEM_INPUTS/FAST_JX/v2021-10/
+       input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
        overhead_O3:
-         use_online_O3_from_model: ${RUNDIR_USE_ONLINE_O3}
+         use_online_O3_from_model: true
          use_column_O3_from_met: true
          use_TOMS_SBUV_O3: false
        photolyze_nitrate_aerosol:
@@ -564,7 +588,44 @@ done in GEOS-Chem Classic.
 
      # ... following sub-sections omitted ...
 
-**TODO** add options here
+The :code:`operation:photolysis` section contains settings that
+control how `photolysis
+<http://wiki.geos-chem.org/FAST-JX_v7.0_photolysis_mechanism>`_ is
+done in GEOS-Chem Classic.
+
+This section only applies to the :option:`fullchem` mechanism.
+
+.. option:: input_dir
+
+   Specifies the path to the FAST_JX configuration file that contain
+   information about species cross sections and quantum yields.
+
+.. option:: overhead_O3
+
+   This section contains settings that control which overhead ozone
+   sources are used for photolysis
+
+   .. option:: use_online_O3_from_model
+
+      Activates (:code:`true`) or deactivates (:code:`false`) using
+      online O3 from GEOS-Chem in the extinction calculations for
+      FAST-JX photolysis.
+
+      Recommended value: :code:`true`
+
+  .. option:: use_column_O3_from_met
+
+     Activates (:code:`true`) or deactivates (:code:`false`) using
+     ozone columns (e.g. TO3) from the meteorology fields.
+
+     Recommended value: :code:`true`.
+
+  .. option:: use_TOMS_SBUV_O3
+
+     Activates (:code:`true`) or deactivates (:code:`false`) using
+     ozone columns from the TOMS-SBUV archive  will be used. 
+
+     Recommended value: :code:`false`.
 
 .. _gc-yml-rrtmg:
 
@@ -581,17 +642,65 @@ RRTMG radiative transfer model
      # .. preceding sub-sections omitted ...
 
      rrtmg_rad_transfer_model:
-       activate: ${RUNDIR_USE_RRTMG}
+       activate: false
        aod_wavelengths_in_nm:
          - 550
-       longwave_fluxes: ${RUNDIR_RRTMG_OPTS}
-       shortwave_fluxes: ${RUNDIR_RRTMG_OPTS}
-       clear_sky_flux: ${RUNDIR_RRTMG_OPTS}
-       all_sky_flux: ${RUNDIR_RRTMG_OPTS}
+       longwave_fluxes: false
+       shortwave_fluxes: false
+       clear_sky_flux: false
+       all_sky_flux: false
 
      # .. following sub-sections omitted ...
 
-**TODO** add options here
+The :code:`operations:rrtmg_rad_transfer_model` section contains
+settings that control the `RRTMG radiative transfer model
+<http://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`_ is done in 
+GEOS-Chem Classic:
+
+.. option:: activate
+
+   Activates (:code:`true`) or deactivates (:code:`false`) the RRTMG
+   radiative transfer model.
+
+   Default value: :code:`false`.
+
+.. option:: aod_wavelengths_in_nm
+
+   Specify wavelength(s) for the aerosol optical properties in nm
+   (in `YAML sequence format
+   <https://www.tutorialspoint.com/yaml/yaml_sequence_styles.htm>`_)
+   Up to three wavelengths can be selected.  The specified wavelengths
+   are  used for the `FAST-JX photolysis mechanism
+   <http://wiki.geos-chem.org/FAST-JX_v7.0_photolysis_mechanism>`_
+   regardless of whether the RRTMG radiative transfer model is used.
+
+.. option:: longwave_fluxes
+
+   Activates (:code:`true`) or deactivates (:code:`false`)
+   RRTMG longwave flux calculations. 
+
+   Default value: :code:`false`.
+
+.. option:: shortwave_fluxes
+
+   Activates (:code:`true`) or deactivates (:code:`false`)
+   RRTMG shortwave calculations. 
+
+   Default value: :code:`false`.
+
+.. option:: clear_sky_flux
+
+   Activates (:code:`true`) or deactivates (:code:`false`)
+   RRTMG clear-sky flux calculations. 
+
+   Default value: :code:`false`.
+
+.. option:: all_sky_flux
+
+   Activates (:code:`true`) or deactivates (:code:`false`)
+   RRTMG all-sky flux calculations. 
+ 
+   Default value: :code:`false`.
 
 .. _gc-yml-transport:
 
@@ -620,7 +729,56 @@ Transport
 
      # .. following sub-sections omitted ...
 
-**TODO** add options here
+The :code:`operations:transport` section contains
+settings that control how `species transport
+<http://wiki.geos-chem.org/Advection_scheme_TPCORE>`_ is done in
+GEOS-Chem Classic:
+
+.. option:: gcclassic_tpcore
+
+   Contains options that control species transport in GEOS-Chem
+   Classic with the `TPCORE advection scheme
+   <http://wiki.geos-chem.org/Advection_scheme_TPCORE>`_: 
+
+   .. option:: activate
+
+      Activates (:code:`true`) or deactivates (:code:`false`) species
+      transport in GEOS-Chem Classic.
+
+      Default value: :code:`true`.
+
+   .. option:: fill_negative_values
+
+      If :code:`true`, negative species concentrations will be
+      replaced with zeros.   
+
+      If :code:`false`, no change will be made to species
+      concentrations.
+
+      Default value: :code:`true`.
+      
+   .. option:: iord_jord_kord
+
+      Specifies advection options (in list format) for TPCORE in the
+      longitude, latitude, and vertical dimensions.  The options are
+      listed below:
+
+      #. 1st order upstream scheme (use for debugging only)
+      #. 2nd order van Leer (full monotonicity constraint)
+      #. Monotonic PPM
+      #. Semi-monotonic PPM (same as 3, but overshoots are allowed)
+      #. Positive-definite PPM
+      #. Un-constrained PPM (use when fields & winds are very smooth)
+         this option only when the fields and winds are very smooth.
+      #. Huynh/Van Leer/Lin full monotonicity constraint (KORD only)
+
+      Default (and recommended) value: :code:`[3, 3, 7]`
+
+.. option:: transported_species
+
+   A list of species names (in `YAML sequence format
+   <https://www.tutorialspoint.com/yaml/yaml_sequence_styles.htm>`_)
+   that will be transported by the TPCORE advection scheme.
 
 .. _gc-yml-wetdep:
 
@@ -644,5 +802,5 @@ that control how wet deposition is done in GEOS-Chem Classic:
 
 .. option:: activate
 
-   Activates (:command:`true`) or deactivates (:command:`false`)
+   Activates (:code:`true`) or deactivates (:code:`false`)
    wet deposition in GEOS-Chem Classic.
