@@ -86,9 +86,10 @@ instructions specifically for using a clone of the source code.
    inputs/input-overview.rst
    inputs/restart-files.rst
    inputs/dry-run.rst
+   geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
 
 .. toctree::
-   :caption: Running GEOS-Chem Classic
+   :caption: Running and analyzing results
    :maxdepth: 6
    
    running/running-gcclassic.rst
