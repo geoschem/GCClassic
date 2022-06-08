@@ -63,7 +63,7 @@ files are written with frequency configured in :file:`HEMCO_Config.rc`.
 GEOS-Chem restart files
 =======================
 
-.. _restart_file_input:
+.. _restart-file-input:
 
 How are restart files read into GEOS-Chem?
 ------------------------------------------

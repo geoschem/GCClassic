@@ -1,3 +1,7 @@
+.. |br| raw:: html
+
+   <br/>
+
 .. _running-gc:
 
 #########################
@@ -37,38 +41,43 @@ the required steps for running GEOS-Chem Classic:
 
 .. _one-time-setup:
 
-First-time setup:
+First-time setup
 -----------------
 
 #. Make sure that your computational environment meets all of the
    :ref:`hardware <hardware-requirements>` and
-   :ref:`software <software-requirements>` for GEOS-Chem Classic.
+   :ref:`software <software-requirements>` for GEOS-Chem Classic. |br|
+   |br|
 
 #. Make sure that you have :ref:`properly configured your Unix
    environment <config-overview>`. 
 
 .. _each-time-setup:
 
-Each-time setup:
+Each-time setup
 ----------------
 
-#. Create a :ref:`GEOS-Chem Classic run directory <creating-rundir>`,
+#. Create a :ref:`GEOS-Chem Classic run directory <create-rundir>`,
    and make sure that it is correct for the simulation you wish to
-   perform.
+   perform. |br|
+   |br|
 
-#. :ref:`Configure your GEOS-Chem Classic` simulation by editing the
-   following :ref:`settings in these configuration files <config-overview>`:
+#. :ref:`Configure your GEOS-Chem Classic <config-overview>`
+   simulation by editing the settings in these files:
 
    - :ref:`geoschem_config.yml <geoschem-config>`
    - :ref:`HEMCO_Config.rc <hemco-config>`
    - :ref:`HEMCO_Diagn.rc <hemco-diagn>`
-   - :ref:`HISTORY.rc <history>`
+   - :ref:`HISTORY.rc <history>` |br|
+     |br|
 
 #. :ref:`Configure and build <compiling-geos-chem>` the GEOS-Chem
-   source code.
+   source code. |br|
+   |br|
 
 #. Copy a sample :ref:`GEOS-Chem Classic run script <gc-run-script>` to
-   your run directory.
+   your run directory. |br|
+   |br|
 
 #. Make sure that your run script contains the proper settings for
    :ref:`OpenMP parallelization <specifying-parallelization-settings>`. 
@@ -94,7 +103,7 @@ The :file:`geoschem.run` script looks like this:
 
 .. code-block:: bash
 
-   !/bin/bash
+   #!/bin/bash
 
    #SBATCH -c 8
    #SBATCH -N 1
@@ -113,7 +122,7 @@ The :file:`geoschem.run` script looks like this:
    # SLURM_CPUS_PER_TASK ensures this matches the number you set with -c above
    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-   # Run GEOS_Chem.  The "time" command will return CPU and wall times.
+   # Run GEOS-Chem.  The "time" command will return CPU and wall times.
    # Stdout and stderr will be directed to the "GC.log" log file
    # (you can change the log file name below if you wish)
    srun -c $OMP_NUM_THREADS time -p ./gcclassic > GC.log 2>&1
@@ -123,7 +132,16 @@ The :file:`geoschem.run` script looks like this:
 
 The sample run script contains commands for the `SLURM scheduler
 <https://slurm.schedmd.com/documentation.html>`_, which is used on
-many HPC sytems. Important commands are listed below:
+many HPC sytems. 
+
+.. note::
+
+   If your computer system uses a different scheduler (such as LSF or
+   PBS), then you can replace the SLURM-specific commands with
+   commands for your scheduler.  Ask your IT staff for more
+   information.
+
+Important commands in the run script are listed below:
 
 .. option:: #SBATCH -c 8
 
@@ -135,10 +153,10 @@ many HPC sytems. Important commands are listed below:
 
    .. important::
 
-      GEOS-Chem Classic uses OpenMP parallelization, which is a
-      shared-memory parallelization model.  Using OpenMP limits
-      GEOS-Chem Classic to one computational node (or approximately
-      20-60 computational nodes).
+      GEOS-Chem Classic uses `OpenMP
+      <https://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_, which is
+      a  shared-memory parallelization model.  Using OpenMP limits
+      GEOS-Chem Classic to one computational node.
 
 .. option:: #SBATCH -t 0-12:00
 
@@ -165,8 +183,9 @@ many HPC sytems. Important commands are listed below:
 
    Specifies how many computational cores that GEOS-Chem Classic
    should use.  The environment variable :envvar:`SLURM_CPUS_PER_TASK`
-   will fill in the number of cores requested with :option:`#SBATCH -c
-   8`.  In this example, 8 cores will be requested.
+   will fill in the number of cores requested
+   (in this example, we used :code:`#SBATCH -c 8`, which requests 8
+   cores).
 
 .. option:: srun -c $OMP_NUM_THREADS
 
@@ -182,7 +201,6 @@ many HPC sytems. Important commands are listed below:
    time and wall time) that the simulation took to complete to the end
    of :file:`GC.log`.
 
-
 .. _geos-chem-batch:
 
 Running GEOS-Chem as a batch job
@@ -194,53 +212,100 @@ that uses the SLURM scheduler, type the following command:
 
    sbatch geoschem.run
 
+This will submit your job to the SLURM scheduler.  Your job may remain
+pending in the queue for a time if there is high demand on your cluster.
+
 Running GEOS-Chem interactively
---------------------------------
+-------------------------------
 
-**TODO**
+If your computer system does not use a scheduler, or if you are logged
+into an Amazon Web Services (AWS) cloud instance, then you can run
+GEOS-Chem Classic as an interactive job.
 
-.. _how_to_run_geos_chem:
+Here is a sample run script for interactive use
+(:file:`geoschem-int.sh`).   It is similar to the 
+:ref:`run script shown above <gc-run-script>`, with a few edits:
 
-=======================================
-Running GEOS-Chem as an interactive job
-=======================================
+.. code-block:: bash
 
-You can run GEOS-Chem locally from within your run directory
-(interactively) or by submitting your run to your cluster's job
-scheduler.
+   #!/bin/bash
 
-.. _running_interactively:
+   ###############################################################################
+   ### Sample GEOS-Chem run script for interactive use
+   ###############################################################################
 
-Running Interactively
----------------------
-TODO
+   # Set the proper # of threads for OpenMP
+   export OMP_NUM_THREADS=8
 
-.. _run_script_samples:
+   # Run GEOS-Chem.  The "time" command will return CPU and wall times.
+   # Stdout and stderr will be directed to the "GC.log" log file
+   # (you can change the log file name below if you wish)
+   time -p ./gcclassic > GC.log 2>&1
 
+   # Exit normally
+   exit 0
 
-.. _verifying_a_successful_run:
+The modifications entail:
 
-Verifying a Successful Run
---------------------------
+#. Removing the SLURM-specific commands (i.e. :code:`#SBATCH`,
+   :code:`$SLURM_CPUS__PER_TASK`, and :code:`srun`). |br|
+   |br|
 
-There are several ways to verify that your run was successful.
+#. Manually specifying the number of cores that you wish GEOS-Chem to
+   use (:code:`export $OMP_NUM_THREADS=8`).
 
-**1.** The following output can be found at the end of your GEOS-Chem
-log file:
+.. note::
+
+   If you are logged into an AWS cloud instance, you can use:
+
+   .. code-block:: bash
+
+      export OMP_NUM_THREADS=`ncpus`
+ 
+   which will automatically fill in the number of available cores.
+
+To run GEOS-Chem interactively, type:
 
 .. code-block:: console
 
-     **************   E N D   O F   G E O S -- C H E M   **************
+   $ ./geoschem.run &
 
-**2.** NetCDF files (``GEOSChem.*.nc4``) are present in the
-``OutputDir/`` subfolder of the run directory.
+This will run the job in the background.  To monitor the progress of
+the job you can type:
 
-**3.** `Restart files <GEOS-Chem_restart_files>`__
-(``GEOSChem.Restart.*nc4``, ``HEMCO_restart*.nc``) for the ending date
-and time of the simulation are present in the run directory.
+.. code-block:: console
 
-**4.** Your scheduler log (e.g. output from SLURM, LSF, PBS, etc.) does
-not contain any obvious errors.
+   tail -f GC.log
+
+which will show the contents of the log file as they are being written.
+
+.. _verifying-a-successful-run:
+
+==========================
+Verifying a Successful Run
+==========================
+
+There are several ways to verify that your GEOS-Chem Classic run was
+successful:
+
+#. The following output can be found at the end of the log file:
+
+   .. code-block:: console
+
+      **************   E N D   O F   G E O S -- C H E M   **************
+
+#. NetCDF files (e.g. :file:`OutputDir/GEOSChem*.nc4` and
+   :file:`OutputDir/HEMCO*.nc`) are present. |br|
+   |br|
+
+#. :ref:`restart-files`
+   (e.g. :file:`GEOSChem.Restart.YYYYMMDD_hhmmz.nc4` and
+   :file:`HEMCO_restart.YYYYMMDDhh.nc`) for ending date
+   :code:`YYYYMMDD hhmm` are present. |br|
+   |br|
+
+#. Your scheduler log file (e.g. :file:`slurm-xxxxx.out`, where
+   :code:`xxxxx` is the job id) is free of errors. 
 
 If your run stopped with an error, please the following resources:
 
@@ -251,17 +316,7 @@ If your run stopped with an error, please the following resources:
 -  `Submitting GEOS-Chem support
    requests <Submitting_GEOS-Chem_support_requests>`__
 
-.. _submitting_consecutive_runs:
-
-Submitting consecutive runs
----------------------------
-
-**Please note: As of October 2019, the\ **\ `GCST <GCST>`__\ **\ is
-actively investigating differences in model output when running single
-vs multi-segmented runs. Any issues found will be addressed as soon as
-possible to minimize these differences.**
-
-.. _speeding-up-gc-runs:
+.. _minimizing-differences:
 
 ====================================================
 Minimizing differences when splitting up simulations 
@@ -272,30 +327,27 @@ simulations to stay within their cluster's computational limits. When
 doing so, make sure you follow these guidelines to minimize differences
 in model output:
 
-#.  Make sure :code:`GC_RESTART` and :code:`HEMCO_RESTART` options are
-    set to :code:`true:` in :ref:`HEMCO_Config.rc <hemco-config>`.
+#. Make sure :code:`GC_RESTART` and :code:`HEMCO_RESTART` options are
+   set to :code:`true:` in :ref:`HEMCO_Config.rc <hemco-config>`. |br|
+   |br|
+#. To ensure your restart files are read and species concentrations are
+   properly initialized, you may check your GEOS-Chem log file for the
+   following output:
 
-#. 
+   .. code-block:: console
 
-**3.** To ensure you restart files are read and species concentrations
-are properly initialized, you may check your GEOS-Chem log file for the
-following output:
+      ===============================================================================
+      R E S T A R T   F I L E   I N P U T
+      Min and Max of each species in restart file [mol/mol]:``
+      Species   1,       NO: Min = 1.000000003E-30  Max = 1.560991691E-08
+      Species   2,       O3: Min = 3.135925075E-09  Max = 9.816152669E-06
+      Species   3,      PAN: Min = 3.435056848E-25  Max = 1.222619450E-09
+      ...
 
-.. code-block:: console
-
-     ===============================================================================
-     R E S T A R T   F I L E   I N P U T
-     Min and Max of each species in restart file [mol/mol]:``
-     Species   1,       NO: Min = 1.000000003E-30  Max = 1.560991691E-08
-     Species   2,       O3: Min = 3.135925075E-09  Max = 9.816152669E-06
-     Species   3,      PAN: Min = 3.435056848E-25  Max = 1.222619450E-09``
-     ...``
-
-   Actual values may differ. If you see "``Use background = ...``" for
-   most/all species, that suggests your restart file was not found. To
+   Actual values may differ. If you see :code:`Use background = ...` for
+   most or all species, that suggests your restart file was not found. To
    avoid using the wrong restart file make sure to use time cycle flag
-   \ ``EY``\  in HEMCO_Config.rc to only use a restart file for the
-   exact simulation date.
+   :code:`EY` in HEMCO_Config.rc (cf. :ref:`restart-file-input`).
 
 
 .. _speeding-up-simulations:
