@@ -86,7 +86,6 @@ instructions specifically for using a clone of the source code.
    inputs/input-overview.rst
    inputs/restart-files.rst
    inputs/dry-run.rst
-   geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
 
 .. toctree::
    :caption: Running and analyzing results
@@ -115,6 +114,7 @@ instructions specifically for using a clone of the source code.
    gcclassic_supplement/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/libraries.rst
    geos-chem-shared-docs/supplemental-guides/spack.rst
+   geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
    geos-chem-shared-docs/supplemental-guides/video-tutorials.rst

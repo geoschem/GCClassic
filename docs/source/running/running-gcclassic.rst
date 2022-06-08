@@ -18,13 +18,15 @@ Important things to know before you submit your run
 ===================================================
 
 #. Please be aware of :ref:`several options for speeding up your
-   GEOS-Chem simulation <speeding-up-simulations>`.
+   GEOS-Chem simulation <speeding-up-simulations>`. |br|
+   |br|
 
 #. The initial :ref:`restart file that is included with your run
    directory <restart-files>` does not reflect the actual
    atmospheric state and should only be used to "spin-up" the
    model. We recommend a spin-up period of 6 months to 1 year
-   (depending on the type of simulation you are using).
+   (depending on the type of simulation you are using). |br|
+   |br|
 
 #. Prior to running with :option:`GEOS-FP` met fields, please be aware
    of several caveats regarding that data stream. (cf. `The GEOS-FP
@@ -49,8 +51,8 @@ First-time setup
    :ref:`software <software-requirements>` for GEOS-Chem Classic. |br|
    |br|
 
-#. Make sure that you have :ref:`properly configured your Unix
-   environment <config-overview>`. 
+#. Make sure that you have :ref:`properly configured your
+   login environment <config-overview>`.
 
 .. _each-time-setup:
 
@@ -80,7 +82,7 @@ Each-time setup
    |br|
 
 #. Make sure that your run script contains the proper settings for
-   :ref:`OpenMP parallelization <specifying-parallelization-settings>`. 
+   :ref:`OpenMP parallelization <specifying-parallelization-settings>`.
 
 .. _gc-run-script:
 
@@ -132,7 +134,7 @@ The :file:`geoschem.run` script looks like this:
 
 The sample run script contains commands for the `SLURM scheduler
 <https://slurm.schedmd.com/documentation.html>`_, which is used on
-many HPC sytems. 
+many HPC sytems.
 
 .. note::
 
@@ -201,7 +203,7 @@ Important commands in the run script are listed below:
    time and wall time) that the simulation took to complete to the end
    of :file:`GC.log`.
 
-.. _geos-chem-batch:
+.. _running-gc-batch:
 
 Running GEOS-Chem as a batch job
 --------------------------------
@@ -215,6 +217,12 @@ that uses the SLURM scheduler, type the following command:
 This will submit your job to the SLURM scheduler.  Your job may remain
 pending in the queue for a time if there is high demand on your cluster.
 
+If your computer system uses a different scheduler, please refer to
+your local system documentation (or ask your IT staff) for the proper
+command to submit batch jobs.
+
+.. _running-gc-interactive:
+
 Running GEOS-Chem interactively
 -------------------------------
 
@@ -223,7 +231,7 @@ into an Amazon Web Services (AWS) cloud instance, then you can run
 GEOS-Chem Classic as an interactive job.
 
 Here is a sample run script for interactive use
-(:file:`geoschem-int.sh`).   It is similar to the 
+(:file:`geoschem-int.sh`).   It is similar to the
 :ref:`run script shown above <gc-run-script>`, with a few edits:
 
 .. code-block:: bash
@@ -261,7 +269,7 @@ The modifications entail:
    .. code-block:: bash
 
       export OMP_NUM_THREADS=`ncpus`
- 
+
    which will automatically fill in the number of available cores.
 
 To run GEOS-Chem interactively, type:
@@ -305,7 +313,7 @@ successful:
    |br|
 
 #. Your scheduler log file (e.g. :file:`slurm-xxxxx.out`, where
-   :code:`xxxxx` is the job id) is free of errors. 
+   :code:`xxxxx` is the job id) is free of errors.
 
 If your run stopped with an error, please the following resources:
 
@@ -319,8 +327,8 @@ If your run stopped with an error, please the following resources:
 .. _minimizing-differences:
 
 ====================================================
-Minimizing differences when splitting up simulations 
-=====================================================
+Minimizing differences when splitting up simulations
+====================================================
 
 Often, users will split long simulations into several smaller
 simulations to stay within their cluster's computational limits. When
@@ -330,9 +338,10 @@ in model output:
 #. Make sure :code:`GC_RESTART` and :code:`HEMCO_RESTART` options are
    set to :code:`true:` in :ref:`HEMCO_Config.rc <hemco-config>`. |br|
    |br|
-#. To ensure your restart files are read and species concentrations are
-   properly initialized, you may check your GEOS-Chem log file for the
-   following output:
+
+#. To ensure your :ref:`restart_files <restart-files>` are read and
+   species concentrations are properly initialized, you may check your
+   GEOS-Chem log file for the following output:
 
    .. code-block:: console
 
@@ -349,20 +358,25 @@ in model output:
    avoid using the wrong restart file make sure to use time cycle flag
    :code:`EY` in HEMCO_Config.rc (cf. :ref:`restart-file-input`).
 
-
 .. _speeding-up-simulations:
 
 =========================================
 Speeding up GEOS-Chem Classic simulations
 =========================================
 
-GEOS-Chem performance is continuously monitored by the [[GEOS-Chem
-Support Team]] and user community via official benchmarks and
-unofficial timing tests. It has been shown that running GEOS-Chem with
-[[Centralized_chemistry_time_step#Optimal_Configuration|the
-recommended timesteps]] from Philip et al. (2016) can increase run
-times by approximately a factor of 2.  To speed up GEOS-Chem
-simulations, users may choose to use any of the following options. 
+GEOS-Chem Classic performance is continuously monitored by the
+`GEOS-Chem Support Team
+<http://wiki.geos-chem.org/GEOS-Chem_Support_Team>`_ by means of
+benchmark simulations and ad-hoc timing tests. It has been shown that
+running GEOS-Chem with
+`recommended timesteps
+<https://wiki.geos-chem.org/Centralized_chemistry_time_step#Optimal_Configuration>`_
+from
+`Philip et al. (2016)
+<https://gmd.copernicus.org/articles/9/1683/2016/gmd-9-1683-2016.html>`_
+can increase run times by approximately a factor of 2.  To speed up
+GEOS-Chem Classic simulations, users may choose to use any of the
+following options.
 
 .. _use-coarser-timesteps:
 
@@ -385,23 +399,30 @@ for emissions & chemistry).
 Turn off unwanted diagnostics
 -----------------------------
 
-Several diagnostics are turned on by default in
-[[GEOS-Chem_input_files#The_input.geos_file<tt>input.geos</tt>]] (for
-bpch diagnostics) and
-[[GEOS-Chem_input_files#The_HISTORY.rc_file|<tt>HISTORY.rc</tt>]] (for
-netCDF diagnostics). Please check those files and turn off any
-diagnostics that you do not need to reduce time spent in file I/O. 
+Several diagnostics are turned on by default in :ref:`the HISTORY.rc
+<history>` configuration file.  The more diagnostics that are turned
+on, the more I/O operations need to be done, resulting in longer
+simulation execution times.  Disabling diagnostics that you do not
+wish to archive can result in a faster simulation.
 
 .. _disable-debug-options:
 
 Disable debugging options when building GEOS-Chem
 -------------------------------------------------
 
-If you previously compiled GEOS-Chem with
-[[Debugging_GEOS-Chem#Recompile_GEOS-Chem_with_debug_options_turned_on|debug
-compiler flags]] turned on, then you should do <tt>make realclean</tt>
-and recompile prior to submitting your production runs. The debug
-options are known to slow down simulations. 
+If you previously configured GEOS-Chem with the :
+:option:`CMAKE_BUILD_TYPE` option set to :envvar:`Debug`, then several
+run-time debugging checks will be activated.  These include:
+
+- Checking for array-out-of-bounds errors
+- Checking for floating-point math exceptions (e.g. div-by-zero)
+- Disabling compiler optimizations
+
+These options can be useful in detecting errors in your GEOS-Chem
+Classic simulation, but result in a much slower simulation.  If you
+plan on running a long Classic simulation, make sure that
+you :ref:`configure and build GEOS-Chem Classic <compile-geos-chem>`
+so that :option:`CMAKE_BUILD_TYPE` is set to :envvar:`Release`.
 
 .. _further_reading:
 
@@ -410,8 +431,6 @@ Further reading
 ===============
 
 #. `SLURM manual <https://slurm.schedmd.com/documentation.html>`__
-#. `Convenient SLURM commands
-   (Harvard) <https://www.rc.fas.harvard.edu/resources/documentation/convenient-slurm-commands/>`__
 #. `LSF user manual
    (LLNL) <https://hpc.llnl.gov/banks-jobs/running-jobs/lsf-user-manual>`__
 #. `Learn to use PBS Pro job scheduler

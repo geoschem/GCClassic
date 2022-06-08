@@ -157,7 +157,7 @@ CMake once more with optional parameters. Use this format:
 
 .. code-block:: console
 
-   $ cmake . -Doption=value
+   $ cmake . -DOPTION=value
 
 Note that the ``.`` argument is necessary. It tells CMake that your
 current working directory (i.e. :file:`.`) is your build directory. The output
@@ -176,104 +176,172 @@ The table below contains the list of GEOS-Chem build options that you
 can pass to CMake. GEOS-Chem will be compiled with the default build
 options, unless you explicitly specify otherwise.
 
-.. option:: -DRUNDIR=/path/to/run/dir
-
+.. option:: RUNDIR
+   
    Defines the path to the run directory.
-
+    
    In this example, our build directory is a subfolder of the run
-   directory, so we can use :envvar:`-DRUNDIR=..`.  If your build
+   directory, so we can use :code:`-DRUNDIR=..`.  If your build
    directory is somewhere else, then specify the path to the run
    directory as an absolute path.
+   
+.. option:: CMAKE_BUILD_TYPE
 
-.. option:: -DCMAKE_BUILD_TYPE=Debug
+   Specifies the type of build.  Accepted values are:
 
-   Turns on several runtime error checks.  This will make it easier
-   to find errors but will adversely impact performance. Only use
-   this option if you are actively debugging.
+   .. option:: Release
 
-.. option:: Options for chemical mechanisms
+      Tells CMake to configure GEOS-Chem in **Release** mode.  This
+      means that all optimizations will be applied and all debugging
+      options will be disabled. **(Default option)**.
 
-   Configure GEOS-Chem to use one of several chemical mechanisms,
-   described below:
+   .. option:: Debug
 
-   .. option:: -DMECH=fullchem
+      Turns on several runtime error checks.  This will make it easier
+      to find errors but will adversely impact performance. Only use
+      this option if you are actively debugging.
+   
+.. option:: MECH
 
-      Activates the "fullchem" mechanism.  The source code
-      files that define this mechanism are stored in :file:`KPP/fullchem`.
+   Specifies the chemical mechanism that you wish to use:
 
-      NOTE: "fullchem" is the default chemical mechanism.  Therefore, if you
-      wish to use the "fullchem" mechanism, you can omit this option.
-
-   .. option:: -DMECH=Hg
-
-      Activates the Hg mechanism.  The source code
+   .. option:: fullchem
+   
+      Activates the **fullchem** mechanism.  The source code
+      files that define this mechanism are stored in
+      :file:`KPP/fullchem`. **(Default option)**
+   
+   .. option:: Hg
+   
+      Activates the **Hg** mechanism.  The source code
       files that define this mechanism are stored in :file:`KPP/Hg`.
+   
+   .. option:: custom
+   
+      Activates a **custom** mechanism defined by the user.  The
+      source code files that define this mechanism are stored in
+      :file:`KPP/custom.`.
+   
+.. option:: OMP
+ 
+   Determines if GEOS-Chem Classic will activate `OpenMP paralellization
+   <http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_.  Accepted
+   values are:
 
-   .. option:: -DMECH=custom
+   .. option:: y
+ 
+      Activates OpenMP parallelization.  **(Default option)**
 
-      Activates a custom mechanism defined by the user.  The source
-      code files that define this mechanism are stored in :file:`KPP/custom.`.
+      GEOS-Chem Classic will execute on as many computational cores as
+      is specified with :option:`OMP_NUM_THREADS`.
 
-.. option:: -DOMP=n
+   .. option:: n
+   
+      Deactivates OpenMP parallelization.  GEOS-Chem Classic will
+      execute on a single computational core.  Useful for debugging.
+   
+.. option:: TOMAS
 
-   OpenMP parallelization is turned on by default.  This option will
-   toggle OpenMP parallization off by default (e.g. for debugging).
-
-.. option:: Options for TOMAS aerosol microphysics
-
-   Options for configuring GEOS-Chem to use the `TOMAS aerosol
+   Configure GEOS-Chem with the `TOMAS aerosol
    microphysics package
-   <http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`_.
+   <http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`_.  Accepted
+   values are:
 
-   .. option:: -DTOMAS=y
+   .. option:: y
 
-      Configure GEOS-Chem with the TOMAS Aerosol Microphysics
-      package.  TOMAS is deactivated by default.
+      Activate TOMAS microphysics.
 
-   .. option:: -DTOMAS_BINS=15
+   .. option:: n
 
-      Select 15 size-resolved bins for TOMAS.
+      Deactivate TOMAS microphysics **(Default option)**
 
-   .. option:: -DTOMAS_BINS=40
+.. option:: TOMAS_BINS
 
-      Select 40 size-resolved bins for TOMAS.
+   Specifies the number of size-resolved bins for TOMAS.  Accepted
+   values are:
 
-   .. option:: -DBPCH_DIAG=y
+   .. option:: 15
 
-      Toggles the legacy binary punch diagnostics on.
+      Use 15 size-resolved bins with TOMAS simulations.
 
-      Binary punch diagnostics are turned off by default.  Except for a
-      few diagnostics, these have been replaced by the :ref:`netCDF-based
-      History diagnostics <history-diagnostics>`.
+   .. option:: 40
 
-.. option:: -DAPM=y
+      Use 40 size-resolved bins with TOMAS simulations.
 
+.. option:: BPCH_DIAG
+
+   Toggles the legacy binary punch diagnostics on.
+
+   .. attention::
+
+      This option is deprecated and will be removed soon.  Most
+      binary-punch format diagnostics have been replaced by
+      :ref:`netCDF-based History diagnostics <history-diagnostics>`.
+
+   Accepted values are:
+
+   .. option:: y
+
+      Activate legacy binary-punch diagnostics.
+
+   .. option:: n
+
+      Deactivate legacy binary-punch diagnostics. **(Default option)**
+   
+.. option:: APM
+   
    Configures GEOS-Chem to use the `APM microphysics package
-   <http://wiki.geos-chem.org/APM_aerosol_microphysics>`_.
-   APM is deactivated by default.
+   <http://wiki.geos-chem.org/APM_aerosol_microphysics>`_. Accepted
+   values are:
 
-.. option:: -DRRTMG=y
+   .. option:: y
 
-   Configures GEOS-Chem to use the RRTMG radiative transfer model.
-   RRTMG is turned off by default.
+      Activate APM microphysics.
 
-.. option:: -DLUO_WETDEP=y
+   .. option:: n
 
+      Deactivate APM microphysics. **(Default option)**
+   
+.. option:: RRTMG
+   
+   Configures GEOS-Chem to use the `RRTMG radiative transfer model
+   <https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`_. 
+   Accepted values are:
+
+   .. option:: y
+
+      Activates the RRTMG radiative transfer model.
+
+   .. option:: n
+
+      Deactivates the RRTMG radiative transfer model. **(Default option)**
+
+.. option:: LUO_WETDEP
+   
    Configures GEOS-Chem to use the Luo et al 2020 wet deposition
-   scheme.  This option is turned off by default.
-
-   The Luo et al 2020 wet deposition scheme is turned off by default.
+   scheme.
 
    .. note::
-
+   
       The Luo et al 2020 wet deposition scheme will eventually
       become the default wet deposition schem in GEOS-Chem.  We
       have made it an option for the time being while further
       evaluation is being done.
 
+   Accepted values are:
+
+   .. option:: y
+
+      Activates the Luo et al 2020 wet deposition scheme.
+
+   .. option:: n
+
+      Deactivates the Luo et al 2020 wet deposition scheme. **(Default
+      option)**
+   
 If you plan to use the :command:`make -j install` option (recommended)
 to copy your executable to your run directory, you must reconfigure
-CMake with the :envvar:`-DRUNDIR=/path/to/run/dir`
+CMake with the :command:`RUNDIR=/path/to/run/dir`
 option. Multiple run directories can be specified by a semicolon
 separated list. A warning is issues if one of these directories does
 not look like a run directory. These paths can be relative paths or
