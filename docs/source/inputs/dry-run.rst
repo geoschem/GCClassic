@@ -27,6 +27,11 @@ system, or on the Amazon Web Services cloud environment.
 You may generate dry-run output for any of the GEOS-Chem Classic
 simulation types (fullchem, CH4, TransportTracers, etc.)
 
+.. tip::
+
+   Another way to download and manage GEOS-Chem input data is with the
+   :ref:`bashdatacatalog <bashdatacatalog>` tool.
+
 .. _how-to-perform-a-geos-chem-classic-dry-run:
 
 ==========================================
