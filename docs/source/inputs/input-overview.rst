@@ -1,3 +1,7 @@
+.. |br| raw:: html
+
+   <br/>
+
 .. _input-overview:
 
 ################################
@@ -13,15 +17,28 @@ a simulation.  These can be grouped into the following categories:
 #. :ref:`emis-inputs`
 #. :ref:`met`
 
-The data files for GEOS-Chem can be downloaded from the WashU data
-portal (`geoschemdata.wustl.edu data portal
-<http://geoschemdata.wustl.edu>`_) or from the
-`s3://gcgrid <https://registry.opendata.aws/geoschem-input-data/>`_
-bucket at AWS. You can download data either with a
-:ref:`GEOS-Chem-Classic dry-run simulation <dry-run-simulation>` or
-with the
-`bashdatacatalog <https://github.com/LiamBindle/bashdatacatalog>`_
-utility.
+============
+Data portals
+============
+
+Input data files for GEOS-Chem can be downloaded from one of the
+following portals:
+
+.. option:: WashU
+
+   The primary data portal for GEOS-Chem,
+   `geoschemdata.wustl.edu <http://geoschemdata.wustl.edu>`_
+
+.. option:: Amazon
+
+   GEOS-Chem data on the Amazon cloud, `s3://gcgrid
+   <https://registry.opendata.aws/geoschem-input-data/>`_ 
+
+.. option:: Rochester
+
+   Portal for the GCAP 2.0 meteorological data files, 
+   `atmos.earth.rochester.edu
+   <https://atmos.earth.rochester.edu/input/gc/ExtData/>`_
 
 .. _init-cond:
 
@@ -34,16 +51,30 @@ Initial conditions include:
 - Initial species concentrations (aka :ref:`restart-files`) used to
   start a GEOS-Chem simulation.
 
-You can find a comma-separated list of chemistry inputs (named
-:file:`InitialConditions.csv`) at our `input-data-catalogs
-<https://github.com/geos-chem/input-data-catalogs>`_
-repository. We have prepared :file:`InitialConditions.csv` files for for
-each feature version of GEOS-Chem since 13.0.0.
+.. table::
+   :align: center
 
-Use the :file:`InitialConditions.csv` file with
-:program:`bashdatacatalog` to download, update, or remove initial
-condition data. See the `bashdatacatalog wiki
-<https://github.com/LiamBindle/bashdatacatalog/wiki>`_  for details.
+   +------------------------------------------------------+---------------------+
+   | Download method                                      | From portals        |
+   +======================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
+   |                                                      | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`         | :option:`WashU`     |
+   | on the :file:`InitialConditions.csv` file            |                     |
+   | :math:`^1`                                           |                     |
+   +------------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
+   | :program:`wget`)                                     | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
+   +------------------------------------------------------+---------------------+
+
+:math:`^1` We provide :file:`InitialConditions.csv` files (for each
+GEOS-Chem version since 13.0.0) at our `input-data-catalogs
+<https://github.com/geoschem/input-data-catalogs>`_ Github repository.
 
 .. _chem-inputs:
 
@@ -57,16 +88,29 @@ Chemistry input data includes:
 - Climatology data for :program:`Linoz`
 - Boundary conditions for :program:`UCX` stratospheric chemistry routines
 
-You can find a comma-separated list of chemistry inputs (named
-:file:`ChemistryInputs.csv`) at our `input-data-catalogs
-<https://github.com/geos-chem/input-data-catalogs>`_
-repository. We have prepared :file:`ChemistryInputs.csv` files for for
-each feature version of GEOS-Chem since 13.0.0.
+.. table::
+   :align: center
 
-Use the :file:`ChemistryInputs.csv` file with
-:program:`bashdatacatalog` to download, update, or remove chemistry
-input data.  See the `bashdatacatalog wiki
-<https://github.com/LiamBindle/bashdatacatalog/wiki>`_  for details.
+   +------------------------------------------------------+---------------------+
+   | Download method                                      | From portals        |
+   +======================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
+   |                                                      | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`         | :option:`WashU`     |
+   | on the :file:`ChemistryInputs.csv` file :math:`^2`   |                     |
+   +------------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
+   | :program:`wget`)                                     | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
+   +------------------------------------------------------+---------------------+
+
+:math:`^2` We provide :file:`ChemistryInputs.csv` files (for each
+GEOS-Chem version since 13.0.0) at our `input-data-catalogs
+<https://github.com/geoschem/input-data-catalogs>`_ Github repository.
 
 .. _emis-inputs:
 
@@ -85,16 +129,29 @@ Emissions input data includes the following data:
 - Leaf area indices
 - Land cover map
 
-You can find a comma-separated list of emissions inputs (named
-:file:`EmissionsInputs.csv`) at our `input-data-catalogs
-<https://github.com/geos-chem/input-data-catalogs>`_
-repository. We have prepared :file:`EmissionsInputs.csv` files for for
-each feature version of GEOS-Chem since 13.0.0.
+.. table::
+   :align: center
 
-Use the :file:`EmissionsInputs.csv` file with
-:program:`bashdatacatalog` to download, update, or remove emissions
-input data. See the `bashdatacatalog wiki
-<https://github.com/LiamBindle/bashdatacatalog/wiki>`_  for details.
+   +------------------------------------------------------+---------------------+
+   | Download method                                      | From portals        |
+   +======================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
+   |                                                      | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`         | :option:`WashU`     |
+   | on the :file:`EmissionsInputs.csv` file :math:`^3`   |                     |
+   +------------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
+   | :program:`wget`)                                     | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
+   +------------------------------------------------------+---------------------+
+
+:math:`^3` We provide :file:`EmissionsInputs.csv` files (for each
+GEOS-Chem version since 13.0.0) at our `input-data-catalogs
+<https://github.com/geoschem/input-data-catalogs>`_ Github repository.
 
 .. _met:
 
@@ -109,14 +166,20 @@ be driven by the following meteorology products:
 #. `GEOS-FP <http://wiki.geos-chem.org/GEOS_FP>`_
 #. `GCAP 2.0 <http://atmos.earth.rochester.edu/input/gc/ExtData>`_
 
-:program:`MERRA-2` and :program:`GEOS-FP` data can be downloaded from
-`geoschemdata.wustl.edu
-<http://geoschemdata.wustl.edu>`_ portal, either by direct FTP or by
-Globus (use endpoint name :file:`GEOS-Chem data (WashU)`).
+.. table::
+   :align: center
 
-:program:`GCAP 2.0` data can be downloaded from
-https://atmos.earth.rochester.edu/input/gc/ExtData/.
+   +------------------------------------------------------+---------------------+
+   | Download method                                      | From portals        |
+   +======================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
+   |                                                      | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
+   | :program:`wget`)                                     | :option:`Amazon`    |
+   |                                                      | :option:`Rochester` |
+   +------------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
+   +------------------------------------------------------+---------------------+
 
-You may also choose to download the necessary meteorological data for
-your :program:`GEOS-Chem Classic` simulations with a
-:ref:`dry-run-simulation <dry-run-simulation>`.
