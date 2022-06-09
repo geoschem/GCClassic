@@ -48,16 +48,18 @@ First-time setup
 
 #. Make sure that your computational environment meets all of the
    :ref:`hardware <hardware-requirements>` and
-   :ref:`software <software-requirements>` for GEOS-Chem Classic. |br|
-   |br|
-
-#. Make sure that you have :ref:`properly configured your
-   login environment <config-overview>`.
+   :ref:`software <software-requirements>` requirements for GEOS-Chem
+   Classic.
 
 .. _each-time-setup:
 
 Each-time setup
 ----------------
+
+#. Make sure that you have :ref:`properly configured your
+   login environment <configure-your-computational-environment>`
+   (i.e. load necessary software modules after login, etc.) |br|
+   |br|
 
 #. Create a :ref:`GEOS-Chem Classic run directory <create-rundir>`,
    and make sure that it is correct for the simulation you wish to
