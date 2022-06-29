@@ -39,17 +39,20 @@ extensions = [
 bibtex_default_style = 'gcrefstyle'
 bibtex_reference_style = "author_year"
 
-from pybtex.style.formatting.unsrt import Style as UnsrtStyle
+from pybtex.style.formatting.alpha import Style as AlphaStyle
 from pybtex.style.names.lastfirst import NameStyle as LastFirst
 from pybtex.style.template import join, words, optional, sentence
 from pybtex.style.labels import BaseLabelStyle
 
 class GCLabelStyle(BaseLabelStyle):
+    # Base label definition.  Here we replace text in citations
+    # e.g. "et al" to "et al.".  Add others as needed.
     def format_labels(self, sorted_entries):
         for entry in sorted_entries:
             yield entry.key.replace("_", " ").replace("et al.", "et al.,")
 
-class GCRefStyle(UnsrtStyle):
+class GCRefStyle(AlphaStyle):
+    # Sorts authors alphabetically by last name
     default_name_style = LastFirst
     default_sort_style = None
     default_label_style = GCLabelStyle
