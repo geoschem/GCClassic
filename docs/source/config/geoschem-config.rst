@@ -825,7 +825,7 @@ Wet deposition
      wet_deposition:
        activate: true
 
-The :command:`operations:wet_deposition` section contains settings
+The :code:`operations:wet_deposition` section contains settings
 for `wet deposition <http://wiki.geos-chem.org/Wet_deposition>`_.
 
 .. option:: activate
@@ -1651,7 +1651,7 @@ for mercury chemistry:
 Tagged CO simulation options
 ============================
 
-The :code:`tagged_CO_simulation_options:` section contains settings
+The :code:`tagged_CO_simulation_options` section contains settings
 for the `tagged CO simulation
 <https://wiki.geos-chem.org/Tagged_CO_simulation>`_.
 
