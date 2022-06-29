@@ -48,52 +48,60 @@ The :code:`simulation` section contains general simulation options:
 
    .. option:: fullchem
 
-      Full-chemistry simulation
+      Full-chemistry simulation.
 
    .. option:: aerosol
 
-      Aerosol-only simulation
+      `Aerosol-only simulation
+      <http://wiki.geos-chem.org/Aerosol-only_simulation>`_.
 
    .. option:: CH4
 
-      Methane simulation
+      `Methane simulation <http://wiki.geos-chem.org/CH4_simulation>`_.
 
    .. option:: CO2
 
-      Carbon dioxide simulation
+      `Carbon dioxide simulation <http://wiki.geos-chem.org/CO2_simulation>`_.
 
    .. option:: Hg
 
-      Mercury simulation
+      `Mercury simulation <http://wiki.geos-chem.org/Mercury>`_.
 
    .. option:: POPs
 
-      Persistent organic pollutants (aka POPs) simulation:
+      `Persistent organic pollutants (aka POPs) simulation
+      <http://wiki.geos-chem.org/POPs simulation>`_.
 
-      .. note::
+      .. attention::
 
-	 This simulation needs updating.  We look to members of the
-	 GEOS-Chem community take the lead on this effort.
+	 The POPs simulation is currently stale.  We look to members
+	 of the GEOS-Chem user community take the lead on updating
+	 this simulation.
 
    .. option:: tagCH4
 
-      Methane simulation with species tagged by geographic region or
-      other criteria
+       `Methane simulation
+       <http://wiki.geos-chem.org/CH4_simulation>`_ with species
+       tagged by geographic region or other criteria.
 
    .. option:: tagCO
 
-      Carbon dioxide simulation with species tagged by geographic
-      region and other criteria.
+      Carbon dioxide simulation, with species
+      tagged by geographic region and other criteria.
 
    .. option:: tagO3
 
-      Ozone simulation (using specified production and loss rates),
+      `Ozone simulation
+      <http://wiki.geos-chem.org/Tagged_O3_simulation>`_ (using
+      specified production and loss rates),
       with species tagged by geographical region.
 
    .. option:: TransportTracers
 
-      Transport Tracers simulation, with both radionuclide and passive
-      species.  Useful for evaluating model transport.
+      `Transport Tracers simulation
+      <http://wiki.geos-chem.org/TransportTracers_simulation>`_, with
+      both radionuclide and :option:`passive_species`.  Useful for
+      evaluating model transport.
 
    .. option:: metals
 
@@ -720,9 +728,16 @@ Transport
          - ACET
          - ACTA
          - AERI
-	 - ... etc more species ...
+	 # ... etc more transported species ...
+       passive_species:
+         PassiveTracer:
+           long_name: Passive_tracer_for_mass_conservation_evaluation
+           mol_wt_in_g: 1.0
+           lifetime_in_s: -1
+           default_bkg_conc_in_vv: 1.0e-7
+         # ... etc more passive species ...
 
-     # .. following sub-sections omitted ...
+   # .. following sub-sections omitted ...
 
 The :code:`operations:transport` section contains
 settings for `species transport
@@ -773,6 +788,25 @@ settings for `species transport
    A list of species names (in `YAML sequence format
    <https://www.tutorialspoint.com/yaml/yaml_sequence_styles.htm>`_)
    that will be transported by the TPCORE advection scheme.
+
+.. option:: passive_species
+
+   Optional menu that allows you to specify **passive species**, which
+   are excluded from undergoing chemical reactions.
+
+   Define passive species by providing the name of the species along
+   with associated metadata fields. For example:
+
+   .. code-block:: YAML
+
+      PassiveTracer:
+        long_name: Passive_tracer_for_mass_conservation_evaluation
+        mol_wt_in_g: 1.0
+        lifetime_in_s: -1              # -1 indicates infinite lifetime!
+        default_bkg_conc_in_vv: 1.0e-7
+
+   Each passive species must also be listed under
+   :option:`transported_species`.
 
 .. _gc-yml-wetdep:
 
@@ -1135,7 +1169,8 @@ Extra diagnostics
 =================
 
 The :code:`extra_diagnostics` section contains settings for GEOS-Chem Classic
-diagnostics that are not archived by HISTORY or HEMCO:
+diagnostics that are not archived by :ref:`History
+<history-diagnostics>` or `HEMCO <https://hemco.readthedocs.io>`_:
 
 .. _gc-yml-xdiag-obspack:
 
@@ -1235,6 +1270,56 @@ the `GEOS-Chem planeflight diagnostic
    quantities will be archived from GEOS-Chem along the flight track
    specified in :option:`flight_track_file`.
 
+.. _gc-yml-legacydiag:
+
+Legacy diagnostics
+------------------
+
+.. attention::
+
+   These diagnostics (in the older binary data format) are slated to
+   be replaced by netCDF output in an upcoming version.
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings for diagnostics (other than HISTORY and HEMCO)
+   #============================================================================
+   extra_diagnostics:
+
+      # ... preceding sub-sections omitted ...
+
+      gamap:
+        diaginfo_dat_file: ./diaginfo.dat
+        tracerinfo_dat_file: ./tracerinfo.dat
+
+      ND51_satellite:
+        activate: false
+        output_file: ts_satellite.YYYYMMDD.bpch
+        tracers:
+          - 1
+          - 2
+          - 501
+        UTC_hour_for_write: 0
+        averaging_period_in_LT: [9, 11]
+        IMIN_and_IMAX_of_region: [1, 72]
+        JMIN_and_JMAX_of_region: [1, 46]
+        LMIN_and_LMAX_of_region: [1, 1]
+
+      ND51b_satellite:
+        # same format as ND51_satellite
+
+The :code:`extra_diagnostics:gamap` specify the paths where GEOS-Chem
+will create the :file:`diaginfo.dat` and :file:`tracerinfo.dat` files
+used by `GAMAP <https://geoschem.github.io/gamap-manual/>`_.
+
+The :code:`extra_diagnostics:ND51_satellite` and
+:code:`extra_diagnostics:ND51b_satellite` contain settings for the
+`GEOS-Chem satellite timeseries
+diagnostics. <http://wiki.seas.harvard.edu/geos-chem/index.php/The_input.geos_file#ND51_and_ND51b_diagnostics>`_.
+These will be replaced by :ref:`history-diagnostics` (in netCDF format) in an
+upcoming version.
+
 .. _gc-yml-CH4:
 
 ======================
@@ -1270,22 +1355,22 @@ contains options for using satellite observational operators:
 
    Activates (:code:`true`) or deactivates (:code:`false`) the
    AIRS observational operator.
-   
+
    Default value: :code:`false`
 
 .. option:: GOSAT
 
    Activates (:code:`true`) or deactivates (:code:`false`) the
    GOSAT observational operator.
-   
+
    Default value: :code:`false`
-   
+
 .. option:: TCCON
 
    Activates (:code:`true`) or deactivates (:code:`false`) the
    GOSAT observational operator.
-     
-   Default value: :code:`false`	    
+
+   Default value: :code:`false`
 
 .. _gc-yml-ch4_anopt:
 
@@ -1293,7 +1378,7 @@ Analytical inversion options
 ----------------------------
 
 The :code:`ch4_simulation_options:analytical_inversion` section
-contains options for analytical inversions (such as when using the
+contains options for analytical inversions (cf. the
 `Integrated Methane Inversion <https://imi.readthedocs.io>`_).
 
 .. code-block:: YAML
@@ -1316,14 +1401,14 @@ contains options for analytical inversions (such as when using the
 
    Activates (:code:`true`) or deactivates (:code:`false`) the
    analytical inversion.
-   
+
    Default value: :code:`true`
 
 .. option:: activate
 
    Specifies a factor by which emissions at a grid box will be
    perturbed.
-   
+
    Default value: :code:`1.0`
 
 .. option:: state_vector_element_number
@@ -1333,17 +1418,17 @@ contains options for analytical inversions (such as when using the
    Default value: :code:`0`
 
 .. option:: use_emission_scale_factor
-	    
+
    Activates (:code:`true`) or deactivates (:code:`false`) scaling
    methane emissions by a fixed factor.
-   
+
    Default value: :code:`false`
 
 .. option:: use_emission_scale_factor
-	    
+
    Activates (:code:`true`) or deactivates (:code:`false`) scaling
    OH by a fixed factor.
-   
+
    Default value: :code:`false`
 
 .. _gc-yml-co2:
@@ -1357,8 +1442,8 @@ the :option:`CO2` simulation:
 
 .. _gc-yml-co2-sources:
 
-Sources
--------
+CO2 Sources
+-----------
 
 The :code:`CO2_simulation_options:sources` section contains toggles
 for activating sources of :math:`CO_2`:
@@ -1369,7 +1454,7 @@ for activating sources of :math:`CO_2`:
    # Settings specific to the CO2 simulation
    #============================================================================
    CO2_simulation_options:
-   
+
      sources:
        fossil_fuel_emissions: true
        ocean_exchange: true
@@ -1384,58 +1469,57 @@ for activating sources of :math:`CO_2`:
 .. option:: fossil_fuel_emissions
 
    Activates (:code:`true`) or deactivates (:code:`false`)
-   using :math:`CO_2` fossil fuel emissions as computed by `HEMCO
-   <https://hemco.readthedocs.org>`_. 
-   
-   Default value: :code:`true`	  
+   using :math:`CO_2` fossil fuel emissions as computed by HEMCO.
+
+   Default value: :code:`true`
 
 .. option:: ocean_exchange
 
    Activates (:code:`true`) or deactivates (:code:`false`)
    :math:`CO_2` ocean-air exchange.
-   
-   Default value: :code:`true`	  
+
+   Default value: :code:`true`
 
 .. option:: balanced_biosphere_exchange
 
    Activates (:code:`true`) or deactivates (:code:`false`)
    :math:`CO_2` balanced-biosphere exchange.
-   
-   Default value: :code:`true`	  
+
+   Default value: :code:`true`
 
 .. option:: net_terrestrial_exchange
-	    
+
    Activates (:code:`true`) or deactivates (:code:`false`)
    :math:`CO_2` net terrestrial exchange.
-   
-   Default value: :code:`true`	  
+
+   Default value: :code:`true`
 
 .. option:: ship_emissions
 
    Activates (:code:`true`) or deactivates (:code:`false`) :math:`CO_2`
    ship emissions as computed by HEMCO.
-   
-   Default value: :code:`true`	  
+
+   Default value: :code:`true`
 
 .. option:: aviation_emissions
 
    Activates (:code:`true`) or deactivates (:code:`false`) :math:`CO_2`
    aviation emissions as computed by HEMCO.
-   
-   Default value: :code:`true`	  
+
+   Default value: :code:`true`
 
 .. option:: 3D_chemical_oxidation_source
 
    Activates (:code:`true`) or deactivates (:code:`false`)
    :math:`CO_2` production by archived chemical oxidation, as read by
-   HEMCO. 
-   
-   Default value: :code:`true`	  
+   HEMCO.
+
+   Default value: :code:`true`
 
 .. _gc-yml-co2-tagspc:
-   
-Tagged species
---------------
+
+CO2 tagged species
+-------------------
 
 The :code:`CO2_simulation_options:tagged_species` section contains toggles
 for activating tagged :math:`CO_2` species:
@@ -1452,13 +1536,13 @@ for activating tagged :math:`CO_2` species:
    # Settings specific to the CO2 simulation
    #============================================================================
    CO2_simulation_options:
-   
+
      # ... preceding sub-sections omitted ...
-   
+
      tagged_species:
        save_fossil_fuel_in_background: false
        tag_bio_and_ocean_CO2: false
-       tag_land_fossil_fuel_CO2: 
+       tag_land_fossil_fuel_CO2:
        tag_global_ship_CO2: false
        tag_global_aircraft_CO2: false
 
@@ -1466,7 +1550,7 @@ for activating tagged :math:`CO_2` species:
 
    Activates (:code:`true`) or deactivates (:code:`false`) saving the
    :math:`CO_2` background.
-   
+
    Default value: :code:`false`
 
 .. option:: tag_bio_and_ocean_CO2
@@ -1476,26 +1560,126 @@ for activating tagged :math:`CO_2` species:
    world (ROW) as specified in :file:`Regions_land.dat` and
    :file:`Regions_ocean.dat` files.
 
+     # .. following sub-sections omitted ...
+
+.. _gc-yml-hg:
+
+=====================
+Hg simulation options
+=====================
+
+This section of :file:`geoschem_config.yml` is included for
+the `mercury (Hg) simulation <https://wiki.geos-chem.org/Mercury>`_:
+
+.. _gc-yml-hg-src:
+
+Hg sources
+----------
+
+The :code:`Hg_simulation_options:sources` section contains settings
+for various mercury sources.
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings specific to the Hg simulation
+   #============================================================================
+   Hg_simulation_options:
+
+     sources:
+       use_dynamic_ocean_Hg: false
+       use_preindustrial_Hg: false
+       use_arctic_river_Hg: true
+
+     # ... following sub-sections omitted ...
+
+.. option:: use_dynamic_ocean_Hg
+
+   Activates (:code:`true`) or deactivates (:code:`false`) the online
+   slab ocean mercury model.
+
    Default value: :code:`false`
 
-.. option:: tag_land_fossil_fuel_CO2
+.. option:: use_preindustrial_Hg
 
-   Activates (:code:`true`) or deactivates (:code:`false`) tagging of
-   fossil fuel regions (28) as specified in the :file:`Regions_land.dat` file
-   and ROW.
-   
+   Activates (:code:`true`) or deactivates (:code:`false`) the
+   preindustrial mercury simulation.  This will turn off all
+   anthropogenic emissions.
+
    Default value: :code:`false`
 
-.. option:: tag_global_ship_CO2
+.. option:: use_arctic_river_Hg
 
-   Activates (:code:`true`) or deactivates (:code:`false`) tagging of
-   global ship :math:`CO_2` emissions as a single tracer.  
-   
-   Default value: :code:`false`
+   Activates (:code:`true`) or deactivates (:code:`false`) the
+   source of mercury from arctic rivers.
 
-.. option:: tag_global_aircraft_CO2
+   Default value: :code:`true`
 
-   Activates (:code:`true`) or deactivates (:code:`false`) tagging of
-   global aviation :math:`CO_2` emissions as a single tracer.  
-   
-   Default value: :code:`false`	    
+.. _gc-yml-hg-chem:
+
+Hg chemistry
+------------
+
+The :code:`Hg_simulation_options:chemistry` section contains settings
+for mercury chemistry:
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings specific to the Hg simulation
+   #============================================================================
+   Hg_simulation_options:
+
+     # ... preceding sub-sections omitted ...
+
+     chemistry:
+       tie_HgIIaq_reduction_to_UVB: true
+
+     # ... following sub-sections omitted ...
+
+.. option:: tie_HgIIaq_reduction_to_UVB
+
+   Activates (:code:`true`) or deactivates (:code:`false`) linking the
+   reduction of aqueous oxidized mercury to UVB radiation.
+   A lifetime of -1 seconds indicates the species has an infinite lifetime.
+
+   Default value: :code:`true`
+
+.. _gc-yml-tagco:
+
+============================
+Tagged CO simulation options
+============================
+
+The :code:`tagged_CO_simulation_options:` section contains settings
+for the `tagged CO simulation
+<https://wiki.geos-chem.org/Tagged_CO_simulation>`_.
+
+.. code-block:: YAML
+
+   #============================================================================
+   # Settings specific to the tagged CO simulation
+   #============================================================================
+
+   tagged_CO_simulation_options:
+     use_fullchem_PCO_from_CH4: true
+     use_fullchem_PCO_from_NMVOC: true
+
+.. option:: use_fullchem_PCO_from_CH4
+
+    Activates (:code:`true`) or deactivates (:code:`false`) applying
+    the production of :math:`CO` from :math:`CH_4`.  This field is
+    archived from a 1-year or 10-year :option:`fullchem` benchmark
+    simulation and is read from disk via HEMCO.
+
+    Default value: :code:`true`
+
+.. option:: use_fullchem_PCO_from_NMVOC
+
+    Activates (:code:`true`) or deactivates (:code:`false`) applying
+    the production of :math:`CO` from non-methane volatile organic
+    compounds (VOCs). This field is archived from a 1-year or 10-year
+    :option:`fullchem` benchmark simulation and is read from disk via
+    HEMCO.
+
+    Default value: :code:`true`
