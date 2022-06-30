@@ -58,7 +58,7 @@ instructions specifically for using a clone of the source code.
    starting/quick-start.rst
    starting/hardware-requirements.rst
    starting/software-requirements.rst
-   starting/key-references.rst
+   geos-chem-shared-docs/biblio/key-references.rst
 
 .. toctree::
    :caption: Building GEOS-Chem Classic
@@ -117,7 +117,7 @@ instructions specifically for using a clone of the source code.
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
-   geos-chem-shared-docs/supplemental-guides/video-tutorials.rst
+   geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
 .. toctree::
    :maxdepth: 6

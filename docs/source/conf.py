@@ -73,7 +73,9 @@ register_plugin('pybtex.style.formatting', 'gcrefstyle', GCRefStyle)
 bibtex_bibliography_header = ".. rubric:: References"
 bibtex_footbibliography_header = bibtex_bibliography_header
 
-bibtex_bibfiles = ['geos-chem-shared-docs/geos-chem.bib']
+bibtex_bibfiles = [
+    'geos-chem-shared-docs/biblio/geos-chem.bib'
+]
 
 
 # List of patterns, relative to source directory, that match files and
