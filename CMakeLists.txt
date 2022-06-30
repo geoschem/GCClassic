@@ -2,7 +2,7 @@
 
 cmake_minimum_required (VERSION 3.13)
 project (geos-chem-classic
-  VERSION 13.4.0
+  VERSION 14.0.0
   LANGUAGES Fortran
 )
 
@@ -339,12 +339,12 @@ foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
   if(NOT IS_ABSOLUTE "${INSTALL_PATH}")
     get_filename_component(INSTALL_PATH "${INSTALL_PATH}" ABSOLUTE BASE_DIR "${CMAKE_BINARY_DIR}")
   endif()
-  # Issue warning and skip if input.geos doesn't exist
+  # Issue warning and skip if geoschem_config.yml doesn't exist
   # (i.e. if it doens't look like a run directory)
-  if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/input.geos))
+  if(CHECK_IS_RUNDIR AND (NOT EXISTS ${INSTALL_PATH}/geoschem_config.yml))
     message(WARNING
       "RUNDIR path \"${INSTALL_PATH}\" "
-      "doesn't have input.geos. Is it a run directory? If it "
+      "doesn't have geoschem_config.yml. Is it a run directory? If it "
       "isn't, and you still want to install to it, you should "
       "use INSTALLCOPY rather than RUNDIR.\nSkipping installing to "
       "${INSTALL_PATH}"
