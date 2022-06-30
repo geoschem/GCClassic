@@ -53,7 +53,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Getting Started
-   :maxdepth: 6
+   :maxdepth: 2
 
    starting/quick-start.rst
    starting/hardware-requirements.rst
@@ -62,7 +62,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Building GEOS-Chem Classic
-   :maxdepth: 6
+   :maxdepth: 2
 
    building-gc/configure-environment.rst
    building-gc/download-source-code.rst
@@ -71,7 +71,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Configuring runs
-   :maxdepth: 6
+   :maxdepth: 2
 
    config/config-overview.rst
    config/geoschem-config.rst
@@ -81,7 +81,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Downloading input data
-   :maxdepth: 6
+   :maxdepth: 2
 
    inputs/input-overview.rst
    inputs/restart-files.rst
@@ -89,17 +89,17 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Running and analyzing results
-   :maxdepth: 6
-   
+   :maxdepth: 2
+
    running/running-gcclassic.rst
 
 .. toctree::
    :caption: Output from GEOS-Chem Classic
-   :maxdepth: 6
+   :maxdepth: 2
 
 .. toctree::
    :caption: Diagnostics reference
-   :maxdepth: 6
+   :maxdepth: 2
 
    diagnostics/hemco.rst
    diagnostics/history.rst
@@ -108,7 +108,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Supplemental guides
-   :maxdepth: 6
+   :maxdepth: 2
 
    gcclassic_supplement/directory-structure.rst
    gcclassic_supplement/run-script-examples.rst
@@ -120,7 +120,7 @@ instructions specifically for using a clone of the source code.
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 2
    :caption: Reference
 
    reference/known-bugs.rst

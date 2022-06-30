@@ -16,7 +16,7 @@ This chapter lists the required software libraries that you must have installed 
 
 - If your computer cluster has none of these libraries installed, then
   you will have to install them yourself
-  (cf. :ref:`build-libraries-for-geos-chem-with-spack`).
+  (cf. :ref:`build-libraries-with-spack`).
 
 .. _supported-compilers-for-GEOS-Chem-Classic:
 
@@ -86,7 +86,7 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 - 6.2.0
 
 **Best way to install:**  :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _required-software-packages-for-geos-chem:
 
@@ -120,7 +120,7 @@ GEOS-Chem source code is compiled into an executable.  You will need
 :program:`CMake` version 3.13 or later to build GEOS-Chem Classic.
 
 **Best way to install:**  :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _gnu-make-req:
 
@@ -134,7 +134,7 @@ external libraries that you might need to build will require GNU
 Make. Therefore it is best to download GNU Make along with CMake.
 
 **Best way to install:**  :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _netcdf-req:
 
@@ -147,7 +147,7 @@ that allows meadata (descriptive text) to be stored alongside data
 values.
 
 **Best way to install:**  :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _optional-but-recommended-software-packages:
 
@@ -181,7 +181,7 @@ tools for tracking down the source of GEOS-Chem errors, such
 as segmentation faults, out-of-bounds errors, etc.
 
 **Best way to install:**  :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _ncview-req:
 
@@ -203,7 +203,7 @@ powerful command-line tools for editing and manipulating data in
 netCDF format.
 
 **Best way to install:**  :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _cdo-req:
 
@@ -215,7 +215,7 @@ command-line utilities for editing and manipulating data in netCDF
 format.
 
 **Best way to install:** :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.
 
 .. _kpp-req:
 
@@ -239,4 +239,4 @@ Analyzer. :program:`KPP` requires :program:`flex` to parse the
 chemical mechanism input files.
 
 **Best way to install:** :ref:`With Spack
-<build-libraries-for-geos-chem-with-spack>`.
+<build-libraries-with-spack>`.

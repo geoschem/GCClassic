@@ -238,8 +238,8 @@ These environment variables should be defined in your
    Only the Fortran compiler is needed to compile :program:`GEOS-Chem
    Classic`.  But if you will be building other software packages
    (cf  :ref:`kppguide`), or :ref:`manually installing libraries
-   <build-libraries-for-geos-chem-with-spack>`,
-   you will also need the C and C++ compilers.
+   <build-libraries-with-spack>`, you will also need the C and C++
+   compilers.
 
 .. _specifying-parallelization-settings:
 
