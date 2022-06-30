@@ -58,7 +58,7 @@ instructions specifically for using a clone of the source code.
    starting/quick-start.rst
    starting/hardware-requirements.rst
    starting/software-requirements.rst
-   geos-chem-shared-docs/biblio/key-references.rst
+   starting/key-references.rst
 
 .. toctree::
    :caption: Building GEOS-Chem Classic
