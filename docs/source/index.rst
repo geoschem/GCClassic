@@ -13,16 +13,6 @@ GEOS-Chem Classic
    <a href="https://hub.docker.com/r/geoschem/gcclassic"><img src="https://img.shields.io/docker/v/geoschem/gcclassic?color=blue&label=Docker%2FSingularity"></a>
    </p>
 
-
-.. important:: This is a prerelease of the GEOS-Chem Classic user guide.
-   These pages are still a work in progress.
-
-   Contributions (e.g., suggestions, edits, revisions) would be greatly appreciated. See
-   :ref:`editing this guide <editing_this_user_guide>` and our
-   Contributing Guidelines document.  If you find something
-   hard to understand---let us know!
-
-
 This site provides instructions for :program:`GEOS-Chem Classic`,
 the single-node mode of operation of the
 `GEOS-Chem model <http://acmg.seas.harvard.edu/geos/>`_.  We provide
@@ -114,6 +104,7 @@ instructions specifically for using a clone of the source code.
    gcclassic_supplement/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/libraries.rst
    geos-chem-shared-docs/supplemental-guides/spack.rst
+   geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
