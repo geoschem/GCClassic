@@ -6,8 +6,11 @@ GEOS-Chem Classic
 .. raw:: html
 
    <p>
-   <a href="http://wiki.seas.harvard.edu/geos-chem/index.php/GEOS-Chem_versions"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?label=Latest%20Release"></a>
+   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?include_prereleases&label=Latest%20Pre-Release"></a>   
+   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?label=Latest%20Stable%20Release"></a>   
+   <a href="https://github.com/geoschem/GCClassic/releases/"><img src="https://img.shields.io/github/release-date/geoschem/GCClassic"></a>
    <a href="https://doi.org/10.5281/zenodo.5014891"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5014891.svg" alt="DOI"></a>
+   <a href="https://github.com/geoschem/GCClassic/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
    <a href="https://geos-chem.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/geos-chem?label=ReadTheDocs"></a>
    <a href="https://dev.azure.com/geoschem/GCClassic/_build"><img src="https://img.shields.io/azure-devops/build/geoschem/GCClassic/15/main?label=Build%20Matrix"></a>
    <a href="https://hub.docker.com/r/geoschem/gcclassic"><img src="https://img.shields.io/docker/v/geoschem/gcclassic?color=blue&label=Docker%2FSingularity"></a>
