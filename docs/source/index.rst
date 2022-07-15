@@ -110,6 +110,7 @@ instructions specifically for using a clone of the source code.
    geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
+   geos-chem-shared-docs/supplemental-guides/coards-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
