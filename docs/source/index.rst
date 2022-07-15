@@ -101,7 +101,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Supplemental guides
-   :maxdepth: 2
+   :maxdepth: 1
 
    gcclassic_supplement/directory-structure.rst
    gcclassic_supplement/run-script-examples.rst
@@ -115,7 +115,7 @@ instructions specifically for using a clone of the source code.
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Reference
 
    reference/known-bugs.rst
