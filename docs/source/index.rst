@@ -48,57 +48,18 @@ instructions specifically for using a clone of the source code.
    :caption: Getting Started
    :maxdepth: 2
 
-   starting/quick-start.rst
-   starting/hardware-requirements.rst
-   starting/software-requirements.rst
-   starting/key-references.rst
+   gcc-guide/01-startup/quick-start.rst
+   gcc-guide/01-startup/system-req.rst
+   gcc-guide/01-startup/login-env.rst
 
 .. toctree::
-   :caption: Building GEOS-Chem Classic
+   :caption: GEOS-Chem Classic User Guide
    :maxdepth: 2
 
-   building-gc/configure-environment.rst
-   building-gc/download-source-code.rst
-   building-gc/create-rundir.rst
-   building-gc/compile-geos-chem.rst
-
-.. toctree::
-   :caption: Configuring runs
-   :maxdepth: 2
-
-   config/config-overview.rst
-   config/geoschem-config.rst
-   config/hemco-config.rst
-   config/hemco-diagn.rst
-   config/history.rst
-
-.. toctree::
-   :caption: Downloading input data
-   :maxdepth: 2
-
-   inputs/input-overview.rst
-   inputs/restart-files.rst
-   inputs/dry-run.rst
-
-.. toctree::
-   :caption: Running and analyzing results
-   :maxdepth: 2
-
-   running/running-gcclassic.rst
-
-.. toctree::
-   :caption: Output from GEOS-Chem Classic
-   :maxdepth: 2
-
-.. toctree::
-   :caption: Diagnostics reference
-   :maxdepth: 2
-
-   diagnostics/hemco.rst
-   diagnostics/history.rst
-   diagnostics/obspack.rst
-   diagnostics/planeflight.rst
-
+   gcc-guide/02-build/get-code.rst
+   gcc-guide/02-build/create-rundir.rst
+   gcc-guide/02-build/compile.rst
+   
 .. toctree::
    :caption: Supplemental guides
    :maxdepth: 1
@@ -116,7 +77,7 @@ instructions specifically for using a clone of the source code.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Reference
+   :caption: Help & Reference
 
    reference/known-bugs.rst
    reference/CONTRIBUTING.md
