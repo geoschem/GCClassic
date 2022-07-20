@@ -1,8 +1,8 @@
 .. _compile:
 
-#########################
-Compile GEOS-CHem Classic
-#########################
+#######################
+Compile the source code
+#######################
 
 In this chapter, we will describe how you can compile GEOS-Chem
 Classic. Compiling creates an **executable file** that you can run on
@@ -178,14 +178,14 @@ can pass to CMake. GEOS-Chem will be compiled with the default build
 options, unless you explicitly specify otherwise.
 
 .. option:: RUNDIR
-   
+
    Defines the path to the run directory.
-    
+
    In this example, our build directory is a subfolder of the run
    directory, so we can use :code:`-DRUNDIR=..`.  If your build
    directory is somewhere else, then specify the path to the run
    directory as an absolute path.
-   
+
 .. option:: CMAKE_BUILD_TYPE
 
    Specifies the type of build.  Accepted values are:
@@ -201,46 +201,46 @@ options, unless you explicitly specify otherwise.
       Turns on several runtime error checks.  This will make it easier
       to find errors but will adversely impact performance. Only use
       this option if you are actively debugging.
-   
+
 .. option:: MECH
 
    Specifies the chemical mechanism that you wish to use:
 
    .. option:: fullchem
-   
+
       Activates the **fullchem** mechanism.  The source code
       files that define this mechanism are stored in
       :file:`KPP/fullchem`. **(Default option)**
-   
+
    .. option:: Hg
-   
+
       Activates the **Hg** mechanism.  The source code
       files that define this mechanism are stored in :file:`KPP/Hg`.
-   
+
    .. option:: custom
-   
+
       Activates a **custom** mechanism defined by the user.  The
       source code files that define this mechanism are stored in
       :file:`KPP/custom.`.
-   
+
 .. option:: OMP
- 
+
    Determines if GEOS-Chem Classic will activate `OpenMP paralellization
    <http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_.  Accepted
    values are:
 
    .. option:: y
- 
+
       Activates OpenMP parallelization.  **(Default option)**
 
       GEOS-Chem Classic will execute on as many computational cores as
       is specified with :option:`OMP_NUM_THREADS`.
 
    .. option:: n
-   
+
       Deactivates OpenMP parallelization.  GEOS-Chem Classic will
       execute on a single computational core.  Useful for debugging.
-   
+
 .. option:: TOMAS
 
    Configure GEOS-Chem with the `TOMAS aerosol
@@ -288,9 +288,9 @@ options, unless you explicitly specify otherwise.
    .. option:: n
 
       Deactivate legacy binary-punch diagnostics. **(Default option)**
-   
+
 .. option:: APM
-   
+
    Configures GEOS-Chem to use the `APM microphysics package
    <http://wiki.geos-chem.org/APM_aerosol_microphysics>`_. Accepted
    values are:
@@ -302,11 +302,11 @@ options, unless you explicitly specify otherwise.
    .. option:: n
 
       Deactivate APM microphysics. **(Default option)**
-   
+
 .. option:: RRTMG
-   
+
    Configures GEOS-Chem to use the `RRTMG radiative transfer model
-   <https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`_. 
+   <https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`_.
    Accepted values are:
 
    .. option:: y
@@ -318,12 +318,12 @@ options, unless you explicitly specify otherwise.
       Deactivates the RRTMG radiative transfer model. **(Default option)**
 
 .. option:: LUO_WETDEP
-   
+
    Configures GEOS-Chem to use the Luo et al 2020 wet deposition
    scheme.
 
    .. note::
-   
+
       The Luo et al 2020 wet deposition scheme will eventually
       become the default wet deposition schem in GEOS-Chem.  We
       have made it an option for the time being while further
@@ -339,7 +339,7 @@ options, unless you explicitly specify otherwise.
 
       Deactivates the Luo et al 2020 wet deposition scheme. **(Default
       option)**
-   
+
 If you plan to use the :command:`make -j install` option (recommended)
 to copy your executable to your run directory, you must reconfigure
 CMake with the :command:`RUNDIR=/path/to/run/dir`

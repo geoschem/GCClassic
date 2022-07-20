@@ -6,8 +6,8 @@ GEOS-Chem Classic
 .. raw:: html
 
    <p>
-   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?include_prereleases&label=Latest%20Pre-Release"></a>   
-   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?label=Latest%20Stable%20Release"></a>   
+   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?include_prereleases&label=Latest%20Pre-Release"></a>
+   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?label=Latest%20Stable%20Release"></a>
    <a href="https://github.com/geoschem/GCClassic/releases/"><img src="https://img.shields.io/github/release-date/geoschem/GCClassic"></a>
    <a href="https://doi.org/10.5281/zenodo.5014891"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5014891.svg" alt="DOI"></a>
    <a href="https://github.com/geoschem/GCClassic/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
@@ -59,7 +59,9 @@ instructions specifically for using a clone of the source code.
    gcc-guide/02-build/get-code.rst
    gcc-guide/02-build/create-rundir.rst
    gcc-guide/02-build/compile.rst
-   
+   gcc-guide/03-config/config-overview.rst
+
+
 .. toctree::
    :caption: Supplemental guides
    :maxdepth: 1

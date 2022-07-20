@@ -1,8 +1,8 @@
-.. _geoschem-config:
+.. _cfg-gc-yml:
 
-###########################
-Editing geoschem_config.yml
-###########################
+###################
+geoschem_config.yml
+###################
 
 Starting with GEOS-Chem 14.0.0, the :file:`input.geos` configuration
 file (plain text) has been replaced with by the
@@ -166,7 +166,7 @@ The :code:`simulation` section contains general simulation options:
    long each component of GEOS-Chem took to execute will be printed to
    the screen or log file.
 
-.. _gc-yml-grid:
+.. _cfg-gc-yml-grid:
 
 =============
 Grid settings
@@ -301,7 +301,7 @@ by GEOS-Chem Classic:
    - For global simulations, use: :code:`[0, 0, 0, 0]`.
    - For nested-grid simulations, we recommend using: :code:`[3, 3, 3, 3]`.
 
-.. _gc-yml-timesteps:
+.. _cfg-gc-yml-timesteps:
 
 ==================
 Timesteps settings
@@ -344,7 +344,7 @@ various GEOS-Chem operations occur:
    transfer model will be called (valid for :option:`fullchem`
    simulations only).
 
-.. _gc-yml-operations:
+.. _cfg-gc-yml-operations:
 
 ===================
 Operations settings
@@ -356,7 +356,7 @@ simulations that do not require them.
 
 There are several sub-sections under :code:`operations`:
 
-.. _gc-yml-operations-chemistry:
+.. _cfg-gc-yml-operations-chemistry:
 
 Chemistry
 ----------
@@ -438,7 +438,7 @@ The :code:`operations:chemistry` section contains settings for chemistry:
 
    Recommended value: :code:`0.2`.
 
-.. _gc-yml-operations-convection:
+.. _cfg-gc-yml-operations-convection:
 
 Convection
 ----------
@@ -465,7 +465,7 @@ The :command:`operations:convection` section contains settings for
    Activates (:code:`true`) or deactivates (:code:`false`)
    cloud convection in GEOS-Chem.
 
-.. _gc-yml-operations-drydep:
+.. _cfg-gc-yml-operations-drydep:
 
 Dry deposition
 --------------
@@ -523,7 +523,7 @@ for `dry deposition <http://wiki.geos-chem.org/Dry_deposition>`_:
    Specifies the altitude above the surface (in m) to used with the
    `ConcAboveSfc diagnostic collection <http://wiki.seas.harvard.edu/geos-chem/index.php/History_collections_for_dry_deposition#The_ConcAboveSfc_collection>`_.
 
-.. _gc-yml-operations-pblmix:
+.. _cfg-gc-yml-operations-pblmix:
 
 PBL mixing
 ----------
@@ -562,7 +562,7 @@ for `planetary boundary layer (PBL) mixing
    <http://wiki.geos-chem.org/Boundary_layer_mixing#VDIFF>`_ will
    be used.
 
-.. _gc-yml-operations-photolysis:
+.. _cfg-gc-yml-operations-photolysis:
 
 Photolysis
 ----------
@@ -629,7 +629,7 @@ This section only applies to :option:`fullchem` and :option:`Hg` simultions.
 
      Recommended value: :code:`false`.
 
-.. _gc-yml-rrtmg:
+.. _cfg-gc-yml-rrtmg:
 
 RRTMG radiative transfer model
 ------------------------------
@@ -705,7 +705,7 @@ This section only applies to :option:`fullchem` simultions.
 
    Default value: :code:`false`.
 
-.. _gc-yml-transport:
+.. _cfg-gc-yml-transport:
 
 Transport
 ---------
@@ -808,7 +808,7 @@ settings for `species transport
    Each passive species must also be listed under
    :option:`transported_species`.
 
-.. _gc-yml-wetdep:
+.. _cfg-gc-yml-wetdep:
 
 Wet deposition
 --------------
@@ -844,7 +844,7 @@ This section of :file:`geoschem_config.yml` is included for
 
 There are several sub-sections under :code:`aerosols`:
 
-.. _gc-yml-aerosol-carbon:
+.. _cfg-gc-yml-aerosol-carbon:
 
 Carbon aerosols
 ---------------
@@ -910,7 +910,7 @@ The :code:`aerosols:carbon` section contains settings for
 
       Default value: :code:`1.0`
 
-.. _gc-yml-aerosols-soa:
+.. _cfg-gc-yml-aerosols-soa:
 
 Complex SOA
 -----------
@@ -989,7 +989,7 @@ The :code:`aerosols:dust` section contains settings for
 
    Default value: :code:`false`
 
-.. _gc-yml-aerosols-seasalt:
+.. _cfg-gc-yml-aerosols-seasalt:
 
 Sea salt aerosols
 -----------------
@@ -1044,7 +1044,7 @@ aerosols
 
    Default value: :code:`false`
 
-.. _gc-yml-aerosols-strat:
+.. _cfg-gc-yml-aerosols-strat:
 
 Stratospheric aerosols
 ----------------------
@@ -1128,7 +1128,7 @@ stratopsheric aerosols.
 
    Default value: :code:`true`
 
-.. _gc-yml-aerosols-sulfate:
+.. _cfg-gc-yml-aerosols-sulfate:
 
 Sulfate aerosols
 ----------------
@@ -1162,7 +1162,7 @@ aerosols <http://wiki.geos-chem.org/Sulfate_aerosols>`_:
 
    Default value: :code:`true`
 
-.. _gc-yml-xdiag:
+.. _cfg-gc-yml-xdiag:
 
 =================
 Extra diagnostics
@@ -1320,7 +1320,7 @@ diagnostics. <http://wiki.seas.harvard.edu/geos-chem/index.php/The_input.geos_fi
 These will be replaced by :ref:`history-diagnostics` (in netCDF format) in an
 upcoming version.
 
-.. _gc-yml-CH4:
+.. _cfg-gc-yml-CH4:
 
 ======================
 CH4 simulation options
@@ -1431,7 +1431,7 @@ contains options for analytical inversions (cf. the
 
    Default value: :code:`false`
 
-.. _gc-yml-co2:
+.. _cfg-gc-yml-co2:
 
 ======================
 CO2 simulation options
@@ -1516,7 +1516,7 @@ for activating sources of :math:`CO_2`:
 
    Default value: :code:`true`
 
-.. _gc-yml-co2-tagspc:
+.. _cfg-gc-yml-co2-tagspc:
 
 CO2 tagged species
 -------------------
@@ -1562,7 +1562,7 @@ for activating tagged :math:`CO_2` species:
 
      # .. following sub-sections omitted ...
 
-.. _gc-yml-hg:
+.. _cfg-gc-yml-hg:
 
 =====================
 Hg simulation options
@@ -1571,7 +1571,7 @@ Hg simulation options
 This section of :file:`geoschem_config.yml` is included for
 the `mercury (Hg) simulation <https://wiki.geos-chem.org/Mercury>`_:
 
-.. _gc-yml-hg-src:
+.. _cfg-gc-yml-hg-src:
 
 Hg sources
 ----------
@@ -1615,7 +1615,7 @@ for various mercury sources.
 
    Default value: :code:`true`
 
-.. _gc-yml-hg-chem:
+.. _cfg-gc-yml-hg-chem:
 
 Hg chemistry
 ------------
@@ -1645,7 +1645,7 @@ for mercury chemistry:
 
    Default value: :code:`true`
 
-.. _gc-yml-tagco:
+.. _cfg-gc-yml-tagco:
 
 ============================
 Tagged CO simulation options

@@ -1,8 +1,8 @@
 .. _history:
 
-##################
-Editing HISTORY.rc
-##################
+##########
+HISTORY.rc
+##########
 
 Please see our `Guide to GEOS-Chem History diagnostics
 <http://wiki.geos-chem.org/Guide_to_GEOS-Chem_History_diagnostics>`_

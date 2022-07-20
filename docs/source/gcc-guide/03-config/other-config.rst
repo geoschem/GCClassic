@@ -1,44 +1,14 @@
-.. _config-overview:
+.. _cfg-other:
 
-#############################################
-Summary of GEOS-Chem user configuration files
-#############################################
+################################################
+Configuration files for photolysis and chemistry
+################################################
 
-This page describes the configuration files that are read by
-:program:`GEOS-Chem Classic`.
+Edit these configuration files **only if you are changing the
+photolysis or chemistry mechanisms**.  Otherwise you can skip to the
+next section.
 
-.. _rundir-config-files:
-
-=================================
-Run directory configuration files
-=================================
-
-:ref:`As discussed previously <create-rundir>`, each run directory
-contains several user-editable configuration files that control the
-runtime behavior of GEOS-Chem.  These are listed below:
-
-.. option:: geoschem_config.yml
-
-   Contains user-editable settings that specify options for the given
-   GEOS-Chem simulation. (cf :ref:`geoschem-config`)
-
-.. option:: HEMCO_Config.rc
-
-   Contain user-editable settings that control which emission
-   inventories and other data sets will be read into GEOS-Chem via
-   HEMCO. (cf. :ref:`hemco-config`).
-
-.. option:: HEMCO_Diagn.rc
-
-   Contains user-editable settings that tell HEMCO which diagnostic
-   quantities to archive. (cf. :ref:`hemco-diagn`)
-
-.. option:: HISTORY.rc
-
-   Contains user-editable settings that specify which GEOS-Chem
-   diagnostics will be archived. (cf. :ref:`history`)
-
-.. _photolysis_mechanism:
+.. _cfg-other-photol:
 
 ========================================
 Photolysis mechanism configuration files
@@ -92,5 +62,7 @@ Chemical mechanism configuration files are located in these folders:
 
    - :file:`custom.eqn`: Copy of :file:`fullchem.eqn`.
 
-Please see :ref:`kppguide` for more information on how to use KPP to
-create chemical solver source code for GEOS-Chem.
+Please see the following references for more information about KPP:
+
+#. The KPP user manual (`kpp.readthedocs.io <https://kpp.readthedocs.io>`_)
+#. The :ref:`kppguide` Guide
