@@ -5,8 +5,9 @@ Set environment variables for compilers
 #######################################
 
 The sample :ref:`GNU <env-files-gnu10>` and :ref:`Intel
-<env-files-intel19>` from the previous sections define the following
-**environment variables** to specify the choice of compiler:
+<env-files-intel19>` environment ffiles from the previous sections
+define the following **environment variables** to specify the choice
+of compiler:
 
 .. table::
    :align: center

@@ -121,7 +121,7 @@ the GEOS-Chem and HEMCO source codes.
    .. code-block:: console
 
     $ . ~/.bash_aliases
-    
+
    Now you can type :command:`gsu` instead of :command:`git submodule
    update --init --recursive`.
 
