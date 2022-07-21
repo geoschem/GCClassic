@@ -48,10 +48,12 @@ instructions specifically for using a clone of the source code.
    :caption: Getting Started
    :maxdepth: 2
 
+   gcc-guide/01-startup/key-references.rst
    gcc-guide/01-startup/quick-start.rst
    gcc-guide/01-startup/system-req.rst
    gcc-guide/01-startup/login-env.rst
-
+   
+   
 .. toctree::
    :caption: GEOS-Chem Classic User Guide
    :maxdepth: 2
