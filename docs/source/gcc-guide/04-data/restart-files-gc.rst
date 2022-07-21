@@ -1,72 +1,14 @@
-.. _restart-files:
+.. _restart-files-gc:
 
-#############
-Restart files
-#############
-
-In this section, we provide some basic information about :program:`GEOS-Chem
-Classic` restart files and how they are used.
-
-.. _what_is_a_restart_file:
-
-=======================
-What is a restart file?
-=======================
-
-Restart files contain the initial conditions (cf. :ref:`init-cond`)
-for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
-
-.. option:: GEOSChem.Restart.YYYYMMDD_hhmmz.nc4
-
-   **Format:** netCDF
-
-   **Description:**  The :program:`GEOS-Chem Classic` restart file.
-   Contains species concentrations that are read at simulation startup.
-
-   GEOS-Chem writes a restart file at the end of each simulation. This
-   allows a long simulation to be split into several individal run
-   stages.
-
-   For example, the restart file that was created at 00:00 UTC on
-   August 1, 2016 is named:
-   :file:`GEOSChem.Restart.20160801_0000z.nc4`.  The :file:`z`
-   indicates "Zulu" time, which is another name for UTC.
-
-   GEOS-Chem restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <create-rundir>` directory (and NOT
-   in the :option:`OutputDir/` folder, which is where History
-   diagnostic files are created.
-
-.. option:: HEMCO_restart.YYYYMMDDhhmm.nc
-
-   **Format:** netCDF
-
-   **Description:** The `Harmonized Emissions Component (HEMCO)
-   <https://hemco.readthedocs.io>`_ restart file.  HEMCO will save out
-   certain quantities  (mostly pertaining to soil NOx and biogenic
-   emissions) in order to facilitate long  GEOS-Chem simulations with
-   several run stages.
-
-   HEMCO restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <create-rundir>` directory (and NOT
-   in the :option:`OutputDir/` folder, which is where History
-   diagnostic files are created.
-   HEMCO restart files are created in the top-level of your GEOS-Chem run
-
-When you run a GEOS-Chem simulation, it will write new GEOS-Chem restart
-files at the intervals you specify in :ref:`history`. New HEMCO restart
-files are written with frequency configured in :file:`HEMCO_Config.rc`.
-
-.. _gc-restart-files:
-
-=======================
+#######################
 GEOS-Chem restart files
-=======================
+#######################
 
-.. _restart-file-input:
+.. _restart-files-gc-read:
 
+==========================================
 How are restart files read into GEOS-Chem?
-------------------------------------------
+==========================================
 
 GEOS-Chem restart files are read via `HEMCO
 <https://hemco.readthedocs.io>`_. The entries listed below have been
@@ -156,10 +98,11 @@ HEMCO will stop with an error if:
    for the the initial species concentration.  Otherwise a value of
    :math:`1.0{\times}10^{-20}` will be used.
 
-.. _how_can_i_determine_the_date_of_a_restart_file:
+.. _restart-files-gc-date:
 
+===============================================
 How can I determine the date of a restart file?
------------------------------------------------
+===============================================
 
 To determine the date of a netCDF restart file, you may use :command:`ncdump`.
 For example:
@@ -172,13 +115,15 @@ The :command:`-t` option will return the time value in human-readable
 date-time strings rather than numerical values in unit such as :code:`"hours
 since 1985-1-1 00:00:0.0.`
 
-.. _where_can_i_get_a_restart_file_for_my_simulation:
+.. _restart-files-gc-where:
 
+=================================================
 Where can I get a restart file for my simulation?
--------------------------------------------------
+=================================================
 
-GEOS-Chem run directories are configured to use sample GEOS-Chem restart
-files in :program:`netCDF` format.  These files are available for download at:
+GEOS-Chem Classic :ref:`run directories <rundir>` are configured to
+use sample GEOS-Chem restart files in :program:`netCDF` format.  These
+files are available for download at:
 `http://geoschemdata.wustl.edu/ExtData/GEOSCHEM_RESTARTS/
 <http://geoschemdata.wustl.edu/ExtData/GEOSCHEM_RESTARTS/>`_.
 
@@ -203,10 +148,11 @@ directory <create-rundir>`.
    simulation to generate more accurate initial conditions for your
    production runs.
 
-.. _for_how_long_should_i_spin_up_before_starting_a_production_simulation:
+.. _restart-files-gc-spinup:
 
+======================================================================
 For how long should I spin up before starting a production simulation?
-----------------------------------------------------------------------
+======================================================================
 
 Doing a 6-month year spin up is usually sufficient for full-chemistry
 simulations.  We recommend ten years for ozone, carbon dioxide, and
@@ -230,10 +176,11 @@ the model for five additional months, from 7/1/13 to 12/1/13.
 See also this discussion on our Github page for further guidance:
 https://github.com/geoschem/geos-chem/discussions/911.
 
-.. _how_do_i_check_my_initial_conditions:
+.. _restart-files-gc-check:
 
+=====================================
 How do I check my initial conditions?
--------------------------------------
+=====================================
 
 To ensure you are using the expected initial conditions for your
 simulation, please check the GEOS-Chem log file. You should see
@@ -270,10 +217,11 @@ If a species is not found in the restart file, you may see something like:
 
    Species 178,       pFe: Use background = 9.999999683E-21
 
-.. _how-are-restart-files-archived:
+.. _restart-files-gc-write:
 
+========================================
 How are GEOS-Chem restart files written?
-----------------------------------------
+========================================
 
 GEOS-Chem restart files are now saved via the History component. A
 **Restart collection** has been defined in `HISTORY.rc <history>`_ and
@@ -284,42 +232,3 @@ collection in GEOS-Chem History diagnostics
 <http://wiki.geos-chem.org/History_collections_for_species_concentrations#The_Restart_collection>`_.
 This documentation is currently on the GEOS-Chem wiki, but will be
 ported to ReadTheDocs in the near future.
-
-.. _hemco-restart-files:
-
-===================
-HEMCO restart files
-===================
-
-.. _do_i_need_a_hemco_restart_file_for_my_initial_spin_up_run:
-
-Do I need a HEMCO restart file for my initial spin-up run?
-----------------------------------------------------------
-
-Using a HEMCO restart file for your initial spin up run is
-optional. The HEMCO restart file contains fields for initializing
-variables required for Soil NOx emissions, MEGAN biogenic emissions,
-and the UCX chemistry quantities. The HEMCO restart file that comes
-with a run directory may only be used for the date and time indicated
-in the filename. HEMCO will automatically recognize when a restart
-file is not available for the date and time required, and in that case
-HEMCO will use default values to initialize those fields. You can also
-force HEMCO to use the default initialization values by setting
-:code:`HEMCO_RESTART` to false in :file:`HEMCO_Config.rc`.
-
-.. _viewing-restart-files:
-
-======================================
-Viewing and manipulating restart files
-======================================
-
-**TODO: Update links**
-
-For information on viewing and manipulating GEOS-Chem restart files in
-netCDF format, please see the following sections of :ref:`ncguide`:
-
-#. :ref:`ncguide-useful-tools`
-#. :ref:`ncguide-regridding`
-#. :ref:`ncguide-adding-new-var`
-#. :ref:`ncguide-cropping`
-#. :ref:`ncguide-chunk-deflate`

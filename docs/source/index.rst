@@ -22,6 +22,12 @@ the single-node mode of operation of the
 instruction for downloading and compiling GEOS-Chem Classic, plus its
 required software libraries.
 
+.. note::
+
+   If you would like to run GEOS-Chem on more than one node of a
+   computing system, consider using
+   `GEOS-Chem High Performance (GCHP) <https://gchp.readthedocs.io>`_.
+
 GEOS-Chem is a global 3-D model of atmospheric composition driven by
 assimilated meteorological observations from the Goddard Earth
 Observing System (GEOS) of the `NASA Global Modeling and Assimilation
@@ -34,15 +40,9 @@ range of atmospheric composition problems.
 * `Narrative description of GEOS-Chem <http://acmg.seas.harvard.edu/geos/geos_chem_narrative.html>`_
 
 Cloning and building from source code ensures you will have direct
-access to the latest available versions of GEOS-Chem CLassic, provides
+access to the latest available versions of GEOS-Chem Classic, provides
 additional compile-time options, and allows you to make your own
 modifications to GEOS-Chem Classic source code.
-
-Our `Quick Start Guide <getting-started/quick-start.html>`__ and the
-`downloading <user-guide/downloading.html>`__, `compiling
-<user-guide/compiling.html>`__, and `creating a run directory
-<user-guide/rundir-init.html>`__ sections of the User Guide give
-instructions specifically for using a clone of the source code.
 
 .. toctree::
    :caption: Getting Started
@@ -52,8 +52,8 @@ instructions specifically for using a clone of the source code.
    gcc-guide/01-startup/quick-start.rst
    gcc-guide/01-startup/system-req.rst
    gcc-guide/01-startup/login-env.rst
-   
-   
+
+
 .. toctree::
    :caption: GEOS-Chem Classic User Guide
    :maxdepth: 2
@@ -62,7 +62,10 @@ instructions specifically for using a clone of the source code.
    gcc-guide/02-build/create-rundir.rst
    gcc-guide/02-build/compile.rst
    gcc-guide/03-config/config-overview.rst
-
+   gcc-guide/04-data/download-data.rst
+   gcc-guide/05-run/run.rst
+   gcc-guide/06-output/output-files.rst
+   gcc-guide/07-diagnostics/diagnostics.rst
 
 .. toctree::
    :caption: Supplemental guides
