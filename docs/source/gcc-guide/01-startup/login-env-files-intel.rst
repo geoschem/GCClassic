@@ -5,7 +5,7 @@ Sample environment file for Intel 19 compilers
 ##############################################
 
 To load software libraries based on the Intel 19 compilers, we can
-start from our :ref:`GNU 10.2.0 environment file <gnu_10_example>` and
+start from our :ref:`GNU 10.2.0 environment file <env-files-gnu10>` and
 add the proper :command:`module load` commands for Intel 19.
 
 Add the code below (with the appropriate modifications for your

@@ -127,7 +127,7 @@ GEOS-Chem source code is compiled into an executable.  You will need
 GNU Make
 --------
 :program:`GNU Make` is software that can build executables from
-Makefiles that are created by :ref:`req-cmake`.<
+Makefiles that are created by :ref:`req-soft-cmake`.
 
 
 

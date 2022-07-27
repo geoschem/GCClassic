@@ -4,9 +4,9 @@
 Input data for GEOS-Chem Classic
 ################################
 
-:program:`GEOS-Chem Classic` reads (via `HEMCO
-<https://hemco.readthedocs.io>`_) several data files from disk during
-a simulation.  These can be grouped into the following categories:
+GEOS-Chem Classic reads (via `HEMCO <https://hemco.readthedocs.io>`_)
+several data files from disk during a simulation.  These can be
+grouped into the following categories:
 
 #. :ref:`init-cond` (aka :ref:`restart-files`)
 #. :ref:`chem-inputs`
@@ -50,23 +50,23 @@ Initial conditions include:
 .. table::
    :align: center
 
-   +------------------------------------------------------+---------------------+
-   | Download method                                      | From portals        |
-   +======================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
-   |                                                      | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Run :ref:`bashdatacatalog <bashdatacatalog>`         | :option:`WashU`     |
-   | on the :file:`InitialConditions.csv` file            |                     |
-   | :math:`^1`                                           |                     |
-   +------------------------------------------------------+---------------------+
-   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
-   | :program:`wget`)                                     | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
-   +------------------------------------------------------+---------------------+
+   +--------------------------------------------------+---------------------+
+   | Download method                                  | From portals        |
+   +==================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`   | :option:`WashU`     |
+   |                                                  | :option:`Amazon`    |
+   |                                                  | :option:`Rochester` |
+   +--------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`     | :option:`WashU`     |
+   | on the :file:`InitialConditions.csv` file        |                     |
+   | :math:`^1`                                       |                     |
+   +--------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or          | :option:`WashU`     |
+   | :program:`wget`)                                 | :option:`Amazon`    |
+   |                                                  | :option:`Rochester` |
+   +--------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**  | :option:`WashU`     |
+   +--------------------------------------------------+---------------------+
 
 :math:`^1` We provide :file:`InitialConditions.csv` files (for each
 GEOS-Chem version since 13.0.0) at our `input-data-catalogs
@@ -87,22 +87,23 @@ Chemistry input data includes:
 .. table::
    :align: center
 
-   +------------------------------------------------------+---------------------+
-   | Download method                                      | From portals        |
-   +======================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
-   |                                                      | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Run :ref:`bashdatacatalog <bashdatacatalog>`         | :option:`WashU`     |
-   | on the :file:`ChemistryInputs.csv` file :math:`^2`   |                     |
-   +------------------------------------------------------+---------------------+
-   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
-   | :program:`wget`)                                     | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
-   +------------------------------------------------------+---------------------+
+   +--------------------------------------------------+---------------------+
+   | Download method                                  | From portals        |
+   +==================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`   | :option:`WashU`     |
+   |                                                  | :option:`Amazon`    |
+   |                                                  | :option:`Rochester` |
+   +--------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`     | :option:`WashU`     |
+   | on the                                           |                     |
+   | :file:`ChemistryInputs.csv` file :math:`^2`      |                     |
+   +--------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or          | :option:`WashU`     |
+   | :program:`wget`)                                 | :option:`Amazon`    |
+   |                                                  | :option:`Rochester` |
+   +--------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**  | :option:`WashU`     |
+   +--------------------------------------------------+---------------------+
 
 :math:`^2` We provide :file:`ChemistryInputs.csv` files (for each
 GEOS-Chem version since 13.0.0) at our `input-data-catalogs
@@ -128,22 +129,23 @@ Emissions input data includes the following data:
 .. table::
    :align: center
 
-   +------------------------------------------------------+---------------------+
-   | Download method                                      | From portals        |
-   +======================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
-   |                                                      | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Run :ref:`bashdatacatalog <bashdatacatalog>`         | :option:`WashU`     |
-   | on the :file:`EmissionsInputs.csv` file :math:`^3`   |                     |
-   +------------------------------------------------------+---------------------+
-   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
-   | :program:`wget`)                                     | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
-   +------------------------------------------------------+---------------------+
+   +-------------------------------------------------+---------------------+
+   | Download method                                 | From portals        |
+   +=================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`  | :option:`WashU`     |
+   |                                                 | :option:`Amazon`    |
+   |                                                 | :option:`Rochester` |
+   +-------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`    | :option:`WashU`     |
+   | on the                                          |                     |
+   | :file:`EmissionsInputs.csv` file :math:`^3`     |                     |
+   +-------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or         | :option:`WashU`     |
+   | :program:`wget`)                                | :option:`Amazon`    |
+   |                                                 | :option:`Rochester` |
+   +-------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)** | :option:`WashU`     |
+   +-------------------------------------------------+---------------------+
 
 :math:`^3` We provide :file:`EmissionsInputs.csv` files (for each
 GEOS-Chem version since 13.0.0) at our `input-data-catalogs
@@ -165,17 +167,17 @@ be driven by the following meteorology products:
 .. table::
    :align: center
 
-   +------------------------------------------------------+---------------------+
-   | Download method                                      | From portals        |
-   +======================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`       | :option:`WashU`     |
-   |                                                      | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Direct data download (:program:`FTP` or              | :option:`WashU`     |
-   | :program:`wget`)                                     | :option:`Amazon`    |
-   |                                                      | :option:`Rochester` |
-   +------------------------------------------------------+---------------------+
-   | Globus, use endpoint **GEOS-Chem data (WashU)**      | :option:`WashU`     |
-   +------------------------------------------------------+---------------------+
+   +--------------------------------------------------+---------------------+
+   | Download method                                  | From portals        |
+   +==================================================+=====================+
+   | :ref:`Dry run simulation <dry-run-simulation>`   | :option:`WashU`     |
+   |                                                  | :option:`Amazon`    |
+   |                                                  | :option:`Rochester` |
+   +--------------------------------------------------+---------------------+
+   | Direct data download (:program:`FTP` or          | :option:`WashU`     |
+   | :program:`wget`)                                 | :option:`Amazon`    |
+   |                                                  | :option:`Rochester` |
+   +--------------------------------------------------+---------------------+
+   | Globus, use endpoint **GEOS-Chem data (WashU)**  | :option:`WashU`     |
+   +--------------------------------------------------+---------------------+
 

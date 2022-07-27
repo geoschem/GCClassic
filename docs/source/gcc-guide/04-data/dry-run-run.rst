@@ -25,16 +25,18 @@ Make sure that you have done the following steps;
 #. :ref:`Compiled the source code <compile>`
 #. :ref:`Configured your simulation <cfg>`
 
-Then doublecheck these settings in the following **configuration files**:
+Then doublecheck these settings in the following :ref:`configuration
+files <cfg>`:
 
 .. option:: geoschem_config.yml
 
-   #. Set the start and end dates of the simulation. This setting will
-      determine how much data needs to be downloaded from one of the
-      GEOS-Chem data mirrors to your local disk space.
-   #. Also doublecheck that the path to your data directory (ExtData)
-      is correct.
-   #. Also see :ref:`geoschem-config` for more information.
+   #. :option:`start_date`: Set the start date and time for your simulation.
+   #. :option:`end_date`: Setthe end date and time for your simulation.
+   #. :option:`met_field`: Check if the meteorology setting 
+      (:option:`GEOS-FP`, :option:`MERRA2`, :option:`GCAP2`) is
+      correct for your simulation.
+   #. :option:`root_data_dir`: Make sure that the path to
+      :file:`ExtData` is correct.
 
 .. option:: HISTORY.rc
 
@@ -44,17 +46,20 @@ Then doublecheck these settings in the following **configuration files**:
 
 .. option:: HEMCO_Config.rc
 
-   #. Set the :envvar:`DiagnFreq` parameter to be consistent
-      with the simulation length defined in
-      :option:`geoschem_config.yml`
-   #. Select the emission inventories and data sets that
-      you wish to use in your GEOS-Chem simulation.
+   #. Check the `Settings section
+      <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#settings>`_
+      to make sure that diagnostic frequency :envvar:`DiagnFreq`: is
+      set to the interval that you wish (e.g. :envvar:`Monthly`,
+      :envvar:`Daily`, :envvar:`YYYYMMDD hhmmss`, etc).
+   #. Check the `Extension Settings section
+      <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#extension-switches>`_,
+      to make sure all of the required emissions inventories and data
+      sets for your simulation have been switched on.
 
-.. tip::
-
-   You can reduce the amount of data that needs to be downloaded for
-   your GEOS-Chem simulation by turning off inventories that you don't
-   need.
+   .. tip::
+ 
+      You can reduce the amount of data that needs to be downloaded for
+      your simulation by turning off inventories that you don't need.
 
 .. _dry-run-run-flag:
 

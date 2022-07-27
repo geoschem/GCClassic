@@ -440,4 +440,4 @@ where
    :file:`289a460` commit in the GCClassic repository.
 
 Under each header are printed the various :ref:`options that have been
-selected <configure-your-build>`.
+selected <cfg>`.

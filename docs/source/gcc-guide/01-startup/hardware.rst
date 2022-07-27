@@ -53,7 +53,7 @@ Memory requirements
 ===================
 
 If you plan to run GEOS-Chem on a local computer system, please make
-sure that your system has sufficient memory and :ref:`disk-space`:
+sure that your system has sufficient memory and :ref:`req-hard-disk`:
 
 .. _req-hard-mem-limits:
 
@@ -187,7 +187,7 @@ Obtaining emissions data and met fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You may use a GEOS-Chem Classic dry-run simulation
-(cf. :ref:`dry-run-simulation`) to download as many emissions
+(cf. :ref:`dry-run`) to download as many emissions
 inventories and met field data files as your simulation needs.
 
 If you need to download large amounts of data, consider using
