@@ -17,8 +17,8 @@ GEOS-Chem log file
 File name: :file:`GC.log` (or similar)
 
 Contains an "echo-back" of input options that were specified in
-:ref:`geoschem_config.yml <geoschem-config>` and :ref:`HISTORY.rc
-<history>`, as well as informations about what is happening at each
+:ref:`geoschem_config.yml <cfg-gc-yml>` and :ref:`HISTORY.rc
+<cfg-hist>`, as well as information about what is happening at each
 GEOS-Chem timestep.  If your GEOS-Chem Classic simulation dies with an
 error, a detailed error message will be printed in this log file.
 
@@ -36,7 +36,7 @@ will allow users to download only those files that their GEOS-Chem
 simulation requires, thus speeding up the data downloading
 process.
 
-For more information, please see the :ref:`dry-run-simulation` chapter.
+For more information, please see the :ref:`dry run <dry-run>` chapter.
 
 .. _outfiles-hemco-log:
 

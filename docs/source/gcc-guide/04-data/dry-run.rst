@@ -6,6 +6,13 @@ Download data with a dry-run simulation
 
 .. tip::
 
+   If you are located at an institution with many other GEOS-Chem
+   users, then the :ref:`necessary input data <input-overview>` might
+   have already been downloaded and stored in a commmon directory on
+   your system.  Ask your sysadmin or IT support staff.
+
+.. tip::
+
    Another way to download and manage GEOS-Chem input data is with the
    :ref:`bashdatacatalog <bashdatacatalog>` tool.
 

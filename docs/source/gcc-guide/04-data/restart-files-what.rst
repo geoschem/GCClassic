@@ -25,7 +25,7 @@ for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
    indicates "Zulu" time, which is another name for UTC.
 
    GEOS-Chem restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <create-rundir>` directory (and NOT
+   :ref:`GEOS-Chem run directory <rundir>` directory (and NOT
    in the :option:`OutputDir/` folder, which is where History
    diagnostic files are created.
 
@@ -39,15 +39,15 @@ for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
    simulations with several run stages.
 
    HEMCO restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <create-rundir>` directory (and NOT
+   :ref:`GEOS-Chem run directory <rundir>` directory (and NOT
    in the :option:`OutputDir/` folder, which is where History
    diagnostic files are created.
    HEMCO restart files are created in the top-level of your GEOS-Chem run
 
 When you run a GEOS-Chem simulation, it will write new GEOS-Chem restart
-files at the intervals you specify in :ref:`history`. New HEMCO restart
-files are written with frequency configured in :ref:`HEMCO_Config.rc
-<hemco-config>`.
+files at the intervals you specify in :ref:`HISTORY.rc <cfg-hist>`. New
+HEMCO restart files are written with frequency configured in
+:ref:`HEMCO_Config.rc <cfg-hco-cfg>`.
 
 .. _restart-files-what-view:
 

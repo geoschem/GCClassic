@@ -1,126 +1,28 @@
-.. _req-hard:
-
-#####################
-Hardware requirements
-#####################
-
-.. _req-hard-system:
-
-===============
-Computer system
-===============
-
-You will need to have access to one (or both) of these types of
-computational resources in order to use :program:`GEOS-Chem Classic`:
-
-.. _req-hard-system-unix:
-
-A Unix-like computer system
----------------------------
-
-GEOS-Chem can only be used within a Unix-like operating system
-environment.  Any flavor of Unix (e.g. RHEL/Fedora/Centos, Ubuntu,
-Debian, Arch) or MacOS (which is based on BSD Unix) should suffice.
-
-If your institution has computational resources (e.g. a shared
-computer cluster with many cores, sufficient disk storage and memory),
-then you can run GEOS-Chem there. Contact your IT staff for
-assistance.
-
-.. _req-hard-system-cloud:
-
-An account on the Amazon Web Services cloud
--------------------------------------------
-
-If your institution lacks computational resources (or if you need
-additional computational resources), then you should consider signing
-up for access to the Amazon Web Services cloud. Using the cloud has
-the following advantages:
-
-- You can run GEOS-Chem without having to invest in local hardware and maintenance personnel.
-- You won't have to download any meteorological fields or emissions data. All of the necessary data input for GEOS-Chem will be available on the cloud.
-- You can initialize your computational environment with all of the required software (e.g. compilers, libraries, utilities) that you need for GEOS-Chem.
-- Your GEOS-Chem runs will be 100% reproducible, because you will initialize your computational environment the same way every time.
-- You will avoid GEOS-Chem compilation errors due to library incompatibilities.
-- You will be charged for the computational time that you use, and if you download data off the cloud.
-
-You can learn more about how to use GEOS-Chem on the cloud by `visiting this tutorial (cloud.geos-chem.org) <http://cloud.geos-chem.org>`_.
-
-.. _req-hard-mem:
-
-===================
-Memory requirements
-===================
-
-If you plan to run GEOS-Chem on a local computer system, please make
-sure that your system has sufficient memory and :ref:`req-hard-disk`:
-
-.. _req-hard-mem-limits:
-
-Enough memory to run GEOS-Chem
-------------------------------
-
-For the :math:`4^{\circ}{\times}5^{\circ}` "standard" simulation
-
-  - 8-15 GB RAM
-
-For the :math:`2^{\circ}{\times} 2.5^{\circ}` "standard" simulation:
-
-  - 30-40 GB RAM
-  - 20 GB memory (MaxRSS)
-  - 26 GB virtual memory (MaxVMSize)
-
-Our standard :program:`GEOS-Chem Classic` 1-month full-chemistry
-benchmark simulations use a little under 14 GB of system memory. This
-is mostly due to the fact that the benchmark simulations archive the
-"kitchen sink"---that is, most diagnostic outputs are requested so
-that the benchmark simulation can be properly evaluated. But a typical
-GEOS-Chem Classic production simulation would not require all of these
-diagnostic outputs, and thus would use much less memory than the
-benchmark simulations.
-
-.. _req-hard-mem-extra:
-
-Extra memory for special simulations
-------------------------------------
-
-You may want to consider at least 30 GB RAM if you plan on doing any
-of the following:
-
-  - Running high-resolution (e.g. :math:`1^{\circ}{\times}1.25^{\circ}` or
-    higher resolution) global simulations
-
-  - Running high-resolution (e.g. :math:`0.25^{\circ}{\times}0.3125^{\circ}`
-    or  :math:`0.5^{\circ}{\times}0.625^{\circ}`
-
-  - Running :math:`2^{\circ}{\times}2.5^{\circ}` and generating a lot
-    of diagnostic output.  The more diagnostics you turn on, the more
-    memory GEOS-Chem Classic will require).
-
 .. _req-hard-disk:
 
-==========
-Disk space
-==========
+#######################
+Disk space requirements
+#######################
+
 The following sections will help you assess how much disk space you
-will need on your server to store GEOS-Chem Classic
-:ref:`input data <input-overview>` and output data.
+will need on your server to store GEOS-Chem Classic :ref:`input data
+<input-overview>` and :ref:`output data <outfiles>`.
 
 .. _req-hard-disk-limits:
 
-Data read by GEOS-Chem Classic
-------------------------------
+======================================
+Space for GEOS-Chem Classic input data
+======================================
 
-The data format used by GEOS-Chem Classic is
-`COARDS-compliant netCDF
-<http://wiki.seas.harvard.edu/geos-chem/index.php/The_COARDS_netCDF_conventions_for_earth_science_data>`_. This
-is a standard file format used for Earth Science applications. See our
-:ref:`netCDF guide <ncguide>` for more information.
+The data format used by GEOS-Chem Classic is :ref:`COARDS-compliant
+netCDF <coards-guide>`. This is a standard file format used for Earth
+Science applications. See our :ref:`netCDF guide <ncguide>` for more
+information.
 
 .. _req-hard-disk-emis:
 
 Emissions input fields
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 Please see our :ref:`Emissions input data <emis-inputs>` section for
 more information.
@@ -128,7 +30,7 @@ more information.
 .. _req-hard-disk-met:
 
 Meteorology fields
-~~~~~~~~~~~~~~~~~~
+------------------
 
 The amount of disk space that you will need depends on two things:
 
@@ -184,23 +86,25 @@ GCAP 2.0: to be added
 .. _obtaining-emissions-data-and-met-fields:
 
 Obtaining emissions data and met fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
-You may use a GEOS-Chem Classic dry-run simulation
-(cf. :ref:`dry-run`) to download as many emissions
-inventories and met field data files as your simulation needs.
+There are several ways to obtain the input data required for GEOS-Chem
+classic.  These are described in more detail in the following
+sections.
 
-If you need to download large amounts of data, consider using
-`Globus <https://www.globus.org/data-transfer>`_.  We have created a
-Globus Endpoint named **GEOS-Chem data (WashU)** on the WashU mirror
-site from which you may access the entire GEOS-Chem data archive.
+#. Perform a :ref:`GEOS-Chem dry-run simulation <dry-run>`;
+#. Download and manage data with the :ref:`bashdatacatalog tool
+   <bashdatacatalog>`;
+#. Transfer data with `Globus <https://www.globus.org/data-transfer>`_
+   **GEOS-Chem data (WashU)** endpoint.
 
 Also see our :ref:`input-overview` for more data download options.
 
 .. _data-generated-by-geos-chem:
 
-Data generated by GEOS-Chem Classic
------------------------------------
+=============================================
+Space for data generated by GEOS-Chem Classic
+=============================================
 
 .. _monthly-mean-output:
 
@@ -232,7 +136,7 @@ few species.
 .. _reducing-output-file-sizes:
 
 Reducing output file sizes
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 You may subset the horizontal and vertical size of the diagnostic
 output files in order to save space.  For more information, please see
@@ -249,7 +153,7 @@ of memory that your simulation will require.
 .. _timeseries-output:
 
 Timeseries output
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Archiving hourly or daily timeseries output would require much more
 disk space than the monthly-mean output.  The disk space actually used

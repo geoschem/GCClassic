@@ -43,8 +43,7 @@ or
 
 .. note::
 
-   Only the Fortran compiler is needed to compile :program:`GEOS-Chem
-   Classic`.  But if you will be building other software packages (cf
-   :ref:`kppguide`), or :ref:`manually installing libraries
-   <build-libraries-with-spack>`, you will also need the C and C++
-   compilers.
+   GEOS-Chem Classic only requires the Fortran compiler.  But you will
+   also need the C and C++ compilers if you plan to build other
+   software packages (:ref:`such as KPP <kppguide>`) or :ref:`install
+   libraries manually <build-libraries-with-spack>`.

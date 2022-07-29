@@ -12,7 +12,7 @@ If you need to split up a very long simulation (e.g. 1 model year or
 more) into multiple stages, keep these guidelines in mind:
 
 #. Make sure :code:`GC_RESTART` and :code:`HEMCO_RESTART` options are
-   set to :code:`true:` in :ref:`HEMCO_Config.rc <hemco-config>`. |br|
+   set to :code:`true:` in :ref:`HEMCO_Config.rc <cfg-hco-cfg>`. |br|
    |br|
 
 #. To ensure your :ref:`restart_files <restart-files>` are read and
@@ -32,4 +32,4 @@ more) into multiple stages, keep these guidelines in mind:
    Actual values may differ. If you see :code:`Use background = ...` for
    most or all species, that suggests your restart file was not found. To
    avoid using the wrong restart file make sure to use time cycle flag
-   :code:`EY` in HEMCO_Config.rc (cf. :ref:`restart-file-input`).
+   :code:`EY` in HEMCO_Config.rc (cf. :ref:`restart-files-gc-read`).

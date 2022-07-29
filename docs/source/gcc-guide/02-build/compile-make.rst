@@ -80,7 +80,7 @@ Now that the :file:`gcclassic` executable is built, install it to your
 run directory with :command:`make install`. For this to work properly,
 you must tell CMake where to find your run directory by configuring
 CMake with :envvar:`-DRUNDIR=/path/to/run/directory` :ref:`as
-described above <configure-your-build>`.  Type:
+described above <compile-cmake>`.  Type:
 
 .. code-block:: console
 

@@ -29,8 +29,8 @@ Each-time setup
 ===============
 
 #. Make sure that you have :ref:`properly configured your
-   login environment <login-env>`
-   (i.e. load necessary software modules after login, etc.) |br|
+   login environment <env>` (i.e. load necessary software modules
+   after login, etc.) |br|
    |br|
 
 #. Create a :ref:`GEOS-Chem Classic run directory <rundir>`,
@@ -39,7 +39,7 @@ Each-time setup
    |br|
 
    .. attention::
-   
+
       The initial :ref:`restart file that is included with your run
       directory <restart-files>` does not reflect the actual
       atmospheric state and should only be used to "spin-up" the
@@ -50,16 +50,16 @@ Each-time setup
    behavior of GEOS-Chem Classic..
 
    .. attention::
-    
+
       Prior to running with :option:`GEOS-FP` met fields, please be
       aware  of several caveats regarding that data stream. (cf. `The
       GEOS-FP wiki page <http://wiki.geos-chem.org./GEOS-FP>`_).
-      
+
 #. :ref:`Configure and build <compile>` the source code into an
    executable file. |br|
    |br|
 
-#. Copy a sample :ref:`GEOS-Chem Classic run script <gc-run-script>` to
+#. Copy a sample :ref:`GEOS-Chem Classic run script <run-script>` to
    your run directory and edit it for the particulars of your
    simulation and computer system. |br|
    |br|
@@ -69,8 +69,4 @@ Each-time setup
    |br|
 
 #. Be aware of :ref:`ways in which you can speed up your GEOS-Chem
-   Classic simulations <speeding-up-simulations>`.
-
-
-
-
+   Classic simulations <run-speedup>`.

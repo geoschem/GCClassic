@@ -156,7 +156,9 @@ Scale factors
 =============
 
 Define scale factors for emissions inventories and other data sets in
-the `Scale Factors section <>`_ of :file:`HEMCO_Config.rc`.
+the `Scale Factors section
+<https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#scale-factors>`_
+of :file:`HEMCO_Config.rc`.
 
 .. code-block:: kconfig
 

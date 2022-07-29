@@ -1,4 +1,4 @@
-.. _hist:
+.. _cfg-hist:
 
 ##########
 HISTORY.rc
@@ -7,7 +7,7 @@ HISTORY.rc
 You can specify which GEOS-Chem Classic diagnostic outputs you would
 like to archive with the :file:`HISTORY.rc` configuration file.
 
-.. _hist-sample:
+.. _cfg-hist-sample:
 
 =======================================
 Sample HISTORY.rc diagnostic input file
@@ -102,7 +102,7 @@ In this :file:`HISTORY.rc` file, we are requesting three collections
 :literal:`ConcAfterChem`).  Each collection represents a set of netCDF
 files that will contain the same diagnostic fields.
 
-.. _hist-sample-legend:
+.. _cfg-hist-sample-legend:
 
 ======
 Legend

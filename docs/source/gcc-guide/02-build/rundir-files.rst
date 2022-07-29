@@ -5,10 +5,10 @@ Run directory files and folders
 ###############################
 
 In each run directory there are several **user-editable configuration
-files** that you can use to control the runtime behavior of GEOS-Chem.
-These files (:file:`geoschem_config.yml`, :file:`HEMCO_Config.rc`,
-:file:`HEMCO_Diagn.rc`, :file:`HISTORY.rc`) are discussed in depth in the
-:ref:`rundir-config-files` section.
+files** that you can use to control the runtime behavior of GEOS-Chem
+Classic. These files (:file:`geoschem_config.yml`, :file:`HEMCO_Config.rc`,
+:file:`HEMCO_Diagn.rc`, :file:`HISTORY.rc`) are discussed in depth in
+:ref:`cfg-rundir`.
 
 Each run directory also contains the following files, folders, and scripts:
 
@@ -20,13 +20,12 @@ Each run directory also contains the following files, folders, and scripts:
 .. option:: build/
 
    This is a blank directory where you can direct :program:`CMake` to
-   :ref:`configure and build <compiling-geos-chem>` the GEOS-Chem
-   source code.
+   :ref:`configure and build <compile>` the GEOS-Chem source code.
 
 .. option:: build_info/
 
    This folder is created when you :ref:`compile GEOS-Chem
-   <compiling-geos-chem>`.  It contains information about the options
+   <compile>`.  It contains information about the options
    that were passed to :program:`CMake` during the configuration and
    build process.
 
@@ -51,7 +50,7 @@ Each run directory also contains the following files, folders, and scripts:
    Use this Python script (which reads the associated configuration file
    :file:`download_data.yml`) to download data from one of the
    GEOS-Chem data portals to your disk space.  See
-   :ref:`dry-run-simulation` for more information.
+   :ref:`dry-run` for more information.
 
 .. option:: GEOSChem.Restart.YYYYMMDD_hhmmzz.nc4
 

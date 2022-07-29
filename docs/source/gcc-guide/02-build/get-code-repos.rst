@@ -9,17 +9,17 @@ Github repositories, as described below. This setup allows the
 GEOS-Chem core science routines to be easily integrated into several
 modeling contexts, such as:
 
-- :program:`GEOS-Chem Classic`
-- :program:`GCHP`
-- GEOS-Chem within the :program:`NASA/GEOS ESM`
-- GEOS-Chem within :program:`CESM`
-- GEOS-Chem withn :program:`WRF`
+- GEOS-Chem Classic
+- GCHP
+- GEOS-Chem within the NASA/GEOS ESM
+- GEOS-Chem within CESM (aka CESM-GC)
+- GEOS-Chem withn WRF (aka WRF-GC)
 
 This repository setup also aligns with our `GEOS-Chem Vision
 <http://acmg.seas.harvard.edu/geos/geos_overview.html>`_ and `Mission
 <http://acmg.seas.harvard.edu/geos/index.htmlGEOS-Chem>`_ statements.
 
-.. _get-code-repos-gcclassic:
+.. _get-code-repos-gc:
 
 ==========================
 GEOS-Chem Science Codebase
@@ -34,8 +34,8 @@ science routines, plus:
 
   - Scripts to create GEOS-Chem integration tests
 
-  - Interfaces (i.e. the driver programs) for :program:`GEOS-Chem
-    Classic`, :program:`GCHP`, etc.
+  - Interfaces (i.e. the driver programs) for GEOS-Chem
+    Classic, GCHP, etc.
 
 .. _get-code-repos-hemco:
 

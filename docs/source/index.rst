@@ -49,8 +49,8 @@ modifications to GEOS-Chem Classic source code.
    :maxdepth: 2
 
    gcc-guide/01-startup/key-references.rst
-   gcc-guide/01-startup/quick-start.rst
-   gcc-guide/01-startup/system-req.rst
+   gcc-guide/01-startup/system-req-hard.rst
+   gcc-guide/01-startup/system-req-soft.rst
    gcc-guide/01-startup/login-env.rst
 
 

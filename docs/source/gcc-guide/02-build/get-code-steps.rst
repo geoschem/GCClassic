@@ -133,7 +133,7 @@ Create a branch in src/GEOS-Chem for your work
 
 When you fetch the code in the GEOS-Chem and HEMCO submodules with the
 :command:`git submodule update --init --recursive` command
-(cf :ref:`fetch-gc-and-hemco`), the GEOS-Chem and
+(cf :ref:`get-code-steps-fetch`), the GEOS-Chem and
 HEMCO submodule codes will be in **detached HEAD state**. In
 other words, the code is checked out but a branch is not
 created. Adding new code to a detached HEAD state is very

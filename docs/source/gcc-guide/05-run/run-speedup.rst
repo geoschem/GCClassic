@@ -28,7 +28,7 @@ following options.
 Use coarser timesteps
 =====================
 
-As :ref:`discussed previously <gc-yml-timesteps>`, the default
+As :ref:`discussed previously <cfg-gc-yml-timesteps>`, the default
 timesteps for GEOS-Chem Classic are 600 seconds for dynamics, and 1200
 seconds for chemistry and emissions.  You can experiment with using
 coarser timesteps (such as 1800 seconds for dynamics and 3600 seconds
@@ -46,7 +46,7 @@ Turn off unwanted diagnostics
 =============================
 
 Several diagnostics are turned on by default in :ref:`the HISTORY.rc
-<history>` configuration file.  The more diagnostics that are turned
+<cfg-hist>` configuration file.  The more diagnostics that are turned
 on, the more I/O operations need to be done, resulting in longer
 simulation execution times.  Disabling diagnostics that you do not
 wish to archive can result in a faster simulation.
@@ -68,6 +68,5 @@ run-time debugging checks will be activated.  These include:
 These options can be useful in detecting errors in your GEOS-Chem
 Classic simulation, but result in a much slower simulation.  If you
 plan on running a long Classic simulation, make sure that
-you :ref:`configure and build GEOS-Chem Classic <compile-geos-chem>`
+you :ref:`configure and build GEOS-Chem Classic <compile>`
 so that :option:`CMAKE_BUILD_TYPE` is set to :envvar:`Release`.
-

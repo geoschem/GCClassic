@@ -53,7 +53,7 @@ Initial conditions include:
    +--------------------------------------------------+---------------------+
    | Download method                                  | From portals        |
    +==================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`   | :option:`WashU`     |
+   | :ref:`Dry run simulation <dry-run>`              | :option:`WashU`     |
    |                                                  | :option:`Amazon`    |
    |                                                  | :option:`Rochester` |
    +--------------------------------------------------+---------------------+
@@ -90,7 +90,7 @@ Chemistry input data includes:
    +--------------------------------------------------+---------------------+
    | Download method                                  | From portals        |
    +==================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`   | :option:`WashU`     |
+   | :ref:`Dry run simulation <dry-run>`              | :option:`WashU`     |
    |                                                  | :option:`Amazon`    |
    |                                                  | :option:`Rochester` |
    +--------------------------------------------------+---------------------+
@@ -132,7 +132,7 @@ Emissions input data includes the following data:
    +-------------------------------------------------+---------------------+
    | Download method                                 | From portals        |
    +=================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`  | :option:`WashU`     |
+   | :ref:`Dry run simulation <dry-run>`             | :option:`WashU`     |
    |                                                 | :option:`Amazon`    |
    |                                                 | :option:`Rochester` |
    +-------------------------------------------------+---------------------+
@@ -157,7 +157,7 @@ GEOS-Chem version since 13.0.0) at our `input-data-catalogs
 Meteorology input data
 ======================
 
-:ref:`As described previously <meteorology-fields>`, GEOS-Chem Classic
+:ref:`As described previously <req-hard-disk-met>`, GEOS-Chem Classic
 be driven by the following meteorology products:
 
 #. `MERRA-2 <http://wiki.geos-chem.org/MERRA-2>`_
@@ -170,7 +170,7 @@ be driven by the following meteorology products:
    +--------------------------------------------------+---------------------+
    | Download method                                  | From portals        |
    +==================================================+=====================+
-   | :ref:`Dry run simulation <dry-run-simulation>`   | :option:`WashU`     |
+   | :ref:`Dry run simulation <dry-run>`              | :option:`WashU`     |
    |                                                  | :option:`Amazon`    |
    |                                                  | :option:`Rochester` |
    +--------------------------------------------------+---------------------+

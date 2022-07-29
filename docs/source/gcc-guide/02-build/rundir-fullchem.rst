@@ -261,5 +261,5 @@ GEOS-Chem full-chemistry simulation.
    |br|
 
 #. The script will display the full path to the run directory. You
-can navigate there and then start editing the GEOS-Chem configuration
-files.
+can navigate there and then start editing the :ref:`GEOS-Chem
+configuration files <cfg>`.

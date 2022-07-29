@@ -138,7 +138,7 @@ files are available for download at:
 If you have the :file:`ExtData/GEOSCHEM_RESTARTS` folder in your
 GEOS-Chem data pahts, then a sample restart file will be copied to
 your run directory when you :ref:`generate a new GEOS-Chem classic run
-directory <create-rundir>`.
+directory <rundir>`.
 
 .. attention::
 

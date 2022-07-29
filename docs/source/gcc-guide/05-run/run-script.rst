@@ -13,7 +13,7 @@ simulation.  This is a bash script containing the commands to run
 GEOS-Chem. 
 
 A sample GEOS-Chem run script is provided for you in the GEOS-Chem
-Classic :ref:`run directory <create-rundir>`.  You can edit this
+Classic :ref:`run directory <rundir>`.  You can edit this
 script as necessary for your own computational system.
 
 Navigate to your run directory.  Then copy the

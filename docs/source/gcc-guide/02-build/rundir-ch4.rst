@@ -234,4 +234,4 @@ as an example.
 
 #. The script will display the full path to the run directory. You can
    navigate there and then start editing the :ref:`GEOS-Chem
-   configuration files <config-overview>`.
+   configuration files <cfg>`.

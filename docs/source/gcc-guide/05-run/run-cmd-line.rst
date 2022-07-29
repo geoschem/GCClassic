@@ -59,13 +59,21 @@ To run GEOS-Chem interactively, type:
 
 .. code-block:: console
 
-   $ ./geoschem.run &
+   $ ./geoschem.run > GC.log 2>&1 &
 
 This will run the job in the background.  To monitor the progress of
 the job you can type:
 
 .. code-block:: console
 
-   tail -f GC.log
+   $ tail -f GC.log
 
 which will show the contents of the log file as they are being written.
+
+Another way to view output from GEOS-Chem in real time is to use the
+:command:`tee` command .  This will print output to the screen and
+also send the same output to a log file.  Type:
+
+.. code-block:: console
+
+   $ ./geoschem.run | tee GC.log		
