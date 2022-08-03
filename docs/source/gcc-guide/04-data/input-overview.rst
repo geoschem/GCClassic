@@ -174,6 +174,10 @@ be driven by the following meteorology products:
    |                                                  | :option:`Amazon`    |
    |                                                  | :option:`Rochester` |
    +--------------------------------------------------+---------------------+
+   | Run :ref:`bashdatacatalog <bashdatacatalog>`     | :option:`WashU`     |
+   | on the                                           |                     |
+   | :file:`MeteorologyInputs.csv` file :math:`^4`    |                     |
+   +--------------------------------------------------+---------------------+
    | Direct data download (:program:`FTP` or          | :option:`WashU`     |
    | :program:`wget`)                                 | :option:`Amazon`    |
    |                                                  | :option:`Rochester` |
@@ -181,3 +185,6 @@ be driven by the following meteorology products:
    | Globus, use endpoint **GEOS-Chem data (WashU)**  | :option:`WashU`     |
    +--------------------------------------------------+---------------------+
 
+:math:`^4` We provide a :file:`MeteorologyInputs.csv` file at our
+`input-data-catalogs 
+<https://github.com/geoschem/input-data-catalogs>`_ Github repository.
