@@ -51,13 +51,16 @@ varaiables** for OpenMP parallelization:
    `OpenMP parallelization <Parallelizing_GEOS-Chem>`_, you must
    request the maximum amount of stack memory in your Unix environment.
    (The stack memory is where local automatic variables and temporary
-   :envvar:`!$OMP PRIVATE` variables will be created.) Add the following lines to
-   your system startup file and to your GEOS-Chem run scripts:
+   :envvar:`!$OMP PRIVATE` variables will be created.)
+
+   Add the following lines to your system startup file
+   (e.g. :file:`.bashrc`) and to your :ref:`GEOS-Chem run scripts
+   <run-script>`:
 
    .. code-block:: bash
 
-      ulimit -s unlimited
-      export OMP_STACKSIZE=500m
+      ulimit -s unlimited
+      export OMP_STACKSIZE=500m
 
    The :command:`ulimit -s unlimited` will tell the bash shell to use the
    maximum amount of stack memory that is available.
@@ -68,10 +71,6 @@ varaiables** for OpenMP parallelization:
    the maximum amount of stack memory available on your system. The value
    **500m** is a good round number that is larger than the amount of stack
    memory on most computer clusters, but you can increase this if you wish.
-
-   We recommend that you set :envvar:`OMP_STACKSIZE` not only in your
-   Bash startup script, but in also your :ref:`GEOS-Chem run script
-   <run-script>`.
 
 .. _env-files-envvars-errors:
 

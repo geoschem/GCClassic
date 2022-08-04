@@ -5,11 +5,18 @@ Set environment variables for compilers
 #######################################
 
 The sample :ref:`GNU <env-files-gnu10>` and :ref:`Intel
-<env-files-intel19>` environment ffiles from the previous sections
-define the following **environment variables** to specify the choice
-of compiler:
+<env-files-intel19>` environment files set the **environment
+variables** listed below in order to select the desired C, C++, and
+Fortran compilers:
 
-.. table::
+.. note::
+
+   GEOS-Chem Classic only requires the Fortran compiler.  But you will
+   also need the C and C++ compilers if you plan to build other
+   software packages (:ref:`such as KPP <kppguide>`) or :ref:`install
+   libraries manually <build-libraries-with-spack>`.
+
+.. table:: Environment variables that specify compilers
    :align: center
 
    +---------------+------------------+--------------------+-----------------+
@@ -41,9 +48,3 @@ or
    export CXX=icpc
    export FC=ifort
 
-.. note::
-
-   GEOS-Chem Classic only requires the Fortran compiler.  But you will
-   also need the C and C++ compilers if you plan to build other
-   software packages (:ref:`such as KPP <kppguide>`) or :ref:`install
-   libraries manually <build-libraries-with-spack>`.

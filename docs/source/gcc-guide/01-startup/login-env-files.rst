@@ -13,7 +13,7 @@ An environment file is a script that:
 #. Loads software libraries into your login environment.  This is
    often done with a module manager such as :command:`lmod`,
    :command:`spack`, or  :command:`environment-modules`. |br|
-   |br|	    
+   |br|
 
 #. Stores settings for GEOS-Chem and its dependent libraries in
    shell variables called `environment variables
@@ -29,11 +29,9 @@ command such as:
 .. tip::
 
    Keep a separate environment file for each combination of
-   modules that you will load that you use.  Example environment files
+   modules that you will use.  Example environment files
    for :ref:`GNU <env-files-gnu10>` and :ref:`Intel <env-files-intel19>`
    compilers and related software are provided in the following sections.
 
-For general information about how libraries are loaded, see our
-:ref:`Library Guide <libguide>` in the Supplemental Guides section.
-
-  
+For general information about how libraries are loaded, see
+:ref:`libguide`.

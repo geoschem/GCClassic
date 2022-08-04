@@ -16,8 +16,8 @@ modeling contexts, such as:
 - GEOS-Chem withn WRF (aka WRF-GC)
 
 This repository setup also aligns with our `GEOS-Chem Vision
-<http://acmg.seas.harvard.edu/geos/geos_overview.html>`_ and `Mission
-<http://acmg.seas.harvard.edu/geos/index.htmlGEOS-Chem>`_ statements.
+<http://geos-chem.org/geos-overview>`_ and `Mission
+<http://geos-chem.org>`_ statements.
 
 .. _get-code-repos-gc:
 

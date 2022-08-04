@@ -87,12 +87,15 @@ that ship with GEOS-Chem.
 
 .. _req-soft-flex:
 
-====
-flex
-====
+==============
+flex and bison
+==============
 `Flex <https://github.com/westes/flex>`_ is the Fast Lexical
-Analyzer. :program:`KPP` requires :program:`flex` to parse the
-chemical mechanism input files.
+Analyzer, and `bison <https://www.gnu.org/software/bison/>`_ is a
+general purpose parser-generator.  :ref:`req-soft-kpp` uses both
+:program:`flex` and :program:`bison` to parse chemical mechanism
+definition files.  Depending on your setup, these packages might have
+already been installed for you.
 
 **Best way to install:** :ref:`With Spack
 <build-libraries-with-spack>`.

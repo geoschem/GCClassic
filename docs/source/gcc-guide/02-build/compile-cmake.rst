@@ -220,7 +220,7 @@ options, unless you explicitly specify otherwise.
 
 .. option:: OMP
 
-   Determines if GEOS-Chem Classic will activate `OpenMP paralellization
+   Determines if GEOS-Chem Classic will activate `OpenMP parallelization
    <http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_.  Accepted
    values are:
 

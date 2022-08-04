@@ -72,7 +72,7 @@ system) into a file named :file:`~/gcclassic.intel19.env`.
    are there will be a software module system installed, with
    commands similar to those listed above.
 
-Then you can activate these seetings from the command line by typing:
+Then you can activate these settings from the command line by typing:
 
 .. code-block:: console
 

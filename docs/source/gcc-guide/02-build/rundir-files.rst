@@ -119,4 +119,5 @@ Each run directory also contains the following files, folders, and scripts:
    weight, Henry's law constants, wetdep and drydep parameters, etc.)
    for each species used in the various GEOS-Chem simulations.  You
    should not have to edit this file unless you are adding new species
-   to your GEOS-Chem simulation.
+   to your GEOS-Chem simulation.  The :ref:`cfg-spec-db` file will be
+   discussed in more detail in a following section.

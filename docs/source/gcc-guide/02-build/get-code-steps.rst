@@ -12,8 +12,7 @@ Follow these directions to download the GEOS-Chem Classic source code:
 Clone the GCClassic superproject repository
 ===========================================
 
-Type this command to download the latest stable :program:`GEOS-Chem
-Classic` version
+Type this command to download the latest stable GEOS-Chem Classic version:
 
 .. code-block:: console
 
@@ -133,9 +132,9 @@ Create a branch in src/GEOS-Chem for your work
 
 When you fetch the code in the GEOS-Chem and HEMCO submodules with the
 :command:`git submodule update --init --recursive` command
-(cf :ref:`get-code-steps-fetch`), the GEOS-Chem and
-HEMCO submodule codes will be in **detached HEAD state**. In
-other words, the code is checked out but a branch is not
+(as previously described in :ref:`get-code-steps-fetch`), the
+GEOS-Chem and HEMCO submodule codes will be in **detached HEAD
+state**. In other words, the code is checked out but a branch is not
 created. Adding new code to a detached HEAD state is very
 dangerous and should be avoided. You should instead make a branch
 at the same point as the detached HEAD, and then add your own
