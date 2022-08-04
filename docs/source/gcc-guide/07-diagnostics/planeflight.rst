@@ -1,4 +1,4 @@
-.. _planeflight_diagnostic:
+.. _planeflight-diagnostic:
 
 ######################
 Planeflight diagnostic

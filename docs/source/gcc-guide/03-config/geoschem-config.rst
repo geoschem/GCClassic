@@ -1228,6 +1228,7 @@ the `Obspack diagnostic <https://wiki.geos-chem.org/Obspack_diagnostic>`_:
    A list of GEOS-Chem species (as a YAML sequence) to archive to the
    output file.
 
+.. _gc-yml-xdiag-plane:
 
 Planeflight diagnostic
 -----------------------

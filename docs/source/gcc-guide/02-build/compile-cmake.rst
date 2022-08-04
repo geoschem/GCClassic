@@ -314,7 +314,8 @@ options, unless you explicitly specify otherwise.
 
 .. option:: LUO_WETDEP
 
-   Configures GEOS-Chem to use the Luo et al 2020 wet deposition
+   Configures GEOS-Chem to use the `Luo et al., 2020
+   <https://gmd.copernicus.org/articles/13/2879/2020/>`_ wet deposition
    scheme.
 
    .. note::
@@ -328,11 +329,11 @@ options, unless you explicitly specify otherwise.
 
    .. option:: y
 
-      Activates the Luo et al 2020 wet deposition scheme.
+      Activates the Luo et al., 2020 wet deposition scheme.
 
    .. option:: n
 
-      Deactivates the Luo et al 2020 wet deposition scheme. **(Default
+      Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
       option)**
 
 If you plan to use the :command:`make -j install` option (recommended)
