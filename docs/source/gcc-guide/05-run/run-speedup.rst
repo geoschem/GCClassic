@@ -15,12 +15,9 @@ benchmark simulations and ad-hoc timing tests. It has been shown that
 running GEOS-Chem with
 `recommended timesteps
 <https://wiki.geos-chem.org/Centralized_chemistry_time_step#Optimal_Configuration>`_
-from
-`Philip et al. (2016)
-<https://gmd.copernicus.org/articles/9/1683/2016/gmd-9-1683-2016.html>`_
-can increase run times by approximately a factor of 2.  To speed up
-GEOS-Chem Classic simulations, users may choose to use any of the
-following options.
+from :cite:t:`Philip_et_al._2016`. can increase run times by
+approximately a factor of 2.  To speed up GEOS-Chem Classic
+simulations, users may choose to use any of the following options.
 
 .. _use-coarser-timesteps:
 
