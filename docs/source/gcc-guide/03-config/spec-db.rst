@@ -9,7 +9,7 @@ species_database.yml
    You will only need to edit :file:`species_database.yml` if you are
    adding new species to a GEOS-Chem simulation.
 
-The **GEOS-Chem Species Database** is a `YAML file
+The :ref:`GEOS-Chem Species Database <spcguide>` is a `YAML file
 <https://yaml.org>`_ that contains a listing of metadata for each
 species used by GEOS-Chem.  The Species Database is included in your
 run directory as file :file:`species_database.yml`, a snippet of which
@@ -39,7 +39,7 @@ is shown below.
      MW_g: 58.09
 
    ... etc ...
-     
+
    AERI:
      DD_DvzAerSnow: 0.03
      DD_DvzMinVal: [0.01, 0.01]
@@ -59,22 +59,27 @@ is shown below.
 
    ... etc ...
 
+.. important::
+
+   Species NO (nitrogen oxide) must be listed in
+   :file:`species_database.yml` as :code:`'NO':`.  This will avoid
+   YAML readers mis-intepreting this as :literal:`no` (meaning
+   :literal:`false`).
+
+
 Each species name begins in the first column of the file, followed by
 a :literal:`:`.  Underneath
-the species name follows an indented block of species properties in
-:literal:`Property: Value` format.  
+the species name follows an indented block of :ref:`species properties
+<spcguide>` in :literal:`Property: Value` format.
 
 Some properties listed above are only applicable to gas-phase species,
 and others to aerosol species.  But at the very least, each species
-should have the following species defined:
+should have the following properties defined:
 
 - :literal:`Formula`
 - :literal:`FullName`
 - :literal:`MW_g`
 - Either :literal:`Is_Gas` or :literal:`Is_Aerosol`
 
-For more information about species properties, please see the `Guide
-to Species in GEOS-Chem 
-<http://wiki.geos-chem.org/Guide_to_species_in_GEOS-Chem>`_ on the
-GEOS-Chem wiki. 
-
+For more information about species properties, please see
+:ref:`spcguide` in the Supplemental Guides section.
