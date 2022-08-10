@@ -129,7 +129,7 @@ files are available for download at:
 
 .. tip::
 
-   We recommend that you downloading restart files to your disk space
+   We recommend that you download restart files to your disk space
    with either a `dry-run simulation <dry-run-simulation>`_ or with
    the `bashdatacatalog
    <https://github.com/liambindle/bashdatacatalog>`_.  This will

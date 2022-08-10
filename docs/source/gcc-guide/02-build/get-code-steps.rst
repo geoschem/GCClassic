@@ -4,90 +4,99 @@
 Download instructions
 #####################
 
-Follow these directions to download the GEOS-Chem Classic source code:
+Follow these directions to download the GEOS-Chem Classic source code.
 
 .. _get-code-steps-clone-gcclassic:
 
-===========================================
-Clone the GCClassic superproject repository
-===========================================
+====================================
+Clone GCClassic and fetch submodules
+====================================
 
-Type this command to download the latest stable GEOS-Chem Classic version:
+To download the latest stable GEOS-Chem Classic version), type:
 
 .. code-block:: console
 
-    $ git clone https://github.com/geoschem/GCClassic.git
+    $ git clone --recurse-submodules https://github.com/geoschem/GCClassic.git
 
-This will clone the code into a local folder named :file:`GCClassic`.
+This command does the following:
+
+#. Clones the :ref:`GCClassic <get-code-repos-gcclassic>` repo from
+   GitHub to a local folder named :file:`GCClassic`;
+#. Clones the :ref:`GEOS-Chem Science Codebase <get-code-repos-gc>`
+   repo from GitHub to :file:`GCClassic/src/GEOS-Chem`; and
+#. Clones the :ref:`HEMCO <get-code-repos-hemco>` repo from GitHub to :file:`GCClassic/src/HEMCO`.
 
 .. tip::
 
-   If you wish, you can clone the GCClassic superproject
-   repository into a different local folder by supplying the
-   name of the folder at the end of the :command:`git clone` command:
+   To download GEOS-Chem Classic source code into a folder named
+   something other than :file:`GCClassic`, supply the name of the
+   folder at the end of the :command:`git clone` command.  For example:
 
-   .. code-block :: console
+   .. code-block:: console
 
-      git clone https://github.com/geoschem/GCClassic.git my-code
+      git clone --recurse-submodules https://github.com/geoschem/GCClassic.git my-code-dir
 
+   will download the GEOS-Chem Classic source code into
+   :file:`my-code-dir` instead of :file:`GCClassic`.
+      
 Once the :command:`git clone` process starts, you should see output
 similar to this:
 
 .. code-block:: text
 
-    Cloning into 'GCClassic'...
-    remote: Enumerating objects: 34, done.
-    remote: Counting objects: 100% (34/34), done.
-    remote: Compressing objects: 100% (25/25), done.
-    remote: Total 737 (delta 12), reused 31 (delta 9), pack-reused 703
-    Receiving objects: 100% (737/737), 138.79 KiB | 1.46 MiB/s, done.
-    Resolving deltas: 100% (383/383), done.
+   Cloning into 'GCClassic'...
+   remote: Enumerating objects: 2680, done.
+   remote: Counting objects: 100% (1146/1146), done.
+   remote: Compressing objects: 100% (312/312), done.
+   remote: Total 2680 (delta 858), reused 1099 (delta 825), pack-reused 1534
+   Receiving objects: 100% (2680/2680), 1.74 MiB | 13.16 MiB/s, done.
+   Resolving deltas: 100% (1411/1411), done.
+   Submodule 'docs/source/geos-chem-shared-docs' (https://github.com/geoschem/geos-chem-shared-docs.git) registered for path 'docs/source/geos-chem-shared-docs'
+   Submodule 'src/GEOS-Chem' (https://github.com/geoschem/geos-chem.git) registered for path 'src/GEOS-Chem'
+   Submodule 'src/HEMCO' (https://github.com/geoschem/hemco.git) registered for path 'src/HEMCO'
+   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/docs/source/geos-chem-shared-docs'...
+   remote: Enumerating objects: 148, done.
+   remote: Counting objects: 100% (148/148), done.
+   remote: Compressing objects: 100% (103/103), done.
+   remote: Total 148 (delta 77), reused 116 (delta 45), pack-reused 0
+   Receiving objects: 100% (148/148), 162.29 KiB | 2.90 MiB/s, done.
+   Resolving deltas: 100% (77/77), done.
+   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/src/GEOS-Chem'...
+   remote: Enumerating objects: 75574, done.
+   remote: Counting objects: 100% (410/410), done.
+   remote: Compressing objects: 100% (187/187), done.
+   remote: Total 75574 (delta 238), reused 364 (delta 216), pack-reused 75164
+   Receiving objects: 100% (75574/75574), 85.23 MiB | 30.59 MiB/s, done.
+   Resolving deltas: 100% (62327/62327), done.
+   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/src/HEMCO'...
+   remote: Enumerating objects: 3178, done.
+   remote: Counting objects: 100% (638/638), done.
+   remote: Compressing objects: 100% (195/195), done.
+   remote: Total 3178 (delta 476), reused 585 (delta 438), pack-reused 2540
+   Receiving objects: 100% (3178/3178), 2.24 MiB | 11.87 MiB/s, done.
+   Resolving deltas: 100% (2270/2270), done.
+   Submodule path 'docs/source/geos-chem-shared-docs': checked out '228507857eb53740dacf4055ce9268aa8ccf520d'
+   Submodule path 'src/GEOS-Chem': checked out '7e51a0674aba638c8322fef493ac9251095e8cf4'
+   Submodule path 'src/HEMCO': checked out '4a66bae48f33e6dc22cda5ec9d4633192dee2f73'
+   Submodule 'docs/source/geos-chem-shared-docs' (https://github.com/geoschem/geos-chem-shared-docs.git) registered for path 'src/HEMCO/docs/source/geos-chem-shared-docs'
+   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/src/HEMCO/docs/source/geos-chem-shared-docs'...
+   remote: Enumerating objects: 148, done.
+   remote: Counting objects: 100% (148/148), done.
+   remote: Compressing objects: 100% (103/103), done.
+   remote: Total 148 (delta 77), reused 116 (delta 45), pack-reused 0
+   Receiving objects: 100% (148/148), 162.29 KiB | 3.00 MiB/s, done.
+   Resolving deltas: 100% (77/77), done.
+   Submodule path 'src/HEMCO/docs/source/geos-chem-shared-docs': checked out '645401baa35b6a6838b9bedede309a01a311517f'
 
 When the :command:`git clone` process has finished, navigate into the
-local folder:
+:file:`GCClassic` folder and get a directory listing:
 
 .. code-block:: console
 
    $ cd GCClassic
-
-.. _get-code-steps-fetch:
-
-==========================================
-Fetch the GEOS-Chem and HEMCO source codes
-==========================================
-
-At this point we have cloned the GCClassic superproject
-repository but we have not fetched source code from the underlying
-GEOS-Chem science codebase and HEMCO submodules.
-
-To fetch the submodule codes, type:
-
-.. code-block:: console
-
-    $ git submodule update --init --recursive
-
-You should see output similar to this:
-
-.. code-block:: console
-
-   Submodule 'src/GEOS-Chem' (https://github.com/geoschem/geos-chem.git) registered for path 'src/GEOS-Chem'
-   Submodule 'src/HEMCO' (https://github.com/geoschem/hemco.git) registered for path 'src/HEMCO'
-   Cloning into 'GCClassic/src/GEOS-Chem'...
-   Cloning into 'GCClassic/src/HEMCO'...
-   Submodule path 'src/GEOS-Chem': checked out '22c503be96fa2dd848eb2fba142beb6d92a09889'
-   Submodule path 'src/HEMCO': checked out 'edf987e03f23be2d7588324bd62a52eb9c646248'
-
-The :code:`Submodule path` statements indicate the commits on which the
-:file:`src/GEOS-Chem` and :file:`src/HEMCO` codes were placed on
-
-If we now get a directory listing:
-
-.. code-block:: console
-
    $ ls -CF src/*
 
-we see that the ":file:`src/GEOS-Chem` and :file:`src/HEMCO` folders contain
-directory structures full of source code:
+and you will see output similar to this:
 
 .. code-block:: text
 
@@ -102,27 +111,10 @@ directory structures full of source code:
    src/HEMCO:
    AUTHORS.txt  CMakeLists.txt  CMakeScripts/  LICENSE.txt  README.md  run/  src/
 
-and now you can see the various files and subdirectories that make up
-the GEOS-Chem and HEMCO source codes.
-
-.. tip::
-
-   Because you will use the :command:`git submodule update` command very
-   often, we recommend that you define an alias for it. Simply add this
-   text to your :file:`~/.bash_aliases` startup file:
-
-   .. code-block:: bash
-
-       alias gsu="git submodule update --init --recursive"
-
-   and then apply the changes with:
-
-   .. code-block:: console
-
-    $ . ~/.bash_aliases
-
-   Now you can type :command:`gsu` instead of :command:`git submodule
-   update --init --recursive`.
+This confirms that the :file:`GCClassic/src/GEOS-Chem` and
+:file:`GCClassic/src/HEMCO` folders have been populated with source
+code from the :ref:`GEOS-Chem Science Codebase <get-code-repos-gc>`
+and :ref:`HEMCO <get-code-repos-hemco>` GitHub repositories.
 
 .. _get-code-steps-branch:
 
@@ -130,20 +122,28 @@ the GEOS-Chem and HEMCO source codes.
 Create a branch in src/GEOS-Chem for your work
 ==============================================
 
-When you fetch the code in the GEOS-Chem and HEMCO submodules with the
-:command:`git submodule update --init --recursive` command
-(as previously described in :ref:`get-code-steps-fetch`), the
-GEOS-Chem and HEMCO submodule codes will be in **detached HEAD
-state**. In other words, the code is checked out but a branch is not
-created. Adding new code to a detached HEAD state is very
-dangerous and should be avoided. You should instead make a branch
-at the same point as the detached HEAD, and then add your own
-modifications into that branch. Navigate from the GCClassic
-superproject folder to the GEOS-Chem submodule:
+Whter the :program:`git clone` command :ref:`described above
+<get-code-steps-clone-gcclassic>` finishes, the :ref:`GEOS-Chem
+Science Codebase <get-code-repos-gc>` submodule code (in folder
+:file:`GCClassic/src/GEOS-Chem`) and the :ref:`HEMCO
+<get-code-repos-hemco>` submodule code (in folder
+:file:`GCClassic/src/HEMCO`) will be in **detached HEAD state**. In
+other words, the code is checked out but a branch is not
+created. Adding new code to a detached HEAD state is very dangerous
+and should be avoided. You should instead make a branch it the same
+point as the detached HEAD, and then add your own modifications into
+that branch.
+
+Navigate from :file:`GCClassic` to :file:`GCClassic/src/GEOS-Chem`:
 
 .. code-block:: console
 
     $ cd src/GEOS-Chem
+
+and then type:
+
+.. code-block:: console
+
     $ git branch
 
 You will see output similar to this:
@@ -189,6 +189,12 @@ created and are no longer in detached HEAD state.
 
 At this point, you may proceed to add your modifications into the
 GEOS-Chem Science Codebase.
+
+.. note::
+
+   If you need to also modify :ref:`HEMCO <get-code-repos-hemco>`
+   source code, repeat the process above to create your own working
+   branch in :file:`GCClassic/src/HEMCO`.
 
 .. _get-code-steps-info:
 

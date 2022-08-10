@@ -5,7 +5,7 @@ Configure with CMake
 ####################
 
 You should think of `CMake <http://cmake.org>`_ as an interactive tool
-for configuring :program:`GEOS-Chem Classic's` build. For example,
+for configuring GEOS-Chem Classic's build. For example,
 compile-time options like disabling multithreading and turning on
 components (e.g. APM, RRTMG) are all configured with CMake commands.
 
@@ -146,7 +146,7 @@ Configure your build with extra options
 
 Your build directory is now configured to compile GEOS-Chem using all
 default options. If you do not wish to change anything further,
-you may skip ahead to the next section (LINK NEEDED).
+you may :ref:`skip ahead to the next section <compile-cmake-understand>`.
 
 However, if you wish to modify your build's configuration, simply invoke
 CMake once more with optional parameters. Use this format:
@@ -365,7 +365,7 @@ executes only on one computational core), you would type:
 
 etc.
 
-.. _understand-the-output-from-cmake:
+.. _compile-cmake-understand:
 
 =======================
 Understand CMake output
