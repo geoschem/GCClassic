@@ -2,7 +2,7 @@
 
 Thank you for looking into contributing to GEOS-Chem! GEOS-Chem is a grass-roots model that relies on contributions from community members like you. Whether you're new to GEOS-Chem or a longtime user, you're a valued member of the community, and we want you to feel empowered to contribute.
 
-Updates to the GEOS-Chem model benefit both you and the [entire GEOS-Chem community](https://geoschem.github.io/geos-chem-people-projects-map/).  You benefit through [coauthorship and citations](https://geos-chem.seas.harvard.edu/geos-new-developments).  Priority development needs are identified at GEOS-Chem users' meetings with updates between meetings based on [GEOS-Chem Steering Committee (GCSC)](https://geos-chem.seas.harvard.edu/geos-steering-cmte) input through [Working Groups](https://geos-chem.seas.harvard.edu/geos-working-groups).  
+Updates to the GEOS-Chem model benefit both you and the [entire GEOS-Chem community](https://geoschem.github.io/geos-chem-people-projects-map/).  You benefit through [coauthorship and citations](https://geos-chem.seas.harvard.edu/geos-new-developments).  Priority development needs are identified at GEOS-Chem users' meetings with updates between meetings based on [GEOS-Chem Steering Committee (GCSC)](https://geos-chem.seas.harvard.edu/geos-steering-cmte) input through [Working Groups](https://geos-chem.seas.harvard.edu/geos-working-groups).
 
 ## We use GitHub and ReadTheDocs
 We use GitHub to host the GEOS-Chem source code, to track issues, user questions, and feature requests, and to accept pull requests: [https://github.com/geoschem/geos-chem](https://github.com/geoschem/geos-chem). Please help out as you can in response to issues and user questions.
@@ -13,7 +13,7 @@ GEOS-Chem documentation can be found at [geos-chem.readthedocs.io](https://geos-
 
 Submit bug fixes right away, as these will be given the highest priority.  Please see "Support Guidelines" for more information.
 
-Code related to model developments should be submitted when it is mature (i.e. a paper has been submitted).  Your Working Croup chair can offer guidance on the timing of submitting code for inclusion into GEOS-Chem.
+Submit updates (code and/or data) for mature model developments once you have submitted a paper on the topic.  Your Working Croup chair can offer guidance on the timing of submitting code for inclusion into GEOS-Chem.
 
 The practical aspects of submitting code updates are listed below.
 
@@ -67,7 +67,7 @@ Also follow these additional steps to ensure that your data can be read by GCHP:
   1. All netCDF data variables should be of type `float` (aka `REAL*4`) or `double` (aka `REAL*8`).
   2. Use a recent reference datetime (i.e. after `1900-01-01`) for the netCDF `time:units` attribute.
   3. The first time value in each file should be 0, corresponding with the reference datetime.
- 
+
 ## How can I request a new feature?
 We accept feature requests through issues on GitHub. To request a new feature, [open a new issue](https://github.com/geoschem/geos-chem/issues/new/choose) and select the feature request template. Please include all the information that migth be relevant, including the motivation for the feature.
 
