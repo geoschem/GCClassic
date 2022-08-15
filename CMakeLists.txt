@@ -55,7 +55,7 @@ set(GEOSChem_DETECTED_FORTRAN_COMPILER_VERSION ${CMAKE_Fortran_COMPILER_VERSION}
 )
 
 set(GEOSChem_Fortran_FLAGS_Intel
-    -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
+    -g -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
     -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
     CACHE STRING "GEOSChem compiler flags for all build types with Intel compilers"
 )
@@ -68,12 +68,12 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
     CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with Intel compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
-    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
+    -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
     CACHE STRING "GEOSChem compiler flags for build type debug with Intel compilers"
 )
 
 set(GEOSChem_Fortran_FLAGS_GNU
-    -cpp -w -std=legacy -fautomatic -fno-align-commons
+    -g -cpp -w -std=legacy -fautomatic -fno-align-commons
     -fconvert=big-endian -fno-range-check -mcmodel=medium
     -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
     CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
@@ -87,7 +87,7 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU
    CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with GNU compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_GNU
-    -g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries
+    -O0 -Wall -Wextra -Wconversion -Warray-temporaries
     -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan
     -fcheck=bounds -fcheck=pointer
     CACHE STRING "GEOSChem compiler flags for build type debug with GNU compilers"
