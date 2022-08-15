@@ -13,7 +13,7 @@ GEOS-Chem documentation can be found at [geos-chem.readthedocs.io](https://geos-
 
 Submit bug fixes right away, as these will be given the highest priority.  Please see "Support Guidelines" for more information.
 
-Submit updates (code and/or data) for mature model developments once you have submitted a paper on the topic.  Your Working Croup chair can offer guidance on the timing of submitting code for inclusion into GEOS-Chem.
+Submit updates (code and/or data) for mature model developments once you have submitted a paper on the topic.  Your Working Group chair can offer guidance on the timing of submitting code for inclusion into GEOS-Chem.
 
 The practical aspects of submitting code updates are listed below.
 
