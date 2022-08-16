@@ -35,7 +35,7 @@ As the author you are responsible for:
   6. Add your modifications into a [new branch](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) off the **main** branch.
   7. Test your update thoroughly and make sure that it works.  For structural updates we recommend performing a difference test (i.e. testing against the prior version) in order to ensure that identical results are obtained).
   8. Review the coding conventions and checklists for code and data updates listed below.
-  9. Create a [pull request in GitHub]([https://help.github.com/articles/creating-a-pull-request/).
+  9. Create a [pull request in GitHub](https://help.github.com/articles/creating-a-pull-request/).
   10. The [GEOS-Chem Support Team](https://wiki.geos-chem.org/GEOS-Chem_Support_Team) will add your updates into the development branch for an upcoming GEOS-Chem version.  They will also validate your updates with [benchmark simulations](https://wiki.geos-chem.org/GEOS-Chem_benchmarking).
   11. If the benchmark simulations reveal a problem with your update, the GCST will request that you take further corrective action.
 
