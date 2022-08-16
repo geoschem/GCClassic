@@ -5,9 +5,9 @@ Thank you for looking into contributing to GEOS-Chem! GEOS-Chem is a grass-roots
 Updates to the GEOS-Chem model benefit both you and the [entire GEOS-Chem community](https://geoschem.github.io/geos-chem-people-projects-map/).  You benefit through [coauthorship and citations](https://geos-chem.seas.harvard.edu/geos-new-developments).  Priority development needs are identified at GEOS-Chem users' meetings with updates between meetings based on [GEOS-Chem Steering Committee (GCSC)](https://geos-chem.seas.harvard.edu/geos-steering-cmte) input through [Working Groups](https://geos-chem.seas.harvard.edu/geos-working-groups).
 
 ## We use GitHub and ReadTheDocs
-We use GitHub to host the GEOS-Chem source code, to track issues, user questions, and feature requests, and to accept pull requests: [https://github.com/geoschem/geos-chem](https://github.com/geoschem/geos-chem). Please help out as you can in response to issues and user questions.
+We use GitHub to host the GEOS-Chem Classic source code, to track issues, user questions, and feature requests, and to accept pull requests: [https://github.com/geoschem/geos-chem](https://github.com/geoschem/geos-chem). Please help out as you can in response to issues and user questions.
 
-GEOS-Chem documentation can be found at [geos-chem.readthedocs.io](https://geos-chem.readthedocs.io).
+GEOS-Chem Classic documentation can be found at [geos-chem.readthedocs.io](https://geos-chem.readthedocs.io).
 
 ## When should I submit updates?
 
@@ -30,7 +30,7 @@ As the author you are responsible for:
   1. Contact your GEOS-Chem Working Group leaders to request that your updates be added to GEOS-Chem.  They will will forward your request to the GCSC.
   2. The GCSC meets quarterly to set [GEOS-Chem model development priorities](http://wiki.geos-chem.org/GEOS-Chem_model_development_priorities). Your update will be slated for inclusion into an upcoming GEOS-Chem version.
   3. Create or log into your [GitHub](https://github.com/) account.
-  4. [Fork the GEOS-Chem repository](https://help.github.com/articles/fork-a-repo/) into your Github account.
+  4. [Fork the relevant GEOS-Chem repositories](https://help.github.com/articles/fork-a-repo/) into your Github account.
   5. Clone your forks of the GEOS-Chem repositories to your computer system.
   6. Add your modifications into a [new branch](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) off the **main** branch.
   7. Test your update thoroughly and make sure that it works.  For structural updates we recommend performing a difference test (i.e. testing against the prior version) in order to ensure that identical results are obtained).
