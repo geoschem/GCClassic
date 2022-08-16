@@ -15,3 +15,4 @@ The compilation process involves the following steps:
 
    compile-cmake.rst
    compile-make.rst
+   compile-info.rst
