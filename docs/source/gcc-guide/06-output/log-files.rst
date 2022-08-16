@@ -1,4 +1,4 @@
-.. _outfile-logs:
+.. _outfiles-logs:
 
 #########
 Log files
@@ -8,7 +8,7 @@ Log files redirect the output of Fortran :code:`PRINT*` or
 :code:`WRITE` statements to a file. You can check the log files for an
 "echo-back" of simulation options, as well as error messages.
 
-.. _outfile-logs-gclog:
+.. _outfiles-logs-gclog:
 
 ==================
 GEOS-Chem log file
@@ -38,7 +38,7 @@ process.
 
 For more information, please see the :ref:`dry run <dry-run>` chapter.
 
-.. _outfiles-hemco-log:
+.. _outfiles-logs-hemco:
 
 ==============
 HEMCO log file
@@ -50,7 +50,23 @@ Contains information about how emissions, met fields, and other
 relevant data are read from disk and processed by `HEMCO
 <https://hemco.readthedocs.io>`_ for input into GEOS-Chem Classic.
 
-.. _outfile-job-log:
+.. _outfiles-logs-timers:
+
+===============
+Timers log file
+===============
+
+File name: :file:`gcclassic_timers.json` (in `JSON
+<https://www.w3schools.com/js/js_json_intro.asp>`_ format).
+
+The timers log file is created when you set :code:`use_gcclassic_timers:
+true` in :ref:`the Simulation Settings section of geoschem_config.yml
+<gc-yml-simulation>`. It contains "wall-clock" times that measure how
+long each component of GEOS-Chem took to execute.  This information is
+used by the GEOS-Chem benchmarking scripts that execute on the
+Amazon cloud computing platform.
+
+.. _outfiles-logs-sched:
 
 ==================
 Scheduler log file
@@ -62,3 +78,4 @@ If you used a batch scheduler such as SLURM, PBS, LSF, etc. to submit
 your GEOS-Chem Classic simulation, then output from the Unix stdout
 and/or stderr streams may be printed to this file. This file may contain
 important error messages.
+

@@ -164,7 +164,13 @@ The :code:`simulation` section contains general simulation options:
    Activates (:code:`true`) or deactivates (:code:`false`)
    the GEOS-Chem Classic timers.  If activated, information about how
    long each component of GEOS-Chem took to execute will be printed to
-   the screen or log file.
+   the screen and/or :ref:`GEOS-Chem log file
+   <outfiles-logs-gclog>`. The same information will also be written
+   in JSON format to a file named :ref:`gcclassic_timers.json
+   <outfiles-logs-timers>`.
+
+   You can set this option to :code:`false` unless you are running
+   benchmark or timing simulations.
 
 .. _cfg-gc-yml-grid:
 
