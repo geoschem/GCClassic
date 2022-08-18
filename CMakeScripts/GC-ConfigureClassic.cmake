@@ -84,12 +84,24 @@ function(configureGCClassic)
     gc_pretty_print(VARIABLE SANITIZE IS_BOOLEAN)
     if(${SANITIZE})
       if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
-	add_compile_options("-fsanitize=address"  )  # Look for code producing
-	link_libraries(     "-fsanitize=address"  )  #  addressing errors
-	add_compile_options("-fsanitize=leak"     )  # Look for code producing
-	link_libraries(     "-fsanitize=leak"     )  #  memory leaks
-	add_compile_options("-fsanitize=undefined")  # Look for code producing
-	link_libraries(     "-fsanitize=undefined")  #  undefined behavior
+	target_compile_options(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=address"
+	)
+	target_link_libraries(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=address"
+	)
+	target_compile_options(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=leak"
+	)
+	target_link_libraries(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=leak"
+	)
+	target_compile_options(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=undefined"
+	)
+	target_link_libraries(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=undefined"
+	)
       else()
         message( FATAL_ERROR "The SANITIZE option is only defined for GNU Fortran.")
       endif()
