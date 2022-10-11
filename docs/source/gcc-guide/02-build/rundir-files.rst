@@ -57,9 +57,9 @@ the type of simulation that you have selected.
 
 .. option:: download_data.py
 
-   Use this Python script (which reads the associated configuration file
-   to download data from one of the GEOS-Chem data portals to your
-   disk space. See our :ref:`dry-run` chapter for more information.
+   Use this Python script to download data from one of the GEOS-Chem
+   data portals to your disk space. See our :ref:`dry-run` chapter for
+   more information.
 
 .. option:: download_data.yml
 
