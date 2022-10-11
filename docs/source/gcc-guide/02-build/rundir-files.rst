@@ -133,9 +133,10 @@ the type of simulation that you have selected.
    Blank directory where GEOS-Chem diagnostic output files will be
    created.
 
-.. option:: README
+.. option:: README.md
 
-   Contains links where you can get more information about GEOS-Chem.
+   README file (in Markdown format) with containing links to
+   information about GEOS-Chem.
 
 .. option:: Restarts/
 
