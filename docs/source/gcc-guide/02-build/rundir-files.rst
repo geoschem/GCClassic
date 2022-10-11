@@ -4,18 +4,22 @@
 Run directory files and folders
 ###############################
 
-In each run directory there are several **user-editable configuration
-files** that you can use to control the runtime behavior of GEOS-Chem
-Classic. These files (:file:`geoschem_config.yml`, :file:`HEMCO_Config.rc`,
-:file:`HEMCO_Diagn.rc`, :file:`HISTORY.rc`) are discussed in depth in
-:ref:`cfg-rundir`.
-
-Each run directory also contains the following files, folders, and scripts:
+Each GEOS-Chem Classic run directory that you create will contain
+the files and folders listed below. The :ref:`GEOS-Chem and HEMCO
+configuration files <cfg>` in the run directory will be appropriate to
+the type of simulation that you have selected.
 
 .. option:: archiveRun.sh
 
    This script can be used to create an archive of the run directory
-   (for archival purposes).
+   Run this script with:
+
+   .. code-block:: console
+
+      $ ./archiveRun.sh directory-name
+
+   Where :file:`directory-name` is the name of the archive folder.
+   This can be either a relative path or an absolute path.
 
 .. option:: build/
 
@@ -43,30 +47,60 @@ Each run directory also contains the following files, folders, and scripts:
 .. option:: CodeDir
 
    Symbolic link to the top-level source code folder (i.e. the
-   GCClassic superproject folder).
+   :file:`GCClassic` superproject folder).
+
+.. option:: CreateRunDirLogs/rundir_vars.txt
+
+   Log file containing environment variable settings used in run
+   directory creation.  Running the :file:`init_rd.sh` script on this
+   file will create a duplicate run directory.
 
 .. option:: download_data.py
 
    Use this Python script (which reads the associated configuration file
-   :file:`download_data.yml`) to download data from one of the
-   GEOS-Chem data portals to your disk space.  See
-   :ref:`dry-run` for more information.
+   to download data from one of the GEOS-Chem data portals to your
+   disk space. See our :ref:`dry-run` chapter for more information.
 
-.. option:: GEOSChem.Restart.YYYYMMDD_hhmmzz.nc4
+.. option:: download_data.yml
 
-   This is the :ref:`restart file <restart-files>`, which contains
-   initial conditions for the GEOS-Chem simulation.
+   Configuration file for :file:`download_data.py`.
 
-   .. attention::
+.. option:: geoschem_config.yml
 
-      The restart file that is created when you generate a run directory
-      should not be used to start a production simulation. We recommend
-      that you "spin up" your simulation for at least 6 months to a year
-      in order to remove the signature of the initial conditions.
+   The main GEOS-Chem configuration file (see :ref:`Configure your
+   simulation <cfg>`).
 
 .. option:: getRunInfo
 
    This file is now deprecated and will be removed in a future version.
+
+.. option:: HEMCO_Config.rc
+
+   The main HEMCO configuration file (see :ref:`Configure your
+   simulation <cfg>`).
+
+.. option:: HEMCO_Config.rc.gmao_metfields
+
+   HEMCO configuration file snippet containing entries for reading the
+   GMAO meteorological fields.  This file will only be present if you
+   are using GEOS-FP or MERRA-2 meteorology to drive your GEOS-Chem
+   simulation.
+
+.. option:: HEMCO_Config.rc.gcap2_metfields
+
+   HEMCO configuration file snippet containing entries for reading the
+   GCAP2 meteorological fields.  This file will only be present if you
+   are using GCAP2  meteorology to drive your GEOS-Chem simulation.
+
+.. option:: HEMCO_Diagn.rc
+
+   Configuration file for HEMCO diagnostics (see :ref:`Configure your
+   simulation <cfg>`).
+
+.. option:: HISTORY.rc
+
+   Configuration file for GEOS-Chem History diagnostics (see
+   :ref:`Configure your simulation <cfg>`).
 
 .. option:: metrics.py
 
@@ -99,11 +133,26 @@ Each run directory also contains the following files, folders, and scripts:
    Blank directory where GEOS-Chem diagnostic output files will be
    created.
 
-.. option:: rundirConfig
+.. option:: README
 
-   Folder containing the :file:`rundir_vars.txt` file, which contains
-   information about the environment variable settings that were used
-   by the :file:`createRunDir.sh`.
+   Contains links where you can get more information about GEOS-Chem.
+
+.. option:: Restarts/
+
+   Directory where GEOS-Chem :ref:`restart files <restart-files>`
+   will be created.
+
+.. option:: Restarts/GEOSChem.Restart.YYYYMMDD_hhmmzz.nc4
+
+   :ref:`Restart file <restart-files>` containing initial conditions
+   for the GEOS-Chem simulation.
+
+   .. attention::
+
+      The restart file that is created when you generate a run directory
+      should not be used to start a production simulation. We recommend
+      that you "spin up" your simulation for at least 6 months to a year
+      in order to remove the signature of the initial conditions.
 
 .. option:: runScriptSamples
 
