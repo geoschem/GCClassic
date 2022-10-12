@@ -20,6 +20,7 @@ create run directories for GEOS-Chem Classic simulations:
 .. toctree::
    :maxdepth: 1
 
+   rundir-registration.rst
    rundir-fullchem.rst
    rundir-ch4.rst
    rundir-files.rst
