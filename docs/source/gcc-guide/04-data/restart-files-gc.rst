@@ -136,9 +136,16 @@ files are available for download at:
    ensure that the proper files will be downloaded.
 
 If you have the :file:`ExtData/GEOSCHEM_RESTARTS` folder in your
-GEOS-Chem data pahts, then a sample restart file will be copied to
+GEOS-Chem data paths, then a sample restart file will be copied to
 your run directory when you :ref:`generate a new GEOS-Chem classic run
 directory <rundir>`.
+
+Monthly GEOS-Chem restart files from the GEOS-Chem 13.0.0 10-year
+benchmark may be found at
+`http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/13.0.0/GCClassic/restarts
+<http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/13.0.0/GCClassic/restarts>`_.
+We will also add restart files from the 14.0.0 10-year benchmark
+simulation shortly.
 
 .. attention::
 
