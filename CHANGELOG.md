@@ -6,6 +6,10 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased 14.0.1]
+## Changed
+- Changed GEOS-Chem submodule to 14.0.1
+
 ## [14.0.0] - 2022-10-25
 ### Added
 - Added files for GEOS-Chem User Manual on ReadTheDocs
