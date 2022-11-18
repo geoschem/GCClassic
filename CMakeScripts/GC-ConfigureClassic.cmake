@@ -75,6 +75,39 @@ function(configureGCClassic)
     )
 
     #-------------------------------------------------------------------------
+    # Add code sanitization options (GNU Fortran only)
+    # We need to add these options to both compiler & linker.
+    #-------------------------------------------------------------------------
+    set(SANITIZE OFF CACHE BOOL
+        "Switch to turn on code sanitation (i.e. identify memory leaks and similar conditions)"
+    )
+    gc_pretty_print(VARIABLE SANITIZE IS_BOOLEAN)
+    if(${SANITIZE})
+      if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
+	target_compile_options(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=address"
+	)
+	target_link_libraries(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=address"
+	)
+	target_compile_options(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=leak"
+	)
+	target_link_libraries(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=leak"
+	)
+	target_compile_options(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=undefined"
+	)
+	target_link_libraries(GEOSChemBuildProperties
+          INTERFACE "-fsanitize=undefined"
+	)
+      else()
+        message( FATAL_ERROR "The SANITIZE option is only defined for GNU Fortran.")
+      endif()
+    endif()
+
+    #-------------------------------------------------------------------------
     # Always set MODEL_CLASSIC when building GEOS-Chem Classic
     #-------------------------------------------------------------------------
     target_compile_definitions(GEOSChemBuildProperties
@@ -180,6 +213,7 @@ function(configureGCClassic)
     set(RRTMG                   ${RRTMG}                    PARENT_SCOPE)
     set(GTMM                    ${GTMM}                     PARENT_SCOPE)
     set(LUO_WETDEP              ${LUO_WETDEP}               PARENT_SCOPE)
+    set(SANITIZE                ${SANITIZE}                 PARENT_SCOPE)
 
     #-------------------------------------------------------------------------
     # Export information about Git status
