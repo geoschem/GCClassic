@@ -87,6 +87,7 @@ modifications to GEOS-Chem Classic source code.
    :maxdepth: 1
    :caption: Help & Reference
 
+   reference/version-history.rst
    reference/known-bugs.rst
    reference/CONTRIBUTING.md
    reference/SUPPORT.md
