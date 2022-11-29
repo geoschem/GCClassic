@@ -39,13 +39,13 @@ routine :code:`Get_GC_Restart` (located in
    )))GC_RESTART
 
 GEOS-Chem species (the :file:`SPC_` entry) use HEMCO time cycle flag
-:code:`EFYO`.  Other restart file fields use the time cycle flag
+:code:`EFYO` by default.  Other restart file fields use the time cycle flag
 :code:`EY`. These are explained below.
 
 .. option:: E
 
-   :command:`Exact`: Stops with an error if the simulation year is
-   different than the date in the file.
+   :command:`Exact`: Stops with an error if the date of the
+   simulation is different than the file timestamp.
 
 .. option:: F
 
@@ -53,33 +53,38 @@ GEOS-Chem species (the :file:`SPC_` entry) use HEMCO time cycle flag
 
 .. option:: Y
 
-   :command:`Simulation Year`: Only read the data for the simulation
+   :command:`Simulation Year`: Only reads the data for the simulation
    year but not for other years.
 
 .. option:: O
 
-   :command:`Once`: Do not keep cycling in time but only read the file
-   once.
+   :command:`Once`: Does not keep cycling in time but only reads the
+   file once.
 
-When reading the species concentrations (:code:`EFYO`) from the
-restart file, HEMCO will stop with an error if:
+When reading the **species concentrations** (time cycle flag:
+:code:`EFYO`) from the restart file, HEMCO will cause your simulation
+to stop with an error if:
+
+#. The restart file is missing, or;
+#. Any species is not found in the restart file, or;
+#. The date in the restart file (which is usually 20190101 or
+   20190701, depending on your simulation) differs from the start date
+   listed in :ref:`geoschem_config.yml <cfg-gc-yml>`.
+
+When reading **other restart file fields** (time cycle flag:
+:code:`EY`). HEMCO will
 
 #. The restart file is missing, or
-#. Any species is missing, or,
-#. The date in the restart file does not match the start date of the
-   simulation.
+#. The date in the restart file (which is usually 20190101 or
+   20190701, depending on your simulation) differs from the start date
+   listed in :ref:`geoschem_config.yml <cfg-gc-yml>`.
 
-When reading other fields (:code:`EY`) from the restart file,
-HEMCO will stop with an error if:
-
-#. The restart file is missing, or
-#. The date in the restart file does not match the start date of the
-   simulation.
-
-.. tip::
+.. attention::
 
    If you wish to spin up a GEOS-Chem simulation with a restart file
-   that has missing species, change the time cycle flag from
+   that has (1) missing species or (2) a timestamp that does not
+   match the start date in :ref:`geoschem_config.yml <cfg-gc-yml>`,
+   simply change the time cycle flag from
 
    .. code-block:: console
 
@@ -89,14 +94,20 @@ HEMCO will stop with an error if:
 
    .. code-block:: console
 
-      * SPC_ ... $YYYY/$MM/$DD/$HH EY xyz 1 * - 1 1
+      * SPC_ ... $YYYY/$MM/$DD/$HH CYS xyz 1 * - 1 1
 
-   This will tell HEMCO to initialize the concentration of species not
-   found in the restart file to a default background value. If the
-   species has :code:`BackgroundVV` value specified in
-   :option:`species_database.yml`, then this value will be used
-   for the the initial species concentration.  Otherwise a value of
-   :math:`1.0{\times}10^{-20}` will be used.
+   This will direct HEMCO to read the closest date
+   available (:literal:`C`), to use the simulation year
+   (:literal:`Y`),  and to skip any species (:literal:`S`) not found
+   in the restart file.
+
+   Skipped species will be assigned the initial concentration
+   (units: :math:`mol\ mol^{-1}` w/r/t dry air) specified by its
+   :option:`BackgroundVV` entry in :ref:`species_database.yml
+   <cfg-spec-db>`.   If the species does not have a
+   :option:`BackgroundVV` value specified, then its initial
+   concentration will be set to :math:`1.0{\times}10^{-20}`
+   instead.
 
 .. _restart-files-gc-date:
 
