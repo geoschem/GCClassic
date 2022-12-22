@@ -14,11 +14,14 @@ target_compile_definitions(HEMCOBuildProperties
 add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
 #-----------------------------------------------------------------------------
-# Define the GEOS-Chem executable:
+# Define the GEOS-Chem Classic executable:
 # 1. Specify a cache variable with the default target name
 # 2. Specify the location of the main program
 # 3. Specify libraries that the main program depends on
 # 4. Store the binary exectuable file in the bin folder (pre-install)
+#
+# The default file name will be "gcclassic".  If a name is specified at
+# configuration time with -DEXE_FILE_NAME, then that will be used instead.
 #-----------------------------------------------------------------------------
 set(EXE_FILE_NAME gcclassic CACHE STRING
   "Default name for the GEOS-Chem Classic executable file")
@@ -37,8 +40,12 @@ set_target_properties(${EXE_FILE_NAME}
 )
 
 #-----------------------------------------------------------------------------
-# When "make install" is run, copy the target to the destination folder
-# (which is typically one directory higher than the CMake build folder)
+# Allow GEOS-Chem Classic to be installed either to the path specified by
+# -DRUNDIR or -DINSTALLCOPY.  In most instances, the build directory is a
+# subdirectory of the run directory, so -DRUNDIR=.. will install the
+# executable in the run directory.  Using -DINSTALLCOPY allows you to specify
+# an arbitrary folder where the executable file wll be placed.  This
+# facilitates automatic testing (such as integration testing).
 #-----------------------------------------------------------------------------
 
 # Define set of installation paths to consider
