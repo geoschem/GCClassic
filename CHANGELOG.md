@@ -8,22 +8,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased 14.1.0]
 ### Added
-- Added SANITIZE CMake option
+  - Added SANITIZE CMake option
 
 ### Changed
-- Updated GEOS-Chem submodule to 14.1.0
-- Updated HEMCO submodule to 3.6.0
+  - Updated GEOS-Chem submodule to 14.1.0
+  - Updated HEMCO submodule to 3.6.0
+
+
+## [14.0.2] - 2022-11-29
+### Changed
+  - Updated GEOS-Chem submodule to 14.0.2
+  - Updated HEMCO submodule to 3.5.2
+  - Updated the documentation for clarity
+
 
 ## [14.0.1] - 2022-10-31
-## Changed
-- Updated GEOS-Chem submodule to 14.0.1
+### Changed
+  - Updated GEOS-Chem submodule to 14.0.1
+
 
 ## [14.0.0] - 2022-10-25
 ### Added
-- Added files for GEOS-Chem User Manual on ReadTheDocs
-- Created CHANGELOG.md
+  - Added files for GEOS-Chem User Manual on ReadTheDocs
+  - Created CHANGELOG.md
 
 ### Changed
-- Changed GEOS-Chem submodule to 14.0.0 release
-- Changed HEMCO submodule to 3.5.0 release
-- Updated CONTRIBUTING.md and SUPPORT.md to retire guidelines on GEOS-Chem wiki
+  - Changed GEOS-Chem submodule to 14.0.0 release
+  - Changed HEMCO submodule to 3.5.0 release
+  - Updated CONTRIBUTING.md and SUPPORT.md to retire guidelines on GEOS-Chem wiki
