@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - Updated GEOS-Chem submodule to 14.1.0
   - Updated HEMCO submodule to 3.6.0
 
+### Fixed
+  - Fixed logic in .github/workflows/findRefKey.sh for determing previous commit
 
 ## [14.0.2] - 2022-11-29
 ### Changed
