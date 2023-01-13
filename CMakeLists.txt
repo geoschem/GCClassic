@@ -2,7 +2,7 @@
 
 cmake_minimum_required (VERSION 3.13)
 project (geos-chem-classic
-  VERSION 14.0.1
+  VERSION 14.1.0
   LANGUAGES Fortran
 )
 
@@ -61,15 +61,15 @@ set(GEOSChem_Fortran_FLAGS_Intel
 )
 set(GEOSChem_Fortran_FLAGS_RELEASE_Intel
    -O2
-    CACHE STRING "GEOSChem compiler flags for build type release with Intel compilers"
+    CACHE STRING "GEOSChem compiler flags for build type Release with Intel compilers"
 )
 set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
     -O2
-    CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with Intel compilers"
+    CACHE STRING "GEOSChem compiler flags for build type RelWithdDebInfo with Intel compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
-    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
-    CACHE STRING "GEOSChem compiler flags for build type debug with Intel compilers"
+    g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
+    CACHE STRING "GEOSChem compiler flags for build type Debug with Intel compilers"
 )
 
 set(GEOSChem_Fortran_FLAGS_GNU
@@ -80,17 +80,17 @@ set(GEOSChem_Fortran_FLAGS_GNU
 )
 set(GEOSChem_Fortran_FLAGS_RELEASE_GNU
    -O3 -funroll-loops
-   CACHE STRING "GEOSChem compiler flags for build type release with GNU compilers"
+   CACHE STRING "GEOSChem compiler flags for build type Release with GNU compilers"
 )
 set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU
    -O3 -funroll-loops
-   CACHE STRING "GEOSChem compiler flags for build type relwithdebinfo with GNU compilers"
+   CACHE STRING "GEOSChem compiler flags for build type RelWithDebInfo with GNU compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_GNU
-    -g -gdwarf-2 -gstrict-dwarf -O0 -Wall -Wextra -Wconversion -Warray-temporaries
+    -g -O0 -Wall -Wextra -Wconversion -Warray-temporaries
     -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan
     -fcheck=bounds -fcheck=pointer
-    CACHE STRING "GEOSChem compiler flags for build type debug with GNU compilers"
+    CACHE STRING "GEOSChem compiler flags for build type Debug with GNU compilers"
 )
 
 set(GEOSChem_SUPPORTED_COMPILER_IDS "Intel" "GNU")
@@ -221,9 +221,9 @@ if(NOT GC_EXTERNAL_CONFIG)
    set(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT FALSE)
    gc_pretty_print(VARIABLE RUNDIR)
 
-    # Configure for GCClassic
-    include(GC-ConfigureClassic)
-    configureGCClassic()
+   # Configure for GCClassic
+   include(GC-ConfigureClassic)
+   configureGCClassic()
 
 endif()
 
