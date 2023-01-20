@@ -6,15 +6,28 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased 14.1.0]
+### Added
+  - Added SANITIZE CMake option
+
+### Changed
+  - Updated GEOS-Chem submodule to 14.1.0
+  - Updated HEMCO submodule to 3.6.0
+
+### Fixed
+  - Fixed logic in .github/workflows/findRefKey.sh for determing previous commit
+
 ## [14.0.2] - 2022-11-29
 ### Changed
   - Updated GEOS-Chem submodule to 14.0.2
   - Updated HEMCO submodule to 3.5.2
   - Updated the documentation for clarity
 
+
 ## [14.0.1] - 2022-10-31
 ### Changed
   - Updated GEOS-Chem submodule to 14.0.1
+
 
 ## [14.0.0] - 2022-10-25
 ### Added
