@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
   - Updated GEOS-Chem submodule to 14.1.0
   - Updated HEMCO submodule to 3.6.0
+  - Updated RTD documentation for 14.1.0
 
 ### Fixed
   - Fixed logic in .github/workflows/findRefKey.sh for determing previous commit

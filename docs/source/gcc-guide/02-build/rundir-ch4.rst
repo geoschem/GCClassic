@@ -89,6 +89,7 @@ as an example.
          9. Tagged O3
         10. TransportTracers
         11. Trace metals
+        12. Carbon
 
    To select the GEOS-Chem methane specialty simulation, type
    :command:`3` followed by :command:`ENTER`. |br|

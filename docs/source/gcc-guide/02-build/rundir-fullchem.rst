@@ -86,6 +86,7 @@ GEOS-Chem full-chemistry simulation.
          9. Tagged O3
         10. TransportTracers
         11. Trace metals
+        12. Carbon
 
    To create a run directory for the full-chemistry simulation, type
    :command:`1` followed by the :command:`ENTER` key. |br|

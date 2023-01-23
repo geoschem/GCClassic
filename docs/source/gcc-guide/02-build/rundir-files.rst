@@ -11,7 +11,7 @@ the type of simulation that you have selected.
 
 .. option:: archiveRun.sh
 
-   This script can be used to create an archive of the run directory
+   This script can be used to create an archive of the run directory.
    Run this script with:
 
    .. code-block:: console
