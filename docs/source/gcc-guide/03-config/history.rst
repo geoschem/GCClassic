@@ -54,7 +54,8 @@ A simplified :file:`HISTORY.rc` file is shown below.
    SpeciesConc.frequency:          00000000 060000 ,
    SpeciesConc.duration:           00000001 000000 ,
    SpeciesConc mode:               'instantaneous' ,
-   SpeciesConc.fields:             'SpeciesConc_?ADV?'
+   SpeciesConc.fields:             'SpeciesConcVV_?ADV?'
+                                   'SpeciesConcMND_?ADV?'
    ::
    #==============================================================================
    # %%%%% THE SpeciesConcSubset COLLECTION %%%%%
@@ -75,7 +76,8 @@ A simplified :file:`HISTORY.rc` file is shown below.
    SpeciesConcSubset.LON_RANGE:    -40.0 60.0,
    SpeciesConcSubset.LAT_RANGE:    -10.0 50.0,
    SpeciesConcSubset.levels:       1 2 3 4 5,
-   SpeciesConcSubset.fields:       'SpeciesConc_?ADV?',
+   SpeciesConcSubset.fields:       'SpeciesConcVV_?ADV?',
+                                   'SpeciesConcMND_?ADV?',
    ::
    #==============================================================================
    # %%%%% THE ConcAfterChem COLLECTION %%%%%
@@ -188,9 +190,9 @@ Legend
 
    .. code-block:: kconfig
 
-      SpeciesConc.fields:   'SpeciesConc_NO'
-                            'SpeciesConc_O3'
-                            'SpeciesConc_CO'
+      SpeciesConc.fields:   'SpeciesConcVV_NO'
+                            'SpeciesConcVV_O3'
+                            'SpeciesConcVV_CO'
                             ... etc ...
       ::
 
@@ -199,7 +201,8 @@ Legend
 
    .. code-block:: kconfig
 
-      SpeciesConc.fields:    'SpeciesConc_?ADV?'
+      SpeciesConc.fields:    'SpeciesConcVV_?ADV?'
+                             ... etc ...
       ::
 
    The complete wildcard list is shown below.  Wildcards are case-insensitive.

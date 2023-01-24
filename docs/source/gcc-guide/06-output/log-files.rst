@@ -38,6 +38,17 @@ process.
 
 For more information, please see the :ref:`dry run <dry-run>` chapter.
 
+==============================
+GEOS-Chem species metadata log
+==============================
+
+File name: :file:`OutputDir/geoschem_species_metadata.yml`
+
+Contains metadata (taken from the  :ref:`GEOS-Chem species database
+<cfg-spec-db>`) in YAML format for only those species that are used in
+the simulation.  This facilitates coupling GEOS-Chem to other Earth
+System Models.
+
 .. _outfiles-logs-hemco:
 
 ==============
@@ -78,4 +89,3 @@ If you used a batch scheduler such as SLURM, PBS, LSF, etc. to submit
 your GEOS-Chem Classic simulation, then output from the Unix stdout
 and/or stderr streams may be printed to this file. This file may contain
 important error messages.
-

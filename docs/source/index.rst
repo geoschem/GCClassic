@@ -75,6 +75,7 @@ modifications to GEOS-Chem Classic source code.
    gcclassic_supplement/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/libraries.rst
    geos-chem-shared-docs/supplemental-guides/spack.rst
+   geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
    geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst

@@ -87,31 +87,31 @@ generate output similar to this:
 
 .. code-block:: text
 
-   -- The Fortran compiler identification is GNU 9.3.0
-   -- Check for working Fortran compiler: /usr/bin/gfortran
-   -- Check for working Fortran compiler: /usr/bin/gfortran  -- works
+   -- The Fortran compiler identification is GNU 11.2.0
    -- Detecting Fortran compiler ABI info
    -- Detecting Fortran compiler ABI info - done
-   -- Checking whether /usr/bin/gfortran supports Fortran 90
-   -- Checking whether /usr/bin/gfortran supports Fortran 90 -- yes
+   -- Check for working Fortran compiler: /n/home09/ryantosca/spack/var/spack/environments/gc-classic/.spack-env/view/bin/gfortran - skipped
+   -- Checking whether /n/home09/ryantosca/spack/var/spack/environments/gc-classic/.spack-env/view/bin/gfortran supports Fortran 90
+   -- Checking whether /n/home09/ryantosca/spack/var/spack/environments/gc-classic/.spack-env/view/bin/gfortran supports Fortran 90 - yes
    =================================================================
-   GCClassic 14.0.0 (superproject wrapper)
-   Current status: 14.0.0-alpha.3-1-g289a460
+   GCClassic X.Y.Z (superproject wrapper)
+   Current status: X.Y.Z
    =================================================================
-   -- Found NetCDF: /usr/lib/x86_64-linux-gnu/libnetcdff.so
+   -- Found NetCDF: /n/home09/ryantosca/spack/opt/spack/linux-centos7-x86_64/gcc-8.3.0/netcdf-fortran-4.5.3-tb3oqspkitgcbkcyp623tdq2al6gxmom/lib/libnetcdff.so
    -- Useful CMake variables:
-     + CMAKE_PREFIX_PATH:    /usr  /usr
+     + CMAKE_PREFIX_PATH:    /path/to/netcdf-c /path/to/netcdf-fortran
      + CMAKE_BUILD_TYPE:     Release
    -- Run directory setup:
-     + RUNDIR:       /home/ubuntu/test_gcc
+     + RUNDIR:       /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc
    -- Threading:
-     * OMP:          ON  OFF
+     * OMP:          **ON**  OFF
    -- Found OpenMP_Fortran: -fopenmp (found version "4.5")
    -- Found OpenMP: TRUE (found version "4.5")
    -- General settings:
-     * MECH:         **fullchem**  Hg  custom
-     * BPCH_DIAG:    ON  **OFF**
-     * USE_REAL8:    ON  **OFF**
+     * MECH:         **fullchem**  carbon  Hg  custom
+     * BPCH_DIAG:    **ON**  OFF
+     * USE_REAL8:    **ON**  OFF
+     * SANITIZE:     ON  **OFF**
    -- Components:
      * TOMAS:        ON  **OFF**
      * TOMAS_BINS:   **NA**  15  40
@@ -121,19 +121,17 @@ generate output similar to this:
      * HCOSA:        ON  **OFF**
      * LUO_WETDEP:   ON  **OFF**
    =================================================================
-   HEMCO 3.5.0
-   Current status: 3.4.0-10-g18b61cd
+   HEMCO 3.6.0
+   Current status: A.B.C
    =================================================================
-   -- Found OpenMP_Fortran: -fopenmp
-   -- Found OpenMP: TRUE
    =================================================================
-   GEOS-Chem 14.0.0 (science codebase)
-   Current status: 14.0.0-alpha.3-4-gf833fba4f
+   GEOS-Chem 14.1.0 (science codebase)
+   Current status: T.U.V
    =================================================================
-   Creating /home/ubuntu/test_gcc/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
+   Creating /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
    -- Configuring done
    -- Generating done
-   -- Build files have been written to: /home/ubuntu/test_gcc/gc_merra2_fullchem
+   -- Build files have been written to: /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc/build
 
 Your CMake command's output contains important information about your
 build's configuration.
@@ -212,11 +210,17 @@ options, unless you explicitly specify otherwise.
       Activates the **Hg** mechanism.  The source code
       files that define this mechanism are stored in :file:`KPP/Hg`.
 
+   .. option:: carbon
+
+      Activates the **carbon** mechanism (CH4-CO-CO2-OCS).  The source
+      code files that define this mechanism are stored in
+      :file:`KPP/carbon`.
+
    .. option:: custom
 
       Activates a **custom** mechanism defined by the user.  The
       source code files that define this mechanism are stored in
-      :file:`KPP/custom.`.
+      :file:`KPP/custom`.
 
 .. option:: OMP
 
@@ -336,6 +340,19 @@ options, unless you explicitly specify otherwise.
       Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
       option)**
 
+.. option:: SANITIZE
+
+   Activates the AddressSanitizer/LeakSanitizer functionality in GNU Fortran to
+   identify memory leaks.  Accepted values are:
+
+   .. option:: y
+
+      Activates AddressSanitizer/LeakSanitizer
+
+   .. option:: n
+
+      Deactivates AddressSanitizer/LeakSanitizer **(Default option)**.
+
 If you plan to use the :command:`make -j install` option (recommended)
 to copy your executable to your run directory, you must reconfigure
 CMake with the :command:`RUNDIR=/path/to/run/dir`
@@ -379,31 +396,55 @@ Classic contains code from 3 independent repositories:
 .. code-block:: none
 
    =================================================================
-   GCClassic 14.0.0 (superproject wrapper)
-   Current status: 14.0.0-alpha.3-1-g289a460
+   GCClassic X.Y.Z (superproject wrapper)
+   Current status: X.Y.Z
    =================================================================
+
+where :literal:`X.Y.Z` specifies  the GEOS-Chem Classic "major",
+"minor", and "patch" version numbers.
+
+.. note::
+
+   If you are cloning GEOS-Chem Classic between official releases, you
+   may the see :code:`Current status` reported like this:
+
+   .. code-block:: console
+
+      X.Y.Z-alpha.n-C-gabcd1234.dirty  or
+
+      X.Y.Z.rc.n-C.gabcd1234.dirty
+
+   We will explain these formats below.
 
 2. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
 
 .. code-block:: none
 
    =================================================================
-   HEMCO 3.5.0
-   Current status: 3.4.0-10-g18b61cd
+   HEMCO A.B.C
+   Current status: A.B.C
    =================================================================
+
+where :literal:`A.B.C` specifies the HEMCO "major", "minor", and
+"patch" version numbers. The HEMCO version number differs from
+GEOS-Chem because it is kept in a separate repository, and is
+considered a separate package.
 
 3. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
 
 .. code-block:: none
 
    =================================================================
-   GEOS-Chem 14.0.0 (science codebase)
-   Current status: 14.0.0-alpha.3-4-gf833fba4f
+   GEOS-Chem X.Y.Z (science codebase)
+   Current status: X.Y.Z
    =================================================================
 
+The GEOS-Chem science codebase and GEOS-Chem Classic wrapper will
+always share the same version number.
+
 During the build configuration stage, CMake will display the **version
-number** (e.g. :file:`14.0.0`) as well as the **current status of the Git
-repository** (e.g. :file:`14.0.0-alpha.3-1-g289a460`) for GCClassic,
+number** (e.g. :literal:`X.Y.Z`) as well as the **current status of the Git
+repository** (e.g. :literal:`TAG-C-gabcd1234.dirty`) for GCClassic,
 GEOS-Chem, and HEMCO.
 
 Let's take the Git repository status of GCClassic as our example. The
@@ -412,33 +453,42 @@ status string uses the same format as the :command:`git describe
 
 .. code-block:: text
 
-    14.0.0-alpha.3-1-g289a460
+    TAG-C-gabcd1234.dirty
 
 where
 
-.. option:: 14.0.0-alpha.3
+.. option:: TAG
 
     Indicates the most recent tag in the `GCClassic superproject
-    repository ` <https://github.com/geoschem/GCClassic>`_.
+    repository <https://github.com/geoschem/GCClassic>`_.
 
-.. option:: 1
+    Tags may use the following notations:
 
-   Indicates the number of commits that were made atop
-   :file:`14.0.0-alpha.3`.
+    - :literal:`X.Y.Z`: Denotes an official release
+    - :literal:`X.Y.Z-rc.n`: Denotes a release candidate
+    - :literal:`X.Y.Z-alpha.n`: Denotes an internal "alpha" benchmark
+
+    where :literal:`n` is the number of the release candidate or alpha
+    benchmark (starting from 0).
+
+.. option:: C
+
+   Indicates the number of commits that were made on top of the commit
+   that is referred to by :option:`TAG`.
 
 .. option:: g
 
    Indicates that the version control system is Git.
 
-.. option:: 289a460
+.. option:: abcd1234
 
-   Indicates the Git commit (short form) at the HEAD of the
-   GCClassic repository.
+   Indicates the Git commit hash. This is an alphanumeric string that
+   denotes the commit at the :literal:`HEAD` of the GCClassic repository.
 
 .. option:: .dirty
 
    If present, indicates that there are uncommitted updates atop the
-   :file:`289a460` commit in the GCClassic repository.
+   :option:`abcd1234` commit in the GCClassic repository.
 
 Under each header are printed the various :ref:`options that have been
 selected <cfg>`.
