@@ -400,8 +400,8 @@ Classic contains code from 3 independent repositories:
    Current status: X.Y.Z
    =================================================================
 
-where :literal:`X` is the GEOS-Chem Classic "major" version number
-and :literal:`Y.Z` are the "minor" and "patch" version numbers.
+where :literal:`X.Y.Z` specifies  the GEOS-Chem Classic "major",
+"minor", and "patch" version numbers.
 
 .. note::
 
@@ -425,10 +425,10 @@ and :literal:`Y.Z` are the "minor" and "patch" version numbers.
    Current status: A.B.C
    =================================================================
 
-where :literal:`A` is the HEMCO "major" version number and
-:literal:`B.C` are the HEMCO "minor" and "patch" version numbers.
-The HEMCO version number differs from GEOS-Chem because it is kept in
-a separate repository, and is considered a separate package.
+where :literal:`A.B.C` specifies the HEMCO "major", "minor", and
+"patch" version numbers. The HEMCO version number differs from
+GEOS-Chem because it is kept in a separate repository, and is
+considered a separate package.
 
 3. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
 
@@ -444,7 +444,7 @@ always share the same version number.
 
 During the build configuration stage, CMake will display the **version
 number** (e.g. :literal:`X.Y.Z`) as well as the **current status of the Git
-repository** (e.g. :literal:`X.Y.Z-alpha.n-C-gabcd1234.dirty`) for GCClassic,
+repository** (e.g. :literal:`TAG-C-gabcd1234.dirty`) for GCClassic,
 GEOS-Chem, and HEMCO.
 
 Let's take the Git repository status of GCClassic as our example. The
@@ -453,25 +453,28 @@ status string uses the same format as the :command:`git describe
 
 .. code-block:: text
 
-    X.Y.Z-alpha.n-gabcd1234.dirty   or
-
-    X.Y.Z-rc.n-gabcd1234.dirty
+    TAG-C-gabcd1234.dirty
 
 where
 
-.. option:: X.Y.Z-alpha.n or 14.Y.Z-rc.n
+.. option:: TAG
 
     Indicates the most recent tag in the `GCClassic superproject
     repository <https://github.com/geoschem/GCClassic>`_.
 
-    Tags may use the notation :literal:`X.Y.Z-alpha.n` (denotes an
-    internal benchmark) or :literal:`X.Y.Z-rc.n` (denotes a release
-    candidate). Here :literal:`n` is an number.
+    Tags may use the following notations:
+
+    - :literal:`X.Y.Z`: Denotes an official release
+    - :literal:`X.Y.Z-rc.n`: Denotes a release candidate
+    - :literal:`X.Y.Z-alpha.n`: Denotes an internal "alpha" benchmark
+
+    where :literal:`n` is the number of the release candidate or alpha
+    benchmark (starting from 0).
 
 .. option:: C
 
-   Indicates the number of commits that were made atop
-   :literal:`X.Y.Z-alpha.n` or :literal:`X.Y.Z-rc.n`.
+   Indicates the number of commits that were made on top of the commit
+   that is referred to by :option:`TAG`.
 
 .. option:: g
 
@@ -485,7 +488,7 @@ where
 .. option:: .dirty
 
    If present, indicates that there are uncommitted updates atop the
-   :file:`abcd1234` commit in the GCClassic repository.
+   :option:`abcd1234` commit in the GCClassic repository.
 
 Under each header are printed the various :ref:`options that have been
 selected <cfg>`.
