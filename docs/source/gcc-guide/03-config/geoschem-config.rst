@@ -1768,7 +1768,7 @@ for activating tagged :math:`CO_2` species:
 
      # .. following sub-sections omitted ...
 
-.. _cfg-gc-yml-hg:
+.. _cfg-gc-yml-co:
 
 CO chemical sources
 -------------------
