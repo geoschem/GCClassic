@@ -18,7 +18,7 @@ GEOS-Chem Classic
 
 This site provides instructions for :program:`GEOS-Chem Classic`,
 the single-node mode of operation of the
-`GEOS-Chem model <http://acmg.seas.harvard.edu/geos/>`_.  We provide
+`GEOS-Chem model <http://geos-chem.org/>`_.  We provide
 instruction for downloading and compiling GEOS-Chem Classic, plus its
 required software libraries.
 
@@ -36,8 +36,8 @@ It is applied by `research groups around the world
 <http://acmg.seas.harvard.edu/geos/geos_people.html>`_  to a wide
 range of atmospheric composition problems.
 
-* `GEOS-Chem Overview <http://acmg.seas.harvard.edu/geos/geos_overview.html>`_
-* `Narrative description of GEOS-Chem <http://acmg.seas.harvard.edu/geos/geos_chem_narrative.html>`_
+* `GEOS-Chem Overview <https://geos-chem.org/geos-overview>`_
+* `Narrative description of GEOS-Chem <http://geos-chem.org/geos-chem-narrativehttp://acmg.seas.harvard.edu/geos/geos_chem_narrative.html>`_
 
 Cloning and building from source code ensures you will have direct
 access to the latest available versions of GEOS-Chem Classic, provides
