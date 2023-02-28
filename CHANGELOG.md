@@ -6,6 +6,12 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [Unreleased 14.1.1]
+### Changed
+- Updated ReadTheDocs user registration documentation GEOS-Chem 14.1.1
+- Updated ReadTheDocs run directory creation information for GEOS-Chem 14.1.1
+- Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.1.1
+
 ## [14.1.0] - 2023-02-01
 ### Added
   - Added SANITIZE CMake option

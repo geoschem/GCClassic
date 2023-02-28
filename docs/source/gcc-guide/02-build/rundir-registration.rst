@@ -19,50 +19,64 @@ current.
 The user registration dialog (and where you will type in your
 repsonses) is shown below.
 
-.. code-block:: console
+.. code-block:: none
 
    ===========================================================
-   GEOS-CHEM RUN DIRECTORY CREATIION
+   GEOS-CHEM RUN DIRECTORY CREATION
    ===========================================================
+
+   Initiating User Registration:
+   You will only need to fill this information out once.
+   Please respond to all questions.
 
    -----------------------------------------------------------
    What is your name?
    -----------------------------------------------------------
-   type your response and hit ENTER
+   >>> type your response and hit ENTER
 
    -----------------------------------------------------------
-   What is your research affliation (University, Research Group
-   Government Organization, Company)?
+   What is your email address?
    -----------------------------------------------------------
-   type your response and hit ENTER
+   >>> type your response and hit ENTER
 
    -----------------------------------------------------------
-   If available, please provide the url for your affliated
-   institution (group website, company website, etc.)
+   What is the name of your research institution?
    -----------------------------------------------------------
-   type your response and hit ENTER
+   >>> type your response and hit ENTER
+
+   -----------------------------------------------------------
+   What is the name of your principal invesigator?
+   (Enter 'self' if you are the principal investigator.)
+   -----------------------------------------------------------
+   >>> type your response and hit ENTER
+
+   -----------------------------------------------------------
+   Please provide the web site for your institution
+   (group website, company website, etc.)?
+   -----------------------------------------------------------
+   >>> type your response and hit ENTER
 
    -----------------------------------------------------------
    Please provide your github username (if any) so that we
    can recognize you in submitted issues and pull requests.
    -----------------------------------------------------------
-   type your response and hit ENTER
+   >>> type your response and hit ENTER
 
    -----------------------------------------------------------
-   Where do you plan to run GEOS-Chem (e.g. local compute
-   cluster, AWS, other supercomputer)?
+   Where do you plan to run GEOS-Chem?
+   (e.g. local compute cluster, AWS, other supercomputer)?
    -----------------------------------------------------------
-   type your response and hit ENTER
-
-   -----------------------------------------------------------
-   Where do you plan to run GEOS-Chem (e.g. local compute
-   cluster, AWS, other supercomputer)?
-   -----------------------------------------------------------
-   type your response and hit ENTER
+   >>> type your response and hit ENTER
 
    -----------------------------------------------------------
    Please briefly describe how you plan on using GEOS-Chem
-   so that we can add you to the GEOS-Chem People and Projects
-   webpage (https://geoschem.github.io/geos-chem-people-projects-map/)
+   so that we can add you to 'GEOS-Chem People and Projects'
+   (https://geoschem.github.io/geos-chem-people-projects-map/)
    -----------------------------------------------------------
-   type your response and hit ENTER
+   >>> type your response and hit ENTER
+   Successful Registration
+
+If you do not see the  :literal:`Successful Registraton` message, check
+your internet connection and try again.  If the problem persists,
+`open a new Github issue
+<https://github.com/geoschem/geos-chem/issues/new/choose>`_.
