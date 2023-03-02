@@ -8,8 +8,7 @@ Once you have successfully executed a GEOS-Chem dry-run, you
 can use the output from the dry-run (contained in the :file:`log.dryrun` file)
 to download the data files that GEOS-Chem will need to perform the
 corresponding "production" simulation. You may download from one of
-several GEOS-Chem mirror sites, which are described in the following
-sections.
+several locations, which are described in the following sections.
 
 .. important::
 
@@ -28,31 +27,31 @@ sections.
 Choose a data portal
 ====================
 
-You can download input data data from one of the following mirror sites:
+You can download input data data from one of the following locations:
 
 .. _dry-run-download-washu:
 
-The geoschemdata.wustl.edu mirror (aka WashU)
+The geoschemdata.wustl.edu site (aka WashU)
 ---------------------------------------------
 
 If you are using GEOS-Chem on your institutional computer cluster, we
 recommend that you **download data from the WashU (Washington
-University in St. Louis) mirror site** (`http://geoschemdata.wustl.edu
-<http://geoschemdata.wustl.edu.ca>`_).  This mirror, which is
-maintained by Randall Martin's group at WashU, is the main data mirror
-mirror for GEOS-Chem.
+University in St. Louis) site** (`http://geoschemdata.wustl.edu
+<http://geoschemdata.wustl.edu>`_).  This site, which is
+maintained by Randall Martin's group at WashU, is the main data site
+for GEOS-Chem.
 
 .. tip::
 
    We have also set up a `Globus
    <https://www.globus.org/data-transfer>`_ endpoint named **GEOS-Chem
-   data (WashU)** on the WashU mirror site.  If you need to
+   data (WashU)** on the WashU site.  If you need to
    download many years of data, it may be faster to use	 Globus
    (particularly if your home institution supports it).
 
 .. _dry-run-download-aws:
 
-The s3://gcgrid mirror (aka Amazon)
+The s3://gcgrid bucket (aka Amazon)
 -----------------------------------
 
 If you are running GEOS-Chem Classic on the Amazon Web Services cloud,
@@ -68,8 +67,8 @@ Navigate to your GEOS-Chem Classic run directory and type:
 
 This will start the data download process using the ``aws s3 cp``
 commands, which should execute much more quickly than if you were to
-download the data from Compute Canada. It will also produce the **log
-of unique data files**.
+download the data from another location. It will also produce a
+**log of unique data files**.
 
 .. important::
 
@@ -80,7 +79,7 @@ of unique data files**.
 
 .. _dry-run-download-rochester:
 
-The atmos.earth.rochester.edu mirror (aka Rochester)
+The atmos.earth.rochester.edu site (aka Rochester)
 ----------------------------------------------------
 
 The U. Rochester site (which is maintained by Lee Murray's research
@@ -88,7 +87,7 @@ there) contains the GCAP 2.0 met field data.  This met field data is
 useful if you wish to perform simulations stretching back into the
 preindustrial period, or running into the future.
 
-To download data from the Rochester mirror, type:
+To download data from the Rochester site, type:
 
 .. code-block:: console
 
