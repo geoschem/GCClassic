@@ -87,9 +87,16 @@ GEOS-Chem full-chemistry simulation.
         10. TransportTracers
         11. Trace metals
         12. Carbon
+      >>>
 
    To create a run directory for the full-chemistry simulation, type
-   :command:`1` followed by the :command:`ENTER` key. |br|
+   :command:`1` followed by the :command:`ENTER` key.
+
+   .. tip::
+
+      To exit, the run directory creation process, type
+      :literal:`Ctrl-C` at any prompt.
+
    |br|
 
 #. You will then be asked to specify any additional options for the
@@ -109,6 +116,7 @@ GEOS-Chem full-chemistry simulation.
         6. TOMAS
         7. APM
         8. RRTMG
+      >>>
 
    For the standard full-chemistry simulation, type :command:`1`
    followed by :command:`ENTER`.
@@ -119,7 +127,7 @@ GEOS-Chem full-chemistry simulation.
    |br|
 
 #. You will then be asked to specify the meteorology type for the
-   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_,  `MERRA-2
+   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_, `MERRA-2
    <http://wiki-geos-chem.org/MERRA-2>`_), or GCAP 2.0):
 
    .. code-block:: console
@@ -130,6 +138,7 @@ GEOS-Chem full-chemistry simulation.
         1. MERRA-2 (Recommended)
         2. GEOS-FP
         3. GISS ModelE2.1 (GCAP 2.0)
+      >>>
 
    You should use the recommended option (MERRA-2) if possible. Type
    :command:`1` followed by :command:`ENTER`. |br|
@@ -146,6 +155,7 @@ GEOS-Chem full-chemistry simulation.
         1. 4.0  x 5.0
         2. 2.0  x 2.5
         3. 0.5  x 0.625
+      >>>
 
    If you wish to set up a global simulation, type either
    :command:`1` or :command:`2` followed by :command:`ENTER`.
@@ -164,6 +174,7 @@ GEOS-Chem full-chemistry simulation.
         3. Europe
         4. North America
         5. Custom
+      >>>
 
    Select your preferred horizontal domain, followed by
    :command:`ENTER`. |br|
@@ -178,6 +189,7 @@ GEOS-Chem full-chemistry simulation.
       -----------------------------------------------------------
         1. 72 (native)
         2. 47 (reduced)
+      >>>
 
    For most simulations, you will want to use :command:`72`
    levels. Type  :command:`1` followed by :command:`ENTER`.
@@ -195,11 +207,12 @@ GEOS-Chem full-chemistry simulation.
       -----------------------------------------------------------
       Enter path where the run directory will be created:
       -----------------------------------------------------------
+      >>>
 
-   You can enter an absolute path (such as :file:`$HOME/myusername/`
+   You may enter an absolute path (such as :file:`$HOME/myusername/`
    followed by :command:`ENTER)`.
 
-   You can also enter a relative path (such as :file:`~/rundirs`
+   You may also enter a relative path (such as :file:`~/rundirs`
    followed by ENTER). In this case you will see that the
    :file:`./createRunDir.sh`  script will expand the path to:
 
@@ -218,6 +231,7 @@ GEOS-Chem full-chemistry simulation.
 
       NOTE: This will be a subfolder of the path you entered above.
       -----------------------------------------------------------
+      >>>
 
    You should use the default run directory name whenever possible. Type
    :command:`ENTER` to select the default.
@@ -226,13 +240,13 @@ GEOS-Chem full-chemistry simulation.
 
    .. code-block:: console
 
-         -- Using default directory name gc_4x5_fullchem
+         -- Using default directory name gc_4x5_merra2_fullchem
 
    or if you are creating a nested grid simulation:
 
    .. code-block:: console
 
-         -- Using default directory name gc_05x0625_fullchem
+         -- Using default directory name gc_05x0625_merra2_fullchem
 
    and then:
 
@@ -245,7 +259,7 @@ GEOS-Chem full-chemistry simulation.
             You may modify these settings in HISTORY.rc and
 	    HEMCO_Config.rc.
 
-      |br|
+   |br|
 
 #. The last menu will prompt you with:
 
@@ -262,5 +276,5 @@ GEOS-Chem full-chemistry simulation.
    |br|
 
 #. The script will display the full path to the run directory. You
-can navigate there and then start editing the :ref:`GEOS-Chem
-configuration files <cfg>`.
+   can navigate there and then start editing the :ref:`GEOS-Chem
+   configuration files <cfg>`.

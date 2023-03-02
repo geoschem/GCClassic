@@ -19,11 +19,11 @@ master_doc = 'index'
 # -- Project information -----------------------------------------------------
 
 project = 'GEOS-Chem Classic'
-copyright = '2022, GEOS-Chem Support Team'
+copyright = '2023, GEOS-Chem Support Team'
 author = 'GEOS-Chem Support Team'
 
 # The full version, including alpha/beta/rc tags
-release = '14.1.0'
+release = '14.1.1'
 
 
 # -- General configuration ---------------------------------------------------
