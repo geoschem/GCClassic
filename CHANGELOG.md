@@ -10,6 +10,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
   - Updated GEOS-Chem submodule to 14.2.0
   - Updated HEMCO submodule to 3.7.0
+  - Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.2.0
+
+## [14.1.1] - 2023-03-03
+### Added
+  - Added `.github/ISSUE_TEMPLATE/config.yml` file w/ Github issue options
+
+### Changed
+  - Updated GEOS-Chem submodule to 14.1.1
+  - Updated HEMCO submodule to 3.6.2
+  - The GitHub PR template is now named `./github/PULL_REQUEST_TEMPLATE.md`
+  - Updated ReadTheDocs user registration documentation GEOS-Chem 14.1.1
+  - Updated ReadTheDocs run directory creation information for GEOS-Chem 14.1.1
+  - Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.1.1
 
 ## [14.1.0] - 2023-02-01
 ### Added

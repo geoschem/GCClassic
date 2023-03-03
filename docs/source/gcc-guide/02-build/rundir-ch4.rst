@@ -29,7 +29,7 @@ as an example.
       AUTHORS.txt     CMakeScripts/    LICENSE.txt  SUPPORT.md  run@  test@
       CMakeLists.txt  CONTRIBUTING.md  README.md    docs/       src/
 
-   As mentioned previously, run@ is a symbolic link. It actually points
+   As mentioned previously, :file:`run@` is a symbolic link. It actually points
    to the to the :file:`src/GEOS-Chem/run/GCClassic` folder. This folder
    contains several scripts and template files for run directory
    creation. |br|
@@ -60,9 +60,9 @@ as an example.
 
 #. Run the :command:`createRunDir.sh` script.. Type:
 
-.. code-block:: console
+   .. code-block:: console
 
-     $ ./createRunDir.sh
+      $ ./createRunDir.sh
 
    |br|
 
@@ -90,9 +90,15 @@ as an example.
         10. TransportTracers
         11. Trace metals
         12. Carbon
+      >>>
 
    To select the GEOS-Chem methane specialty simulation, type
-   :command:`3` followed by :command:`ENTER`. |br|
+   :command:`3` followed by :command:`ENTER`.
+
+   .. tip::
+
+      To exit, the run directory creation process, type
+      :literal:`Ctrl-C` at any prompt.
    |br|
 
 #. You will then be asked to specify the meteorology type for the
@@ -107,6 +113,7 @@ as an example.
         1. MERRA-2 (Recommended)
         2. GEOS-FP
         3. GISS ModelE2.1 (GCAP 2.0)
+      >>>
 
    To accept the recommended meteorology (MERRA-2), type :command:`1` followed
    by :command:`ENTER`. |br|
@@ -123,8 +130,9 @@ as an example.
         1. 4.0  x 5.0
         2. 2.0  x 2.5
         3. 0.5  x 0.625
+      >>>
 
-   If you wish to set up global simulation, type either
+   If you wish to set up a global simulation, type either
    :command:`1` or :command:`2` followed by :command:`ENTER`.
 
    If you wish to set up a nested-grid simulation, type
@@ -141,6 +149,7 @@ as an example.
         3. Europe
         4. North America
         5. Custom
+      >>>
 
    Type the number of your preferred option and then hit
    :command:`ENTER`. |br|
@@ -155,6 +164,7 @@ as an example.
       -----------------------------------------------------------
         1. 72 (native)
         2. 47 (reduced)
+      >>>
 
    For most simulations, you will want to use 72 levels. Type
    :command:`1` followed by :command:`ENTER`.
@@ -172,11 +182,12 @@ as an example.
       -----------------------------------------------------------
       Enter path where the run directory will be created:
       -----------------------------------------------------------
+      >>>
 
-   **8a.** You enter this an absolute path (such as
+   You may enter an absolute path (such as
    :file:`$HOME/myusername/` followed by ENTER).
 
-   **8b.** Or you can enter a relative path (such as :file:`~/rundirs`
+   You may also enter a relative path (such as :file:`~/rundirs`
    followed by ENTER). In this case you will see that the
    :file:`./createRunDir.sh` script will expand the path to:
 
@@ -195,27 +206,30 @@ as an example.
 
       NOTE: This will be a subfolder of the path you entered above.
       -----------------------------------------------------------
+      >>>
 
    You should use the default run directory name whenever possible. Type
    :command:`ENTER`. The script will display the following output:
 
    .. code-block:: console
 
-         -- Using default directory name gc_4x5_CH4
+      -- Using default directory name gc_4x5_merra2_CH4
 
    or if you are creating a nested grid simulation:
 
    .. code-block:: console
 
-         -- Using default directory name gc_05x0625_CH4
+      -- Using default directory name gc_05x0625_merra2_CH4
+
+   and then
 
    .. code-block:: console
 
-         -- This run directory has been set up for 20190701 - 20190801.
-            You may modify these settings in input.geos.
+      -- This run directory has been set up for 20190701 - 20190801.
+         You may modify these settings in input.geos.
 
-         -- The default frequency and duration of diagnostics is set to monthly.
-            You may modify these settings in HISTORY.rc and HEMCO_Config.rc.
+      -- The default frequency and duration of diagnostics is set to monthly.
+         You may modify these settings in HISTORY.rc and HEMCO_Config.rc.
 
    |br|
 
@@ -226,6 +240,7 @@ as an example.
       -----------------------------------------------------------
       Do you want to track run directory changes with git? (y/n)
       -----------------------------------------------------------
+      >>>
 
    Type :command:`y` and then :command:`ENTER`. Then you will be able to
    track changes that you make to GEOS-Chem configuration files with
@@ -234,5 +249,8 @@ as an example.
    |br|
 
 #. The script will display the full path to the run directory. You can
-   navigate there and then start editing the :ref:`GEOS-Chem
-   configuration files <cfg>`.
+   navigate there and then start editing the
+   :ref:`GEOS-Chem configuration files <cfg>`.
+
+The procedure to set up run directories for other GEOS-Chem Classic
+simulations is similar to that shown above.
