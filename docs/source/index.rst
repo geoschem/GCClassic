@@ -48,11 +48,11 @@ modifications to GEOS-Chem Classic source code.
    :caption: Getting Started
    :maxdepth: 2
 
-   gcc-guide/01-startup/key-references.rst
+   getting-started/quick-start.rst
    gcc-guide/01-startup/system-req-hard.rst
    gcc-guide/01-startup/system-req-soft.rst
    gcc-guide/01-startup/login-env.rst
-
+   gcc-guide/01-startup/key-references.rst
 
 .. toctree::
    :caption: GEOS-Chem Classic User Guide
