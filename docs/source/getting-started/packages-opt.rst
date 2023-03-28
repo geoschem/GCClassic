@@ -50,8 +50,7 @@ output by GEOS-Chem). Ncview is very useful for debugging and development.
 ===
 nco
 ===
-`The netCDF operators (nco)
-<http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`_ are
+`The netCDF operators (nco) <https://nco.sourceforge.net/>`_ are
 powerful command-line tools for editing and manipulating data in
 netCDF format.
 

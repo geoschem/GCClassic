@@ -99,7 +99,8 @@ as an example.
 
       To exit, the run directory creation process, type
       :literal:`Ctrl-C` at any prompt.
-   |br|
+
+   |br|	       
 
 #. You will then be asked to specify the meteorology type for the
    simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_,  `MERRA-2

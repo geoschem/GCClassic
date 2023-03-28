@@ -10,6 +10,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Added
 - Quick start guide for GEOS-Chem Classic in ReadTheDocs
 - Add note about WashU status downtime and link to `itstatus.wustl.edu`
+- Added `SatDiagn` to list of GEOS-Chem History collections
+
+### Changed
+- Reorganize folder structure of ReadTheDocs `docs/source` subdirectories
+- Note that HEMCO log output is now sent to the GEOS-Chem log file
+
+### Fixed
+- Broken link to NCO page in ReadTheDocs
+
 
 ## [14.1.1] - 2023-03-03
 ### Added

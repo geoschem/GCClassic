@@ -48,31 +48,31 @@ modifications to GEOS-Chem Classic source code.
    :caption: Getting Started
    :maxdepth: 2
 
-   gcc-guide/01-startup/quick-start.rst
-   gcc-guide/01-startup/system-req-hard.rst
-   gcc-guide/01-startup/system-req-soft.rst
-   gcc-guide/01-startup/login-env.rst
-   gcc-guide/01-startup/key-references.rst
+   getting-started/quick-start.rst
+   getting-started/system-req-hard.rst
+   getting-started/system-req-soft.rst
+   getting-started/login-env.rst
+   getting-started/key-references.rst
 
 .. toctree::
    :caption: GEOS-Chem Classic User Guide
    :maxdepth: 2
 
-   gcc-guide/02-build/get-code.rst
-   gcc-guide/02-build/create-rundir.rst
-   gcc-guide/02-build/compile.rst
-   gcc-guide/03-config/config-overview.rst
-   gcc-guide/04-data/download-data.rst
-   gcc-guide/05-run/run.rst
-   gcc-guide/06-output/output-files.rst
-   gcc-guide/07-diagnostics/diagnostics.rst
+   gcclassic-user-guide/get-code.rst
+   gcclassic-user-guide/create-rundir.rst
+   gcclassic-user-guide/compile.rst
+   gcclassic-user-guide/config-overview.rst
+   gcclassic-user-guide/download-data.rst
+   gcclassic-user-guide/run.rst
+   gcclassic-user-guide/output-files.rst
+   gcclassic-user-guide/diagnostics.rst
 
 .. toctree::
    :caption: Supplemental guides
    :maxdepth: 1
 
-   gcclassic_supplement/directory-structure.rst
-   gcclassic_supplement/run-script-examples.rst
+   supplemental-guides/directory-structure.rst
+   supplemental-guides/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/libraries.rst
    geos-chem-shared-docs/supplemental-guides/spack.rst
    geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
@@ -88,8 +88,8 @@ modifications to GEOS-Chem Classic source code.
    :maxdepth: 1
    :caption: Help & Reference
 
-   reference/version-history.rst
-   reference/known-bugs.rst
-   reference/CONTRIBUTING.md
-   reference/SUPPORT.md
+   help-and-reference/version-history.rst
+   help-and-reference/known-bugs.rst
+   help-and-reference/CONTRIBUTING.md
+   help-and-reference/SUPPORT.md
    geos-chem-shared-docs/editing_these_docs.rst
