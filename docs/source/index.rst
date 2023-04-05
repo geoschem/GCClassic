@@ -74,7 +74,7 @@ modifications to GEOS-Chem Classic source code.
    supplemental-guides/directory-structure.rst
    supplemental-guides/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/libraries.rst
-   geos-chem-shared-docs/supplemental-guides/spack.rst
+   geos-chem-shared-docs/supplemental-guides/spack-guide.rst
    geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
    geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
