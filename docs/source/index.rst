@@ -73,14 +73,15 @@ modifications to GEOS-Chem Classic source code.
 
    supplemental-guides/directory-structure.rst
    supplemental-guides/run-script-examples.rst
-   geos-chem-shared-docs/supplemental-guides/libraries.rst
+   geos-chem-shared-docs/supplemental-guides/load-libraries-guide.rst
    geos-chem-shared-docs/supplemental-guides/spack-guide.rst
-   geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
+   geos-chem-shared-docs/supplemental-guides/error-guide.rst
    geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
    geos-chem-shared-docs/supplemental-guides/coards-guide.rst
    geos-chem-shared-docs/supplemental-guides/species-guide.rst
+   geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
