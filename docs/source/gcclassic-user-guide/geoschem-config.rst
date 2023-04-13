@@ -36,7 +36,10 @@ Simulation settings
      root_data_dir: /path/to/ExtData
      met_field: MERRA2
      species_database_file: ./species_database.yml
-     debug_printout: false
+     species_metadata_output_file: OutputDir/geoschem_species_metadata.yml
+     verbose:
+       activate: false
+       on_cores: root       # Allowed values: root all
      use_gcclassic_timers: false
 
 The :literal:`simulation` section contains general simulation options:
@@ -177,16 +180,46 @@ The :literal:`simulation` section contains general simulation options:
 
 .. option:: species_database_file
 
-   Path to the `GEOS-Chem Species Database
-   <http://wiki.geos-chem.org/GEOS-Chem_species_database>`_ file.
-   This is stored in the run directory file
-   :file:`./species_database.yml`.  You should not have to edit this
-   setting.
+   Path to the :ref:`GEOS-Chem Species Database <spcguide>` file. This
+   is stored in the run directory file :file:`./species_database.yml`.
+   You should not have to edit this setting.
 
-.. option:: debug_printout
+.. option:: species_metadata_output_file
 
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   debug print statements to the screen or log file.
+   Path to the :file:`geoschem-species-metadata.yml` file.  This file
+   contains echoback of information from :ref:`species_database.yml
+   <spcguide>`, but only for species that are defined in this
+   simulation (instead of all possible species).  This facilitates
+   interfacing GEOS-Chem with external models such as CESM.
+
+.. option:: verbose:
+
+   Menu controlling verbose printout. Starting with GEOS-Chem 14.2.0
+   and HEMCO 3.7.0, most informational printouts are now deactivated
+   by default.  You may choose to activate them (e.g. for debugging
+   and/or testing) with the options below:
+
+   .. option:: activate
+
+      Activates (:literal:`true`) or deactivates (:literal:`false`)
+      printing extra informational printout to the screen and/or log
+      file.
+
+   .. option:: on_cores:
+
+      Specify on which computational cores informational printout
+      should be done.
+
+      .. option:: root
+
+	 Print extra informational output only on the root core.  Use this
+	 setting for GEOS-Chem Classic.
+
+      .. option:: all
+
+         Print extra informational output on all cores.  Consider
+	 using this when using GEOS-Chem as GCHP, or in MPI-based
+	 external models (NASA GEOS, CESM, etc.).
 
 .. option:: use_gcclassic_timers
 
@@ -707,13 +740,15 @@ Photolysis
      # .. preceding sub-sections omitted ...
 
      photolysis:
-       input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
+       activate: true
+       input_directories:
+         fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
        overhead_O3:
          use_online_O3_from_model: true
          use_column_O3_from_met: true
          use_TOMS_SBUV_O3: false
        photolyze_nitrate_aerosol:
-         activate: false
+         activate: true
          NITs_Jscale_JHNO3: 0.0
          NIT_Jscale_JHNO2: 0.0
          percent_channel_A_HONO: 66.667
@@ -727,10 +762,26 @@ The :literal:`operation:photolysis` section contains settings for
 
 This section only applies to :option:`fullchem` and :option:`Hg` simultions.
 
-.. option:: input_dir
+.. option:: activate
 
-   Specifies the path to the FAST_JX configuration file that contain
-   information about species cross sections and quantum yields.
+   Activates (:literal:`true`) or deactivates (:literal:`false`)
+   photolysis.
+
+   .. attention::
+
+      You should always keep photolysis turned on in your
+      simulations.  Disabling photolysis should only be done when
+      debugging or testing new photolysis schemes (such as Cloud-J).
+
+.. option:: input_directories
+
+   Specifies the location of directories containing photolysis
+   configuration files.
+
+   .. option:: fastjx_input_dir
+
+      Specifies the path to the FAST_JX configuration files containing
+      information about species cross sections and quantum yields.
 
 .. option:: overhead_O3
 
@@ -758,6 +809,34 @@ This section only applies to :option:`fullchem` and :option:`Hg` simultions.
      ozone columns from the TOMS-SBUV archive  will be used.
 
      Recommended value: :literal:`false`.
+
+.. option:: photolyze_nitrate_aerosol:
+
+   This section contains settings that control options for nitrate
+   aerosol photolysis.
+
+   .. option:: activate
+
+      Activates (:literal:`true`) or deactivates (:literal:`false`)
+      nitrate aerosol photolysis.
+
+      Recommended value: :literal:`true`.
+
+   .. option:: NITs_Jscale_JHNO3
+
+      Scale factor (percent) for JNO3 that photolyzes NITs aerosol.
+
+   .. option:: NIT_Jscale_JHNO2
+
+      Scale factor (percent) for JHNO2 that photolyzes NIT aerosol.
+
+   .. option:: percent_channel_A_HONO
+
+      Fraction of JNITs/JNIT in channel A (HNO2) for NITs photolysis.
+
+   .. option:: percent_channel_B_NO2
+
+      Fraction of JNITs/JNIT in channel B (NO2) for NITs photolysis.
 
 .. _cfg-gc-yml-rrtmg:
 
@@ -1400,56 +1479,6 @@ the `GEOS-Chem planeflight diagnostic
    Specifies the path to the Planeflight output file.  Requested
    quantities will be archived from GEOS-Chem along the flight track
    specified in :option:`flight_track_file`.
-
-.. _gc-yml-legacydiag:
-
-Legacy diagnostics
-------------------
-
-.. attention::
-
-   These diagnostics (in the older binary data format) are slated to
-   be replaced by netCDF output in an upcoming version.
-
-.. code-block:: YAML
-
-   #============================================================================
-   # Settings for diagnostics (other than HISTORY and HEMCO)
-   #============================================================================
-   extra_diagnostics:
-
-      # ... preceding sub-sections omitted ...
-
-      gamap:
-        diaginfo_dat_file: ./diaginfo.dat
-        tracerinfo_dat_file: ./tracerinfo.dat
-
-      ND51_satellite:
-        activate: false
-        output_file: ts_satellite.YYYYMMDD.bpch
-        tracers:
-          - 1
-          - 2
-          - 501
-        UTC_hour_for_write: 0
-        averaging_period_in_LT: [9, 11]
-        IMIN_and_IMAX_of_region: [1, 72]
-        JMIN_and_JMAX_of_region: [1, 46]
-        LMIN_and_LMAX_of_region: [1, 1]
-
-      ND51b_satellite:
-        # same format as ND51_satellite
-
-The :literal:`extra_diagnostics:gamap` specify the paths where GEOS-Chem
-will create the :file:`diaginfo.dat` and :file:`tracerinfo.dat` files
-used by `GAMAP <https://geoschem.github.io/gamap-manual/>`_.
-
-The :literal:`extra_diagnostics:ND51_satellite` and
-:literal:`extra_diagnostics:ND51b_satellite` contain settings for the
-`GEOS-Chem satellite timeseries
-diagnostics. <http://wiki.seas.harvard.edu/geos-chem/index.php/The_input.geos_file#ND51_and_ND51b_diagnostics>`_.
-These will be replaced by :ref:`history-diagnostics` (in netCDF format) in an
-upcoming version.
 
 .. _cfg-gc-yml-hg:
 
