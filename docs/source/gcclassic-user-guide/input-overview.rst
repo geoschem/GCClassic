@@ -41,7 +41,7 @@ following portals:
 
    Portal for the GCAP 2.0 meteorological data files,
    `atmos.earth.rochester.edu
-   <https://atmos.earth.rochester.edu/input/gc/ExtData/>`_
+   <http://atmos.earth.rochester.edu/input/gc/ExtData/>`_
 
 .. _init-cond:
 
