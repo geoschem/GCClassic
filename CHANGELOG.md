@@ -15,10 +15,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Reorganize folder structure of ReadTheDocs `docs/source` subdirectories
 - Note that HEMCO log output is now sent to the GEOS-Chem log file
+- Updated `AUTHORS.txt` for version 14.2.0
+- Updated links in `README.md` to point to `http://geos-chem.org`
 
 ### Fixed
 - Broken link to NCO page in ReadTheDocs
-
 
 ## [14.1.1] - 2023-03-03
 ### Added
