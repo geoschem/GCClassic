@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - Updated HEMCO submodule to 3.7.0
   - Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.2.0
 
+### Fixed
+- Fixed typo in Intel debug option in `CMakeLists.txt`
+
 ## [14.1.1] - 2023-03-03
 ### Added
   - Added `.github/ISSUE_TEMPLATE/config.yml` file w/ Github issue options
