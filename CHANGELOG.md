@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Note that HEMCO log output is now sent to the GEOS-Chem log file
 - Updated `AUTHORS.txt` for version 14.2.0
 - Updated links in `README.md` to point to `http://geos-chem.org`
+- Updated logo & badge links in `README.md` to use HTML
 
 ### Fixed
 - Broken link to NCO page in ReadTheDocs
