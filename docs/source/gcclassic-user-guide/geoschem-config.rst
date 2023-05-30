@@ -132,8 +132,8 @@ The :literal:`simulation` section contains general simulation options:
 
       `Transport Tracers simulation
       <http://wiki.geos-chem.org/TransportTracers_simulation>`_, with
-      both radionuclide and :option:`passive_species`.  Useful for
-      evaluating model transport.
+      both radionuclide and passive_species.  Useful for evaluating
+      model transport.
 
    .. option:: metals
 
@@ -938,13 +938,6 @@ Transport
          - ACTA
          - AERI
 	 # ... etc more transported species ...
-       passive_species:
-         PassiveTracer:
-           long_name: Passive_tracer_for_mass_conservation_evaluation
-           mol_wt_in_g: 1.0
-           lifetime_in_s: -1
-           default_bkg_conc_in_vv: 1.0e-7
-         # ... etc more passive species ...
 
    # .. following sub-sections omitted ...
 
@@ -997,25 +990,6 @@ settings for `species transport
    A list of species names (in `YAML sequence format
    <https://www.tutorialspoint.com/yaml/yaml_sequence_styles.htm>`_)
    that will be transported by the TPCORE advection scheme.
-
-.. option:: passive_species
-
-   Optional menu that allows you to specify **passive species**, which
-   are excluded from undergoing chemical reactions.
-
-   Define passive species by providing the name of the species along
-   with associated metadata fields. For example:
-
-   .. code-block:: YAML
-
-      PassiveTracer:
-        long_name: Passive_tracer_for_mass_conservation_evaluation
-        mol_wt_in_g: 1.0
-        lifetime_in_s: -1              # -1 indicates infinite lifetime!
-        default_bkg_conc_in_vv: 1.0e-7
-
-   Each passive species must also be listed under
-   :option:`transported_species`.
 
 .. _cfg-gc-yml-wetdep:
 
