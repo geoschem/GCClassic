@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Quick start guide for GEOS-Chem Classic in ReadTheDocs
 - Add note about WashU status downtime and link to `itstatus.wustl.edu`
 - Added `SatDiagn` to list of GEOS-Chem History collections
+- Added definitions for transport tracer properties to ReadTheDocs
 
 ### Changed
 - Reorganize folder structure of ReadTheDocs `docs/source` subdirectories
