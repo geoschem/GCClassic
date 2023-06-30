@@ -253,7 +253,7 @@ GEOS-Chem full-chemistry simulation.
    .. code-block:: console
 
          -- This run directory has been set up for 20190701 - 20190801.
-            You may modify these settings in input.geos.
+            You may modify these settings in geoschem_config.yml.
 
          -- The default frequency and duration of diagnostics is set to monthly.
             You may modify these settings in HISTORY.rc and
