@@ -54,7 +54,7 @@ scanning the output for tag.
 		  
       $ git checkout tags/14.0.0                  # Points HEAD to the tag "14.0.0"
       $ git branch version_14.0.0                 # Creates a new branch at tag "14.0.0"
-      $ git checkout version_14.0.0               # Checks out the version-14.0.0 branch
+      $ git checkout version_14.0.0               # Checks out the version_14.0.0 branch
       $ git submodule update --init --recursive   # Reverts submodules to the "14.0.0" tag
 
    You can do this for any tag in the version history.   For a list of
