@@ -12,7 +12,7 @@ Follow these directions to download the GEOS-Chem Classic source code.
 Clone GCClassic and fetch submodules
 ====================================
 
-To download the latest stable GEOS-Chem Classic version), type:
+To download the latest stable GEOS-Chem Classic version, type:
 
 .. code-block:: console
 
@@ -116,6 +116,25 @@ This confirms that the :file:`GCClassic/src/GEOS-Chem` and
 code from the :ref:`GEOS-Chem Science Codebase <get-code-repos-gc>`
 and :ref:`HEMCO <get-code-repos-hemco>` GitHub repositories.
 
+.. tip::
+
+   To use an older GEOS-Chem Classic version (e.g. 14.0.0), follow
+   these additional steps:
+
+   .. code-block:: console
+		  
+      $ git checkout tags/14.0.0                  # Points HEAD to the tag "14.0.0"
+      $ git branch version_14.0.0                 # Creates a new branch at tag "14.0.0"
+      $ git checkout version_14.0.0               # Checks out the version-14.0.0 branch
+      $ git submodule update --init --recursive   # Reverts submodules to the "14.0.0" tag
+
+   You can do this for any tag in the version history.   For a list of
+   all tags, type:
+
+   .. code-block:: console
+
+      $ git tag
+						  
 .. _get-code-steps-branch:
 
 ==============================================

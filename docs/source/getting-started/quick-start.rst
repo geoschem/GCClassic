@@ -45,17 +45,24 @@ scanning the output for tag.
 
    $ git log -n 1
 
-You can stay with this version or checkout an earlier version by its tag name:
+.. tip::
 
-.. code-block:: console
+   To use an older GEOS-Chem Classic version (e.g. 14.0.0), follow
+   these additional steps:
 
-   $ git checkout tags/14.1.1
+   .. code-block:: console
+		  
+      $ git checkout tags/14.0.0                  # Points HEAD to the tag "14.0.0"
+      $ git branch version_14.0.0                 # Creates a new branch at tag "14.0.0"
+      $ git checkout version_14.0.0               # Checks out the version-14.0.0 branch
+      $ git submodule update --init --recursive   # Reverts submodules to the "14.0.0" tag
 
-You can see a list of all possible tables using the git tag command:
+   You can do this for any tag in the version history.   For a list of
+   all tags, type:
 
-.. code-block:: console
+   .. code-block:: console
 
-   $ git tag
+      $ git tag
 
 =========================
 2. Create a run directory
