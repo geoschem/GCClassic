@@ -38,7 +38,7 @@ This command does the following:
 
    will download the GEOS-Chem Classic source code into
    :file:`my-code-dir` instead of :file:`GCClassic`.
-      
+
 Once the :command:`git clone` process starts, you should see output
 similar to this:
 
@@ -122,7 +122,7 @@ and :ref:`HEMCO <get-code-repos-hemco>` GitHub repositories.
    these additional steps:
 
    .. code-block:: console
-		  
+
       $ git checkout tags/14.0.0                  # Points HEAD to the tag "14.0.0"
       $ git branch version_14.0.0                 # Creates a new branch at tag "14.0.0"
       $ git checkout version_14.0.0               # Checks out the version-14.0.0 branch
@@ -134,7 +134,10 @@ and :ref:`HEMCO <get-code-repos-hemco>` GitHub repositories.
    .. code-block:: console
 
       $ git tag
-						  
+
+   If you have any unsaved  changes, make sure you commit those to a
+   branch prior to updating versions.
+
 .. _get-code-steps-branch:
 
 ==============================================

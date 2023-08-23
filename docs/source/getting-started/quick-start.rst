@@ -64,6 +64,9 @@ scanning the output for tag.
 
       $ git tag
 
+   If you have any unsaved changes, make sure you commit those to a
+   branch prior to updating versions.
+
 =========================
 2. Create a run directory
 =========================
