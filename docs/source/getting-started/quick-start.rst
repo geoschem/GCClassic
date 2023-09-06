@@ -259,6 +259,10 @@ You should review these files before starting a simulation:
    - Controls which emissions inventories and other non-emissions data
      will be read from disk (via `HEMCO <https://hemco.readthedocs.io>`_).
 
+Please see our :ref:`customguide` Supplemental Guide to learn how you
+can customize your simulation by activating alternate science options
+in your simulations.
+
 Once you are satisfied that your simulation settings are correct, you
 may proceed to run GEOS-Chem.
 
