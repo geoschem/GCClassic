@@ -61,7 +61,7 @@ The :literal:`simulation` section contains general simulation options:
    .. option:: carbon
 
       Coupled carbon gases simulation (CH4-CO-CO2-OCS), implemented as
-      a KPP mechanism (cf :cite:t:`Bukosa_et_al._2021`).
+      a KPP mechanism (cf :cite:t:`Bukosa_et_al._2023`).
 
       You must :ref:`configure your build <compile-cmake>` with
       :literal:`-DMECH=carbon` in order to use this simulation.
@@ -436,26 +436,26 @@ Chemistry
    #============================================================================
    operations:
 
-  chemistry:
-    activate: true
-    linear_chemistry_aloft:
-      activate: true
-      use_linoz_for_O3: true
-    active_strat_H2O:
-      activate: true
-      use_static_bnd_cond: true
-    gamma_HO2: 0.2
-    autoreduce_solver:
-      activate: false
-      use_target_threshold:
-        activate: true
-        oh_tuning_factor: 0.00005
-        no2_tuning_factor: 0.0001
-      use_absolute_threshold:
-        scale_by_pressure: true
-        absolute_threshold: 100.0
-      keep_halogens_active: false
-      append_in_internal_timestep: false
+   chemistry:
+     activate: true
+     linear_chemistry_aloft:
+       activate: true
+       use_linoz_for_O3: true
+     active_strat_H2O:
+       activate: true
+       use_static_bnd_cond: true
+     gamma_HO2: 0.2
+     autoreduce_solver:
+       activate: false
+       use_target_threshold:
+         activate: true
+         oh_tuning_factor: 0.00005
+         no2_tuning_factor: 0.0001
+       use_absolute_threshold:
+         scale_by_pressure: true
+         absolute_threshold: 100.0
+       keep_halogens_active: false
+       append_in_internal_timestep: false
 
        # ... following sub-sections omitted ...
 

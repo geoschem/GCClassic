@@ -11,7 +11,7 @@ detailed model description.  It is suitable as an original reference for the mod
 #. :cite:t:`Wang_et_al._2004` for the nested model;
 #. :cite:t:`Henze_et_al._2007` for the model adjoint;
 #. :cite:t:`Selin_et_al._2007` for the mercury simulation;
-#. :cite:t:`Trivitiyanurak_et_al._2008` for TOMAS aerosol microphysics;
+#. :cite:t:`Trivitayanurak_et_al._2008` for TOMAS aerosol microphysics;
 #. :cite:t:`Yu_and_Luo_2009` for APM aerosol microphysics;
 #. :cite:t:`Eastham_et_al._2014` and for stratospheric chemistry;
 #. :cite:t:`Keller_et_al._2014` and :cite:t:`Lin_et_al._2021` for HEMCO;

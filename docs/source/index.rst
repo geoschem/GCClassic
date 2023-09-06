@@ -73,6 +73,7 @@ modifications to GEOS-Chem Classic source code.
    supplemental-guides/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/load-libraries-guide.rst
    geos-chem-shared-docs/supplemental-guides/spack-guide.rst
+   geos-chem-shared-docs/supplemental-guides/customize-guide.rst
    geos-chem-shared-docs/supplemental-guides/error-guide.rst
    geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
