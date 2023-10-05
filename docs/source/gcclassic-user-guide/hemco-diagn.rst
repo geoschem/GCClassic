@@ -34,6 +34,8 @@ Columns:
 #. Extension number (:literal:`-1` means sum over all extensions)
 #. Category  (:literal:`-1` means sum over all categories)
 #. Hierarchy (:literal:`-1` means sum over all hierarchies)
+#. Dimension of data (:literal:`1`: scalar, :literal:`2`: lon-lat,
+   :literal:`3`: lon-lat-lev)
 #. Units
 #. Value for the :literal:`long_name` netCDF variable attribute
 

@@ -113,6 +113,12 @@ collections in the :ref:`cfg-hist` file.
    |                                                          | History_collections_for_chemistry_and_photo    | :option:`CH4`               |
    |                                                          | lysis#The_RxnRates_collection>`_               | :option:`Hg`                |
    +----------------------------------------------------------+------------------------------------------------+-----------------------------+
+   | :file:`GEOSChem.SatDiagn.YYYYMMDD_hhhmmz.nc4`            | `SatDiagn <http://wiki.seas.harvard.edu/       | All simulations             |
+   |                                                          | geos-chem/index.php/Replicating_the_behavior_  |                             |
+   |                                                          | of_the_prior_timeseries_diagnostics#The_       |                             |
+   |                                                          | SatDiagn_collection_.28replaces_bpch_          |                             |
+   |                                                          | ND51.29>`_                                     |                             |
+   +----------------------------------------------------------+------------------------------------------------+-----------------------------+
    | :file:`GEOSChem.SpeciesConc.YYYYMMDD_hhhmmz.nc4`         | `SpeciesConc <http://wiki.geos-chem.org        | All simulations             |
    |                                                          | /History_collections_for_species_concentration |                             |
    |                                                          | s#The_SpeciesConc_collection>`_                |                             |

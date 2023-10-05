@@ -25,16 +25,23 @@ following portals:
    The primary data portal for GEOS-Chem,
    `geoschemdata.wustl.edu <http://geoschemdata.wustl.edu>`_
 
+   .. note::
+
+      The WashU data portal may be unavailable at times due to
+      regularly-scheduled maintenance periods.  Please check the
+      `WashU  IT status page <https://itstatus.wustl.edu>`_ for more
+      information.
+
 .. option:: Amazon
 
    GEOS-Chem data on the Amazon cloud, `s3://gcgrid
-   <https://registry.opendata.aws/geoschem-input-data/>`_ 
+   <https://registry.opendata.aws/geoschem-input-data/>`_
 
 .. option:: Rochester
 
-   Portal for the GCAP 2.0 meteorological data files, 
+   Portal for the GCAP 2.0 meteorological data files,
    `atmos.earth.rochester.edu
-   <https://atmos.earth.rochester.edu/input/gc/ExtData/>`_
+   <http://atmos.earth.rochester.edu/input/gc/ExtData/>`_
 
 .. _init-cond:
 
@@ -186,5 +193,5 @@ be driven by the following meteorology products:
    +--------------------------------------------------+---------------------+
 
 :math:`^4` We provide a :file:`MeteorologyInputs.csv` file at our
-`input-data-catalogs 
+`input-data-catalogs
 <https://github.com/geoschem/input-data-catalogs>`_ Github repository.

@@ -31,8 +31,7 @@ CMake
 GEOS-Chem source code is compiled into an executable.  You will need
 :program:`CMake` version 3.13 or later to build GEOS-Chem Classic.
 
-**Best way to install:**  :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:**  :ref:`With Spack <spackguide>`.
 
 .. _rec-soft-make:
 
@@ -48,8 +47,7 @@ While GNU Make is not required for GEOS-Chem 13.0.0 and later, some
 external libraries that you might need to build will require GNU
 Make. Therefore it is best to download GNU Make along with CMake.
 
-**Best way to install:**  :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:**  :ref:`With Spack <spackguide>`.
 
 .. _req-soft-netcdf:
 
@@ -62,5 +60,4 @@ GEOS-Chem input and output data files use the netCDF file format
 that allows meadata (descriptive text) to be stored alongside data
 values.
 
-**Best way to install:**  :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:**  :ref:`With Spack <spackguide>`.

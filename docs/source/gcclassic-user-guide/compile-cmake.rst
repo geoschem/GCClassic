@@ -36,7 +36,7 @@ directory listing as shown below:
 
 .. code-block:: console
 
-   $ cd ~/gc_merra2_fullchem
+   $ cd /path/to/gc_4x5_merra2_fullchem
    $ ls
    archiveRun.sh*      GEOSChem.Restart.20190701_0000z.nc4   metrics.py
    build/              getrunInfo*                           OutputDir/
