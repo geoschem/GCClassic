@@ -31,8 +31,7 @@ graphical interface (cgdb) <https://cgdb.github.io/>`_ are very useful
 tools for tracking down the source of GEOS-Chem errors, such
 as segmentation faults, out-of-bounds errors, etc.
 
-**Best way to install:**  :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:**  :ref:`With Spack <spackguide>`.
 
 .. _req-soft-ncview:
 
@@ -50,13 +49,11 @@ output by GEOS-Chem). Ncview is very useful for debugging and development.
 ===
 nco
 ===
-`The netCDF operators (nco)
-<http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`_ are
+`The netCDF operators (nco) <https://nco.sourceforge.net/>`_ are
 powerful command-line tools for editing and manipulating data in
 netCDF format.
 
-**Best way to install:**  :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:**  :ref:`With Spack <spackguide>`.
 
 .. _req-soft-cdo:
 
@@ -68,8 +65,7 @@ cdo
 command-line utilities for editing and manipulating data in netCDF
 format.
 
-**Best way to install:** :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:** :ref:`With Spack <spackguide>`.
 
 .. _req-soft-kpp:
 
@@ -97,5 +93,4 @@ general purpose parser-generator.  :ref:`req-soft-kpp` uses both
 definition files.  Depending on your setup, these packages might have
 already been installed for you.
 
-**Best way to install:** :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:** :ref:`With Spack <spackguide>`.

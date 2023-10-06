@@ -6,18 +6,38 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased 14.2.1]
+## [14.2.1] - 2023-10-10
 ### Changed
 - `test` now points to `src/GEOS-Chem/test`
+- Updated GEOS-Chem submodule to 14.2.1
+- Updated HEMCO submodule to 3.7.1
+- Updated version numbers 
+- Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.2.0
 
-## [Unreleased 14.2.0]
+## [14.2.0] - 2023-10-05
+## Added
+- Quick start guide for GEOS-Chem Classic in ReadTheDocs
+- Add note about WashU status downtime and link to `itstatus.wustl.edu`
+- Added `SatDiagn` to list of GEOS-Chem History collections
+- Added definitions for transport tracer properties to ReadTheDocs
+
 ### Changed
-  - Updated GEOS-Chem submodule to 14.2.0
-  - Updated HEMCO submodule to 3.7.0
-  - Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.2.0
+- Updated GEOS-Chem submodule to 14.2.0
+- Updated HEMCO submodule to 3.7.0
+- Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.2.0
+- Reorganize folder structure of ReadTheDocs `docs/source` subdirectories
+- Note that HEMCO log output is now sent to the GEOS-Chem log file
+- Updated `AUTHORS.txt` for version 14.2.0
+- Updated links in `README.md` to point to `http://geos-chem.org`
+- Updated logo & badge links in `README.md` to use HTML
+- Updated version numbers to 14.2.0
 
 ### Fixed
 - Fixed typo in Intel debug option in `CMakeLists.txt`
+- Fixed broken link to NCO page in ReadTheDocs
+
+### Removed
+- `passive_species` menu in `geoschem_config.rst` ReadTheDocs file
 
 ## [14.1.1] - 2023-03-03
 ### Added

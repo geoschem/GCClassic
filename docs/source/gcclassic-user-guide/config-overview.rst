@@ -35,6 +35,10 @@ edit most (if not all) of these configuration files:
 All of the above-mentioned files are included in your :ref:`GEOS-Chem
 Classic run directory <rundir>`.
 
+Please see our :ref:`customguide` Supplemental Guide to learn how you
+can customize your simulation by activating alternate science options
+in your simulations.
+
 .. _cfg-other:
 
 =========================================

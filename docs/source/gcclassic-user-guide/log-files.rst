@@ -10,17 +10,22 @@ Log files redirect the output of Fortran :code:`PRINT*` or
 
 .. _outfiles-logs-gclog:
 
-==================
-GEOS-Chem log file
-==================
+============================
+GEOS-Chem and HEMCO log file
+============================
 
 File name: :file:`GC.log` (or similar)
 
 Contains an "echo-back" of input options that were specified in
-:ref:`geoschem_config.yml <cfg-gc-yml>` and :ref:`HISTORY.rc
+:ref:`geoschem_config.yml <cfg-gc-yml>` and :ref:`HISTORY.rc 
 <cfg-hist>`, as well as information about what is happening at each
 GEOS-Chem timestep.  If your GEOS-Chem Classic simulation dies with an
 error, a detailed error message will be printed in this log file.
+
+In GEOS-Chem 14.1.0 and later versions, information about emissions,
+met fields, and other relevant data that are read from disk and
+processed by `HEMCO <https://hemco.readthedocs.io>`_ is now sent to
+this log file (instead of to :file:`HEMCO.log`).
 
 .. _outfiles-logs-dryrun:
 
@@ -48,18 +53,6 @@ Contains metadata (taken from the  :ref:`GEOS-Chem species database
 <cfg-spec-db>`) in YAML format for only those species that are used in
 the simulation.  This facilitates coupling GEOS-Chem to other Earth
 System Models.
-
-.. _outfiles-logs-hemco:
-
-==============
-HEMCO log file
-==============
-
-File name: :file:`HEMCO.log`
-
-Contains information about how emissions, met fields, and other
-relevant data are read from disk and processed by `HEMCO
-<https://hemco.readthedocs.io>`_ for input into GEOS-Chem Classic.
 
 .. _outfiles-logs-timers:
 
