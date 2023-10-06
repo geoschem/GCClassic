@@ -1,20 +1,22 @@
-.. _sample-geos-chem-run-scripts:
+.. _runscript:
 
+############################
 Sample GEOS-Chem run scripts
-============================
+############################
 
 Here are some sample run scripts that you can adapt for your own purposes.
 
-.. _run-script-for-slurm-scheduler:
+.. _runscript-slurm:
 
+======================================
 For clusters using the Slurm scheduler
---------------------------------------
+======================================
 
 Here is a sample GEOS-Chem run script for computational clusters that
-use the Slurm scheduler to control jobs:
+use the SLURM scheduler to control jobs:
 
 Run script for Slurm
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Save this code to a file named :file:`geoschem.run.slurm`:
 
@@ -46,15 +48,22 @@ Save this code to a file named :file:`geoschem.run.slurm`:
     # SLURM_CPUS_PER_TASK ensures this matches the number you set with -c above
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
+    # NOTE: If the environment file does not max out the available
+    # stack memory for GEOS-Chem, you may uncomment these lines here:
+    #ulimit -s unlimited
+    #export OMP_STACKSIZE=500m
+
     # Run GEOS_Chem.  The "time" command will return CPU and wall times.
     # Stdout and stderr will be directed to the "GC.log" log file
     # (you can change the log file name below if you wish)
     srun -c $OMP_NUM_THREADS time -p ./gcclassic >> GC.log
 
-.. important:: If you forget to define :envvar:`OMP_NUM_THREADS` in
-	       your run script, then :program:`GEOS-Chem Classic` will
-	       execute using one core.  This can cause your
-	       simulations to take much longer than is necessary!
+.. important::
+
+   If you forget to define :envvar:`OMP_NUM_THREADS` in
+   your run script, then :program:`GEOS-Chem Classic` will
+   execute using one core.  This can cause your
+   simulations to take much longer than is necessary!
 
 Then make :file:`geoschem.run.slurm` executable:
 
@@ -66,7 +75,7 @@ For more information about how Slurm is set up on your particular
 cluster, ask your sysadmin.
 
 Submitting jobs with Slurm
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 To schedule a :program:`GEOS-Chem Classic` job with Slurm, use this
 command:
@@ -75,10 +84,11 @@ command:
 
    $ sbatch geoschem.run.slurm
 
-.. _run-script-for-the-amazon-web-services-cloud:
+.. _runscript-amazon:
 
+===========================================
 For Amazon Web Services EC2 cloud instances
--------------------------------------------
+===========================================
 
 When you log into an Amazon Web Services EC2 instance, you will
 receive an entire node with as many **vCPUs** as you have requested. A
@@ -90,7 +100,7 @@ has 2 cores).
 	 you can use then :command:`nproc` command.
 
 Run script for Amazon EC2
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 Save the code below to a file named :file:`geoschem.run.aws`:
 
@@ -114,6 +124,11 @@ Save the code below to a file named :file:`geoschem.run.aws`:
     # to specify the number of cores that GEOS-Chem should use.
     export OMP_NUM_THREADS=$(nproc)
 
+    # NOTE: If your `/.bashrc file does not max out the available
+    # stack memory for GEOS-Chem, you may uncomment these lines here:
+    #ulimit -s unlimited
+    #export OMP_STACKSIZE=500m
+
     # Run GEOS_Chem.  The "time" command will return CPU and wall times.
     # Stdout and stderr will be directed to the "GC.log" log file
     # (you can change the log file name below if you wish)
@@ -126,7 +141,7 @@ And then make the :file:`geoschem.run.aws` file executable:
    $ chmod 755 geoschem.run.aws
 
 Running jobs on AWS
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 When you are on an AWS EC2 instance, you own the entire node, so it is
 not necessary to use a scheduler.  You can run your GEOS-Chem job in

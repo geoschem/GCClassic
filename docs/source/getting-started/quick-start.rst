@@ -1,20 +1,34 @@
+.. _quick:
+
 ################
 Quickstart Guide
 ################
 
 This quickstart guide is for quick reference on how to download,
-build, and run :program:`GEOS-Chem Classic`. This guide assumes your
-environment satisfies GEOS-Chem Classic :ref:`hardware <req-hard>` and
-:ref:`software <req-soft>` requirements. This means you should load a
-:ref:`compute environment <env>` such that programs like
-:program:`cmake` are available before continuing. If you do not have
-some of the required software dependencies, you can find instructions
-for installing external dependencies in our Spack instructions.
+build, and run :program:`GEOS-Chem Classic`, which is the single-node
+instance of GEOS-Chem.
+
+.. tip::
+
+   Please also see our `GCHP Quickstart Guide
+   <https://gchp.readthedocs.io/en/stable/getting-started/quick-start.html>`_
+   if you would like to run GEOS-Chem across using more than one
+   computational node.
+
+This guide assumes that your environment satisfies GEOS-Chem Classic
+:ref:`hardware <req-hard>` and :ref:`software <req-soft>`
+requirements. This means you should load a :ref:`compute environment
+<env>` such that programs like :program:`cmake` are available before
+continuing. If you do not have some of the required software
+dependencies, you can find instructions for installing external
+dependencies in our Spack instructions.
 
 For simplicity we will also refer to :program:`GEOS-Chem Classic` as
 simply :program:`GEOS-Chem` on this page.  More detailed instructions
 on downloading, compiling, and running GEOS-Chem can be found in the
 User Guide elsewhere on this site.
+
+.. _quick_clone:
 
 ==========================
 1. Clone GEOS-Chem Classic
@@ -51,7 +65,7 @@ scanning the output for tag.
    these additional steps:
 
    .. code-block:: console
-		  
+
       $ git checkout tags/14.0.0                  # Points HEAD to the tag "14.0.0"
       $ git branch version_14.0.0                 # Creates a new branch at tag "14.0.0"
       $ git checkout version_14.0.0               # Checks out the version_14.0.0 branch
@@ -66,6 +80,8 @@ scanning the output for tag.
 
    If you have any unsaved changes, make sure you commit those to a
    branch prior to updating versions.
+
+.. _quick-rundir:
 
 =========================
 2. Create a run directory
@@ -106,6 +122,8 @@ the same pattern as the examples shown below.
    information to the `GEOS-Chem People and Projects web page
    <https://geoschem.github.io/people.html>`_.
 
+.. _quick-load:
+
 ========================
 3. Load your Environment
 ========================
@@ -129,6 +147,8 @@ run directory you can easily load your environment.
 .. code-block:: console
 
    $ source gcc.env
+
+.. _quick-cfg:
 
 =======================
 4. Configure your build
@@ -192,6 +212,8 @@ where the error happened and why.
 See the :ref:`GEOS-Chem documentation <compile-cmake>` for more
 information on configuration options.
 
+.. _quick-cmp-inst:
+
 ======================
 5. Compile and install
 ======================
@@ -230,6 +252,8 @@ files to your run directory.
 
 If you do not install the executable to your run directory you can always get the executable from the directory :command:`build/bin`.
 
+.. _quick-rundir:
+
 ===============================
 6. Configure your run directory
 ===============================
@@ -247,15 +271,12 @@ You should review these files before starting a simulation:
      (e.g. start and end time, which operations to turn on/off, etc.)
 
 - :ref:`HISTORY.rc <cfg-hist>`
-
    - Controls GEOS-Chem diagnostic settings.
 
 - :ref:`HEMCO_Diagn.rc <cfg-hco-diagn>`
-
    - Controls emissions diagnostic settings via `HEMCO <https://hemco.readthedocs.io>`_.
 
-- :ref:`HEMCO_Config.rc <cfg-hco-cfg>`.
-
+- :ref:`HEMCO_Config.rc <cfg-hco-cfg>`
    - Controls which emissions inventories and other non-emissions data
      will be read from disk (via `HEMCO <https://hemco.readthedocs.io>`_).
 
@@ -265,6 +286,8 @@ in your simulations.
 
 Once you are satisfied that your simulation settings are correct, you
 may proceed to run GEOS-Chem.
+
+.. _quick-run:
 
 ========================
 7. Run GEOS-Chem Classic

@@ -24,18 +24,18 @@ routine :code:`Get_GC_Restart` (located in
    # --- GEOS-Chem restart file ---
    #==============================================================================
    (((GC_RESTART
-   * SPC_           ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 SpeciesRst_?ALL?    $YYYY/$MM/$DD/$HH EFYO xyz 1 * - 1 1
-   * DELPDRY        ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Met_DELPDRY         $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
-   * KPP_HVALUE     ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_KPPHvalue      $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
-   * WETDEP_N       ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_WetDepNitrogen $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
-   * DRYDEP_N       ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_DryDepNitrogen $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
-   * SO2_AFTERCHEM  ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_SO2AfterChem   $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
-   * H2O2_AFTERCHEM ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_H2O2AfterChem  $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
-   * AEROH2O_SNA    ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_AeroH2OSNA     $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
-   * ORVCSESQ       ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_ORVCSESQ       $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
-   * JOH            ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_JOH            $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
-   * JNO2           ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_JNO2           $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
-   * STATE_PSC      ./GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_StatePSC       $YYYY/$MM/$DD/$HH EY   xyz count * - 1 1
+   * SPC_           ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 SpeciesRst_?ALL?    $YYYY/$MM/$DD/$HH EFYO xyz 1 * - 1 1
+   * DELPDRY        ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Met_DELPDRY         $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
+   * KPP_HVALUE     ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_KPPHvalue      $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
+   * WETDEP_N       ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_WetDepNitrogen $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
+   * DRYDEP_N       ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_DryDepNitrogen $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
+   * SO2_AFTERCHEM  ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_SO2AfterChem   $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
+   * H2O2_AFTERCHEM ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_H2O2AfterChem  $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
+   * AEROH2O_SNA    ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_AeroH2OSNA     $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
+   * ORVCSESQ       ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_ORVCSESQ       $YYYY/$MM/$DD/$HH EY   xyz 1 * - 1 1
+   * JOH            ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_JOH            $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
+   * JNO2           ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_JNO2           $YYYY/$MM/$DD/$HH EY   xy  1 * - 1 1
+   * STATE_PSC      ./Restarts/GEOSChem.Restart.$YYYY$MM$DD_$HH$MNz.nc4 Chem_StatePSC       $YYYY/$MM/$DD/$HH EY   xyz count * - 1 1
    )))GC_RESTART
 
 GEOS-Chem species (the :file:`SPC_` entry) use HEMCO time cycle flag
@@ -151,12 +151,10 @@ GEOS-Chem data paths, then a sample restart file will be copied to
 your run directory when you :ref:`generate a new GEOS-Chem classic run
 directory <rundir>`.
 
-Monthly GEOS-Chem restart files from the GEOS-Chem 13.0.0 10-year
+Monthly GEOS-Chem restart files from the GEOS-Chem 14.0.0 10-year
 benchmark may be found at
-`http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/13.0.0/GCClassic/restarts
-<http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/13.0.0/GCClassic/restarts>`_.
-We will also add restart files from the 14.0.0 10-year benchmark
-simulation shortly.
+`http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/14.0.0/GCClassic/restarts
+<http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/14.0.0/GCClassic/restarts>`_.
 
 .. attention::
 
@@ -186,10 +184,11 @@ corresponding to the restart file to more accurately capture seasonal
 variation. If you want to start your production run at a specific date,
 we recommend doing a spin up for the appropriate number of years plus
 the number of days needed to reach your ultimate start date. For
-example, if you want to do a production simulation starting on 12/1/13,
-you could spin up the model for one year using the initial GEOS-FP
-restart file dated 7/1/13 and then use the new restart file to spin up
-the model for five additional months, from 7/1/13 to 12/1/13.
+example, if you want to do a production simulation starting on
+2019/12/01, you could spin up the model for one year using the initial
+GEOS-FP restart file dated 2019/07/01 and then use the new restart
+file to spin up the model for five additional months, from 2019/07/01
+to 2019/12/01.
 
 See also this discussion on our Github page for further guidance:
 https://github.com/geoschem/geos-chem/discussions/911.
@@ -206,7 +205,7 @@ something like:
 
 .. code-block:: console
 
-   HEMCO: Opening ./GEOSChem.Restart.20190701_0000z.nc4
+   HEMCO: Opening ./Restarts/GEOSChem.Restart.20190701_0000z.nc4
         - Found all CN     met fields for 2011/01/01 00:00
         - Found all A1     met fields for 2019/07/01 00:30
         - Found all A3cld  met fields for 2019/07/01 01:30
@@ -214,10 +213,6 @@ something like:
         - Found all A3mstC met fields for 2019/07/01 01:30
         - Found all A3mstE met fields for 2019/07/01 01:30
         - Found all I3     met fields for 2019/07/01 00:00
-    Initialize TMPU1    from restart file
-    Initialize SPHU1    from restart file
-    Initialize PS1_WET  from restart file
-    Initialize PS1_DRY  from restart file
     Initialize DELP_DRY from restart file
         - Found all I3     met fields for 2019/07/01 03:00
    ===============================================================================

@@ -4,65 +4,77 @@
 Sample environment file for GNU 10.2.0 compilers
 ################################################
 
-Below is a sample environment file from the Harvard Cannon computer
-cluster.  This file will load software libraries built with the GNU
-10.2.0 compilers.
+Below is a sample environment file (based on an enviroment file for
+the Harvard Cannon computer cluster).  This file will load software
+libraries built with the GNU 10.2.0 compilers.
 
 Save the code below (with any appropriate modifications for your own
-computer system) to a file named :file:`~/gcclassic.gnu102.env`.
+computer system) to a file named :file:`~/gcclassic.gnu10.env`.
 
 .. code-block:: bash
 
-   # Echo message if we are in a interactive (terminal) session
-   if [[ $- = *i* ]] ; then
-     echo "Loading modules for GEOS-Chem, please wait ..."
-   fi
-
    #==============================================================================
-   # Modules (specific to Cannon @ Harvard)
+   # Load software packages (EDIT AS NEEDED)
    #==============================================================================
 
-   # Remove previously-loaded modules
+   # Unload all modules first
    module purge
 
-   # Load modules for GNU Compilers v10.2.0
-   module load git/2.17.0-fasrc01
-   module load gcc/10.2.0-fasrc01
-   module load openmpi/4.1.0-fasrc01
-   module load netcdf-fortran/4.5.3-fasrc03
-   module load flex/2.6.4-fasrc01
-   module load cmake/3.17.3-fasrc01
+   # Load modules
+   module load gcc/10.2.0-fasrc01             # gcc / g++ / gfortran
+   module load openmpi/4.1.0-fasrc01          # MPI
+   module load netcdf-c/4.8.0-fasrc01         # netcdf-c
+   module load netcdf-fortran/4.5.3-fasrc01   # netcdf-fortran
+   module load flex/2.6.4-fasrc01             # Flex lexer (needed for KPP)
+   module load cmake/3.25.2-fasrc01           # CMake (needed to compile)
 
    #==============================================================================
-   # Environment variables
+   # Environment variables and related settings
+   # (NOTE: Lmod will define <module>_HOME variables for each loaded module
    #==============================================================================
-
-   # Parallelization settings for GEOS-Chem Classic
-   export OMP_NUM_THREADS=8
-   export OMP_STACKSIZE=500m
 
    # Make all files world-readable by default
    umask 022
 
-   # Specify compilers
-   export CC=gcc
-   export CXX=g++
-   export FC=gfortran
+   # Set number of threads for OpenMP.  If running in a SLURM environment,
+   # use the number of requested cores.  Otherwise use 8 cores for OpenMP.
+   if [[ "x${SLURM_CPUS_PER_TASK}" == "x" ]]; then
+       export OMP_NUM_THREADS=8
+   else
+       export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
+   fi
 
-   # Netcdf variables for CMake
-   # NETCDF_HOME and NETCDF_FORTRAN_HOME are automatically
-   # defined by the "module load" commands on Cannon.
-   export NETCDF_C_ROOT=${NETCDF_HOME}
-   export NETCDF_FORTRAN_ROOT=${NETCDF_FORTRAN_HOME}
+   # Max out the stacksize memory limit
+   export OMP_STACKSIZE="500m"
 
-   # Set memory limits to max allowable
-   ulimit -c unlimited              # coredumpsize
-   ulimit -l unlimited              # memorylocked
-   ulimit -u 50000                  # maxproc
-   ulimit -v unlimited              # vmemoryuse
-   ulimit -s unlimited              # stacksize
+   # Compilers
+   export CC="gcc"
+   export CXX="g++"
+   export FC="gfortran"
+   export F77="${FC}"
 
-   # List modules loaded
+   # netCDF
+   if [[ "x${NETCDF_HOME}" == "x" ]]; then
+      export NETCDF_HOME="${NETCDF_C_HOME}"
+   fi
+   export NETCDF_C_ROOT="${NETCDF_HOME}"
+   export NETCDF_FORTRAN_ROOT="${NETCDF_FORTRAN_HOME}"
+
+   # KPP 3.0.0+
+   export KPP_FLEX_LIB_DIR="${FLEX_HOME}/lib64"
+
+   #==============================================================================
+   # Set limits
+   #==============================================================================
+
+   ulimit -c unlimited   # coredumpsize
+   ulimit -u 50000       # maxproc
+   ulimit -v unlimited   # vmemoryuse
+   ulimit -s unlimited   # stacksize
+
+   #==============================================================================
+   # Print information
+   #==============================================================================
    module list
 
 .. tip::
@@ -76,7 +88,7 @@ Then you can activate these seetings from the command line by typing:
 
 .. code-block:: console
 
-   $ . ~/gcclassic.gnu102.env
+   $ . ~/gcclassic.gnu10.env
 
 You may also place the above command within your :ref:`GEOS-Chem run script
 <run-script>`, which will be discussed in a subsequent chapter.

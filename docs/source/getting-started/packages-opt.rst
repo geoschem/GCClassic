@@ -19,7 +19,7 @@ horizontal plots from GEOS-Chem output. It also contains scripts to
 generate plots and tables from GEOS-Chem benchmark simulations.
 
 **Best way to install:**
-`With Conda (see gcpy.readthedocs.io) <https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html>`__
+`With Mamba or Conda (see gcpy.readthedocs.io) <https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html>`__
 
 .. _req-soft-gdb:
 
@@ -79,7 +79,9 @@ input files to Fortran-90 source code.  You will need to use
 that ship with GEOS-Chem.
 
 **Best way to install:**  `Clone from github.com/KineticPreProcessor/KPP
-<https://github.com/KineticPreProcessor/KPP>`_.
+<https://github.com/KineticPreProcessor/KPP>`_ and `build the the KPP
+executable from source
+<https://kpp.readthedocs.io/en/stable/getting_started/01_installation.html>`_.
 
 .. _req-soft-flex:
 

@@ -66,12 +66,6 @@ The :literal:`simulation` section contains general simulation options:
       You must :ref:`configure your build <compile-cmake>` with
       :literal:`-DMECH=carbon` in order to use this simulation.
 
-      .. attention::
-
-	 This simulation is still undergoing validation and testing.
-	 We therefore do not recommend using this simulation in the
-	 present version.
-
    .. option:: CH4
 
       `Methane simulation <http://wiki.geos-chem.org/CH4_simulation>`_.
@@ -1596,8 +1590,10 @@ CH4 analytical inversion options
 ---------------------------------
 
 The :literal:`ch4_simulation_options:analytical_inversion` section
-contains options for analytical inversions (cf. the
-`Integrated Methane Inversion <https://imi.readthedocs.io>`_).
+contains options for analytical inversions with the `Integrated
+Methane Inversion workflow (aka IMI) <https://imi.readthedocs.io>`_.
+The IMI will automatically modify several of these options based on
+the inversion parameters that you specify.
 
 .. code-block:: YAML
 
@@ -1609,45 +1605,68 @@ contains options for analytical inversions (cf. the
      # ... preceding sub-sections omitted ...
 
      analytical_inversion:
-       activate: true
+       activate: false
        emission_perturbation: 1.0
        state_vector_element_number: 0
        use_emission_scale_factor: false
        use_OH_scale_factors: false
+       perturb_OH_boundary_conditions: false
+       CH4_boundary_condition_ppb_increase_NSEW: [0.0, 0.0, 0.0, 0.0]
 
 .. option:: activate
 
    Activates (:literal:`true`) or deactivates (:literal:`false`) the
    analytical inversion.
 
-   Default value: :literal:`true`
+   Default value: :literal:`false`
 
-.. option:: activate
+.. option:: emission perturbation
 
-   Specifies a factor by which emissions at a grid box will be
-   perturbed.
+   Specifies a unitless factor by which emissions for this state
+   vector element will be perturbed.
 
-   Default value: :literal:`1.0`
+   Default value: :literal:`1.0` (no perturbation)
 
 .. option:: state_vector_element_number
 
-   Specifies the element of the state vector used for the inversion.
+   Specifies the element of the state vector corresponding to this
+   simulation.
 
    Default value: :literal:`0`
 
 .. option:: use_emission_scale_factor
 
-   Activates (:literal:`true`) or deactivates (:literal:`false`) scaling
-   methane emissions by a fixed factor.
+   Activates (:literal:`true`) or deactivates (:literal:`false`)
+   scaling methane emissions by a fixed factor.  This scale factor is
+   specified in the :ref:`HEMCO_Config.rc <cfg-hco-cfg>` file.
 
    Default value: :literal:`false`
 
-.. option:: use_emission_scale_factor
+.. option:: use_oh_scale_factors
 
-   Activates (:literal:`true`) or deactivates (:literal:`false`) scaling
-   OH by a fixed factor.
+   Activates (:literal:`true`) or deactivates (:literal:`false`)
+   perturbation of OH in analytical inversions of methane.  The OH
+   scale factors are specified in the :literal:`OH_SF` entry of
+   :ref:`HEMCO_Config.rc <cfg-hco-cfg>` file.
 
    Default value: :literal:`false`
+
+.. option:: perturb_CH4_boundary_conditions
+
+   Activates (:literal:`true`) or deactivatees (:literal:`false`)
+   perturbation of CH4 nested-grid boundary conditions in analytical
+   inversions.
+
+   Default value: :literal:`false`
+
+.. option:: CH4_boundary_condition_ppb_increase_NSEW
+
+   Specifies the perturbation amount (in ppbv) to apply to the north,
+   south, east and west CH4 nested-grid boundary conditions.  Used in
+   conjunction with the :option:`perturb_CH4_boundary_conditions`
+   option.
+
+   Default value: :literal:`[0.0, 0.0, 0.0, 0.0]` (no perturbation)
 
 .. _cfg-gc-yml-co2:
 

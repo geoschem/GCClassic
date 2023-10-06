@@ -30,11 +30,10 @@ successful:
 #. Your scheduler log file (e.g. :file:`slurm-xxxxx.out`, where
    :code:`xxxxx` is the job id) is free of errors.
 
-If your run stopped with an error, please the following resources:
+If your run stopped with an error, please see the following resources:
 
+- :ref:`errguide`
 - :ref:`debug-guide`
--  `Guide to GEOS-Chem error
-   messages <Guide_to_GEOS-Chem_error_messages>`__
 -  `Submitting GEOS-Chem support
-   requests <Submitting_GEOS-Chem_support_requests>`__
+   requests <https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html>`_
 

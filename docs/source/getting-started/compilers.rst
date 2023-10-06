@@ -24,6 +24,7 @@ these compilers.
 The GCST has tested :program:`GEOS-Chem Classic` with these versions
 (but others may work as well):
 
+- 23.0.0
 - 19.0.5.281
 - 19.0.4
 - 18.0.5
@@ -56,6 +57,7 @@ are running GEOS-Chem on the Amazon EC2 cloud environment.
 The GCST has tested :program:`GEOS-Chem Classic` with these versions
 (but others may work as well):
 
+- 12.2.0
 - 11.2.0
 - 11.1.0
 - 10.2.0

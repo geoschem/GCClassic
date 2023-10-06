@@ -27,6 +27,10 @@ Here is a sample run script for interactive use
    # Set the proper # of threads for OpenMP
    export OMP_NUM_THREADS=8
 
+   # Max out stack memory available to GEOS-Chem
+   ulimit -s unlimited
+   export OMP_STACKSIZE=500m
+
    # Run GEOS-Chem.  The "time" command will return CPU and wall times.
    # Stdout and stderr will be directed to the "GC.log" log file
    # (you can change the log file name below if you wish)
@@ -44,16 +48,16 @@ The modifications entail:
 #. Manually specifying the number of cores that you wish GEOS-Chem to
    use (:code:`export $OMP_NUM_THREADS=8`).
 
-.. note::
+   .. note::
 
-   If you are logged into an AWS cloud instance, you can add 
+      If you are logged into an AWS cloud instance, you can add
 
-   .. code-block:: bash
+      .. code-block:: bash
 
-      export OMP_NUM_THREADS=`ncpus`
+         export OMP_NUM_THREADS=`ncpus`
 
-   to the run script.  This will automatically set
-   :option:`OMP_NUM_THREADS` to the available number of cores.
+      to the run script.  This will automatically set
+      :option:`OMP_NUM_THREADS` to the available number of cores.
 
 To run GEOS-Chem interactively, type:
 
@@ -76,4 +80,4 @@ also send the same output to a log file.  Type:
 
 .. code-block:: console
 
-   $ ./geoschem.run | tee GC.log		
+   $ ./geoschem.run | tee GC.log
