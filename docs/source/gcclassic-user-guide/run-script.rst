@@ -10,7 +10,7 @@ Create a run script
 
 We recommend that you create a **run script** for your GEOS-Chem
 simulation.  This is a bash script containing the commands to run
-GEOS-Chem. 
+GEOS-Chem.
 
 A sample GEOS-Chem run script is provided for you in the GEOS-Chem
 Classic :ref:`run directory <rundir>`.  You can edit this
@@ -45,6 +45,10 @@ The :file:`geoschem.run` script looks like this:
    # Set the proper # of threads for OpenMP
    # SLURM_CPUS_PER_TASK ensures this matches the number you set with -c above
    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+   # Set the stacksize memory to the highest possible limit
+   ulimit -s unlimited
+   export OMP_STACKSIZE=500m
 
    # Run GEOS-Chem.  The "time" command will return CPU and wall times.
    # Stdout and stderr will be directed to the "GC.log" log file
@@ -111,6 +115,19 @@ Important commands in the run script are listed below:
    (in this example, we used :code:`#SBATCH -c 8`, which requests 8
    cores).
 
+.. option:: ulimit -s unlimited
+
+   Tells the bash shell to remove any restrictions on stack memory.
+   This is the place in GEOS-Chem's memory where temporary variables
+   (including :ref:`PRIVATE variables for OpenMP parallel loops
+   <parallel-guide-faq-private>`) get created.
+
+.. option:: export OMP_STACKSIZE=500m
+
+   Tells the GEOS_Chem executable to use as much memory as it needs
+   for allocating :ref:`PRIVATE variables in OpenMP parallel loops
+   <parallel-guide-faq-private>`.
+
 .. option:: srun -c $OMP_NUM_THREADS
 
    Tells SLURM to run the GEOS-Chem Classic executable using the
@@ -124,4 +141,3 @@ Important commands in the run script are listed below:
    The :code:`time -p` command will print the amount of time (both CPU
    time and wall time) that the simulation took to complete to the end
    of :file:`GC.log`.
-

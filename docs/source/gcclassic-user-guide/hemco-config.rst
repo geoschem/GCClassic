@@ -36,17 +36,19 @@ diagnostic options, and verbose output options.
 
    ROOT:                        /path/to/hemco/data/dir
    METDIR:                      /path/to/hemco/met/dir
-   Logfile:                     HEMCO.log
+   GCAPSCENARIO:                not_used
+   GCAPVERTRES:                 47
+   Logfile:                     *
    DiagnFile:                   HEMCO_Diagn.rc
    DiagnPrefix:                 ./OutputDir/HEMCO_diagnostics
-   DiagnFreq:                   Monthly
+   DiagnFreq:                   00000000 010000
    Wildcard:                    *
    Separator:                   /
    Unit tolerance:              1
    Negative values:             0
    Only unitless scale factors: false
-   Verbose:                     0
-   Warnings:                    1
+   Verbose:                     false
+   VerboseOnCores:              root       # Accepted values: root all
 
    ### END SECTION SETTINGS ###
 

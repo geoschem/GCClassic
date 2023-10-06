@@ -121,11 +121,11 @@ generate output similar to this:
      * HCOSA:        ON  **OFF**
      * LUO_WETDEP:   ON  **OFF**
    =================================================================
-   HEMCO 3.6.0
+   HEMCO A.B.C
    Current status: A.B.C
    =================================================================
    =================================================================
-   GEOS-Chem 14.1.0 (science codebase)
+   GEOS-Chem T.U.V (science codebase)
    Current status: T.U.V
    =================================================================
    Creating /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
@@ -135,6 +135,13 @@ generate output similar to this:
 
 Your CMake command's output contains important information about your
 build's configuration.
+
+.. note::
+
+   The text :literal:`X.Y.Z`, :literal:`A.B.C`, and :literal:`T.U.V`
+   refer to the version numbers (in `semantic versioning
+   <https://semver.org>`_ style) of the GCClassic, HEMCO, and
+   GEOS-Chem "science codebase" repositories.
 
 .. _compile-cmake-step4:
 

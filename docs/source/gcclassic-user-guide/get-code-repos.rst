@@ -12,7 +12,7 @@ modeling contexts, such as:
 - GEOS-Chem Classic
 - GCHP
 - GEOS-Chem within the NASA/GEOS ESM
-- GEOS-Chem within CESM (aka CESM-GC)
+- GEOS-Chem within CESM
 - GEOS-Chem withn WRF (aka WRF-GC)
 
 This repository setup also aligns with our `GEOS-Chem Vision
@@ -30,9 +30,10 @@ The GEOS-Chem "Science" Codebase repository
 <https://github.com/geoschem/geos-chem>`_) contains the GEOS-Chem
 science routines, plus:
 
-  - Scripts to create GEOS-Chem run directories
+  - Scripts to create GEOS-Chem run directories, plus template
+    configuration files for all simulations;
 
-  - Scripts to create GEOS-Chem integration tests
+  - Scripts to create GEOS-Chem integration tests;
 
   - Interfaces (i.e. the driver programs) for GEOS-Chem
     Classic, GCHP, etc.

@@ -1,68 +1,80 @@
 .. _env-files-intel19:
 
-##############################################
-Sample environment file for Intel 19 compilers
-##############################################
+################################################
+Sample environment file for Intel 2023 compilers
+################################################
 
-To load software libraries based on the Intel 19 compilers, we can
-start from our :ref:`GNU 10.2.0 environment file <env-files-gnu10>` and
-add the proper :command:`module load` commands for Intel 19.
+Below is a sample environment file (based on an enviroment file for
+the Harvard Cannon computer cluster).  This file will load software
+libraries built with the Intel 2023 compilers.
 
 Add the code below (with the appropriate modifications for your
-system) into a file named :file:`~/gcclassic.intel19.env`.
+system) into a file named :file:`~/gcclassic.intel23.env`.
 
 .. code-block:: bash
 
-   # Echo message if we are in a interactive (terminal) session
-   if [[ $- = *i* ]] ; then
-     echo "Loading modules for GEOS-Chem, please wait ..."
-   fi
-
    #==============================================================================
-   # Modules (specific to Cannon @ Harvard)
+   # Load software packages (EDIT AS NEEDED)
    #==============================================================================
 
-   # Remove previously-loaded modules
+   # Unload all modules first
    module purge
 
-   # Load modules for Intel compilers v19.0.4
-   module load git/2.17.0-fasrc01
-   module load intel/19.0.5-fasrc01
-   module load openmpi/4.0.1-fasrc01
-   module load netcdf-fortran/4.5.2-fasrc03
-   module load flex/2.6.4-fasrc01
-   module load cmake/3.17.3-fasrc01
+   # Load modules
+   module load intel/23.0.0-fasrc01           # icc / i++ / gfortran
+   module load intelmpi/2021.8.0-fasrc01      # MPI
+   module load netcdf-fortran/4.6.0-fasrc03   # netCDF-Fortran
+   module load flex/2.6.4-fasrc01             # Flex lexer (needed for KPP)
+   module load cmake/3.25.2-fasrc01           # CMake (needed to compile)
 
    #==============================================================================
-   # Environment variables
+   # Environment variables and related settings
+   # (NOTE: Lmod will define <module>_HOME variables for each loaded module
    #==============================================================================
-
-   # Parallelization settings for GEOS-Chem Classic
-   export OMP_NUM_THREADS=8
-   export OMP_STACKSIZE=500m
 
    # Make all files world-readable by default
    umask 022
 
-   # Specify compilers
-   export CC=icc
-   export CXX=icpc
-   export FC=ifort
+   # Set number of threads for OpenMP.  If running in a SLURM environment,
+   # use the number of requested cores.  Otherwise use 8 cores for OpenMP.
+   if [[ "x${SLURM_CPUS_PER_TASK}" == "x" ]]; then
+       export OMP_NUM_THREADS=8
+   else
+       export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
+   fi
 
-   # Netcdf variables for CMake
-   # NETCDF_HOME and NETCDF_FORTRAN_HOME are automatically
-   # defined by the "module load" commands on Cannon.
-   export NETCDF_C_ROOT=${NETCDF_HOME}
-   export NETCDF_FORTRAN_ROOT=${NETCDF_FORTRAN_HOME}
+   # Max out the stacksize memory limit
+   export OMP_STACKSIZE="500m"
 
-   # Set memory limits to max allowable
-   ulimit -c unlimited              # coredumpsize
-   ulimit -l unlimited              # memorylocked
-   ulimit -u 50000                  # maxproc
-   ulimit -v unlimited              # vmemoryuse
-   ulimit -s unlimited              # stacksize
+   # Compilers
+   export CC="icx"
+   export CXX="icx"
+   export FC="ifort"
+   export F77="${FC}"
 
-   # List modules loaded
+   # netCDF
+   if [[ "x${NETCDF_HOME}" == "x" ]]; then
+      export NETCDF_HOME="${NETCDF_C_HOME}"
+   fi
+   export NETCDF_C_ROOT="${NETCDF_HOME}"
+   export NETCDF_FORTRAN_ROOT="${NETCDF_FORTRAN_HOME}"
+
+   # KPP 3.0.0+
+   export KPP_FLEX_LIB_DIR="${FLEX_HOME}/lib64"
+
+   #==============================================================================
+   # Set limits
+   #==============================================================================
+
+   ulimit -c unlimited   # coredumpsize
+   ulimit -u 50000       # maxproc
+   ulimit -v unlimited   # vmemoryuse
+   ulimit -s unlimited   # stacksize
+
+   #==============================================================================
+   # Print information
+   #==============================================================================
+
    module list
 
 .. tip::
@@ -76,7 +88,7 @@ Then you can activate these settings from the command line by typing:
 
 .. code-block:: console
 
-   $ . ~/gcclassic.intel19.env
+   $ . ~/gcclassic.intel23.env
 
 You may also place the above command within your :ref:`GEOS-Chem run script
 <run-script>`, which will be discussed in a subsequent chapter.

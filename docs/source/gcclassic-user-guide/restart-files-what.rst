@@ -17,17 +17,13 @@ for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
 
    GEOS-Chem writes a restart file at the end of each simulation. This
    allows a long simulation to be split into several individal run
-   stages.
+   stages.   For example, the restart file that was created at 00:00
+   UTC on August 1, 2019 is named:
+   :file:`GEOSChem.Restart.20190801_0000z.nc4`.  The :file:`z`
+   character  indicates "Zulu" time (aka UTC).
 
-   For example, the restart file that was created at 00:00 UTC on
-   August 1, 2016 is named:
-   :file:`GEOSChem.Restart.20160801_0000z.nc4`.  The :file:`z`
-   indicates "Zulu" time, which is another name for UTC.
-
-   GEOS-Chem restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <rundir>` directory (and NOT
-   in the :option:`OutputDir/` folder, which is where History
-   diagnostic files are created.
+   GEOS-Chem restart files are created in the :option:`Restarts/`
+   folder of your :ref:`GEOS-Chem run directory <rundir>` directory.
 
 .. option:: HEMCO_restart.YYYYMMDDhhmm.nc
 
@@ -38,11 +34,8 @@ for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
    and biogenic emissions) in order to facilitate long  GEOS-Chem
    simulations with several run stages.
 
-   HEMCO restart files are created in the top-level of your
-   :ref:`GEOS-Chem run directory <rundir>` directory (and NOT
-   in the :option:`OutputDir/` folder, which is where History
-   diagnostic files are created.
-   HEMCO restart files are created in the top-level of your GEOS-Chem run
+   HEMCO restart files are created in the :option:`Restarts/`
+   folder of your :ref:`GEOS-Chem run directory <rundir>` directory.
 
 When you run a GEOS-Chem simulation, it will write new GEOS-Chem restart
 files at the intervals you specify in :ref:`HISTORY.rc <cfg-hist>`. New

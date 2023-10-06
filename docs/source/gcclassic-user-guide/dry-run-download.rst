@@ -13,13 +13,26 @@ several locations, which are described in the following sections.
 .. important::
 
    Before you use the :file:`download_data.py` script, make sure to
-   initialize a Conda environment by typing :command:`conda activate
-   ENV-NAME` (where ENV-NAME is the name of your environment).
+   initialize a Mamba or Conda environment with the relevant command
+   shown below:
+
+   .. code-block:: console
+
+      $ mamba activate ENV-NAME   # If using Mamba
+
+      $ conda activate ENV-NAME   # If using Conda
+
+   Here :literal:`ENV-NAME` is the name of your environment.
 
    Also make sure that you have installed the PyYAML module to your
    conda environment.  PyYAML will allow the :file:`download_data.py`
    script to read certain configurable settings from a YAML file in
    your run directory.
+
+   The Python environment for GCPy has all of the proper packages
+   that you need to download data from a dry-run simulation.  For
+   more information, please see `gcpy.readthedocs.io
+   <gcpy.readthedocs.io.>`_.
 
 .. _dry-run-data-download-portal:
 
@@ -94,7 +107,7 @@ To download data from the Rochester site, type:
     $ ./download data.py log.dryrun rochester
 
 .. _dry-run-download-data:
-    
+
 ======================================================
 Run the download_data.py script on the dryrun log file
 ======================================================
@@ -144,7 +157,7 @@ with dryrun ouptut, with :file:`.unique` appended. In our above
 example, we passed :file:`log.dryrun` to :file:`download_data.py`, so
 the "unique" log file will be named :file:`log.dryrun.unique`. This
 "unique" log file can be very useful for documentation purposes.
-    
+
 .. _dry-run-download-skip:
 
 =============================================

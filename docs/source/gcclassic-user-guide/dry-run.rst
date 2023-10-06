@@ -11,8 +11,6 @@ Download data with a dry-run simulation
    have already been downloaded and stored in a commmon directory on
    your system.  Ask your sysadmin or IT support staff.
 
-.. tip::
-
    Another way to download and manage GEOS-Chem input data is with the
    :ref:`bashdatacatalog <bashdatacatalog>` tool.
 
