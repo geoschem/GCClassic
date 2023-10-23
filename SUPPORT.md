@@ -13,14 +13,14 @@ We use GitHub issues to support user questions. To ask a question, **[open a new
 
 ## What type of support can I expect?
 
-We will be happy to assist you in resolving bugs and technical issues that arise when compiling or running GEOS-Chem.  User support and outreach is an important part of our  mission to support the [International GEOS-Chem User Community](https://geoschem.github.io/geos-chem-people-projects-map/).
+We will be happy to assist you in resolving bugs and technical issues that arise when compiling or running GEOS-Chem.  User support and outreach is an important part of our mission to support the [International GEOS-Chem User Community](https://geoschem.github.io/people.html). 
 
 Even though we can assist in several ways, we cannot possibly do everything.  We rely on GEOS-Chem users being resourceful and willing to try to resolve problems on their own to the greatest extent possible.
 
-If you have a science question rather than a technical question, you should contact the relevant [GEOS-Chem Working Group(s)](https://geos-chem.seas.harvard.edu/geos-working-groups) directly. But if you do not know whom to ask, you may open a new issue (See "Where can I ask for help" above) and we will be happy to direct your question to the appropriate person(s).
+If you have a science question rather than a technical question, you should contact the relevant [GEOS-Chem Working Group(s)](https://geoschem.github.io/working-groups.html) directly. But if you do not know whom to ask, you may open a new issue (See "Where can I ask for help" above) and we will be happy to direct your question to the appropriate person(s).
 
 ## How to submit changes
-Please see **[Contributing Guidelines](https://geos-chem.readthedocs.io/en/stable/reference/CONTRIBUTING.html)**.
+Please see **[Contributing Guidelines](https://geos-chem.readthedocs.io/en/stable/help-and-reference/CONTRIBUTING.html)**.
 
 ## How to request an enhancement
-Please see **[Contributing Guidelines](https://geos-chem.readthedocs.io/en/stable/reference/CONTRIBUTING.html)**.
+Please see **[Contributing Guidelines](https://geos-chem.readthedocs.io/en/stable/help-and-reference/CONTRIBUTING.html)**.
