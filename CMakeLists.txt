@@ -2,7 +2,7 @@
 
 cmake_minimum_required (VERSION 3.13)
 project (geos-chem-classic
-  VERSION 14.2.0
+  VERSION 14.2.2
   LANGUAGES Fortran
 )
 
@@ -68,7 +68,7 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
     CACHE STRING "GEOSChem compiler flags for build type RelWithdDebInfo with Intel compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
-    g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
+    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
     CACHE STRING "GEOSChem compiler flags for build type Debug with Intel compilers"
 )
 
