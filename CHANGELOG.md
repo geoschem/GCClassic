@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased 14.3.0] - TBD
 ### Changed
-- Updated GEOS-Chem submodule to 14.3.3
+- Updated GEOS-Chem submodule to 14.3.0
 
 ## [14.2.2] - 2023-10-23
 ### Changed
