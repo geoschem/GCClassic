@@ -6,6 +6,10 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased 14.3.0] - TBD
+### Changed
+- Updated GEOS-Chem submodule to 14.3.3
+
 ## [14.2.2] - 2023-10-23
 ### Changed
 - Updated GEOS-Chem submodule to 14.2.2
@@ -15,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `test` now points to `src/GEOS-Chem/test`
 - Updated GEOS-Chem submodule to 14.2.1
 - Updated HEMCO submodule to 3.7.1
-- Updated version numbers 
+- Updated version numbers
 - Updated version numbers in `CMakeLists.txt` and `docs/source/conf.py` to 14.2.0
 
 ## [14.2.0] - 2023-10-05
