@@ -14,7 +14,7 @@
 #\\
 #\\
 # !CALLING SEQUENCE:
-#  $ ./changeVersionNumbers.sh X.Y.Z        # X.Y.Z = HEMCO version number
+#  $ ./changeVersionNumbers.sh X.Y.Z        # X.Y.Z = GCClassic version number
 #EOP
 #------------------------------------------------------------------------------
 #BOC
