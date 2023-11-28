@@ -11,9 +11,7 @@ target_compile_definitions(HEMCOBuildProperties
         $<$<STREQUAL:${TOMAS_BINS},40>:TOMAS40>
         ""
 )
-if(${CLOUDJ})
-    add_subdirectory(Cloud-J EXCLUDE_FROM_ALL)
-endif()
+add_subdirectory(Cloud-J EXCLUDE_FROM_ALL)
 add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
 #-----------------------------------------------------------------------------

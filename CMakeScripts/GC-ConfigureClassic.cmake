@@ -203,16 +203,17 @@ function(configureGCClassic)
     endif()
 
     #-------------------------------------------------------------------------
-    # Use Cloud-J rather than Fast-J?
+    # Use Fast-JX rather than Cloud-J?
     #-------------------------------------------------------------------------
-    set(CLOUDJ "OFF" CACHE BOOL
-        "Switch to enable using Cloud-J"
+
+    set(FASTJX OFF CACHE BOOL
+        "Switch to use legacy FAST-JX in GEOS-Chem"
     )
-    gc_pretty_print(VARIABLE CLOUDJ IS_BOOLEAN)
-    if(${CLOUDJ})
+    gc_pretty_print(VARIABLE FASTJX IS_BOOLEAN)
+    if(${FASTJX})
         target_compile_definitions(GEOSChemBuildProperties
-	    INTERFACE CLOUDJ
-	)
+            INTERFACE FASTJX
+        )
     endif()
 
     #-------------------------------------------------------------------------
@@ -227,7 +228,7 @@ function(configureGCClassic)
     set(GTMM                    ${GTMM}                     PARENT_SCOPE)
     set(LUO_WETDEP              ${LUO_WETDEP}               PARENT_SCOPE)
     set(SANITIZE                ${SANITIZE}                 PARENT_SCOPE)
-    set(CLOUDJ                  ${CLOUDJ}                   PARENT_SCOPE)
+    set(FASTJX                  ${FASTJX}                   PARENT_SCOPE)
 
     #-------------------------------------------------------------------------
     # Export information about Git status
