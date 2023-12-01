@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated GEOS-Chem submodule to 14.3.0
 
+### Added
+- Added Cloud-J submodule which is the new default photolysis package used in GEOS-Chem
+- Added compile option FASTJX to use legacy FAST-JX photolysis in GEOS-Chem instead of Cloud-J
+
 ## [14.2.3] - 2023-12-01
 ### Added
 - Script `.release/changeVersionNumbers.sh` to change version numbers before a new GEOS-Chem Classic release
