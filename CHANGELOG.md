@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased 14.3.0] - TBD
 ### Changed
 - Updated GEOS-Chem submodule to 14.3.0
+- Updated HEMCO submodule to 3.6.0
 
 ## [14.2.3] - 2023-12-01
 ### Added
