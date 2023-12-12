@@ -203,6 +203,20 @@ function(configureGCClassic)
     endif()
 
     #-------------------------------------------------------------------------
+    # Use Fast-JX rather than Cloud-J?
+    #-------------------------------------------------------------------------
+
+    set(FASTJX OFF CACHE BOOL
+        "Switch to use legacy FAST-JX in GEOS-Chem"
+    )
+    gc_pretty_print(VARIABLE FASTJX IS_BOOLEAN)
+    if(${FASTJX})
+        target_compile_definitions(GEOSChemBuildProperties
+            INTERFACE FASTJX
+        )
+    endif()
+
+    #-------------------------------------------------------------------------
     # Export the following variables to GEOS-Chem directory's scope
     #-------------------------------------------------------------------------
     set(GCHP                    FALSE                       PARENT_SCOPE)
@@ -214,6 +228,7 @@ function(configureGCClassic)
     set(GTMM                    ${GTMM}                     PARENT_SCOPE)
     set(LUO_WETDEP              ${LUO_WETDEP}               PARENT_SCOPE)
     set(SANITIZE                ${SANITIZE}                 PARENT_SCOPE)
+    set(FASTJX                  ${FASTJX}                   PARENT_SCOPE)
 
     #-------------------------------------------------------------------------
     # Export information about Git status

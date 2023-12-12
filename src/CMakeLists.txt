@@ -1,7 +1,7 @@
 # src/CMakeLists.txt
 
 #-----------------------------------------------------------------------------
-# Tell CMake to look for code in HEMCO and GEOS-Chem directory trees
+# Tell CMake to look for code in HEMCO, Cloud-J and GEOS-Chem directory trees
 #-----------------------------------------------------------------------------
 add_subdirectory(HEMCO     EXCLUDE_FROM_ALL)
 target_compile_definitions(HEMCOBuildProperties
@@ -11,6 +11,7 @@ target_compile_definitions(HEMCOBuildProperties
         $<$<STREQUAL:${TOMAS_BINS},40>:TOMAS40>
         ""
 )
+add_subdirectory(Cloud-J EXCLUDE_FROM_ALL)
 add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
 #-----------------------------------------------------------------------------

@@ -233,6 +233,7 @@ endif()
 set(GCCLASSIC_WRAPPER TRUE)
 set(GC_EXTERNAL_CONFIG FALSE)
 set(HEMCO_EXTERNAL_CONFIG TRUE)
+set(CLOUDJ_EXTERNAL_CONFIG TRUE)
 
 #-----------------------------------------------------------------------------
 # Add the directory with source code
