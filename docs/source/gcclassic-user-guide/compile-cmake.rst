@@ -120,6 +120,7 @@ generate output similar to this:
      * GTMM:         ON  **OFF**
      * HCOSA:        ON  **OFF**
      * LUO_WETDEP:   ON  **OFF**
+     * FASTJX:       ON  **OFF**
    =================================================================
    HEMCO A.B.C
    Current status: A.B.C
@@ -345,6 +346,30 @@ options, unless you explicitly specify otherwise.
    .. option:: n
 
       Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
+      option)**
+
+.. option:: FASTJX
+
+   Configures GEOS-Chem to use the legacy FAST-JX v7.0 photolysis
+   mechanism instead of its successor Cloud-J.
+
+   .. note::
+
+      We recommend using FAST-JX for the mercury simulation
+      instead of Cloud-J. Further work is needed to make the
+      mercury simulation compatible with Cloud-J. Once that work
+      is completed the legacy FAST-JX option will be deleted from
+      the model.
+
+   Accepted values are:
+
+   .. option:: y
+
+      Uses the legacy FAST-JX v7.0 photolysis scheme rather than Cloud-J.
+
+   .. option:: n
+
+      Uses the Cloud-J photolyis scheme rather than legacy FAST-JX. **(Default
       option)**
 
 .. option:: SANITIZE

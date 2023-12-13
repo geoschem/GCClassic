@@ -737,6 +737,7 @@ Photolysis
        activate: true
        input_directories:
          fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
+	 cloudj_input_dir: /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2023-05/
        overhead_O3:
          use_online_O3_from_model: true
          use_column_O3_from_met: true
@@ -750,11 +751,8 @@ Photolysis
 
      # ... following sub-sections omitted ...
 
-The :literal:`operation:photolysis` section contains settings for
-`photolysis
-<http://wiki.geos-chem.org/FAST-JX_v7.0_photolysis_mechanism>`_.
-
-This section only applies to :option:`fullchem` and :option:`Hg` simultions.
+The :literal:`operation:photolysis` section contains settings for photolysis.
+This section only applies to fullchem, Hg, and aerosol-only simulations.
 
 .. option:: activate
 
@@ -765,7 +763,7 @@ This section only applies to :option:`fullchem` and :option:`Hg` simultions.
 
       You should always keep photolysis turned on in your
       simulations.  Disabling photolysis should only be done when
-      debugging or testing new photolysis schemes (such as Cloud-J).
+      debugging.
 
 .. option:: input_directories
 
@@ -774,7 +772,15 @@ This section only applies to :option:`fullchem` and :option:`Hg` simultions.
 
    .. option:: fastjx_input_dir
 
-      Specifies the path to the FAST_JX configuration files containing
+      Specifies the path to the legacy FAST_JX configuration files containing
+      information about species cross sections and quantum yields. Note that
+      FAST-JX is off by default and Cloud-J is used instead. You can use
+      legacy FAST-JX instead of Cloud-J by configuring with -DFASTJX=y during
+      build.
+
+   .. option:: cloudj_input_dir
+
+      Specifies the path to the Cloud-J configuration files containing
       information about species cross sections and quantum yields.
 
 .. option:: overhead_O3
@@ -785,8 +791,7 @@ This section only applies to :option:`fullchem` and :option:`Hg` simultions.
    .. option:: use_online_O3_from_model
 
       Activates (:literal:`true`) or deactivates (:literal:`false`) using
-      online O3 from GEOS-Chem in the extinction calculations for
-      FAST-JX photolysis.
+      online O3 from GEOS-Chem in the extinction calculations for photolysis.
 
       Recommended value: :literal:`true`
 
@@ -876,9 +881,8 @@ This section only applies to :option:`fullchem` simultions.
    (in `YAML sequence format
    <https://www.tutorialspoint.com/yaml/yaml_sequence_styles.htm>`_)
    Up to three wavelengths can be selected.  The specified wavelengths
-   are  used for the `FAST-JX photolysis mechanism
-   <http://wiki.geos-chem.org/FAST-JX_v7.0_photolysis_mechanism>`_
-   regardless of whether the RRTMG radiative transfer model is used.
+   are used for the photolysis mechanism (either legacy FAST-JX or
+   Cloud-J) regardless of whether the RRTMG radiative transfer model is used.
 
 .. option:: longwave_fluxes
 

@@ -54,6 +54,7 @@ You will get output similar to this:
    -DGTMM="OFF"
    -DHCOSA="OFF"
    -DLUO_WETDEP="OFF"
+   -DFASTJX="OFF"
 
 Here you can see the compiler flags that were used as well as the
 options that were selected.
