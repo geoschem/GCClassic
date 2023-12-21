@@ -81,6 +81,7 @@ modifications to GEOS-Chem Classic source code.
    geos-chem-shared-docs/supplemental-guides/coards-guide.rst
    geos-chem-shared-docs/supplemental-guides/species-guide.rst
    geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
+   supplemental-guides/nested-grid-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
