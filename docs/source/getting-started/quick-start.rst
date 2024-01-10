@@ -81,7 +81,7 @@ scanning the output for tag.
    If you have any unsaved changes, make sure you commit those to a
    branch prior to updating versions.
 
-.. _quick-rundir:
+.. _quick-rundir-create:
 
 =========================
 2. Create a run directory
@@ -252,7 +252,7 @@ files to your run directory.
 
 If you do not install the executable to your run directory you can always get the executable from the directory :command:`build/bin`.
 
-.. _quick-rundir:
+.. _quick-rundir-conf:
 
 ===============================
 6. Configure your run directory

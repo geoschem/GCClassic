@@ -78,7 +78,7 @@ BoundaryConditions collection section in the :ref:`cfg-hist` file.
    boundary condition is archived should be a little larger than the
    nested-grid simulation window.
 
-   .. console:: none
+   .. code-block:: none
 
       #==============================================================================
       # %%%%% THE BoundaryConditions COLLECTION %%%%%
