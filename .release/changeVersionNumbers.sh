@@ -91,6 +91,7 @@ function main() {
     files=(                          \
         "CHANGELOG.md"               \
         "src/GEOS-Chem/CHANGELOG.md" \
+        "src/GEOS-Chem/KPP/fullchem/CHANGELOG_fullchem.md" \
     )
 
     # Replace version numbers in files
