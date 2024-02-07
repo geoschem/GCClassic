@@ -16,10 +16,13 @@ Photolysis and chemistry configuration files
 Photolysis configuration files
 ==============================
 
-These are found in the ``ExtData/CHEM_INPUTS/FAST_JX/`` directory
-structure. Please see `Input files for FAST-JX
-v7.0 <FAST-JX_v7.0_photolysis_mechanism#Input_files_for_FAST-JX_v7.0>`__
-for details.
+These are found in the ``ExtData/CHEM_INPUTS/CLOUD-J/`` directory
+structure. Cloud-J is used by default in GEOS-Chem compute photolysis
+rates. If using legacy FAST-JX instead then configuration files are located
+in the ``ExtData/CHEM_INPUTS/FAST-JX/`` directory. See the configuration
+file ``geoschem_config.yml`` for which subdirectory within these folders
+you are configured to use. See the README in the data directory for information
+about these files.
 
 .. _cfg-phot-chem-chem:
 

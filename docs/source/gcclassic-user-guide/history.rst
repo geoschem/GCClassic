@@ -227,8 +227,7 @@ Legend
    - :literal:`?WET?`: Only the wet-deposited species
    - :literal:`?PRD?`: Only chemical production species or families
    - :literal:`?DUSTBIN?`: Only the dust bin number
-   - :literal:`?PHOTOBIN?` Number of a given wavelength bin for
-     FAST-JX photolysis
+   - :literal:`?PHOTOBIN?` Number of a given wavelength bin for photolysis
 
    To include fields from the :code:`State_Chm` object in collection
    :literal:`<collection-name>`, precede the field name with

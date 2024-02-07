@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - Added Cloud-J submodule which is the new default photolysis package used in GEOS-Chem
 - Added compile option FASTJX to use legacy FAST-JX photolysis in GEOS-Chem instead of Cloud-J
+- Added ReadTheDocs documentation for nested-grid simulations
 
 ## [14.2.3] - 2023-12-01
 ### Added

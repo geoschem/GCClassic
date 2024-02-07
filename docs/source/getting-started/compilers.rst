@@ -69,5 +69,4 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 - 7.1.0
 - 6.2.0
 
-**Best way to install:**  :ref:`With Spack
-<build-libraries-with-spack>`.
+**Best way to install:**  :ref:`With Spack <spackguide>`.

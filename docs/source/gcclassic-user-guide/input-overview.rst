@@ -87,7 +87,7 @@ Chemistry input data
 
 Chemistry input data includes:
 
-- Quantum yields and cross sections for :program:`FAST-JX` photolysis
+- Quantum yields and cross sections for photolysis using either ``Cloud-J`` or legacy ``FAST-JX``
 - Climatology data for :program:`Linoz`
 - Boundary conditions for :program:`UCX` stratospheric chemistry routines
 
