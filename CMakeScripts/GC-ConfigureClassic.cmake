@@ -50,19 +50,6 @@ function(configureGCClassic)
     gc_pretty_print(VARIABLE MECH OPTIONS "fullchem" "carbon" "Hg" "custom")
 
     #-------------------------------------------------------------------------
-    # Turn on bpch diagnostics?
-    #-------------------------------------------------------------------------
-    set(BPCH_DIAG "OFF" CACHE BOOL 
-        "Switch to enable GEOS-Chem's bpch diagnostics"
-    )
-    gc_pretty_print(VARIABLE BPCH_DIAG IS_BOOLEAN)
-    if(${BPCH_DIAG})
-        target_compile_definitions(GEOSChemBuildProperties
-	    INTERFACE BPCH_DIAG
-	)
-    endif()
-
-    #-------------------------------------------------------------------------
     # Set USE_REAL8 as cache variable so as to not override existing definition
     # See https://github.com/geoschem/geos-chem/issues/43.
     #-------------------------------------------------------------------------
