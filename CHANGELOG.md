@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased] -- TBD
 ### Removed
-- `BPCH_DIAG` configuration option
+- `BPCH_DIAG` configuration option and related ReadTheDocs documentation
 
 ## [14.3.0] - 2024-02-07
 ### Changed
