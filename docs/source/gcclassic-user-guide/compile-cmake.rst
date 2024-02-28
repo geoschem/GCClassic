@@ -109,7 +109,6 @@ generate output similar to this:
    -- Found OpenMP: TRUE (found version "4.5")
    -- General settings:
      * MECH:         **fullchem**  carbon  Hg  custom
-     * BPCH_DIAG:    **ON**  OFF
      * USE_REAL8:    **ON**  OFF
      * SANITIZE:     ON  **OFF**
    -- Components:
@@ -275,26 +274,6 @@ options, unless you explicitly specify otherwise.
    .. option:: 40
 
       Use 40 size-resolved bins with TOMAS simulations.
-
-.. option:: BPCH_DIAG
-
-   Toggles the legacy binary punch diagnostics on.
-
-   .. attention::
-
-      This option is deprecated and will be removed soon.  Most
-      binary-punch format diagnostics have been replaced by
-      :ref:`netCDF-based History diagnostics <history-diagnostics>`.
-
-   Accepted values are:
-
-   .. option:: y
-
-      Activate legacy binary-punch diagnostics.
-
-   .. option:: n
-
-      Deactivate legacy binary-punch diagnostics. **(Default option)**
 
 .. option:: APM
 
