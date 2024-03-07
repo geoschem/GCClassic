@@ -1,0 +1,33 @@
+name: gcclassic-compile-tests
+
+on: [pull_request, push]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  gnu:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+    env:
+      CXX: g++
+      CC: gcc
+      FC: gfortran
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y libnetcdf-dev netcdf-bin libnetcdff-dev
+
+      - name: Compile-only tests
+        run: |
+          git submodule update --init --recursive
+          cd test/integration/GCClassic
+          ./integrationTest.sh -d /test -s none -e ~/.bashrc
