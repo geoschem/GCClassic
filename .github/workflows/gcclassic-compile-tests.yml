@@ -30,4 +30,4 @@ jobs:
         run: |
           git submodule update --init --recursive
           cd test/integration/GCClassic
-          ./integrationTest.sh -d /test -s none -e ~/.bashrc
+          ./integrationTest.sh -d /GCC_it -t compile
