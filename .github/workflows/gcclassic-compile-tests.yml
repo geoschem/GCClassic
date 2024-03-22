@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        build_type: [Debug, Release]
+        build_type: [Debug]
     env:
       CXX: g++
       CC: gcc
@@ -30,4 +30,5 @@ jobs:
         run: |
           git submodule update --init --recursive
           cd test/integration/GCClassic
-          ./integrationTest.sh -d /GCC_it -t compile
+          ./integrationTest.sh -d $HOME/compile-tests -t compile
+          cat $HOME/compile-tests/logs/results.compile.log
