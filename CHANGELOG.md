@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 - Now use short submodule names (i.e. without the full path) in `.gitmodules`
+- Remove obsolete CH4 menu options from config file documentation
 
 ## [14.3.0] - 2024-02-07
 ### Changed
