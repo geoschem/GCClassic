@@ -1688,57 +1688,9 @@ for activating sources of :math:`CO_2`:
    CO2_simulation_options:
 
      sources:
-       fossil_fuel_emissions: true
-       ocean_exchange: true
-       balanced_biosphere_exchange: true
-       net_terrestrial_exchange: true
-       ship_emissions: true
-       aviation_emissions: true
        3D_chemical_oxidation_source: true
 
      # ... following sub-sections omitted ...
-
-.. option:: fossil_fuel_emissions
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   using :math:`CO_2` fossil fuel emissions as computed by HEMCO.
-
-   Default value: :literal:`true`
-
-.. option:: ocean_exchange
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   :math:`CO_2` ocean-air exchange.
-
-   Default value: :literal:`true`
-
-.. option:: balanced_biosphere_exchange
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   :math:`CO_2` balanced-biosphere exchange.
-
-   Default value: :literal:`true`
-
-.. option:: net_terrestrial_exchange
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   :math:`CO_2` net terrestrial exchange.
-
-   Default value: :literal:`true`
-
-.. option:: ship_emissions
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`) :math:`CO_2`
-   ship emissions as computed by HEMCO.
-
-   Default value: :literal:`true`
-
-.. option:: aviation_emissions
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`) :math:`CO_2`
-   aviation emissions as computed by HEMCO.
-
-   Default value: :literal:`true`
 
 .. option:: 3D_chemical_oxidation_source
 
@@ -1772,18 +1724,8 @@ for activating tagged :math:`CO_2` species:
      # ... preceding sub-sections omitted ...
 
      tagged_species:
-       save_fossil_fuel_in_background: false
        tag_bio_and_ocean_CO2: false
        tag_land_fossil_fuel_CO2:
-       tag_global_ship_CO2: false
-       tag_global_aircraft_CO2: false
-
-.. option:: save_fossil_fuel_in_background
-
-   Activates (:code:`true`) or deactivates (:literal:`false`) saving the
-   :math:`CO_2` background.
-
-   Default value: :literal:`false`
 
 .. option:: tag_bio_and_ocean_CO2
 
