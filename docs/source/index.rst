@@ -77,6 +77,7 @@ modifications to GEOS-Chem Classic source code.
    geos-chem-shared-docs/supplemental-guides/error-guide.rst
    geos-chem-shared-docs/supplemental-guides/debug-guide.rst
    geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
+   geos-chem-shared-docs/supplemental-guides/history-diag-guide.rst
    geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
    geos-chem-shared-docs/supplemental-guides/coards-guide.rst
    geos-chem-shared-docs/supplemental-guides/species-guide.rst
@@ -94,3 +95,4 @@ modifications to GEOS-Chem Classic source code.
    help-and-reference/CONTRIBUTING.md
    help-and-reference/SUPPORT.md
    geos-chem-shared-docs/editing_these_docs.rst
+s
