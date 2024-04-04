@@ -1,6 +1,6 @@
 [submodule "src/GEOS-Chem"]
 	path = src/GEOS-Chem
-	url = https://github.com/geoschem/geos-chem.git
+	url = https://github.com/hannahnesser/geos-chem.git
 [submodule "src/HEMCO"]
 	path = src/HEMCO
 	url = https://github.com/geoschem/hemco.git
