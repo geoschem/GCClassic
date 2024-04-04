@@ -1609,51 +1609,8 @@ the inversion parameters that you specify.
      # ... preceding sub-sections omitted ...
 
      analytical_inversion:
-       activate: false
-       emission_perturbation: 1.0
-       state_vector_element_number: 0
-       use_emission_scale_factor: false
-       use_OH_scale_factors: false
        perturb_OH_boundary_conditions: false
        CH4_boundary_condition_ppb_increase_NSEW: [0.0, 0.0, 0.0, 0.0]
-
-.. option:: activate
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`) the
-   analytical inversion.
-
-   Default value: :literal:`false`
-
-.. option:: emission perturbation
-
-   Specifies a unitless factor by which emissions for this state
-   vector element will be perturbed.
-
-   Default value: :literal:`1.0` (no perturbation)
-
-.. option:: state_vector_element_number
-
-   Specifies the element of the state vector corresponding to this
-   simulation.
-
-   Default value: :literal:`0`
-
-.. option:: use_emission_scale_factor
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   scaling methane emissions by a fixed factor.  This scale factor is
-   specified in the :ref:`HEMCO_Config.rc <cfg-hco-cfg>` file.
-
-   Default value: :literal:`false`
-
-.. option:: use_oh_scale_factors
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   perturbation of OH in analytical inversions of methane.  The OH
-   scale factors are specified in the :literal:`OH_SF` entry of
-   :ref:`HEMCO_Config.rc <cfg-hco-cfg>` file.
-
-   Default value: :literal:`false`
 
 .. option:: perturb_CH4_boundary_conditions
 
