@@ -1725,7 +1725,7 @@ for activating tagged :math:`CO_2` species:
 
      tagged_species:
        tag_bio_and_ocean_CO2: false
-       tag_land_fossil_fuel_CO2:
+       tag_land_fossil_fuel_CO2: false
 
 .. option:: tag_bio_and_ocean_CO2
 
