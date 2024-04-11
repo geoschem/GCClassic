@@ -11,6 +11,7 @@ target_compile_definitions(HEMCOBuildProperties
         $<$<STREQUAL:${TOMAS_BINS},40>:TOMAS40>
         ""
 )
+add_subdirectory(HETP EXCLUDE_FROM_ALL)
 add_subdirectory(Cloud-J EXCLUDE_FROM_ALL)
 add_subdirectory(GEOS-Chem EXCLUDE_FROM_ALL)
 
