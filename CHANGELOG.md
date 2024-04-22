@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated GEOS-Chem submodule to 14.4.0
 - Updated HEMCO submodule to 3.9.0
+- Updated GitHub stalebot config file `stale.yml` with new issue/PR labels that should not go stale
 
 ### Removed
 - `BPCH_DIAG` configuration option and related ReadTheDocs documentation
