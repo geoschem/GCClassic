@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased] -- TBD
 ### Added
 - GitHub Action config file `.github/workflows/stale.yml`, which replaces StaleBot
+- Added git submodule HETP for aerosol thermodynamics in GEOS-Chem
+
 ### Changed
 - Updated GEOS-Chem submodule to 14.4.0
 - Updated HEMCO submodule to 3.9.0
