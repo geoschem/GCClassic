@@ -6,11 +6,28 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [Unreleased] -- TBD
+### Added
+- GitHub Action config file `.github/workflows/stale.yml`, which replaces StaleBot
+- Added git submodule HETP for aerosol thermodynamics in GEOS-Chem
+
+### Changed
+- Updated GEOS-Chem submodule to 14.4.0
+- Updated HEMCO submodule to 3.9.0
+
+### Removed
+- `BPCH_DIAG` configuration option and related ReadTheDocs documentation
+- GitHub config files `.github/stale.yml` and `.github/no-response.yml`
+- Unused CO2 and carbon simulation options from `geoschem_config.yml` (and from related code in `co2_mod.F90`).
+
 ## [14.3.1] - 2024-04-02
 ### Added
 - GitHub action to perform compile-only integration tests
 
 ### Changed
+- Updated GEOS-Chem submodule to 14.3.1
+- Updated HEMCO submodule to 3.8.1
 - Now use short submodule names (i.e. without the full path) in `.gitmodules`
 - Remove obsolete CH4 menu options from config file documentation
 
