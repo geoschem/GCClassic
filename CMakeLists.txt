@@ -2,7 +2,7 @@
 
 cmake_minimum_required (VERSION 3.13)
 project (geos-chem-classic
-  VERSION 14.3.0
+  VERSION 14.3.1
   LANGUAGES Fortran
 )
 
@@ -234,6 +234,7 @@ set(GCCLASSIC_WRAPPER TRUE)
 set(GC_EXTERNAL_CONFIG FALSE)
 set(HEMCO_EXTERNAL_CONFIG TRUE)
 set(CLOUDJ_EXTERNAL_CONFIG TRUE)
+set(HETP_EXTERNAL_CONFIG TRUE)
 
 #-----------------------------------------------------------------------------
 # Add the directory with source code

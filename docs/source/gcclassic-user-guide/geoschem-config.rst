@@ -1609,51 +1609,8 @@ the inversion parameters that you specify.
      # ... preceding sub-sections omitted ...
 
      analytical_inversion:
-       activate: false
-       emission_perturbation: 1.0
-       state_vector_element_number: 0
-       use_emission_scale_factor: false
-       use_OH_scale_factors: false
        perturb_OH_boundary_conditions: false
        CH4_boundary_condition_ppb_increase_NSEW: [0.0, 0.0, 0.0, 0.0]
-
-.. option:: activate
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`) the
-   analytical inversion.
-
-   Default value: :literal:`false`
-
-.. option:: emission perturbation
-
-   Specifies a unitless factor by which emissions for this state
-   vector element will be perturbed.
-
-   Default value: :literal:`1.0` (no perturbation)
-
-.. option:: state_vector_element_number
-
-   Specifies the element of the state vector corresponding to this
-   simulation.
-
-   Default value: :literal:`0`
-
-.. option:: use_emission_scale_factor
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   scaling methane emissions by a fixed factor.  This scale factor is
-   specified in the :ref:`HEMCO_Config.rc <cfg-hco-cfg>` file.
-
-   Default value: :literal:`false`
-
-.. option:: use_oh_scale_factors
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   perturbation of OH in analytical inversions of methane.  The OH
-   scale factors are specified in the :literal:`OH_SF` entry of
-   :ref:`HEMCO_Config.rc <cfg-hco-cfg>` file.
-
-   Default value: :literal:`false`
 
 .. option:: perturb_CH4_boundary_conditions
 
@@ -1688,57 +1645,9 @@ for activating sources of :math:`CO_2`:
    CO2_simulation_options:
 
      sources:
-       fossil_fuel_emissions: true
-       ocean_exchange: true
-       balanced_biosphere_exchange: true
-       net_terrestrial_exchange: true
-       ship_emissions: true
-       aviation_emissions: true
        3D_chemical_oxidation_source: true
 
      # ... following sub-sections omitted ...
-
-.. option:: fossil_fuel_emissions
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   using :math:`CO_2` fossil fuel emissions as computed by HEMCO.
-
-   Default value: :literal:`true`
-
-.. option:: ocean_exchange
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   :math:`CO_2` ocean-air exchange.
-
-   Default value: :literal:`true`
-
-.. option:: balanced_biosphere_exchange
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   :math:`CO_2` balanced-biosphere exchange.
-
-   Default value: :literal:`true`
-
-.. option:: net_terrestrial_exchange
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`)
-   :math:`CO_2` net terrestrial exchange.
-
-   Default value: :literal:`true`
-
-.. option:: ship_emissions
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`) :math:`CO_2`
-   ship emissions as computed by HEMCO.
-
-   Default value: :literal:`true`
-
-.. option:: aviation_emissions
-
-   Activates (:literal:`true`) or deactivates (:literal:`false`) :math:`CO_2`
-   aviation emissions as computed by HEMCO.
-
-   Default value: :literal:`true`
 
 .. option:: 3D_chemical_oxidation_source
 
@@ -1772,18 +1681,8 @@ for activating tagged :math:`CO_2` species:
      # ... preceding sub-sections omitted ...
 
      tagged_species:
-       save_fossil_fuel_in_background: false
        tag_bio_and_ocean_CO2: false
-       tag_land_fossil_fuel_CO2:
-       tag_global_ship_CO2: false
-       tag_global_aircraft_CO2: false
-
-.. option:: save_fossil_fuel_in_background
-
-   Activates (:code:`true`) or deactivates (:literal:`false`) saving the
-   :math:`CO_2` background.
-
-   Default value: :literal:`false`
+       tag_land_fossil_fuel_CO2: false
 
 .. option:: tag_bio_and_ocean_CO2
 
