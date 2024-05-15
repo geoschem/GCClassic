@@ -13,5 +13,11 @@ Current bug reports
 ===================
 
 These `bug reports (listed at GitHub)
-<https://github.com/geoschem/geos-chem/labels/category%3A%20Bug>`_
+<https://github.com/geoschem/geos-chem/issues?q=is%3Aissue+is%3Aopen+label%3A%22category%3A+Bug%22>`_
 are currently unresolved.  We hope to fix these in future releases.
+
+============================
+Bugs that have been resolved
+============================
+
+These `bug reports (listed at GitHub <https://github.com/geoschem/geos-chem/issues?q=+label%3A%22category%3A+Bug+Fix%22+>`_ have been resolved.

@@ -4,14 +4,14 @@
 
 .. _rundir-ex-ch4:
 
-##############################################
-Example: Create a CH4 simulation run directory
-##############################################
+#################################################
+Example: Create a carbon simulation run directory
+#################################################
 
 The process of creating run directories for the GEOS-Chem specialty
 simulations is similar to that as listed in Example 1 above. However,
 the number of menus that you need to select from will likely be fewer
-than for the full-chemistry simulation. We'll use the methane simulation
+than for the full-chemistry simulation. We'll use the carbon simulation
 as an example.
 
 #. Navigate to the :file:`GCClassic` superproject folder and get a
@@ -24,10 +24,11 @@ as an example.
 
    You should see this output:
 
-   .. code-block::
+   .. code-block:: console
 
-      AUTHORS.txt     CMakeScripts/    LICENSE.txt  SUPPORT.md  run@  test@
-      CMakeLists.txt  CONTRIBUTING.md  README.md    docs/       src/
+      $ ls -CF
+      AUTHORS.txt   CMakeLists.txt  CONTRIBUTING.md  LICENSE.txt  run@    src/        test@
+      CHANGELOG.md  CMakeScripts/   docs/            README.md    spack@  SUPPORT.md
 
    As mentioned previously, :file:`run@` is a symbolic link. It actually points
    to the to the :file:`src/GEOS-Chem/run/GCClassic` folder. This folder

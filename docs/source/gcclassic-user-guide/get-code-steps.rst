@@ -42,51 +42,70 @@ This command does the following:
 Once the :command:`git clone` process starts, you should see output
 similar to this:
 
-.. code-block:: text
+.. code-block:: console
 
+   $ git clone https://github.com/geoschem/GCClassic.git
    Cloning into 'GCClassic'...
-   remote: Enumerating objects: 2680, done.
-   remote: Counting objects: 100% (1146/1146), done.
-   remote: Compressing objects: 100% (312/312), done.
-   remote: Total 2680 (delta 858), reused 1099 (delta 825), pack-reused 1534
-   Receiving objects: 100% (2680/2680), 1.74 MiB | 13.16 MiB/s, done.
-   Resolving deltas: 100% (1411/1411), done.
-   Submodule 'docs/source/geos-chem-shared-docs' (https://github.com/geoschem/geos-chem-shared-docs.git) registered for path 'docs/source/geos-chem-shared-docs'
-   Submodule 'src/GEOS-Chem' (https://github.com/geoschem/geos-chem.git) registered for path 'src/GEOS-Chem'
-   Submodule 'src/HEMCO' (https://github.com/geoschem/hemco.git) registered for path 'src/HEMCO'
-   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/docs/source/geos-chem-shared-docs'...
-   remote: Enumerating objects: 148, done.
-   remote: Counting objects: 100% (148/148), done.
-   remote: Compressing objects: 100% (103/103), done.
-   remote: Total 148 (delta 77), reused 116 (delta 45), pack-reused 0
-   Receiving objects: 100% (148/148), 162.29 KiB | 2.90 MiB/s, done.
-   Resolving deltas: 100% (77/77), done.
-   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/src/GEOS-Chem'...
-   remote: Enumerating objects: 75574, done.
-   remote: Counting objects: 100% (410/410), done.
-   remote: Compressing objects: 100% (187/187), done.
-   remote: Total 75574 (delta 238), reused 364 (delta 216), pack-reused 75164
-   Receiving objects: 100% (75574/75574), 85.23 MiB | 30.59 MiB/s, done.
-   Resolving deltas: 100% (62327/62327), done.
-   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/src/HEMCO'...
-   remote: Enumerating objects: 3178, done.
-   remote: Counting objects: 100% (638/638), done.
-   remote: Compressing objects: 100% (195/195), done.
-   remote: Total 3178 (delta 476), reused 585 (delta 438), pack-reused 2540
-   Receiving objects: 100% (3178/3178), 2.24 MiB | 11.87 MiB/s, done.
-   Resolving deltas: 100% (2270/2270), done.
-   Submodule path 'docs/source/geos-chem-shared-docs': checked out '228507857eb53740dacf4055ce9268aa8ccf520d'
-   Submodule path 'src/GEOS-Chem': checked out '7e51a0674aba638c8322fef493ac9251095e8cf4'
-   Submodule path 'src/HEMCO': checked out '4a66bae48f33e6dc22cda5ec9d4633192dee2f73'
-   Submodule 'docs/source/geos-chem-shared-docs' (https://github.com/geoschem/geos-chem-shared-docs.git) registered for path 'src/HEMCO/docs/source/geos-chem-shared-docs'
-   Cloning into '/local/ryantosca/GC/rundirs/epa-kpp/tmp/GCClassic/src/HEMCO/docs/source/geos-chem-shared-docs'...
-   remote: Enumerating objects: 148, done.
-   remote: Counting objects: 100% (148/148), done.
-   remote: Compressing objects: 100% (103/103), done.
-   remote: Total 148 (delta 77), reused 116 (delta 45), pack-reused 0
-   Receiving objects: 100% (148/148), 162.29 KiB | 3.00 MiB/s, done.
-   Resolving deltas: 100% (77/77), done.
-   Submodule path 'src/HEMCO/docs/source/geos-chem-shared-docs': checked out '645401baa35b6a6838b9bedede309a01a311517f'
+   remote: Enumerating objects: 4410, done.
+   remote: Counting objects: 100% (1309/1309), done.
+   remote: Compressing objects: 100% (629/629), done.
+   remote: Total 4410 (delta 714), reused 1257 (delta 676), pack-reused 3101
+   Receiving objects: 100% (4410/4410), 2.10 MiB | 8.12 MiB/s, done.
+   Resolving deltas: 100% (2377/2377), done.
+   Submodule 'geos-chem-shared-docs' (https://github.com/geoschem/geos-chem-shared-docs.git) registered for path 'docs/source/geos-chem-shared-docs'
+   Submodule 'Cloud-J' (https://github.com/geoschem/Cloud-J.git) registered for path 'src/Cloud-J'
+   Submodule 'GEOS-Chem' (https://github.com/geoschem/geos-chem.git) registered for path 'src/GEOS-Chem'
+   Submodule 'HEMCO' (https://github.com/geoschem/hemco.git) registered for path 'src/HEMCO'
+   Submodule 'src/HETerogeneous-vectorized-or-Parallel' (https://github.com/geoschem/HETerogeneous-vectorized-or-Parallel) registered for path 'src/HETP'
+   Cloning into '/n/holyscratch01/jacob_lab/ryantosca/tests/14.4.0/release/example/docs/source/geos-chem-shared-docs'...
+   remote: Enumerating objects: 356, done.
+   remote: Counting objects: 100% (110/110), done.
+   remote: Compressing objects: 100% (71/71), done.
+   remote: Total 356 (delta 66), reused 79 (delta 39), pack-reused 246
+   Receiving objects: 100% (356/356), 524.63 KiB | 8.46 MiB/s, done.
+   Resolving deltas: 100% (205/205), done.
+   Cloning into '/n/holyscratch01/jacob_lab/ryantosca/tests/14.4.0/release/example/src/Cloud-J'...
+   remote: Enumerating objects: 488, done.
+   remote: Counting objects: 100% (149/149), done.
+   remote: Compressing objects: 100% (56/56), done.
+   remote: Total 488 (delta 104), reused 102 (delta 93), pack-reused 339
+   Receiving objects: 100% (488/488), 715.91 KiB | 9.67 MiB/s, done.
+   Resolving deltas: 100% (241/241), done.
+   Cloning into '/n/holyscratch01/jacob_lab/ryantosca/tests/14.4.0/release/example/src/GEOS-Chem'...
+   remote: Enumerating objects: 88738, done.
+   remote: Counting objects: 100% (8421/8421), done.
+   remote: Compressing objects: 100% (2309/2309), done.
+   remote: Total 88738 (delta 6574), reused 7742 (delta 6093), pack-reused 80317
+   Receiving objects: 100% (88738/88738), 98.58 MiB | 11.35 MiB/s, done.
+   Resolving deltas: 100% (72704/72704), done.
+   Cloning into '/n/holyscratch01/jacob_lab/ryantosca/tests/14.4.0/release/example/src/HEMCO'...
+   remote: Enumerating objects: 4752, done.
+   remote: Counting objects: 100% (1546/1546), done.
+   remote: Compressing objects: 100% (423/423), done.
+   remote: Total 4752 (delta 1177), reused 1426 (delta 1117), pack-reused 3206
+   Receiving objects: 100% (4752/4752), 2.88 MiB | 21.06 MiB/s, done.
+   Resolving deltas: 100% (3458/3458), done.
+   Cloning into '/n/holyscratch01/jacob_lab/ryantosca/tests/14.4.0/release/example/src/HETP'...
+   remote: Enumerating objects: 97, done.
+   remote: Counting objects: 100% (97/97), done.
+   remote: Compressing objects: 100% (69/69), done.
+   remote: Total 97 (delta 37), reused 68 (delta 21), pack-reused 0
+   Receiving objects: 100% (97/97), 81.51 KiB | 937.00 KiB/s, done.
+   Resolving deltas: 100% (37/37), done.
+   Submodule path 'docs/source/geos-chem-shared-docs': checked out '285d5904561a34d7c7941681a4fed19a68e1201f'
+   Submodule path 'src/Cloud-J': checked out '3162ea8baa9ab69c3b8473270abc0188ad54501b'
+   Submodule path 'src/GEOS-Chem': checked out 'c4c4c146ed9cd6bb8af42f080b766a0a0119b4a5'
+   Submodule path 'src/HEMCO': checked out 'fddcae53f73327e0da7f0a505b4d07a53dd0930b'
+   Submodule 'geos-chem-shared-docs' (https://github.com/geoschem/geos-chem-shared-docs.git) registered for path 'src/HEMCO/docs/source/geos-chem-shared-docs'
+   Cloning into '/n/holyscratch01/jacob_lab/ryantosca/tests/14.4.0/release/example/src/HEMCO/docs/source/geos-chem-shared-docs'...
+   remote: Enumerating objects: 356, done.
+   remote: Counting objects: 100% (110/110), done.
+   remote: Compressing objects: 100% (71/71), done.
+   remote: Total 356 (delta 66), reused 79 (delta 39), pack-reused 246
+   Receiving objects: 100% (356/356), 524.63 KiB | 8.33 MiB/s, done.
+   Resolving deltas: 100% (205/205), done.
+   Submodule path 'src/HEMCO/docs/source/geos-chem-shared-docs': checked out '4bb2b11e35953a8b0a8e1aec9161479bf0fc6bb6'
+   Submodule path 'src/HETP': checked out '2a99b24625ed26cf87ae88697ddd6cf8bbdec812'
 
 When the :command:`git clone` process has finished, navigate into the
 :file:`GCClassic` folder and get a directory listing:
@@ -98,18 +117,27 @@ When the :command:`git clone` process has finished, navigate into the
 
 and you will see output similar to this:
 
-.. code-block:: text
+.. code-block:: console
 
-   src/CMakeLists.txt  src/gc_classic_version.H@  src/main.F90@
+   $ ls -CF src/*
+   src/CMakeLists.txt
+
+   src/Cloud-J:
+   AUTHORS.txt   CMakeLists.txt  CONTRIBUTING.md  LICENSE    src/        tables/
+   CHANGELOG.md  CMakeScripts/   docs/            README.md  SUPPORT.md  tools/
 
    src/GEOS-Chem:
-   APM/            CMakeScripts/  GeosUtil/  History/     lib/         ObsPack/   run/
-   AUTHORS.txt     doc/           GTMM/      Interfaces/  LICENSE.txt  PKUCPL/
-   bin/            GeosCore/      Headers/   ISORROPIA/   mod/         README.md
-   CMakeLists.txt  GeosRad/       help/      KPP/         NcdfUtil/    REVISIONS
+   APM/          CMakeLists.txt  GeosRad/   Headers/     KPP/         ObsPack/   run/
+   AUTHORS.txt   CMakeScripts/   GeosUtil/  History/     LICENSE.txt  PKUCPL/    test/
+   CHANGELOG.md  GeosCore/       GTMM/      Interfaces/  NcdfUtil/    README.md
 
    src/HEMCO:
-   AUTHORS.txt  CMakeLists.txt  CMakeScripts/  LICENSE.txt  README.md  run/  src/
+   AUTHORS.txt   CMakeLists.txt  CONTRIBUTING.md  LICENSE.txt  run/    src/
+   CHANGELOG.md  CMakeScripts/   docs/            README.md    spack@  SUPPORT.md
+
+   src/HETP:
+   CHANGELOG.md  CMakeLists.txt  CMakeScripts/  LICENSE  README.md  src/
+
 
 This confirms that the :file:`GCClassic/src/GEOS-Chem` and
 :file:`GCClassic/src/HEMCO` folders have been populated with source

@@ -270,7 +270,7 @@ You should review these files before starting a simulation:
    - Controls several frequently-updated simulation settings
      (e.g. start and end time, which operations to turn on/off, etc.)
 
-- :ref:`HISTORY.rc <cfg-hist>`
+- :ref:`HISTORY.rc <histguide-configfile>`
    - Controls GEOS-Chem diagnostic settings.
 
 - :ref:`HEMCO_Diagn.rc <cfg-hco-diagn>`

@@ -2,28 +2,31 @@
 
    <br/>
 
-.. _rundir-ex-fullchem:
+.. _rundir-ex-ch4:
 
-#########################################################
-Example: Create a full-chemistry simulation run directory
-#########################################################
+#######################################################
+Example: Create a carbon gases simulation run directory
+#######################################################
 
-Let us walk through the process of creating a run directory for a global
-GEOS-Chem full-chemistry simulation.
+The process of creating run directories for the GEOS-Chem specialty
+simulations is similar to that as listed in Example 1 above. However,
+the number of menus that you need to select from will likely be fewer
+than for the full-chemistry simulation. We'll use the carbon gases
+simulation as an example.
 
-#. Navigate to the GCClassic superproject folder and get a directory
-   listing:
+#. Navigate to the :file:`GCClassic` superproject folder and get a
+   directory listing:
 
    .. code-block:: console
 
       $ cd /path/to/your/GCClassic
       $ ls -CF
-      AUTHORS.txt     CMakeScripts/    LICENSE.txt  SUPPORT.md  run@  test@
-      CMakeLists.txt  CONTRIBUTING.md  README.md    docs/       src/
+      AUTHORS.txt   CMakeLists.txt  CONTRIBUTING.md  LICENSE.txt  run@    src/        test@
+      CHANGELOG.md  CMakeScripts/   docs/            README.md    spack@  SUPPORT.md
 
-   As mentioned previously, :file:`run@` is a symbolic link. It actually
-   points to the to the :file:`src/GEOS-Chem/run/GCClassic` folder. This
-   folder contains several scripts and template files for run directory
+   As mentioned previously, :file:`run@` is a symbolic link. It actually points
+   to the to the :file:`src/GEOS-Chem/run/GCClassic` folder. This folder
+   contains several scripts and template files for run directory
    creation. |br|
    |br|
 
@@ -43,7 +46,7 @@ GEOS-Chem full-chemistry simulation.
    The script we are interested in is :file:`createRunDir.sh`. |br|
    |br|
 
-#. Run the :file:`createRunDir.sh` script. Type:
+#. Run the :command:`createRunDir.sh` script.. Type:
 
    .. code-block:: console
 
@@ -77,8 +80,8 @@ GEOS-Chem full-chemistry simulation.
         12. Carbon
       >>>
 
-   To create a run directory for the full-chemistry simulation, type
-   :command:`1` followed by the :command:`ENTER` key.
+   To select the GEOS-Chem carbon gases specialty simulation, type
+   :command:`12` followed by :command:`ENTER`.
 
    .. tip::
 
@@ -87,36 +90,31 @@ GEOS-Chem full-chemistry simulation.
 
    |br|
 
-#. You will then be asked to specify any additional options for the
-   full-chemistry simulation (such as adding the RRTMG radiative
-   transfer model, APM or TOMAS microphysics, etc.)
+
+#. You will be asked if you wish to set up a carbon simulation
+   with all species (CH4, CO, CO2, OCS), or with just one of these
+   species:
 
    .. code-block:: console
 
       -----------------------------------------------------------
-      Choose additional simulation option:
+      Do you wish to use a single advected species?
       -----------------------------------------------------------
-        1. Standard
-        2. Benchmark
-        3. Complex SOA
-        4. Marine POA
-        5. Acid uptake on dust
-        6. TOMAS
-        7. APM
-        8. RRTMG
+        1. Use all species
+        2. Use CH4 only
+        3. Use CO2 only
+        4. Use CO only
+        5. Use OCS only
       >>>
 
-   For the standard full-chemistry simulation, type :command:`1`
-   followed by :command:`ENTER`.
-
-   To add an option to the full-chemistry simulation, type a number
-   between :command:`2` and :command:`8` and press
-   :command:`ENTER`. |br|
+   Let's pick the carbon simulation with all species.  Type
+   :command:`1` followed by :command:`ENTER`. |br|
    |br|
 
+
 #. You will then be asked to specify the meteorology type for the
-   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_, `MERRA-2
-   <http://wiki-geos-chem.org/MERRA-2>`_), or GCAP 2.0).
+   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_,  `MERRA-2
+   <http://wiki-geos-chem.org/MERRA-2>`_), or GCAP 2.0):
 
    .. attention::
 
@@ -135,8 +133,8 @@ GEOS-Chem full-chemistry simulation.
         4. GISS ModelE2.1 (GCAP 2.0)
       >>>
 
-   You should use the recommended option (MERRA-2) if possible. Type
-   :command:`1` followed by :command:`ENTER`. |br|
+   To accept the recommended meteorology (MERRA-2), type :command:`1`
+   followed by :command:`ENTER`. |br|
    |br|
 
 #. The next menu will prompt you for the horizontal resolution that
@@ -155,8 +153,8 @@ GEOS-Chem full-chemistry simulation.
    If you wish to set up a global simulation, type either
    :command:`1` or :command:`2` followed by :command:`ENTER`.
 
-   If you wish to set up a nested-grid simulation, type :command:`3`
-   and hit :command:`ENTER`. Then you will be followed by a
+   If you wish to set up a nested-grid simulation, type
+   :command:`3` and hit :command:`ENTER`. Then you will be followed by a
    nested-grid menu:
 
    .. code-block:: console
@@ -171,7 +169,7 @@ GEOS-Chem full-chemistry simulation.
         5. Custom
       >>>
 
-   Select your preferred horizontal domain, followed by
+   Type the number of your preferred option and then hit
    :command:`ENTER`. |br|
    |br|
 
@@ -186,12 +184,12 @@ GEOS-Chem full-chemistry simulation.
         2. 47 (reduced)
       >>>
 
-   For most simulations, you will want to use :command:`72`
-   levels. Type  :command:`1` followed by :command:`ENTER`.
+   For most simulations, you will want to use 72 levels. Type
+   :command:`1` followed by :command:`ENTER`.
 
    For some memory-intensive simulations (such as nested-grid
-   simulations), you can use 47 levels. Type :command:`2` followed
-   by :command:`ENTER`. |br|
+   simulations), you can use 47 levels. Type :command:`2` followed by
+   :command:`ENTER`. |br|
    |br|
 
 #. You will then be prompted for the folder in which you wish to
@@ -204,13 +202,14 @@ GEOS-Chem full-chemistry simulation.
       -----------------------------------------------------------
       >>>
 
-   You may enter an absolute path (e.g. :file:`$HOME/myusername/my-run-dirs`
-   followed by :command:`ENTER)`.
+   You may enter an absolute path (e.g.
+   :file:`$HOME/myusername/my-run-directories`) followed by
+   :command:`ENTER`.
 
-   You may also enter a relative path (e.g :file:`~/my-run-dirs`
-   followed by :command:`ENTER`). In this case you will see that the
-   :file:`./createRunDir.sh`  script will expand the path to an
-   absolute path. |br|
+   You may also enter a relative path (e.g.
+   :file:`~/my-run-directories`) followed by :command:`ENTER`). In
+   this case you will see that the :file:`./createRunDir.sh` script
+   will expand the path to an absolute path. |br|
    |br|
 
 
@@ -226,25 +225,24 @@ GEOS-Chem full-chemistry simulation.
       >>>
 
    You should use the default run directory name whenever possible. Type
-   :command:`ENTER` to select the default.  You will then see output
-   similar to this:
+   :command:`ENTER`. The script will display the following output:
 
    .. code-block:: console
 
-      -- Using default directory name gc_4x5_merra2_fullchem
+      -- Using default directory name gc_4x5_merra2_carbon
 
    or if you are creating a nested grid simulation:
 
    .. code-block:: console
 
-      -- Using default directory name gc_05x0625_merra2_fullchem
+      -- Using default directory name gc_05x0625_merra2_carbon
 
-   and then:
+   and then
 
    .. code-block:: console
 
       -- See rundir_vars.txt for summary of default run directory settings
-      -- This run directory has been set up to start on 20190701
+      -- This run directory has been set up to start on 20190101
       -- A restart file for this date has been copied to the Restarts subdirectory
       -- You may add more restart files using format GEOSChem.Restart.YYYYMMDD_HHmmz.nc4
       -- Change simulation start and end dates in configuration file geoschem_config.yml
@@ -260,19 +258,30 @@ GEOS-Chem full-chemistry simulation.
       -----------------------------------------------------------
       Do you want to track run directory changes with git? (y/n)
       -----------------------------------------------------------
+      >>>
 
    Type :command:`y` and then :command:`ENTER`. Then you will be able to
    track changes that you make to GEOS-Chem configuration files with
    Git. This can be a lifesaver when debugging---you can revert to an
    earlier state and then start fresh.
 
-   You will then see this output:
+   You will then see output similar to this:
 
    .. code-block:: console
 
-      Initialized empty Git repository in /path/to/gc_4x5_merra2_fullchem/.git/
+      Initialized empty Git repository in /path/to/gc_4x5_merra2_carbon/.git/
 
-      Created /path/to/gc_4x5_merra2_fullchem
+      Created /path/to/gc_4x5_merra2_carbon
 
-   You may now navigate to this directory and start editing the :ref:`GEOS-Chem
-   configuration files <cfg>`.
+      >>>> REMINDER: You must compile with options: -DMECH=carbon <<<<
+
+   You can navigate to this directory and then start editing the
+   :ref:`GEOS-Chem configuration files <cfg>`.
+
+   Because the carbon simulation requires special compilation
+   instructions, a reminder will be displayed with the proper command
+   to use during the configuration step. |br|
+   |br|
+
+The procedure to set up run directories for other GEOS-Chem Classic
+simulations is similar to that shown above.

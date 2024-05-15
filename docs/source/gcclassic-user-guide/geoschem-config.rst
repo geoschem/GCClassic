@@ -736,16 +736,16 @@ Photolysis
      photolysis:
        activate: true
        input_directories:
-         fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
-	 cloudj_input_dir: /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2023-05/
+         fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2024-05/
+         cloudj_input_dir: /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2023-05/
        overhead_O3:
          use_online_O3_from_model: true
          use_column_O3_from_met: true
          use_TOMS_SBUV_O3: false
        photolyze_nitrate_aerosol:
          activate: true
-         NITs_Jscale_JHNO3: 0.0
-         NIT_Jscale_JHNO2: 0.0
+         NITs_Jscale: 100.0
+         NIT_Jscale: 100.0
          percent_channel_A_HONO: 66.667
          percent_channel_B_NO2: 33.333
 

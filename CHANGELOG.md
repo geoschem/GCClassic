@@ -33,7 +33,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated HEMCO submodule to 3.8.1
 - Now use short submodule names (i.e. without the full path) in `.gitmodules`
 - Remove obsolete CH4 menu options from config file documentation
->>>>>>> dev/14.4.0
 
 ## [14.3.0] - 2024-02-07
 ### Changed
