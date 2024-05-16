@@ -17,6 +17,16 @@ that are **Unix-like**.  This includes all flavors of Linux
 (e.g. Ubuntu, Fedora, Red-Hat, Rocky Linux, Alma Linux, etc) and BSD
 Unix (including MacOS X, which is a BSD derivative).
 
+.. attention::
+
+   While it is possible to run a Linux instance on a PC with the
+   `Windows Subsystem for Linux
+   <https://learn.microsoft.com/en-us/windows/wsl/about>`_, we have
+   found that PCs typically lack the memory and disk space to run most
+   GEOS-Chem simulations.  We therefore recommend using a
+   computational cluster or the :ref:`Amazon cloud
+   <req-hard-system-cloud>` instead.
+
 If your institution has computational resources (e.g. a shared
 computer cluster with many cores, sufficient :ref:`disk storage
 <req-hard-disk>` and :ref:`memory <req-hard-mem>`),  then you can run

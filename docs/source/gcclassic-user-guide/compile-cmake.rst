@@ -1,3 +1,7 @@
+.. |br| raw:: html
+
+   <br/>
+
 .. _compile-cmake:
 
 ####################
@@ -142,11 +146,12 @@ build's configuration.
    The text :literal:`X.Y.Z`, :literal:`A.B.C`, :literal:`D.E.F.`,
    and :literal:`G`
    refer to the version numbers (in `semantic versioning
-   <https://semver.org>`_ style) of the GCClassic, HEMCO, HETP,
-   and Cloud-J repositories.
+   <https://semver.org>`_ style) of the :ref:`get-code-repos-gcclassic`,
+   :ref:`get-code-repos-hemco`, :ref:`get-code-repos-other-hetp`, and
+   :ref:`get-code-repos-other-cloudj` repositories, respectively.
 
-   The GEOS-Chem "science codebase" repository and GCClassic
-   repository wrapper share the same version number :literal:`X.Y.Z`.
+   The :ref:`get-code-repos-gc-sci` and GCClassic repositories share
+   the same version number :literal:`X.Y.Z`.
 
 
 .. _compile-cmake-step4:
@@ -341,7 +346,8 @@ options, unless you explicitly specify otherwise.
 .. option:: FASTJX
 
    Configures GEOS-Chem to use the legacy FAST-JX v7.0 photolysis
-   mechanism instead of its successor Cloud-J.
+   mechanism instead of its successor
+   :ref:`get-code-repos-other-cloudj`.
 
    .. note::
 
@@ -411,64 +417,73 @@ Understand CMake output
 =======================
 
 As you can see from the example CMake output listed above, GEOS-Chem
-Classic contains code from 3 independent repositories:
+Classic contains code from the various repositories:
 
-1. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`_:
+#. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`_:
 
-.. code-block:: none
+   .. code-block:: none
 
-   =================================================================
-   GCClassic X.Y.Z (superproject wrapper)
-   Current status: X.Y.Z
-   =================================================================
+      =================================================================
+      GCClassic X.Y.Z (superproject wrapper)
+      Current status: X.Y.Z
+      =================================================================
 
-where :literal:`X.Y.Z` specifies  the GEOS-Chem Classic "major",
-"minor", and "patch" version numbers.
+   where :literal:`X.Y.Z` specifies  the GEOS-Chem Classic "major",
+   "minor", and "patch" version numbers.
 
-.. note::
+   .. note::
 
    If you are cloning GEOS-Chem Classic between official releases, you
    may the see :code:`Current status` reported like this:
 
    .. code-block:: console
-
+		      
       X.Y.Z-alpha.n-C-gabcd1234.dirty  or
 
       X.Y.Z.rc.n-C.gabcd1234.dirty
 
-   We will explain these formats below.
+   We will explain these formats below. |br|
+   |br|
+   
+#. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
 
-2. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
+   .. code-block:: none
+   
+      =================================================================
+      HEMCO A.B.C
+      Current status: A.B.C
+      =================================================================
+   
+   where :literal:`A.B.C` specifies the HEMCO "major", "minor", and
+   "patch" version numbers. The HEMCO version number differs from
+   GEOS-Chem because it is kept in a separate repository, and is
+   considered a separate package. |br|
+   |br|
 
-.. code-block:: none
+#. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
 
-   =================================================================
-   HEMCO A.B.C
-   Current status: A.B.C
-   =================================================================
+   .. code-block:: none
+   
+      =================================================================
+      GEOS-Chem X.Y.Z (science codebase)
+      Current status: X.Y.Z
+      =================================================================
+   
+   The GEOS-Chem science codebase and GEOS-Chem Classic wrapper will
+   always share the same version number.
+   
+   During the build configuration stage, CMake will display the **version
+   number** (e.g. :literal:`X.Y.Z`) as well as the **current status of the Git
+   repository** (e.g. :literal:`TAG-C-gabcd1234.dirty`) for GCClassic,
+   GEOS-Chem, and HEMCO. |br|
+   |br|
 
-where :literal:`A.B.C` specifies the HEMCO "major", "minor", and
-"patch" version numbers. The HEMCO version number differs from
-GEOS-Chem because it is kept in a separate repository, and is
-considered a separate package.
+#. Similar messages will be displayed for the
+   :ref:`get-code-repos-other-cloudj` and
+   :ref:`get-code-repos-other-hetp` repositories. |br|
+   |br|
 
-3. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
-
-.. code-block:: none
-
-   =================================================================
-   GEOS-Chem X.Y.Z (science codebase)
-   Current status: X.Y.Z
-   =================================================================
-
-The GEOS-Chem science codebase and GEOS-Chem Classic wrapper will
-always share the same version number.
-
-During the build configuration stage, CMake will display the **version
-number** (e.g. :literal:`X.Y.Z`) as well as the **current status of the Git
-repository** (e.g. :literal:`TAG-C-gabcd1234.dirty`) for GCClassic,
-GEOS-Chem, and HEMCO.
-
+   
 Let's take the Git repository status of GCClassic as our example. The
 status string uses the same format as the :command:`git describe
 --tags` command, namely:
@@ -514,3 +529,4 @@ where
 
 Under each header are printed the various :ref:`options that have been
 selected <cfg>`.
+

@@ -240,8 +240,6 @@ GEOS-Chem restart files are now saved via the History component. A
 **Restart collection** has been defined in `HISTORY.rc <history>`_ and
 fields saved out to the restart file can be modified in that file.
 
-For more information, please see our documentation about the `Restart
-collection in GEOS-Chem History diagnostics
-<http://wiki.geos-chem.org/History_collections_for_species_concentrations#The_Restart_collection>`_.
-This documentation is currently on the GEOS-Chem wiki, but will be
-ported to ReadTheDocs in the near future.
+For more information, please see our documentation about the
+:ref:`Restart collection <histguide-restart>` in our
+:ref:`histguide` supplemental guide.

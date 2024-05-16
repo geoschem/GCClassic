@@ -31,7 +31,7 @@ files <cfg>`:
 .. option:: geoschem_config.yml
 
    #. :option:`start_date`: Set the start date and time for your simulation.
-   #. :option:`end_date`: Setthe end date and time for your simulation.
+   #. :option:`end_date`: Set the end date and time for your simulation.
    #. :option:`met_field`: Check if the meteorology setting 
       (:option:`GEOS-FP`, :option:`MERRA2`, :option:`GCAP2`) is
       correct for your simulation.
@@ -40,9 +40,9 @@ files <cfg>`:
 
 .. option:: HISTORY.rc
 
-   #. Set the frequency and duration for the :ref:`HISTORY diagnostic
-      <history-diagnostics>` collections to be consistent with the
-      settings in   :option:`geoschem_config.yml`.
+   #. Set the frequency and duration for each :ref:`diagnostic
+      collection <histguide-collections>` to be consistent with the
+      settings in :option:`geoschem_config.yml`.
 
 .. option:: HEMCO_Config.rc
 

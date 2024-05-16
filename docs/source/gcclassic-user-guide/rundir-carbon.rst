@@ -9,10 +9,10 @@ Example: Create a carbon gases simulation run directory
 #######################################################
 
 The process of creating run directories for the GEOS-Chem specialty
-simulations is similar to that as listed in Example 1 above. However,
-the number of menus that you need to select from will likely be fewer
-than for the full-chemistry simulation. We'll use the carbon gases
-simulation as an example.
+simulations is similar to that of the :ref:`previous example
+<rundir-ex-fullchem>`. But the number of menus that you need to select
+from will likely be fewer than for the full-chemistry
+simulation. We'll use the carbon gases simulation as an example.
 
 #. Navigate to the :file:`GCClassic` superproject folder and get a
    directory listing:

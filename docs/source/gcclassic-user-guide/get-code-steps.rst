@@ -22,9 +22,16 @@ This command does the following:
 
 #. Clones the :ref:`GCClassic <get-code-repos-gcclassic>` repo from
    GitHub to a local folder named :file:`GCClassic`;
-#. Clones the :ref:`GEOS-Chem Science Codebase <get-code-repos-gc>`
-   repo from GitHub to :file:`GCClassic/src/GEOS-Chem`; and
-#. Clones the :ref:`HEMCO <get-code-repos-hemco>` repo from GitHub to :file:`GCClassic/src/HEMCO`.
+#. Clones the :ref:`get-code-repos-gc`
+   repo from GitHub to :file:`GCClassic/src/GEOS-Chem`;
+#. Clones the :ref:`get-code-repos-hemco` repo from GitHub to
+   :file:`GCClassic/src/HEMCO`;
+#. Clones the :ref:`get-code-repos-other-cloudj` repo from GitHub to
+   :file:`GCClassic/src/Cloud-J`;
+#. Clones the :ref:`get-code-repos-other-hetp` repo from GitHub to
+   :file:`GCClassic/src/HETP`; and
+#. Clones the :ref:`get-code-repos-other-docs` from GitHub to
+   :file:`GCClassic/docs/source/geos-chem-shared-docs`.
 
 .. tip::
 
@@ -114,12 +121,6 @@ When the :command:`git clone` process has finished, navigate into the
 
    $ cd GCClassic
    $ ls -CF src/*
-
-and you will see output similar to this:
-
-.. code-block:: console
-
-   $ ls -CF src/*
    src/CMakeLists.txt
 
    src/Cloud-J:
@@ -141,8 +142,7 @@ and you will see output similar to this:
 
 This confirms that the :file:`GCClassic/src/GEOS-Chem` and
 :file:`GCClassic/src/HEMCO` folders have been populated with source
-code from the :ref:`GEOS-Chem Science Codebase <get-code-repos-gc>`
-and :ref:`HEMCO <get-code-repos-hemco>` GitHub repositories.
+code from the GitHub repositories listed above.
 
 .. tip::
 
@@ -214,16 +214,17 @@ modifications to the GEOS-Chem science codebase.  Type:
    $ git branch feature/my-git-updates
    $ git checkout feature/my-git-updates
 
+Instead of :file:`feature/my-git-updates`, you may choose a name that reflects
+the nature of your updates (e.g. :file:`feature/new_reactions`, etc.).
+
 .. note::
 
-   This naming convention adheres to the
-   `Github Flow <https://guides.github.com/introduction/flow/>`_
+   This naming convention adheres to the `Github Flow
+   <https://guides.github.com/introduction/flow/>`_
    conventions (i.e. new feature branches start with
    :file:`feature/`, bug fix branches start with :file:`bugfix/`, etc.
 
-Instead of :file:`feature/my-git-updates`, you may choose a name that reflects
-the nature of your updates (e.g. :file:`feature/new_reactions`, etc.)  If
-you now type:
+If you now type:
 
 .. code-block:: console
 
