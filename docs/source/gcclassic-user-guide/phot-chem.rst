@@ -16,13 +16,21 @@ Photolysis and chemistry configuration files
 Photolysis configuration files
 ==============================
 
-These are found in the ``ExtData/CHEM_INPUTS/CLOUD-J/`` directory
-structure. Cloud-J is used by default in GEOS-Chem compute photolysis
-rates. If using legacy FAST-JX instead then configuration files are located
-in the ``ExtData/CHEM_INPUTS/FAST-JX/`` directory. See the configuration
-file ``geoschem_config.yml`` for which subdirectory within these folders
-you are configured to use. See the README in the data directory for information
-about these files.
+Configuration files containing photolysis parameters (such as quantum
+yields, cross sections, branching ratios, etc.) may be found in
+subdirectories of  :file:`ExtData/CHEM_INPUTS/CLOUD-J/` and
+:file:`ExtData/CHEM_INPUTS/FAST-JX/`.  See the :ref:`cfg-gc-yml`
+file for the current file path specifications.
+
+GEOS-Chem versions 14.3.0 and later use the :program:`Cloud-J`
+photolysis scheme by default.  However, some aerosol properties
+(e.g. relative humidity dependence) are still stored in files located
+in the :file:`ExtData/CHEM_INPUTS/FAST_JX` directory tree.
+
+At present, the mercury (Hg) simulation still uses the legacy
+:program:`FAST-JX` photolysis scheme.  We look to the GEOS-Chem user
+community to take the lead on creating configuration files for
+:program:`Cloud-J`.
 
 .. _cfg-phot-chem-chem:
 

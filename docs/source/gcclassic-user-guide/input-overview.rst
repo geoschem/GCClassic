@@ -86,10 +86,10 @@ Initial conditions include:
 
 .. rubric:: Notes
 
-.. [#] We provide :file:`InitialConditions.csv` files (for each
+.. [1] We provide :file:`InitialConditions.csv` files (for each
        GEOS-Chem version since 13.0.0) at our `input-data-catalogs
        <https://github.com/geoschem/input-data-catalogs>`_ Github repository.
-.. [#] Direct link: `s3.amazonaws.com/gcgrid/index.html <https://s3.amazonaws.com/gcgrid/index.html>`_
+.. [2] Direct link: `s3.amazonaws.com/gcgrid/index.html <https://s3.amazonaws.com/gcgrid/index.html>`_
 
 .. _chem-inputs:
 
@@ -179,6 +179,8 @@ Emissions input data includes the following data:
        GEOS-Chem version since 13.0.0) at our `input-data-catalogs
        <https://github.com/geoschem/input-data-catalogs>`_ Github repository.
 
+.. _met:
+
 ======================
 Meteorology input data
 ======================
@@ -189,6 +191,12 @@ be driven by the following meteorology products:
 #. `MERRA-2 <http://wiki.geos-chem.org/MERRA-2>`_
 #. `GEOS-FP <http://wiki.geos-chem.org/GEOS_FP>`_
 #. `GCAP 2.0 <http://atmos.earth.rochester.edu/input/gc/ExtData>`_
+
+.. attention::
+
+   We are still evaluating GEOS-Chem with the new NASA GEOS-IT
+   meterorology product.  For the time being, you should use one of
+   the other meteorology options.
 
 .. table::
    :align: center
@@ -215,6 +223,6 @@ be driven by the following meteorology products:
 
 .. rubric:: Notes
 
-.. [4] We provide :file:`EmissionsInputs.csv` files (for each
+.. [5] We provide :file:`MeteorologyInputs.csv` files (for each
        GEOS-Chem version since 13.0.0) at our `input-data-catalogs
        <https://github.com/geoschem/input-data-catalogs>`_ Github repository.

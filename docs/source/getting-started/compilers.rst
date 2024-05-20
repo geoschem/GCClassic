@@ -83,5 +83,5 @@ other than :ref:`req-soft-compilers-intel` and
 :ref:`req-soft-compilers-gnu`. But when we interface
 GEOS-Chem into external models (such as `CESM 
 <https://wiki.seas.harvard.edu/geos-chem/index.php/GEOS-Chem_in_CESM>`_);
-we must ensure that GEOS-Chem is compatible with the compilers that
-are used to build the parent model.
+all compilers used by the parent model can successfully parse
+GEOS-Chem source code.

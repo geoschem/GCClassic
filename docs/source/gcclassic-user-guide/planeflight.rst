@@ -34,7 +34,7 @@ much longer.
 
 If the plane flight following diagnostic is switched on, then it will
 look for a new :file:`Planeflight.dat.YYYYMMDD` file each day. If a
-:file:`Planeflight.dat.YYYYMMDD`:` file is found for a given day, then
+:file:`Planeflight.dat.YYYYMMDD` file is found for a given day, then
 GEOS-Chem will save out diagnostic quantities along the flight
 track(s) to the :file:`plane.log.YYYYMMDD` file.
 

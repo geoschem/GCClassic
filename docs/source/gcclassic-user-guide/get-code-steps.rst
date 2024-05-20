@@ -22,7 +22,7 @@ This command does the following:
 
 #. Clones the :ref:`GCClassic <get-code-repos-gcclassic>` repo from
    GitHub to a local folder named :file:`GCClassic`;
-#. Clones the :ref:`get-code-repos-gc`
+#. Clones the :ref:`get-code-repos-gc-sci`
    repo from GitHub to :file:`GCClassic/src/GEOS-Chem`;
 #. Clones the :ref:`get-code-repos-hemco` repo from GitHub to
    :file:`GCClassic/src/HEMCO`;

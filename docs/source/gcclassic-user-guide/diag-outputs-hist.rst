@@ -4,7 +4,7 @@
 History diagnostics output
 ##########################
 
-:ref:`GEOS-Chem History diagnostics <histguide-configfile
+:ref:`GEOS-Chem History diagnostics <histguide>`
 are comprised of several **diagnostic collections**.  Each
 diagnostic collection contains a series of **diagnostic fields** that
 may be archived from a GEOS-Chem Classic simulation.

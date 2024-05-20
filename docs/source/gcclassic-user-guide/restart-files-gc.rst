@@ -72,7 +72,7 @@ to stop with an error if:
    listed in :ref:`geoschem_config.yml <cfg-gc-yml>`.
 
 When reading **other restart file fields** (time cycle flag:
-:code:`EY`). HEMCO will
+:code:`EY`). HEMCO will stop with an error if:
 
 #. The restart file is missing, or
 #. The date in the restart file (which is usually 20190101 or
@@ -134,9 +134,8 @@ Where can I get a restart file for my simulation?
 
 GEOS-Chem Classic :ref:`run directories <rundir>` are configured to
 use sample GEOS-Chem restart files in :program:`netCDF` format.  These
-files are available for download at:
-`http://geoschemdata.wustl.edu/ExtData/GEOSCHEM_RESTARTS/
-<http://geoschemdata.wustl.edu/ExtData/GEOSCHEM_RESTARTS/>`_.
+files are available for download at the :option:`WashU` and
+:option:`Amazon` data portals.
 
 .. tip::
 
