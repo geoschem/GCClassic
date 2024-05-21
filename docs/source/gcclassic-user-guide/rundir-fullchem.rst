@@ -65,16 +65,15 @@ GEOS-Chem full-chemistry simulation.
       -----------------------------------------------------------
          1. Full chemistry
          2. Aerosols only
-         3. CH4
-         4. CO2
-         5. Hg
-         6. POPs
-         7. Tagged CH4
-         8. Tagged CO
-         9. Tagged O3
-        10. TransportTracers
-        11. Trace metals
-        12. Carbon
+         3. Carbon
+         4. Hg
+         5. POPs
+         6. Tagged O3
+         7. Trace metals
+         8. TransportTracers
+         9. CH4
+        10. CO2
+        11. Tagged CO
       >>>
 
    To create a run directory for the full-chemistry simulation, type
