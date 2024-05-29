@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated GEOS-Chem submodule to 14.4.0
 - Updated HEMCO submodule to 3.9.0
+- Converted Github issue templates to issue forms using YAML definition files
 
 ### Removed
 - `BPCH_DIAG` configuration option and related ReadTheDocs documentation
