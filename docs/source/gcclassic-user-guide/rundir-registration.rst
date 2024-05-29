@@ -76,7 +76,7 @@ repsonses) is shown below.
    >>> type your response and hit ENTER
    Successful Registration
 
-If you do not see the  :literal:`Successful Registraton` message, check
+If you do not see the  :literal:`Successful Registration` message, check
 your internet connection and try again.  If the problem persists,
 `open a new Github issue
 <https://github.com/geoschem/geos-chem/issues/new/choose>`_.

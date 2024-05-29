@@ -38,9 +38,9 @@ for a GEOS-Chem simulation. GEOS-Chem simulations need two restart files.
    folder of your :ref:`GEOS-Chem run directory <rundir>` directory.
 
 When you run a GEOS-Chem simulation, it will write new GEOS-Chem restart
-files at the intervals you specify in :ref:`HISTORY.rc <cfg-hist>`. New
-HEMCO restart files are written with frequency configured in
-:ref:`HEMCO_Config.rc <cfg-hco-cfg>`.
+files at the intervals you specify in :ref:`HISTORY.rc
+<histguide-configfile>`. New HEMCO restart files are written with
+frequency configured in :ref:`HEMCO_Config.rc <cfg-hco-cfg>`.
 
 .. _restart-files-what-view:
 

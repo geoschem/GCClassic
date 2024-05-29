@@ -11,8 +11,8 @@ Download data with a dry-run simulation
    have already been downloaded and stored in a commmon directory on
    your system.  Ask your sysadmin or IT support staff.
 
-   Another way to download and manage GEOS-Chem input data is with the
-   :ref:`bashdatacatalog <bashdatacatalog>` tool.
+   Please see our :ref:`input-overview` chapter for other ways in
+   which you can download the necessary input data for GEOS-Chem.
 
 A "dry-run" is a is a :program:`GEOS-Chem Classic` simulation that
 steps through time, but does not perform computations or read data
@@ -23,7 +23,7 @@ or if it is missing. This output can be fed to a script which will
 download the missing data files to your computer system.
 
 You may generate dry-run output for any of the GEOS-Chem Classic
-simulation types (:option:`fullchem`, :option:`CH4`,
+simulation types (:option:`fullchem`, :option:`carbon`,
 :option:`TransportTracers`, etc.)
 
 In the following chapters, you will learn how to you can download data

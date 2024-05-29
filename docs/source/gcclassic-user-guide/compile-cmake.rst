@@ -1,3 +1,7 @@
+.. |br| raw:: html
+
+   <br/>
+
 .. _compile-cmake:
 
 ####################
@@ -38,12 +42,11 @@ directory listing as shown below:
 
    $ cd /path/to/gc_4x5_merra2_fullchem
    $ ls
-   archiveRun.sh*      GEOSChem.Restart.20190701_0000z.nc4   metrics.py
-   build/              getrunInfo*                           OutputDir/
-   cleanRunDir.sh*     HEMCO_Config.rc                       README
-   CodeDir@            HEMCO_Diagn.rc                        rundir.version
-   download_data.py*   HISTORY.rc                            runScriptSamples
-   download_data.yml   input.geos                            species_database.yml
+   archiveRun.sh*     download_data.py*    HEMCO_Config.rc.gmao_metfields  README.md
+   build/             download_data.yml    HEMCO_Diagn.rc                  Restarts/
+   cleanRunDir.sh*    geoschem_config.yml  HISTORY.rc                      runScriptSamples@
+   CodeDir@           getRunInfo*          metrics.py*                     species_database.yml
+   CreateRunDirLogs/  HEMCO_Config.rc      OutputDir/
 
 Note that each GEOS-Chem run directory that you generate has a folder
 named :file:`build/`. This is where we will run CMake.
@@ -87,61 +90,69 @@ generate output similar to this:
 
 .. code-block:: text
 
-   -- The Fortran compiler identification is GNU 11.2.0
-   -- Detecting Fortran compiler ABI info
-   -- Detecting Fortran compiler ABI info - done
-   -- Check for working Fortran compiler: /n/home09/ryantosca/spack/var/spack/environments/gc-classic/.spack-env/view/bin/gfortran - skipped
-   -- Checking whether /n/home09/ryantosca/spack/var/spack/environments/gc-classic/.spack-env/view/bin/gfortran supports Fortran 90
-   -- Checking whether /n/home09/ryantosca/spack/var/spack/environments/gc-classic/.spack-env/view/bin/gfortran supports Fortran 90 - yes
    =================================================================
    GCClassic X.Y.Z (superproject wrapper)
    Current status: X.Y.Z
    =================================================================
-   -- Found NetCDF: /n/home09/ryantosca/spack/opt/spack/linux-centos7-x86_64/gcc-8.3.0/netcdf-fortran-4.5.3-tb3oqspkitgcbkcyp623tdq2al6gxmom/lib/libnetcdff.so
+   -- Found NetCDF: /path/to/netcdf-fortran/lib/libnetcdff.so
    -- Useful CMake variables:
-     + CMAKE_PREFIX_PATH:    /path/to/netcdf-c /path/to/netcdf-fortran
+     + CMAKE_PREFIX_PATH:    /path/to/netcdf-c/
+     ...             /path/to/netcdf-fortran/
      + CMAKE_BUILD_TYPE:     Release
    -- Run directory setup:
-     + RUNDIR:       /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc
+     + RUNDIR:       /path/to/run/directory
    -- Threading:
-     * OMP:          **ON**  OFF
+     * OMP:          *ON*  OFF
    -- Found OpenMP_Fortran: -fopenmp (found version "4.5")
    -- Found OpenMP: TRUE (found version "4.5")
    -- General settings:
      * MECH:         **fullchem**  carbon  Hg  custom
-     * USE_REAL8:    **ON**  OFF
-     * SANITIZE:     ON  **OFF**
+     * USE_REAL8:    *ON*  OFF
+     * SANITIZE:      ON  *OFF*
    -- Components:
-     * TOMAS:        ON  **OFF**
-     * TOMAS_BINS:   **NA**  15  40
-     * APM:          ON  **OFF**
-     * RRTMG:        ON  **OFF**
-     * GTMM:         ON  **OFF**
-     * HCOSA:        ON  **OFF**
-     * LUO_WETDEP:   ON  **OFF**
-     * FASTJX:       ON  **OFF**
+     * TOMAS:         ON  *OFF*
+     * TOMAS_BINS:   *NA*  15  40
+     * APM:           ON  *OFF*
+     * RRTMG:         ON  *OFF*
+     * GTMM:          ON  *OFF*
+     * HCOSA:         ON  *OFF*
+     * LUO_WETDEP:    ON  *OFF*
+     * FASTJX:        ON  *OFF*
    =================================================================
    HEMCO A.B.C
    Current status: A.B.C
    =================================================================
    =================================================================
-   GEOS-Chem T.U.V (science codebase)
-   Current status: T.U.V
+   HETP D.E.F
    =================================================================
-   Creating /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
+   =================================================================
+   Cloud-J G
+   Current status: G
+   =================================================================
+   =================================================================
+   GEOS-Chem X.Y.Z (science codebase)
+   Current status: X.Y.Z
+   =================================================================
+   Creating /path/to/run/directory/CodeDir/src/GEOS-Chem/Interfaces/GCClassic/gc_classic_version.H
    -- Configuring done
    -- Generating done
-   -- Build files have been written to: /n/holyscratch01/jacob_lab/ryantosca/tests/test/test_cc/build
+   -- Build files have been written to: /path/to/run/directory
 
 Your CMake command's output contains important information about your
 build's configuration.
 
 .. note::
 
-   The text :literal:`X.Y.Z`, :literal:`A.B.C`, and :literal:`T.U.V`
+   The text :literal:`X.Y.Z`, :literal:`A.B.C`, :literal:`D.E.F.`,
+   and :literal:`G`
    refer to the version numbers (in `semantic versioning
-   <https://semver.org>`_ style) of the GCClassic, HEMCO, and
-   GEOS-Chem "science codebase" repositories.
+   <https://semver.org>`_ style) of the :ref:`get-code-repos-gcclassic`,
+   :ref:`get-code-repos-hemco`, :ref:`get-code-repos-other-hetp`, and
+   :ref:`get-code-repos-other-cloudj` repositories, respectively.
+
+   The :ref:`get-code-repos-gc-sci` and GCClassic repositories share
+   the same version number :literal:`X.Y.Z`.
+
 
 .. _compile-cmake-step4:
 
@@ -303,6 +314,11 @@ options, unless you explicitly specify otherwise.
 
       Deactivates the RRTMG radiative transfer model. **(Default option)**
 
+
+.. option:: HCOSA
+
+   Compiles the HEMCO standalone executable.
+
 .. option:: LUO_WETDEP
 
    Configures GEOS-Chem to use the `Luo et al., 2020
@@ -330,7 +346,8 @@ options, unless you explicitly specify otherwise.
 .. option:: FASTJX
 
    Configures GEOS-Chem to use the legacy FAST-JX v7.0 photolysis
-   mechanism instead of its successor Cloud-J.
+   mechanism instead of its successor
+   :ref:`get-code-repos-other-cloudj`.
 
    .. note::
 
@@ -400,64 +417,73 @@ Understand CMake output
 =======================
 
 As you can see from the example CMake output listed above, GEOS-Chem
-Classic contains code from 3 independent repositories:
+Classic contains code from the various repositories:
 
-1. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`_:
+#. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`_:
 
-.. code-block:: none
+   .. code-block:: none
 
-   =================================================================
-   GCClassic X.Y.Z (superproject wrapper)
-   Current status: X.Y.Z
-   =================================================================
+      =================================================================
+      GCClassic X.Y.Z (superproject wrapper)
+      Current status: X.Y.Z
+      =================================================================
 
-where :literal:`X.Y.Z` specifies  the GEOS-Chem Classic "major",
-"minor", and "patch" version numbers.
+   where :literal:`X.Y.Z` specifies  the GEOS-Chem Classic "major",
+   "minor", and "patch" version numbers.
 
-.. note::
+   .. note::
 
    If you are cloning GEOS-Chem Classic between official releases, you
    may the see :code:`Current status` reported like this:
 
    .. code-block:: console
-
+		      
       X.Y.Z-alpha.n-C-gabcd1234.dirty  or
 
       X.Y.Z.rc.n-C.gabcd1234.dirty
 
-   We will explain these formats below.
+   We will explain these formats below. |br|
+   |br|
+   
+#. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
 
-2. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
+   .. code-block:: none
+   
+      =================================================================
+      HEMCO A.B.C
+      Current status: A.B.C
+      =================================================================
+   
+   where :literal:`A.B.C` specifies the HEMCO "major", "minor", and
+   "patch" version numbers. The HEMCO version number differs from
+   GEOS-Chem because it is kept in a separate repository, and is
+   considered a separate package. |br|
+   |br|
 
-.. code-block:: none
+#. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
 
-   =================================================================
-   HEMCO A.B.C
-   Current status: A.B.C
-   =================================================================
+   .. code-block:: none
+   
+      =================================================================
+      GEOS-Chem X.Y.Z (science codebase)
+      Current status: X.Y.Z
+      =================================================================
+   
+   The GEOS-Chem science codebase and GEOS-Chem Classic wrapper will
+   always share the same version number.
+   
+   During the build configuration stage, CMake will display the **version
+   number** (e.g. :literal:`X.Y.Z`) as well as the **current status of the Git
+   repository** (e.g. :literal:`TAG-C-gabcd1234.dirty`) for GCClassic,
+   GEOS-Chem, and HEMCO. |br|
+   |br|
 
-where :literal:`A.B.C` specifies the HEMCO "major", "minor", and
-"patch" version numbers. The HEMCO version number differs from
-GEOS-Chem because it is kept in a separate repository, and is
-considered a separate package.
+#. Similar messages will be displayed for the
+   :ref:`get-code-repos-other-cloudj` and
+   :ref:`get-code-repos-other-hetp` repositories. |br|
+   |br|
 
-3. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
-
-.. code-block:: none
-
-   =================================================================
-   GEOS-Chem X.Y.Z (science codebase)
-   Current status: X.Y.Z
-   =================================================================
-
-The GEOS-Chem science codebase and GEOS-Chem Classic wrapper will
-always share the same version number.
-
-During the build configuration stage, CMake will display the **version
-number** (e.g. :literal:`X.Y.Z`) as well as the **current status of the Git
-repository** (e.g. :literal:`TAG-C-gabcd1234.dirty`) for GCClassic,
-GEOS-Chem, and HEMCO.
-
+   
 Let's take the Git repository status of GCClassic as our example. The
 status string uses the same format as the :command:`git describe
 --tags` command, namely:
@@ -503,3 +529,4 @@ where
 
 Under each header are printed the various :ref:`options that have been
 selected <cfg>`.
+

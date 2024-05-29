@@ -19,7 +19,7 @@ horizontal plots from GEOS-Chem output. It also contains scripts to
 generate plots and tables from GEOS-Chem benchmark simulations.
 
 **Best way to install:**
-`With Mamba or Conda (see gcpy.readthedocs.io) <https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html>`__
+`From PyPi (see gcpy.readthedocs.io) <https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html>`__
 
 .. _req-soft-gdb:
 

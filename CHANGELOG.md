@@ -6,16 +6,19 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-
-## [Unreleased] -- TBD
+## [Unreleased] - TBD
 ### Added
+- RTD docs now includes Supplemental Guide "Archiving Output with the History diagnostics"
 - GitHub Action config file `.github/workflows/stale.yml`, which replaces StaleBot
 - Added git submodule HETP for aerosol thermodynamics in GEOS-Chem
 
 ### Changed
+- Updated Python package versions for ReadTheDocs in `docs/requirements.txt`
+- Now request Python 3.12 for ReadTheDocs builds in `.readthedocs.yaml`
 - Updated GEOS-Chem submodule to 14.4.0
 - Updated HEMCO submodule to 3.9.0
 - Converted Github issue templates to issue forms using YAML definition files
+- Updated RTD documentation for the 14.4.0 release
 
 ### Removed
 - `BPCH_DIAG` configuration option and related ReadTheDocs documentation

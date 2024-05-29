@@ -430,28 +430,28 @@ Chemistry
    #============================================================================
    operations:
 
-   chemistry:
-     activate: true
-     linear_chemistry_aloft:
+     chemistry:
        activate: true
-       use_linoz_for_O3: true
-     active_strat_H2O:
-       activate: true
-       use_static_bnd_cond: true
-     gamma_HO2: 0.2
-     autoreduce_solver:
-       activate: false
-       use_target_threshold:
+       linear_chemistry_aloft:
          activate: true
-         oh_tuning_factor: 0.00005
-         no2_tuning_factor: 0.0001
-       use_absolute_threshold:
-         scale_by_pressure: true
-         absolute_threshold: 100.0
-       keep_halogens_active: false
-       append_in_internal_timestep: false
+         use_linoz_for_O3: true
+       active_strat_H2O:
+         activate: true
+         use_static_bnd_cond: true
+       gamma_HO2: 0.2
+       autoreduce_solver:
+         activate: false
+         use_target_threshold:
+           activate: true
+           oh_tuning_factor: 0.00005
+           no2_tuning_factor: 0.0001
+         use_absolute_threshold:
+           scale_by_pressure: true
+           absolute_threshold: 100.0
+         keep_halogens_active: false
+         append_in_internal_timestep: false
 
-       # ... following sub-sections omitted ...
+         # ... following sub-sections omitted ...
 
 The :literal:`operations:chemistry` section contains settings for chemistry:
 
@@ -736,16 +736,16 @@ Photolysis
      photolysis:
        activate: true
        input_directories:
-         fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
-	 cloudj_input_dir: /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2023-05/
+         fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2024-05/
+         cloudj_input_dir: /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2023-05/
        overhead_O3:
          use_online_O3_from_model: true
          use_column_O3_from_met: true
          use_TOMS_SBUV_O3: false
        photolyze_nitrate_aerosol:
          activate: true
-         NITs_Jscale_JHNO3: 0.0
-         NIT_Jscale_JHNO2: 0.0
+         NITs_Jscale: 100.0
+         NIT_Jscale: 100.0
          percent_channel_A_HONO: 66.667
          percent_channel_B_NO2: 33.333
 
@@ -773,11 +773,14 @@ This section only applies to fullchem, Hg, and aerosol-only simulations.
    .. option:: fastjx_input_dir
 
       Specifies the path to the legacy FAST_JX configuration files containing
-      information about species cross sections and quantum yields. Note that
-      FAST-JX is off by default and Cloud-J is used instead. You can use
-      legacy FAST-JX instead of Cloud-J by configuring with -DFASTJX=y during
-      build.
+      information about species cross sections and quantum yields.
+      These are used to define several aerosol optical properties
+      even when FAST-JX is not used.
 
+      Note that FAST-JX is off by default and Cloud-J is used
+      instead. You can use legacy FAST-JX instead of Cloud-J by
+      configuring with  :literal:`-DFASTJX=y` during build. 
+	       
    .. option:: cloudj_input_dir
 
       Specifies the path to the Cloud-J configuration files containing
@@ -821,11 +824,11 @@ This section only applies to fullchem, Hg, and aerosol-only simulations.
 
       Recommended value: :literal:`true`.
 
-   .. option:: NITs_Jscale_JHNO3
+   .. option:: NITs_Jscale
 
       Scale factor (percent) for JNO3 that photolyzes NITs aerosol.
 
-   .. option:: NIT_Jscale_JHNO2
+   .. option:: NIT_Jscale
 
       Scale factor (percent) for JHNO2 that photolyzes NIT aerosol.
 
@@ -833,7 +836,7 @@ This section only applies to fullchem, Hg, and aerosol-only simulations.
 
       Fraction of JNITs/JNIT in channel A (HNO2) for NITs photolysis.
 
-   .. option:: percent_channel_B_NO2
+   .. option:: percent_channel_B_HO2
 
       Fraction of JNITs/JNIT in channel B (NO2) for NITs photolysis.
 
@@ -859,6 +862,10 @@ RRTMG radiative transfer model
        shortwave_fluxes: false
        clear_sky_flux: false
        all_sky_flux: false
+       fixed_dyn_heating: false
+       seasonal_fdh: false
+       read_dyn_heating: false
+       co2_ppmv: 390.0
 
      # .. following sub-sections omitted ...
 
@@ -911,6 +918,44 @@ This section only applies to :option:`fullchem` simultions.
    RRTMG all-sky flux calculations.
 
    Default value: :literal:`false`.
+
+.. option:: fixed_dyn_heating
+
+   Activates (:literal:`true`) or deactivates (:literal:`false`)
+   fixed dynamic heating (FDH) approximation as described by Forster *et al.*
+   [`1997
+   <https://agupubs.onlinelibrary.wiley.com/doi/10.1029/96JD03510>`_].
+
+   Default value: :literal:`false`.
+
+.. option:: seasonal_fdh
+
+   Activates (:literal:`true`) or deactivates (:literal:`false`)
+   seasonally-evolving fixed dynamic heating (SEFDH) approzimation as
+   described by Kiehl *et al.* [`1999
+   <https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999JD900991>`_].
+ 
+   .. attention::
+
+      This option has not been extensively tested, and is considered
+      experimental. 
+
+   Default value: :literal:`false`.
+
+.. option:: read_dyn_heating
+
+   Activates (:literal:`true`) or deactivates (:literal:`false`)
+   reading previously-archived dynamical heating outputs from disk.
+
+   Default value: :literal:`false`.
+	    
+.. option:: co2_ppmv
+
+   Specify the value of CO2 [in parts per million by volume] to be
+   used in radiative forcing calculations.
+
+   Default value: :literal:`390.0`.
+
 
 .. _cfg-gc-yml-transport:
 
@@ -1684,6 +1729,8 @@ for activating tagged :math:`CO_2` species:
        tag_bio_and_ocean_CO2: false
        tag_land_fossil_fuel_CO2: false
 
+     # .. following sub-sections omitted ...
+
 .. option:: tag_bio_and_ocean_CO2
 
    Activates (:literal:`true`) or deactivates (:literal:`false`) tagging of
@@ -1691,7 +1738,11 @@ for activating tagged :math:`CO_2` species:
    world (ROW) as specified in :file:`Regions_land.dat` and
    :file:`Regions_ocean.dat` files.
 
-     # .. following sub-sections omitted ...
+.. option:: tag_land_fossil_fuel_CO2:
+
+   Activates (:literal:`true`) or deactivates (:literal:`false`) tagging of
+   land and ocean fossil fuel regions. 
+
 
 .. _cfg-gc-yml-co:
 

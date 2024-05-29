@@ -24,7 +24,7 @@ For the :math:`2^{\circ}{\times} 2.5^{\circ}` "standard" simulation:
   - 26 GB virtual memory (MaxVMSize)
 
 Our standard GEOS-Chem Classic 1-month full-chemistry
-benchmark simulations use a little under 14 GB of system memory. This
+benchmark simulations use a little under 12 GB of system memory. This
 is mostly due to the fact that the benchmark simulations archive the
 "kitchen sink"---that is, most diagnostic outputs are requested so
 that the benchmark simulation can be properly evaluated. But a typical

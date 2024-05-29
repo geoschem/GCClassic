@@ -43,10 +43,10 @@ Turn off unwanted diagnostics
 =============================
 
 Several diagnostics are turned on by default in :ref:`the HISTORY.rc
-<cfg-hist>` configuration file.  The more diagnostics that are turned
-on, the more I/O operations need to be done, resulting in longer
-simulation execution times.  Disabling diagnostics that you do not
-wish to archive can result in a faster simulation.
+<histguide-configfile>` configuration file.  The more diagnostics that
+are turned on, the more I/O operations need to be done, resulting in
+longer simulation execution times.  Disabling diagnostics that you do
+not wish to archive can result in a faster simulation.
 
 .. _disable-debug-options:
 

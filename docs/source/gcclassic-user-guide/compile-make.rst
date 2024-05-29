@@ -15,31 +15,25 @@ Use the :command:`make` command to build the GEOS-Chem executable.  Type:
 
 .. code-block:: console
 
-    $ make -j
-
-You will see output similar to this:
-
-.. code-block:: text
-
-   Scanning dependencies of target HeadersHco
-   Scanning dependencies of target Isorropia
-   Scanning dependencies of target KPP_FirstPass
-   [  1%] Building Fortran object src/HEMCO/src/Shared/Headers/CMakeFiles/HeadersHco.dir/hco_inquireMod.F90.o
-   [  1%] Building Fortran object src/HEMCO/src/Shared/Headers/CMakeFiles/HeadersHco.dir/hco_precision_mod.F90.o
-   [  1%] Building Fortran object src/HEMCO/src/Shared/Headers/CMakeFiles/HeadersHco.dir/hco_charpak_mod.F90.o
-   [  3%] Building Fortran object src/GEOS-Chem/KPP/fullchem/CMakeFiles/KPP_FirstPass.dir/gckpp_Monitor.F90.o
-   [  3%] Building Fortran object src/GEOS-Chem/KPP/fullchem/CMakeFiles/KPP_FirstPass.dir/gckpp_Precision.F90.o
-   [  3%] Building Fortran object src/GEOS-Chem/KPP/fullchem/CMakeFiles/KPP_FirstPass.dir/gckpp_Parameters.F90.o
-   [  3%] Linking Fortran static library libKPP_FirstPass.a
-   [  3%] Built target KPP_FirstPass
-   Scanning dependencies of target Headers
-   [  3%] Building Fortran object src/GEOS-Chem/ISORROPIA/CMakeFiles/Isorropia.dir/isorropiaII_main_mod.F.o
-   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/charpak_mod.F90.o
-   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/dictionary_m.F90.o
-   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_SIZE_mod.F90.o
-   [  3%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/qfyaml_mod.F90.o
-   [  4%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_O3_mod.F90.o
-   [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/inquireMod.F90.o
+   $ make -j
+   [  1%] Built target KPP_FirstPass
+   [  1%] Building Fortran object src/Cloud-J/src/Core/CMakeFiles/CloudJ_Core.dir/cldj_fjx_sub_mod.F90.o
+   [  1%] Building Fortran object src/Cloud-J/src/Core/CMakeFiles/CloudJ_Core.dir/cldj_init_mod.F90.o
+   [  1%] Building Fortran object src/Cloud-J/src/Core/CMakeFiles/CloudJ_Core.dir/cldj_osa_sub_mod.F90.o
+   [  3%] Building Fortran object src/Cloud-J/src/Core/CMakeFiles/CloudJ_Core.dir/cldj_sub_mod.F90.o
+   [  4%] Linking Fortran static library libCloudJ_Core.a
+   [  4%] Built target CloudJ_Core
+   [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/charpak_mod.F90.o
+   [  6%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/errcode_mod.F90.o
+   [  7%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/precision_mod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/input_opt_mod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/state_grid_mod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_FJX_MOD.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/CMN_SIZE_mod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/aermass_container_mod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/inquireMod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/qfyaml_mod.F90.o
+   [  9%] Building Fortran object src/GEOS-Chem/Headers/CMakeFiles/Headers.dir/diaglist_mod.F90.o
 
    ... etc ...
 
@@ -57,6 +51,7 @@ You will see output similar to this:
    [ 98%] Building Fortran object src/CMakeFiles/gcclassic.dir/GEOS-Chem/Interfaces/GCClassic/main.F90.o
    [100%] Linking Fortran executable ../bin/gcclassic
    [100%] Built target gcclassic
+
 
 .. tip::
 
@@ -84,36 +79,34 @@ described above <compile-cmake>`.  Type:
 
 .. code-block:: console
 
-    $ make install
-
-and you will see output similar to this:
-
-.. code-block:: console
-
-   [  1%] Built target HeadersHco
-   [  3%] Built target KPP_FirstPass
-   [  3%] Built target Isorropia
-   [  4%] Built target JulDayHco
+   $ make install
+   [  1%] Built target KPP_FirstPass
+   [  4%] Built target CloudJ_Core
    [ 13%] Built target Headers
-   [ 18%] Built target NcdfUtilHco
-   [ 19%] Built target JulDay
-   [ 19%] Built target GeosUtilHco
-   [ 25%] Built target NcdfUtil
-   [ 40%] Built target HCO
-   [ 46%] Built target GeosUtil
+   [ 13%] Built target JulDay
+   [ 18%] Built target NcdfUtil
+   [ 24%] Built target GeosUtil
+   [ 26%] Built target ObsPack
+   [ 27%] Built target HeadersHco
+   [ 29%] Built target JulDayHco
+   [ 33%] Built target NcdfUtilHco
+   [ 33%] Built target GeosUtilHco
+   [ 47%] Built target HCO
    [ 56%] Built target HCOX
-   [ 59%] Built target Transport
-   [ 62%] Built target History
-   [ 63%] Built target ObsPack
-   [ 71%] Built target KPP
-   [ 71%] Built target HCOI_Shared
+   [ 58%] Built target HCOI_Shared
+   [ 60%] Built target HETP_core
+   [ 69%] Built target KPP
+   [ 72%] Built target History
    [ 98%] Built target GeosCore
    [100%] Built target gcclassic
    Install the project...
    -- Install configuration: "Release"
-   -- Up-to-date: /home/ubuntu/gc_merra2_fullchem/build_info/CMakeCache.txt
-   -- Up-to-date: /home/ubuntu/gc_merra2_fullchem/build_info/summarize_build
-   -- Up-to-date: /home/ubuntu/gc_merra2_fullchem/gcclassic
+   -- Installing: /path/to/run/directory/build_info/CMakeCache.txt
+   -- Installing: /path/to/run/directory/build_info/summarize_build
+   -- Installing: /path/to/run/directory/gcclassic
+   -- Set runtime path of "/path/to/run/directory/gcclassic" to ""
+
+
 
 Let's now navigate back to the run directory and get a directory
 listing:
@@ -121,18 +114,13 @@ listing:
 .. code-block:: console
 
    $ cd ..
-   $ ls
-   CodeDir@                             cleanRunDir.sh*
-   GEOSChem.Restart.20190701_0000z.nc4  download_data.py*
-   HEMCO_Config.rc                      download_data.yml
-   HEMCO_Config.rc.gmao_metfields       gcclassic*
-   HEMCO_Diagn.rc                       geoschem_config.yml
-   HISTORY.rc                           getRunInfo*
-   OutputDir/                           metrics.py*
-   README                               runScriptSamples@
-   archiveRun.sh*                       rundirConfig/
-   build/                               species_database.yml
-   build_info/
+   $ ls -CF
+   archiveRun.sh*     download_data.py*    HEMCO_Config.rc.gmao_metfields  Restarts/
+   build/             download_data.yml    HEMCO_Diagn.rc                  runScriptSamples@
+   build_info/        gcclassic*           HISTORY.rc                      species_database.yml
+   cleanRunDir.sh*    geoschem_config.yml  metrics.py*
+   CodeDir@           getRunInfo*          OutputDir/
+   CreateRunDirLogs/  HEMCO_Config.rc      README.md
 
 You should now see the :program:`gcclassic` executable and a :file:`build_info`
 directory there. GEOS-Chem has now been configured, compiled, and

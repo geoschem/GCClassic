@@ -40,12 +40,13 @@ several locations, which are described in the following sections.
 Choose a data portal
 ====================
 
-You can download input data data from one of the following locations:
+You can :ref:`download input data <data>` from one of the following
+locations:
 
 .. _dry-run-download-washu:
 
-The geoschemdata.wustl.edu site (aka WashU)
----------------------------------------------
+The :file:`geoschemdata.wustl.edu` site (aka WashU)
+---------------------------------------------------
 
 If you are using GEOS-Chem on your institutional computer cluster, we
 recommend that you **download data from the WashU (Washington
@@ -64,12 +65,12 @@ for GEOS-Chem.
 
 .. _dry-run-download-aws:
 
-The s3://gcgrid bucket (aka Amazon)
------------------------------------
+The :file:`s3://gcgrid` bucket (aka Amazon)
+-------------------------------------------
 
 If you are running GEOS-Chem Classic on the Amazon Web Services cloud,
 you can quickly **download the necessary data for your GEOS-Chem
-simulation from the :file:`s3://gcgrid` bucket** to the Elastic Block
+simulation from the** :file:`s3://gcgrid` **bucket** to the Elastic Block
 Storage (EBS) volume attached to your cloud instance.
 
 Navigate to your GEOS-Chem Classic run directory and type:
@@ -83,22 +84,23 @@ commands, which should execute much more quickly than if you were to
 download the data from another location. It will also produce a
 **log of unique data files**.
 
-.. important::
+.. note::
 
-   Copying data from :file:`s3://gcgrid` to the EBS volume of an
-   Amazon EC2 cloud instance is always free. But if you download data
-   from :file:`s3://gcgrid` to your own computer system, you will
-   incur an egress fee. **PROCEED WITH CAUTION!**
+   Downloading from the Amazon Data Portal will NOT incur any
+   egress charges.  This is because the data is covered under the
+   `AWS Open Data Sponsorship Program
+   <https://aws.amazon.com/opendata/?wwps-cards.sort-by=item.additionalFields.sortDate&wwps-cards.sort-order=desc>`_.
 
 .. _dry-run-download-rochester:
 
-The atmos.earth.rochester.edu site (aka Rochester)
-----------------------------------------------------
+The :file:`atmos.earth.rochester.edu` site (aka Rochester)
+----------------------------------------------------------
 
-The U. Rochester site (which is maintained by Lee Murray's research
-there) contains the GCAP 2.0 met field data.  This met field data is
-useful if you wish to perform simulations stretching back into the
-preindustrial period, or running into the future.
+The U. Rochester site (which is maintained by Lee Murray's (GitHub:
+:literal:`@ltmurray`) research there) contains the GCAP 2.0 met field
+data.  This met field data is useful if you wish to perform
+simulations stretching back into the preindustrial period, or running
+into the future. 
 
 To download data from the Rochester site, type:
 
@@ -108,9 +110,9 @@ To download data from the Rochester site, type:
 
 .. _dry-run-download-data:
 
-======================================================
-Run the download_data.py script on the dryrun log file
-======================================================
+==============================================================
+Run the :file:`download_data.py` script on the dryrun log file
+==============================================================
 
 Navigate to your GEOS-Chem run directory where you executed the dry-run
 and type:

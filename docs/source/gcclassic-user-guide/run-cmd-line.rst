@@ -12,8 +12,7 @@ If your computer system does not use a scheduler, or if you are logged
 into an Amazon Web Services (AWS) cloud instance, then you can run
 GEOS-Chem Classic directly from the terminal command line.
 
-Here is a sample run script for interactive use
-(:file:`geoschem-int.sh`).   It is similar to the
+Here is a sample run script for interactive use.   It is similar to the
 :ref:`run script shown previously <run-script>`, with a few edits:
 
 .. code-block:: bash
