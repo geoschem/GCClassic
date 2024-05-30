@@ -16,14 +16,18 @@ detailed model description.  It is suitable as an original reference for the mod
 #. :cite:t:`Eastham_et_al._2014` and for stratospheric chemistry;
 #. :cite:t:`Keller_et_al._2014` and :cite:t:`Lin_et_al._2021` for HEMCO;
 #. :cite:t:`Long_et_al._2015` for the grid-independent GEOS-Chem;
+#. :cite:t:`Prather_2015` for Cloud-J;
 #. :cite:t:`Eastham_et_al._2018` for the high-performance GEOS-Chem (GCHP);
 #. :cite:t:`Hu_et_al._2018` for GEOS-Chem within the GEOS ESM (GEOS-GC);
 #. :cite:t:`Lin_et_al._2020` for GEOS-Chem within WRF (WRF-GC);
 #. :cite:t:`Zhuang_et_al._2019` and :cite:t:`Zhuang_et_al._2020` for
    implementations of GEOS-Chem Classic and GCHP on the cloud;
 #. :cite:t:`Bindle_et_al._2021` for the stretched-grid capability in GCHP;
-#. :cite:t:`Murray_et_al._2021` for GEOS-Chem driven by GISS GCM fields (GCAP 2.0);
+#. :cite:t:`Murray_et_al._2021` for GEOS-Chem driven by GISS GCM
+   fields (GCAP 2.0);
 #. :cite:t:`Bukosa_et_al._2023` for the carbon simulation;
-#. :cite:t:`Lin_et_al._2023` for KPP 3.0.0 with adaptive auto-reduction solver.
+#. :cite:t:`Lin_et_al._2023` for KPP 3.0.0 with adaptive auto-reduction solver;
+#. :cite:t:`Miller_et_al._2024` for HETerogeneous vectorized or
+   Parallel (HETPv1.0).
 
 .. bibliography::

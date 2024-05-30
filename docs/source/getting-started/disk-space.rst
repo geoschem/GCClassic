@@ -96,7 +96,10 @@ sections.
 #. Download and manage data with the :ref:`bashdatacatalog tool
    <bashdatacatalog>`;
 #. Transfer data with `Globus <https://www.globus.org/data-transfer>`_
-   **GEOS-Chem data (WashU)** endpoint>.
+   **GEOS-Chem data (WashU)** endpoint;
+#. Direct FTP access from the `WashU data portal
+   <https://geoschemdata.wustl.edu>`_;
+#. Direct access from the `Amazon data portal using AWS S3 Explorer <https://s3.amazonaws.com/gcgrid/index.html>`_.
 
 Also see our :ref:`input-overview` for more data download options.
 

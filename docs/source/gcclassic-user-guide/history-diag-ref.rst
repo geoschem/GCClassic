@@ -4,7 +4,5 @@
 GEOS-Chem History diagnostics
 #############################
 
-At present, our `Guide to GEOS-Chem History diagnostics
-<http://wiki.geos-chem.org/Guide_to_GEOS-Chem_History_diagnostics>`_
-is still located on the GEOS-Chem wiki.  We will be migrating this
-information over to ReadTheDocs very soon.
+Please see our :ref:`histguide` supplemental guide for detailed
+instructions about archiving GEOS-Chem diagnostic quantities.

@@ -27,7 +27,7 @@ Save this code to a file named :file:`geoschem.run.slurm`:
     #SBATCH -c 24
     #SBATCH -N 1
     #SBATCH -t 0-12:00
-    #SBATCH -p my-queue_name
+    #SBATCH -p MYPARTITION
     #SBATCH --mem=30000
     #SBATCH --mail-type=END
 
@@ -36,13 +36,8 @@ Save this code to a file named :file:`geoschem.run.slurm`:
     ### You can increase the number of cores with -c and memory with --mem,
     ### particularly if you are running at very fine resolution (e.g. nested-grid)
     ###############################################################################
-
-    # Load your bash-shell customizations
-    source ~/.bashrc
-
-    # Load software modules
-    # (this example is for GNU 10.2.0 compilers)
-    source ~/gcclassic.gnu10.env
+    # Source the environment file that you created
+    source /path/to/gcclassic.gnu10.env
 
     # Set the proper # of threads for OpenMP
     # SLURM_CPUS_PER_TASK ensures this matches the number you set with -c above
@@ -60,15 +55,15 @@ Save this code to a file named :file:`geoschem.run.slurm`:
 
 .. important::
 
-   If you forget to define :envvar:`OMP_NUM_THREADS` in
-   your run script, then :program:`GEOS-Chem Classic` will
-   execute using one core.  This can cause your
-   simulations to take much longer than is necessary!
+   If you forget to define :envvar:`OMP_NUM_THREADS` in your run
+   script, then :program:`GEOS-Chem Classic` will execute using one
+   core.  This can cause your simulations to take much longer than is
+   necessary!
 
 Then make :file:`geoschem.run.slurm` executable:
 
 .. code-block:: console
-
+ 
    $ chmod 755 geoschem.run.slurm
 
 For more information about how Slurm is set up on your particular

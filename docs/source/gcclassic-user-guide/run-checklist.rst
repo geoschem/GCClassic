@@ -18,6 +18,11 @@ all required setup steps before running your simulation.
 First-time setup
 ================
 
+#. If this is your first-time using GEOS-Chem, make sure that you
+   :ref:`registered as a new user <rundir-registration>` when you
+   created the run directory. |br|
+   |br|
+
 #. Make sure that your computational environment meets all of the
    :ref:`hardware <req-hard>` and
    :ref:`software <req-soft>` requirements for GEOS-Chem Classic.
@@ -35,8 +40,7 @@ Each-time setup
 
 #. Create a :ref:`GEOS-Chem Classic run directory <rundir>`,
    and make sure that it is correct for the simulation you wish to
-   perform. |br|
-   |br|
+   perform.
 
    .. attention::
 
@@ -51,21 +55,28 @@ Each-time setup
 
    .. attention::
 
-      Prior to running with :option:`GEOS-FP` met fields, please be
-      aware  of several caveats regarding that data stream. (cf. `The
-      GEOS-FP wiki page <http://wiki.geos-chem.org./GEOS-FP>`_).
+      Prior to running with :option:`GEOS-FP` meteorology, be aware
+      that it is an operational (i.e. evolving) product
+      that is subject to assimilation system updates.
+
+      On the other hand, the :option:`MERRA-2` meterology is a 40+
+      year reanalysis product performed with a "frozen" version of the
+      NASA GEOS assimilation system.  Thus, :option:`MERRA-2` is
+      preferable for studies ranging over multiple years or decades.
 
 #. :ref:`Configure and build <compile>` the source code into an
    executable file. |br|
    |br|
 
-#. Copy a sample :ref:`GEOS-Chem Classic run script <run-script>` to
+#. Create a :ref:`GEOS-Chem Classic run script <run-script>` to
    your run directory and edit it for the particulars of your
    simulation and computer system. |br|
    |br|
 
 #. Make sure that your run script contains the proper settings for
-   :ref:`OpenMP parallelization <env-files-envvars-parallel>`. |br|
+   :ref:`OpenMP parallelization <env-files-envvars-parallel>`, either
+   by sourcing an environment file, or by manually adding the settings
+   to the run script. |br|
    |br|
 
 #. Be aware of :ref:`ways in which you can speed up your GEOS-Chem
