@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased] - TBD
 ### Added
 - ReadTheDocs update for for Cloud-J input parameter `num_levs_with_cloud`
+- ReadTheDocs update: add section about using a dry-run simulation to Quickstart Guide
 
 ## [14.4.1] - 2024-06-28
 ### Fixed
