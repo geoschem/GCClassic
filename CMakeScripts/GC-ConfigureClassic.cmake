@@ -192,12 +192,18 @@ function(configureGCClassic)
     #-------------------------------------------------------------------------
     # Use Fast-JX rather than Cloud-J?
     #-------------------------------------------------------------------------
-
     set(FASTJX OFF CACHE BOOL
         "Switch to use legacy FAST-JX in GEOS-Chem"
     )
     gc_pretty_print(VARIABLE FASTJX IS_BOOLEAN)
     if(${FASTJX})
+        #---------------------------------------------------------------------
+        # Throw an error unless we are using the Hg mechanism,
+        # The fullchem & custom mechanisms now use Cloud-J!
+        if(NOT ${MECH} MATCHES "Hg")
+          message(FATAL_ERROR "FASTJX can only be used with the Hg mechanism!")
+        endif()
+        #---------------------------------------------------------------------
         target_compile_definitions(GEOSChemBuildProperties
             INTERFACE FASTJX
         )
