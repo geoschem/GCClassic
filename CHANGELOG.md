@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [14.4.2] - TBD
 ### Changed
 - Updated Cloud-J submodule to 7.7.2
-- CMake now throws an error if FAST-JX is used with any other mechanism than Hg
+- Discontinue support of FAST-JX for all simulations except Hg
 
 ## [14.4.1] - 2024-06-28
 ### Fixed
