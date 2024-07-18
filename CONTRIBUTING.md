@@ -50,8 +50,8 @@ code.
   2. Include thorough comments in all submitted code.
   3. Include full citations for references at the top of relevant source code modules.
   4. Check that you have updated the `CHANGELOG.md` file.
-  4. Remove extraneous code updates (e.g. testing options, other science).
-  5. Submit any related code or configuration files for [GCHP](https://gchp.readthedocs.io) along with code or configuration files for [GEOS-Chem Classic](https://geos-chem.readthedocs.io).
+  5. Remove extraneous code updates (e.g. testing options, other science).
+  6. Submit any related code or configuration files for [GCHP](https://gchp.readthedocs.io) along with code or configuration files for [GEOS-Chem Classic](https://geos-chem.readthedocs.io).
 
 ### Checklist for submitting data files
 
