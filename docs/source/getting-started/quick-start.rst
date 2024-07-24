@@ -110,8 +110,8 @@ time.
 
 For demonstration purposes, we will use a full chemistry simulation
 run directory with the default name (:file:`gc_merra2_4x5_fullchem`).
-The steps to setup and run other types of GEOS-Chem simulations follow
-the same pattern as the examples shown below.
+The steps to setup and run other types of GEOS-Chem Classic
+simulations follow the same pattern as the examples shown below.
 
 .. attention::
 
@@ -125,14 +125,14 @@ the same pattern as the examples shown below.
 .. _quick-load:
 
 ========================
-3. Load your Environment
+3. Load your environment
 ========================
 
-Prior to building GEOS-Chem always make sure all libraries and
-environment variables are loaded.  An easy way to do this is to write
-an :ref:`environment file <env>` and load that file every time you
-work with GEOS-Chem.  To make this extra easy you can create a
-symbolic link to your environment file within your run directory or
+Always make sure that all libraries and environment variables are
+loaded prior to building GEOS-Chem Classic.  An easy way to do this is
+to write an :ref:`environment file <env>` and load that file every
+time you work with GEOS-Chem.  To make this extra easy you can create
+a symbolic link to your environment file within your run directory or
 for reference.  For example, do the following in your new run
 directory to have a handy link to the environment you plan on using.
 
@@ -154,12 +154,12 @@ run directory you can easily load your environment.
 4. Configure your build
 =======================
 
-You may build GEOS-Chem from within the run directory or from anywhere
-else on your system.  But we recommend that you always build GEOS-Chem
-from within the run directory.  This is convenient because it keeps
-all build files in close proximity to where you will run the model.
-For this purpose the GEOS-Chem run directory includes a build
-directory called :file:`build/`.
+You may build GEOS-Chem Classic from within the run directory or from
+anywhere else on your system.  But we recommend that you always build
+GEOS-Chem Classic from within the run directory.  This is convenient
+because it keeps all build files in close proximity to where you will
+run the model. For this purpose the GEOS-Chem run directory includes a
+build directory called :file:`build/`.
 
 First, navigate to the :file:`build/` folder of your run directory:
 
@@ -284,14 +284,67 @@ Please see our :ref:`customguide` Supplemental Guide to learn how you
 can customize your simulation by activating alternate science options
 in your simulations.
 
-Once you are satisfied that your simulation settings are correct, you
-may proceed to run GEOS-Chem.
+.. _quick-dry-download:
+
+======================
+7. Download input data
+======================
+
+Before you can run your GEOS-Chem Classic simulation, you must first
+:ref:`download the required input data <data>`.  These data include:
+
+- Meteorological fields (e.g. GEOS-FP, MERRA-2, GEOS-IT, or GCAP2)
+- Emissions inventories
+- Inputs for GEOS-Chem modules (e.g. Cloud-J)
+
+.. tip::
+
+   If your institution has several GEOS-Chem users, then someone may
+   have already downloaded these data for you.  If this is the case,
+   you may :ref:`start running your your GEOS-Chem Classic simulation
+   <quick-run>`.
+
+The easiest way to download data is to perform a :ref:`dry-run
+simulation <dry-run>`. This is a GEOS-Chem Classic simulation that
+steps through time, but does not perform computations or read data
+files from disk.  Instead, the dry-run simulation prints a list of all
+data files that the simulation would have read.
+
+To start a dry-run simulation, type this command:
+
+.. code-block:: console
+
+   $ ./gcclassic --dryrun | tee log.dryrun
+
+This will generate the :file:`log.dryrun` log file, which contains the
+list of data files to be downloaded.
+
+Once the dry-run simulation has finished, use the
+:file:`download_data.py` file (included in your run directory) to
+:ref:`download the required data <dry-run-download>`.  Type:
+
+.. code-block:: console
+
+   $ ./download_data.py log.dryrun --washu
+
+This will download data from the :option:`WashU` data portal.  You
+may also download from the :option:`Amazon` or :option:`Rochester`
+data portals.
+
+.. note::
+
+   Depending on your system, you might have to activate a Conda or
+   Mamba environment containing a version of Python before running the
+   :file:`download.data.py` script.  Ask your sysadmin.
+
+For more information about dry-run simulations, please see our
+:ref:`dry-run` chapter.
 
 .. _quick-run:
 
-========================
-7. Run GEOS-Chem Classic
-========================
+======================
+8. Run your simulation
+======================
 
 If you used an :ref:`environment file <env>` to load software
 libraries prior to building GEOS-Chem then you should load that file

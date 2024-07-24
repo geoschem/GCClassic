@@ -735,6 +735,7 @@ Photolysis
 
      photolysis:
        activate: true
+       num_levs_with_cloud: 34
        input_directories:
          fastjx_input_dir: /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2024-05/
          cloudj_input_dir: /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2023-05/
@@ -765,6 +766,19 @@ This section only applies to fullchem, Hg, and aerosol-only simulations.
       simulations.  Disabling photolysis should only be done when
       debugging.
 
+.. option:: num_levs_with_cloud
+
+   Specifies the number of levels that can contain clouds, which is a
+   required input for the Cloud-J photolysis module.  This value is
+   saved to the :code:`Input_Opt%NLevs_Phot_Cloud` field.
+
+   .. attention::
+
+      The value of :option:`num_levs_with_cloud` will be set to the
+      proper value when you create a run directory.  Its value depends
+      on the meteorology that is used to drive your GEOS-Chem
+      simulation.  You should not change this value!
+
 .. option:: input_directories
 
    Specifies the location of directories containing photolysis
@@ -779,8 +793,8 @@ This section only applies to fullchem, Hg, and aerosol-only simulations.
 
       Note that FAST-JX is off by default and Cloud-J is used
       instead. You can use legacy FAST-JX instead of Cloud-J by
-      configuring with  :literal:`-DFASTJX=y` during build. 
-	       
+      configuring with  :literal:`-DFASTJX=y` during build.
+
    .. option:: cloudj_input_dir
 
       Specifies the path to the Cloud-J configuration files containing
@@ -934,11 +948,11 @@ This section only applies to :option:`fullchem` simultions.
    seasonally-evolving fixed dynamic heating (SEFDH) approzimation as
    described by Kiehl *et al.* [`1999
    <https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999JD900991>`_].
- 
+
    .. attention::
 
       This option has not been extensively tested, and is considered
-      experimental. 
+      experimental.
 
    Default value: :literal:`false`.
 
@@ -948,7 +962,7 @@ This section only applies to :option:`fullchem` simultions.
    reading previously-archived dynamical heating outputs from disk.
 
    Default value: :literal:`false`.
-	    
+
 .. option:: co2_ppmv
 
    Specify the value of CO2 [in parts per million by volume] to be
@@ -1741,7 +1755,7 @@ for activating tagged :math:`CO_2` species:
 .. option:: tag_land_fossil_fuel_CO2:
 
    Activates (:literal:`true`) or deactivates (:literal:`false`) tagging of
-   land and ocean fossil fuel regions. 
+   land and ocean fossil fuel regions.
 
 
 .. _cfg-gc-yml-co:

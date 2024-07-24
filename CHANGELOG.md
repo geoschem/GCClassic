@@ -3,8 +3,18 @@
 This file documents all notable changes to the GEOS-Chem Classic wrapper repository since version 13.4.1. See also CHANGELOG files for individual submodules:
 - src/geos-chem/CHANGELOG.md
 - src/HEMCO/CHANGELOG.md
+- src/Cloud-J/CHANGELOG.md
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [14.4.2] - 2024-07-24
+### Added
+- ReadTheDocs update for for Cloud-J input parameter `num_levs_with_cloud`
+- ReadTheDocs update: add section about using a dry-run simulation to Quickstart Guide
+
+### Changed
+- Updated Cloud-J submodule to 7.7.2
+- Discontinue support of FAST-JX for all simulations except Hg
 
 ## [14.4.1] - 2024-06-28
 ### Fixed

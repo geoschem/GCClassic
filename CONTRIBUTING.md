@@ -11,14 +11,14 @@ GEOS-Chem Classic documentation can be found at [geos-chem.readthedocs.io](https
 
 ## When should I submit updates?
 
-Submit bug fixes right away, as these will be given the highest priority.  Please see "Support Guidelines" for more information.
+Submit bug fixes right away, as these will be given the highest priority.  Please see **[Support Guidelines](https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html)** for more information.
 
 Submit updates (code and/or data) for mature model developments once you have submitted a paper on the topic.  Your Working Group chair can offer guidance on the timing of submitting code for inclusion into GEOS-Chem.
 
 The practical aspects of submitting code updates are listed below.
 
 ## How can I submit updates?
-We use [GitHub Flow](https://guides.github.com/introduction/flow/index.html), so all changes happen through pull requests. This workflow is [described here](https://guides.github.com/introduction/flow/index.html).
+We use **GitHub Flow**, so all changes happen through [pull requests](https://help.github.com/articles/creating-a-pull-request/). This workflow is [described here](https://docs.github.com/en/get-started/using-github/github-flow).
 
 As the author you are responsible for:
 - Testing your changes
@@ -33,11 +33,12 @@ As the author you are responsible for:
   4. [Fork the relevant GEOS-Chem repositories](https://help.github.com/articles/fork-a-repo/) into your Github account.
   5. Clone your forks of the GEOS-Chem repositories to your computer system.
   6. Add your modifications into a [new branch](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) off the **main** branch.
-  7. Test your update thoroughly and make sure that it works.  For structural updates we recommend performing a difference test (i.e. testing against the prior version) in order to ensure that identical results are obtained).
-  8. Review the coding conventions and checklists for code and data updates listed below.
-  9. Create a [pull request in GitHub](https://help.github.com/articles/creating-a-pull-request/).
-  10. The [GEOS-Chem Support Team](https://geoschem.github.io/support-team.html) will add your updates into the development branch for an upcoming GEOS-Chem version.  They will also validate your updates with [benchmark simulations](http://wiki.geos-chem.org/GEOS-Chem_benchmarking).
-  11. If the benchmark simulations reveal a problem with your update, the GCST will request that you take further corrective action.
+  7. Add a sentence to the `CHANGELOG.md` file describing your update.
+  8. Test your update thoroughly and make sure that it works.  For structural updates we recommend performing a difference test (i.e. testing against the prior version) in order to ensure that identical results are obtained).
+  9. Review the coding conventions and checklists for code and data updates listed below.
+  10. Create a [pull request in GitHub](https://help.github.com/articles/creating-a-pull-request/).
+  11. The [GEOS-Chem Support Team](https://geoschem.github.io/support-team.html) will add your updates into the development branch for an upcoming GEOS-Chem version.  They will also validate your updates with [benchmark simulations](http://wiki.geos-chem.org/GEOS-Chem_benchmarking).
+  12. If the benchmark simulations reveal a problem with your update, the GCST will request that you take further corrective action.
 
 ### Coding conventions
 The GEOS-Chem codebase dates back several decades and includes contributions from many people and multiple organizations. Therefore, some inconsistent conventions are inevitable, but we ask that you do your best to be consistent with nearby
@@ -48,8 +49,9 @@ code.
   1. Use Fortran-90 free format instead of Fortran-77 fixed format.
   2. Include thorough comments in all submitted code.
   3. Include full citations for references at the top of relevant source code modules.
-  4. Remove extraneous code updates (e.g. testing options, other science).
-  5. Submit any related code or configuration files for [GCHP](https://gchp.readthedocs.io) along with code or configuration files for [GEOS-Chem Classic](https://geos-chem.readthedocs.io).
+  4. Check that you have updated the `CHANGELOG.md` file.
+  5. Remove extraneous code updates (e.g. testing options, other science).
+  6. Submit any related code or configuration files for [GCHP](https://gchp.readthedocs.io) along with code or configuration files for [GEOS-Chem Classic](https://geos-chem.readthedocs.io).
 
 ### Checklist for submitting data files
 
@@ -59,8 +61,8 @@ code.
   4. [Chunk and deflate netCDF](https://geos-chem.readthedocs.io/en/latest/geos-chem-shared-docs/supplemental-guides/netcdf-guide.html#chunk-and-deflate-a-netcdf-file-to-improve-i-o) files in order to improve file I/O.
   5. Include an updated [HEMCO configuration file](https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html) corresponding to the new data.
   6. Include a README file detailing data source, contents, etc.
-  7. Include script(s) used to process original data
-  8. Include a summary or description of the expected results (e.g. emission totals for each species)
+  7. Include script(s) used to process original data.
+  8. Include a summary or description of the expected results (e.g. emission totals for each species).
 
 Also follow these additional steps to ensure that your data can be read by GCHP:
 
@@ -75,4 +77,4 @@ We accept feature requests through issues on GitHub. To request a new feature, *
 Please see **[Support Guidelines](https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html)**.
 
 ## Where can I ask for help?
-Please see **[Support Guidelines](https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html)**
+Please see **[Support Guidelines](https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html)**.
