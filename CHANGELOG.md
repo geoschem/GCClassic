@@ -7,6 +7,10 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - TBD
+### Fixed
+- Added brackets around `exempt-issue-labels` list in `.github/workflows/stale.yml`
+
 ## [14.4.2] - 2024-07-24
 ### Added
 - ReadTheDocs update for for Cloud-J input parameter `num_levs_with_cloud`
