@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated Cloud-J submodule to 7.7.2
 - Discontinue support of FAST-JX for all simulations except Hg
+- ReadTheDocs now describes latitude and longitude bounds as grid cell edges
 
 ## [14.4.1] - 2024-06-28
 ### Fixed
