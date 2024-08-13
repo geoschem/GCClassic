@@ -7,6 +7,16 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.4.3] - 2024-08-13
+### Changed
+- Updated GEOS-Chem (science codebase) to 14.4.3
+- Updated HEMCO to 3.9.3
+- Updated Cloud-J to 7.7.3
+- Updated documentation (clarified discussion of grid edges)
+
+### Fixed
+- Added brackets around `exempt-issue-labels` list in `.github/workflows/stale.yml`
+
 ## [14.4.2] - 2024-07-24
 ### Added
 - ReadTheDocs update for for Cloud-J input parameter `num_levs_with_cloud`
@@ -15,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated Cloud-J submodule to 7.7.2
 - Discontinue support of FAST-JX for all simulations except Hg
+- ReadTheDocs now describes latitude and longitude bounds as grid cell edges
 
 ## [14.4.1] - 2024-06-28
 ### Fixed
