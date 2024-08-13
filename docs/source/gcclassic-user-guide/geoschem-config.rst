@@ -266,7 +266,7 @@ by GEOS-Chem Classic:
 
    .. option:: 2.0x2.5
 
-      The global :math:`2.0{\circ}{\times}2.5^{\circ}` GEOS-Chem Classic
+      The global :math:`2.0^{\circ}{\times}2.5^{\circ}` GEOS-Chem Classic
       grid.
 
    .. option:: 0.5x0.625
@@ -306,7 +306,7 @@ by GEOS-Chem Classic:
 
    .. option:: range
 
-      The minimum and maximum longitude values (grid box centers),
+      The minimum and maximum longitude values (grid box edges),
       specified in list format.
 
    .. option:: center_at_180
@@ -326,7 +326,7 @@ by GEOS-Chem Classic:
 
    .. option:: range
 
-      The minimum and maximum latitude values (grid box centers),
+      The minimum and maximum latitude values (grid box edges),
       specified in list format.
 
    .. option:: use_halfpolar_boxes
