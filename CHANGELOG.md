@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated `docs/source/geos-chem-shared-docs/spack/packages.yaml` to use GCC 12.2.0 compilers
 
+### Fixed
+- Now use `jinja2==3.1.4` in `docs/requirements.txt` (fixes a security issue)
+
 ## [14.4.3] - 2024-08-13
 ### Changed
 - Updated GEOS-Chem (science codebase) to 14.4.3
