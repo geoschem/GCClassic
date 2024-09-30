@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased] - TBD
 ### Changed
 - Updated `docs/source/geos-chem-shared-docs/spack/packages.yaml` to use GCC 12.2.0 compilers
+- Updated documentation for version 14.5.0
+- Moved several doc files (not supplemental guides) that are used in both GCClassic and GCHP the to `geos-chem-shared-docs/doc` folder
 
 ### Fixed
 - Now use `jinja2==3.1.4` in `docs/requirements.txt` (fixes a security issue)
