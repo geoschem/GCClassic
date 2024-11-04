@@ -146,7 +146,7 @@ fields.   The overhead in reading and regridding these global fields
 can significantly impact your simulation. Instead, consider cropping
 high-resolution meteorology fields to the extent of your nested domain.
 This can easily be done with the netCDF operators or the Climate Data
-Operators; see our :ref:`netcdf-guide` supplemental guide for more
+Operators; see our :ref:`ncguide` supplemental guide for more
 information.
 
 .. _run-speedup-nested-buffer:

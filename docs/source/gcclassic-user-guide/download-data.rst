@@ -18,7 +18,7 @@ for your GEOS-Chem simulation.
 .. toctree::
    :maxdepth: 2
 
-   ../geos-chem-shared-docs/doc/gcid-repository-overview.rst
-   gcid-special-repos.rst
+   ../geos-chem-shared-docs/doc/gcid-portal-overview.rst
+   gcid-special-portals.rst
    restart-files.rst
    dry-run.rst

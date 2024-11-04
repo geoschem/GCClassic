@@ -12,7 +12,7 @@ Once you have successfully executed a GEOS-Chem dry-run, you
 can use the output from the dry-run (contained in the :file:`log.dryrun` file)
 to download the data files that GEOS-Chem will need to perform the
 corresponding "production" simulation. You may download from different
-:ref:`data repositories <dry-run-data-download-repo>`.
+:ref:`data repositories <dry-run-data-download-portal>`.
 
 .. important::
 
@@ -38,95 +38,42 @@ corresponding "production" simulation. You may download from different
    more information, please see `gcpy.readthedocs.io
    <gcpy.readthedocs.io.>`_.
 
-.. _dry-run-data-download-repo:
+.. _dry-run-data-download-portal:
 
-========================
-Choose a data repository
-========================
+====================
+Choose a data portal
+====================
 
-You can :ref:`download input data <data>` from one of the following
-repositories:
+You can :ref:`download input data <data>` from any of the portals
+listed below.
 
-.. _dry-run-download-repo-gc:
+  .. list-table:: GEOS-Chem data portals and access methods
+     :header-rows: 1
+     :align: center
 
-GEOS-Chem Input Data
---------------------
+     * - Portal
+       - S3 Explorer
+       - AWS CLI
+       - HTTP
+       - Globus
+     * - :ref:`GEOS-Chem Input Data <gcid-data>` |br|
+         (The main source of GEOS-Chem input data)
+       - Yes
+       - Yes
+       - Yes
+       - Yes
+     * - :ref:`gcid-special-portals-nested`
+       - Yes
+       - Yes
+       - Yes
+       - No
+     * - :ref:`gcid-special-portals-gcap2`
+       - No
+       - No
+       - Yes
+       - No
 
-The :ref:`GEOS-Chem Input Data <gcid>` repository is the main source
-of input data (emissions, meteorology, chemistry inputs, restart
-files) for GEOS-Chem. We recommend that you download data from this
-repository unless otherwise necessary.
-
-This repository is curated by the GEOS-Chem Support Team at Washington
-University in St. Louis, and is hosted on the AWS S3 bucket
-:file:`s3://geos-chem`.
-
-.. tip::
-
-   We have set up a `Globus <https://www.globus.org/data-transfer>`_
-   endpoint named **GEOS-Chem data (WashU)**, which links to the
-   GEOS-Chem Input Data repository.  If you need to download many
-   years of data, you may find that using Globus is much faster than
-   downloading data with a dry-run simulation.  Ask your IT support
-   staff if Globus is supported at your institution.
-
-Supported download methods:
-
-- AWS CLI (command-line interface)
-- HTTP download (e.g via :program:`wget`)
-- Globus
-
-Repository browser:
-
-- AWS S3 Explorer (https://geos-chem.s3.amazonaws.com/index.html)
-
-.. _dry-run-download-repo-nest:
-
-GEOS-Chem Nested Input Data
----------------------------
-
-The :ref:`gcid-special-repos-nested` repository contains cropped
-GEOS-FP and MERRA-2 meteorological inputs for several nested domains.
-These data can be used to perform high-resolution inversions using the
-`Integrated Methane Inversion (IMI) <https://imi.readthedocs.io>`_
-workflow.
-
-This repository is curated by the GEOS-Chem Support Team at
-Harvard University and is hosted at the AWS S3 bucket
-:file:`s3://gcgrid`.
-
-Supported download methods:
-
-- AWS CLI (command-line interface)
-- HTTP download (e.g via :program:`wget`)
-
-Repository browser:
-
-- AWS S3 Explorer (https://gcgrid.s3.amazonaws.com/index.html)
-
-.. _dry-run-download-repo-ur:
-
-GCAP 2.0 meteorology at University of Rochester
------------------------------------------------
-
-The `atmos.earth.rochester.edu
-<http://atmos.earth.rochester.edu/input/gc/ExtData/>`_ repository
-contains the GCAP 2.0 meteorology inputs for GEOS-Chem.  GCAP 2.0
-meteorology is useful if you wish to perform simulations stretching
-back into the preindustrial period, or running into the future.
-
-This repository is curated by Lee Murray (GitHub:
-:literal:`@ltmurray`) at the University of Rochester.
-
-Supported download methods:
-
-- HTTP download (e.g via :program:`wget`)
-
-Repository browser:
-
-- HTTP site (http://atmos.earth.rochester.edu/input/gc/ExtData)
-
-.. _dry-run-download-data:
+.. _dry-run-download-py:
 
 ==============================================================
 Run the :file:`download_data.py` script on the dryrun log file
@@ -137,7 +84,7 @@ and type.
 
 .. code-block:: console
 
-   $ ./download_data.py log.dryrun REPOSITORY-NAME
+   $ ./download_data.py log.dryrun PORTAL-NAME
 
 where:
 
@@ -150,40 +97,41 @@ where:
   simulation. |br|
   |br|
 
-- :literal:`REPOSITORY-NAME` specifies the data repository that you wish
+- :literal:`PORTAL-NAME` specifies the data portal that you wish
   to download from.  Allowed values are:
 
-  .. list-table:: Allowed values for the ``REPOSITORY-NAME`` argument
+  .. list-table:: Allowed values for the ``PORTAL-NAME`` argument
 		  to ``download_data.py``
      :header-rows: 1
+     :align: center
 
      * - Value
-       - Downloads from repository
-       - Command used
-       - Method
-     * - geoschem-s3
-       - :ref:`dry-run-download-repo-gc`
+       - Downloads from portal
+       - With this command
+       - Via this method
+     * - geoschem+aws
+       - :ref:`GEOS-Chem Input Data <gcid-data>`
        - :command:`aws s3 cp`
        - AWS CLI
-     * - geoschem-wget
-       - :ref:`dry-run-download-repo-gc`
+     * - geoschem+http
+       - :ref:`GEOS-Chem Input Data <gcid-data>`
        - :command:`wget`
        - HTTP
-     * - nested-s3
-       - :ref:`dry-run-download-repo-nest`
+     * - nested+aws
+       - :ref:`gcid-special-portals-nested`
        - :command:`aws s3 cp`
        - AWS CLI
-     * - nested-wget
-       - :ref:`dry-run-download-repo-nest`
+     * - nested+http
+       - :ref:`gcid-special-portals-nested`
        - :command:`wget`
        - HTTP
      * - rochester
-       - :ref:`GCAP 2.0 met data @ Rochester <dry-run-download-repo-ur>`
+       - :ref:`GCAP 2.0 met data @ Rochester <gcid-special-portals-gcap2>`
        - :command:`wget`
        - HTTP
 
-For example, to download data from the :ref:`dry-run-download-repo-gc`
-repository using the AWS CLI download (which is faster than HTTP
+For example, to download data from the :ref:`dry-run-download-portal-gc`
+portal using the AWS CLI download (which is faster than HTTP
 download), use this command:
 
 .. code-block:: console
@@ -194,8 +142,8 @@ download), use this command:
 
    You must have the `AWS CLI (command-line interface)
    <https://aws.amazon.com/cli/>`_ software installed on your system
-   before in order to use the :literal:`geoschem-s3` or
-   :literal:`nested-s3` options in the table listed above.
+   before in order to use the :literal:`geoschem+aws` or
+   :literal:`nested+aws` options in the table listed above.
 
 The :file:`download_data.py` program will generate a **log of
 unique data files** (i.e. with all duplicate listings removed), which
@@ -211,17 +159,17 @@ looks similar to this:
     !!! Meteorology      : GEOSFP
     !!! Grid Resolution  : 4.0x5.0
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    ./GEOSChem.Restart.20160701_0000z.nc4 --> /n/holylfs/EXTERNAL_REPOS/GEOS-CHEM/gcgrid/data/ExtData/GEOSCHEM_RESTARTS/v2018-11/initial_GEOSChem_rst.4x5_standard.nc
+    ./GEOSChem.Restart.20160701_0000z.nc4 --> /path/to/ExtData/GEOSCHEM_RESTARTS/v2018-11/initial_GEOSChem_rst.4x5_standard.nc
     ./HEMCO_Config.rc
     ./HEMCO_Diagn.rc
     ./HEMCO_restart.201607010000.nc
     ./HISTORY.rc
     ./input.geos
-    /n/holylfs/EXTERNAL_REPOS/GEOS-CHEM/gcgrid/data/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/FJX_j2j.dat
-    /n/holylfs/EXTERNAL_REPOS/GEOS-CHEM/gcgrid/data/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/FJX_spec.dat
-    /n/holylfs/EXTERNAL_REPOS/GEOS-CHEM/gcgrid/data/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/dust.dat
-    /n/holylfs/EXTERNAL_REPOS/GEOS-CHEM/gcgrid/data/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/h2so4.dat
-    /n/holylfs/EXTERNAL_REPOS/GEOS-CHEM/gcgrid/data/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/jv_spec_mie.dat
+    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/FJX_j2j.dat
+    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/FJX_spec.dat
+    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/dust.dat
+    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/h2so4.dat
+    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/jv_spec_mie.dat
     ... etc ...
 
 This name of this "unique" log file will be the same as the log file

@@ -2,23 +2,23 @@
 
    <br />
 
-.. _gcid-special-repos:
+.. _gcid-special-portals:
 
-########################################
-Additional meteorology data repositories
-########################################
+#######################################
+Additional portals for meteorology data
+#######################################
 
 As discussed in the previous chapter, the :ref:`GEOS-Chem Input
-Data <gcid>` repository is the main source of input data for
+Data <gcid>` portal is the main source of input data for
 :program:`GEOS-Chem Classic`, :program:`GCHP`, and the :program:`HEMCO
-standalone model`.  This repository contains the entire catalog
+standalone model`.  This portal contains the entire catalog
 of emissions inventories, chemical inputs, initial conditions, and
 most years of `GEOS-FP <http://wiki.geos-chem.org/GEOS_FP>`_,
 `MERRA-2 <http://wiki.geos-chem.org/GEOS_FP>`_, and GEOS-IT meteorology.
 
-We also maintain two additional data repositories for special data sets.
+We also maintain two additional data portals for special data sets.
 
-.. _gcid-special-repos-nested:
+.. _gcid-special-portals-nested:
 
 ===========================
 GEOS-Chem Nested Input Data
@@ -27,15 +27,16 @@ GEOS-Chem Nested Input Data
 .. attention::
 
    We are still adding data to the GEOS-Chem Nested Input Data
-   repository. As of this writing (November 2024), not all data may
+   portal. As of this writing (November 2024), not all data may
    have been uploaded yet.  We thank you for your patience.
 
 The `GEOS-Chem Nested Input data
 <https://registry.opendata.aws/geoschem-nested-input-data/>`_
-repository stores GEOS-FP and MERRA-2 meteorology fields that have
-been cropped to several nested domains.  These data can be used to
-perform high-resolution inversions with the `Integrated Methane
-Inversion (IMI) <https://imi.readthedocs.io>`_ workflow.
+portal stores GEOS-FP and MERRA-2 meteorology fields that have
+been cropped to specific :ref:`nested-grid <nestgrid-guide>` domains.
+These data can be used to perform high-resolution inversions with the
+`Integrated Methane Inversion (IMI) <https://imi.readthedocs.io>`_
+workflow.
 
 .. table:: Available nested-grid meteorology (2018 to present day)
    :align: center
@@ -63,20 +64,21 @@ The data can be accessed by:
 - Direct HTTP or wget download
 - :ref:`Dry-run simulation <dry-run>`
 
-The GEOS-Chem Nested Input Data repository is also part of the `AWS
+The GEOS-Chem Nested Input Data portal is also part of the `AWS
 Open Data Sponsorship Program
 <https://aws.amazon.com/opendata/open-data-sponsorship-program/>`_.
 
-.. _gcid-special-repos-gcap2:
+.. _gcid-special-portals-gcap2:
 
-========================================
-GCAP2 meteorology hosted at U. Rochester
-========================================
+===========================================
+GCAP 2.0 meteorology hosted at U. Rochester
+===========================================
 
 The `atmos.earth.rochester.edu
-<http://atmos.earth.rochester.edu/input/gc/ExtData/>`_ repository
-(maintained by Lee Murray at the University of Rochester) contains the
-GCAP 2.0 meteorological data inputs for use with GEOS-Chem simulations.
+<http://atmos.earth.rochester.edu/input/gc/ExtData/>`_ portal
+(curated by Lee Murray at the University of Rochester) contains the
+GCAP 2.0 meteorological data inputs for use with GEOS-Chem
+simulations.
 
 The data can be accessed by:
 

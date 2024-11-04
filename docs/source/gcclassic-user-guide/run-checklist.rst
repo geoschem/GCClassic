@@ -55,14 +55,15 @@ Each-time setup
 
    .. attention::
 
-      Prior to running with :option:`GEOS-FP` meteorology, be aware
+      Prior to running with GEOS-FP meteorology, be aware
       that it is an operational (i.e. evolving) product
       that is subject to assimilation system updates.
 
-      On the other hand, the :option:`MERRA-2` meterology is a 40+
+      On the other hand, the MERRA-2 meterology is a 40+
       year reanalysis product performed with a "frozen" version of the
-      NASA GEOS assimilation system.  Thus, :option:`MERRA-2` is
-      preferable for studies ranging over multiple years or decades.
+      NASA GEOS assimilation system.  Thus, `MERRA-2
+      <http://wiki.geos-chem.org/MERRA-2>`_ is preferable for studies
+      ranging over multiple years or decades.
 
 #. :ref:`Configure and build <compile>` the source code into an
    executable file. |br|
