@@ -19,6 +19,6 @@ for your GEOS-Chem simulation.
    :maxdepth: 2
 
    ../geos-chem-shared-docs/doc/gcid-portal-overview.rst
-   gcid-special-portals.rst
+   ../geos-chem-shared-docs/doc/gcid-special-portals.rst
    restart-files.rst
    dry-run.rst
