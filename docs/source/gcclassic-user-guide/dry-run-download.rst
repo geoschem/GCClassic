@@ -133,13 +133,13 @@ where:
        - :command:`wget`
        - HTTP
 
-For example, to download data from the :ref:`dry-run-download-portal-gc`
-portal using the AWS CLI download (which is faster than HTTP
-download), use this command:
+For example, to download data from the :ref:`GEOS-Chem Input Data
+<gcid-data>` portal using the AWS CLI download (which is faster than
+HTTP download), use this command:
 
 .. code-block:: console
 
-   $ ./download_data.py log.dryrun geoschem-s3
+   $ ./download_data.py log.dryrun geoschem+s3
 
 .. note::
 

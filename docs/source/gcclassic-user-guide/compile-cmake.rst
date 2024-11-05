@@ -433,17 +433,16 @@ Classic contains code from the various repositories:
 
    .. note::
 
-   If you are cloning GEOS-Chem Classic between official releases, you
-   may the see :code:`Current status` reported like this:
+      If you are cloning GEOS-Chem Classic between official releases, you
+      may the see :code:`Current status` reported like this:
 
-   .. code-block:: console
+      .. code-block:: console
 		      
-      X.Y.Z-alpha.n-C-gabcd1234.dirty  or
+         X.Y.Z-alpha.n-C-gabcd1234.dirty  or
 
-      X.Y.Z.rc.n-C.gabcd1234.dirty
+         X.Y.Z.rc.n-C.gabcd1234.dirty
 
-   We will explain these formats below. |br|
-   |br|
+      We will explain these formats below.
    
 #. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
 
