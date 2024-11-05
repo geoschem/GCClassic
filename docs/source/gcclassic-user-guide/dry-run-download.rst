@@ -47,31 +47,34 @@ Choose a data portal
 You can :ref:`download input data <data>` from any of the portals
 listed below.
 
-  .. list-table:: GEOS-Chem data portals and access methods
-     :header-rows: 1
-     :align: center
+.. list-table:: GEOS-Chem data portals and access methods
+   :header-rows: 1
 
-     * - Portal
-       - S3 Explorer
-       - AWS CLI
-       - HTTP
-       - Globus
-     * - :ref:`GEOS-Chem Input Data <gcid-data>` |br|
-         (The main source of GEOS-Chem input data)
-       - Yes
-       - Yes
-       - Yes
-       - Yes
-     * - :ref:`gcid-special-portals-nested`
-       - Yes
-       - Yes
-       - Yes
-       - No
-     * - :ref:`gcid-special-portals-gcap2`
-       - No
-       - No
-       - Yes
-       - No
+   * - Portal
+     - S3 Explorer
+     - AWS CLI
+     - HTTP
+     - Bashdatacatalog
+     - Globus
+   * - :ref:`GEOS-Chem Input Data <gcid-data>` |br|
+       (The main source of GEOS-Chem input data)
+     - Yes
+     - Yes
+     - Yes
+     - Yes
+     - Yes
+   * - :ref:`gcid-special-portals-nested`
+     - Yes
+     - Yes
+     - Yes
+     - No
+     - No
+   * - :ref:`gcid-special-portals-gcap2`
+     - No
+     - No
+     - Yes
+     - No
+     - No
 
 .. _dry-run-download-py:
 
@@ -151,25 +154,31 @@ looks similar to this:
 
 .. code-block:: text
 
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !!! LIST OF (UNIQUE) FILES REQUIRED FOR THE SIMULATION
-    !!! Start Date       : 20160701 000000
-    !!! End Date         : 20160701 010000
-    !!! Simulation       : standard
-    !!! Meteorology      : GEOSFP
-    !!! Grid Resolution  : 4.0x5.0
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    ./GEOSChem.Restart.20160701_0000z.nc4 --> /path/to/ExtData/GEOSCHEM_RESTARTS/v2018-11/initial_GEOSChem_rst.4x5_standard.nc
-    ./HEMCO_Config.rc
-    ./HEMCO_Diagn.rc
-    ./HEMCO_restart.201607010000.nc
-    ./HISTORY.rc
-    ./input.geos
-    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/FJX_j2j.dat
-    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/FJX_spec.dat
-    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/dust.dat
-    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/h2so4.dat
-    /path/to/ExtData/CHEM_INPUTS/FAST_JX/v2019-10/jv_spec_mie.dat
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   !!! LIST OF (UNIQUE) FILES REQUIRED FOR THE SIMULATION
+   !!! Start Date       : 20190701 000000
+   !!! End Date         : 20190701 010000
+   !!! Simulation       : fullchem
+   !!! Meteorology      : MERRA2
+   !!! Grid Resolution  : 4.0x5.0
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   ./HEMCO_Config.rc
+   ./HEMCO_Config.rc.gmao_metfields
+   ./HEMCO_Diagn.rc
+   ./HISTORY.rc
+   ./Restarts/GEOSChem.Restart.20190701_0000z.nc4 --> /home/ubuntu/ExtData/GEOSCHEM_RESTARTS/GC_14.5.0/GEOSChem.Restart.fullchem.20190701_0000z.nc4
+   ./Restarts/HEMCO_restart.201907010000.nc
+   ./geoschem_config.yml
+   /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2024-09/FJX_j2j.dat
+   /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2024-09/FJX_scat-aer.dat
+   /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2024-09/FJX_scat-cld.dat
+   /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2024-09/FJX_scat-ssa.dat
+   /path/to/ExtData/CHEM_INPUTS/CLOUD_J/v2024-09/FJX_spec.dat
+   /path/to/ExtData/CHEM_INPUTS/FastJ_201204/fastj.jv_atms_dat.nc
+   /path/to/ExtData/CHEM_INPUTS/Linoz_200910/Linoz_March2007.dat
+   /path/to/ExtData/CHEM_INPUTS/Olson_Land_Map_201203/Olson_2001_Drydep_Inputs.nc
+   /path/to/ExtData/CHEM_INPUTS/UCX_201403/NoonTime/Grid4x5/InitCFC_JN2O_01.dat
+
     ... etc ...
 
 This name of this "unique" log file will be the same as the log file
