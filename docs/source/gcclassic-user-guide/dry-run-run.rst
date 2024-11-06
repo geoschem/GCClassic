@@ -29,20 +29,14 @@ files <cfg>`:
 
       .. important::
 
-         The convection scheme used for GEOS-FP met generation changed
-         from RAS to Grell-Freitas with impact on GEOS-FP meteorology
-         files starting June 1, 2020, specifically enhanced vertical
-         transport. In addition, there is a bug in convective
-         precipitation flux following the switch where all values are
-         zero. While this bug is automatically fixed by computing fluxes
-         online for runs starting on or after June 1 2020, the fix
-         assumes meteorology year corresponds to simulation year. Due to
-         these issues we recommend splitting up GEOS-FP runs in time such
-         that a single simulation does not run across June
-         1, 2020. Instead. set one run to stop on June 1 2020 and then
-         restart a new run from there. If you wish to use a GEOS-FP
-         meteorology year different from your simulation year please
-         create a GEOS-Chem GitHub issue for assistance.
+	 The convection scheme used for GEOS-FP met generation changed
+	 from RAS to Grell-Freitas with impact on GEOS-FP meteorology
+	 files starting June 1, 2020. For this reason we recommend
+	 using MERRA-2 instead of GEOS-FP if running a simulation
+	 across June 1, 2020 to avoid unexpected
+	 discontinuities. Additional information about the impact of
+	 the convection change is at `geoschem/geos-chem#1409
+	 <https://github.com/geoschem/geos-chem/issues/1409>`_.
 
    #. :option:`root_data_dir`: Make sure that the path to
       :file:`ExtData` is correct.
