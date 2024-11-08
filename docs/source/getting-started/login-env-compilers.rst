@@ -4,8 +4,8 @@
 Set environment variables for compilers
 #######################################
 
-The sample :ref:`GNU <env-files-gnu10>` and :ref:`Intel
-<env-files-intel19>` environment files set the **environment
+The sample :ref:`GNU <env-files-gnu>` and :ref:`Intel
+<env-files-intel>` environment files set the **environment
 variables** listed below in order to select the desired C, C++, and
 Fortran compilers:
 

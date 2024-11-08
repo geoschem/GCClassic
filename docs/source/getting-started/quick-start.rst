@@ -1,3 +1,7 @@
+.. |br| raw:: html
+
+   <br/>
+
 .. _quick:
 
 ################
@@ -119,8 +123,25 @@ simulations follow the same pattern as the examples shown below.
    provide :ref:`registration information <rundir-registration>`.
    Please answer all of the questions, as it will help us to keep
    track of GEOS-Chem usage worldwide.  We will also add your
-   information to the `GEOS-Chem People and Projects web page
-   <https://geoschem.github.io/people.html>`_.
+   information to the `GEOS-Chem Users web page
+   <https://geoschem.github.io/users.html>`_.
+
+.. important::
+
+   The convection scheme used for GEOS-FP met generation changed
+   from RAS to Grell-Freitas with impact on GEOS-FP meteorology
+   files starting June 1, 2020, specifically enhanced vertical
+   transport. In addition, there is a bug in convective
+   precipitation flux following the switch where all values are
+   zero. While this bug is automatically fixed by computing fluxes
+   online for runs starting on or after June 1 2020, the fix
+   assumes meteorology year corresponds to simulation year. Due to
+   these issues we recommend splitting up GEOS-FP runs in time such
+   that a single simulation does not run across June
+   1, 2020. Instead. set one run to stop on June 1 2020 and then
+   restart a new run from there. If you wish to use a GEOS-FP
+   meteorology year different from your simulation year please
+   create a GEOS-Chem GitHub issue for assistance.
 
 .. _quick-load:
 
@@ -209,8 +230,8 @@ where the error happened and why.
 
    $ cmake . -DCMAKE_BUILD_TYPE=Debug
 
-See the :ref:`GEOS-Chem documentation <compile-cmake>` for more
-information on configuration options.
+:ref:`Click here <compile-cmake>` for more information on
+configuration options.
 
 .. _quick-cmp-inst:
 
@@ -226,7 +247,7 @@ with the :literal:`-j` flag from the :file:`build/` directory:
 
 .. code-block:: console
 
-   # cd /path/to/gc_4x5_merra2_fullchem/build   # Skip if you are already here
+   $ cd /path/to/gc_4x5_merra2_fullchem/build   # Skip if you are already here
    $ make -j
 
 Upon successful compilation, install the compiled executable to your
@@ -278,7 +299,39 @@ You should review these files before starting a simulation:
 
 - :ref:`HEMCO_Config.rc <cfg-hco-cfg>`
    - Controls which emissions inventories and other non-emissions data
-     will be read from disk (via `HEMCO <https://hemco.readthedocs.io>`_).
+     will be read from disk (via `HEMCO
+     <https://hemco.readthedocs.io>`_).
+
+.. attention::
+
+   If you wish to spin up a GEOS-Chem simulation with a restart file
+   that has (1) missing species or (2) a timestamp that does not
+   match the start date in :ref:`geoschem_config.yml <cfg-gc-yml>`,
+   simply change the time cycle flag for the :literal:`SPC_` entry in
+   :ref:`HEMCO_Config.rc <cfg-hco-cfg>` from
+
+   .. code-block:: console
+
+      * SPC_ ... $YYYY/$MM/$DD/$HH EFYO xyz 1 * - 1 1
+
+   to
+
+   .. code-block:: console
+
+      * SPC_ ... $YYYY/$MM/$DD/$HH CYS xyz 1 * - 1 1
+
+   This will direct HEMCO to read the closest date
+   available (:literal:`C`), to use the simulation year
+   (:literal:`Y`),  and to skip any species (:literal:`S`) not found
+   in the restart file.
+
+   Skipped species will be assigned the initial concentration
+   (units: :math:`mol\ mol^{-1}` w/r/t dry air) specified by its
+   :option:`BackgroundVV` entry in :ref:`species_database.yml
+   <cfg-spec-db>`.   If the species does not have a
+   :option:`BackgroundVV` value specified, then its initial
+   concentration will be set to :math:`1.0{\times}10^{-20}`
+   instead.
 
 Please see our :ref:`customguide` Supplemental Guide to learn how you
 can customize your simulation by activating alternate science options
@@ -293,16 +346,18 @@ in your simulations.
 Before you can run your GEOS-Chem Classic simulation, you must first
 :ref:`download the required input data <data>`.  These data include:
 
-- Meteorological fields (e.g. GEOS-FP, MERRA-2, GEOS-IT, or GCAP2)
-- Emissions inventories
-- Inputs for GEOS-Chem modules (e.g. Cloud-J)
+- :ref:`Meteorological fields <gcid-data-org-met>` (e.g. GEOS-FP,
+  MERRA-2, GEOS-IT, or GCAP2)
+- :ref:`Emissions inventories <gcid-data-org-emis-inputs>`
+- :ref:`Inputs for GEOS-Chem modules (e.g. Cloud-J) <gcid-data-org-chem-inputs>`
+- :ref:`Initial conditions for starting GEOS-Chem simulations <gcid-data-org-init-cond>`
 
 .. tip::
 
    If your institution has several GEOS-Chem users, then someone may
    have already downloaded these data for you.  If this is the case,
    you may :ref:`start running your your GEOS-Chem Classic simulation
-   <quick-run>`.
+   <quick-run>` right away.
 
 The easiest way to download data is to perform a :ref:`dry-run
 simulation <dry-run>`. This is a GEOS-Chem Classic simulation that
@@ -321,21 +376,40 @@ list of data files to be downloaded.
 
 Once the dry-run simulation has finished, use the
 :file:`download_data.py` file (included in your run directory) to
-:ref:`download the required data <dry-run-download>`.  Type:
-
-.. code-block:: console
-
-   $ ./download_data.py log.dryrun --washu
-
-This will download data from the :option:`WashU` data portal.  You
-may also download from the :option:`Amazon` or :option:`Rochester`
-data portals.
+:ref:`download the required data <dry-run-download>`.
 
 .. note::
 
    Depending on your system, you might have to activate a Conda or
    Mamba environment containing a version of Python before running the
    :file:`download.data.py` script.  Ask your sysadmin.
+
+To start the data download, type:
+
+.. code-block:: console
+
+   $ ./download_data.py log.dryrun geoschem+http
+
+This will download data from the :ref:`GEOS-Chem Input Data <gcid>`
+portal using the HTTP data transfer protocol.
+
+.. tip::
+
+   If you have `AWS CLI (command line interface)
+   <https://aws.amazon.com/cli/>`_ installed on your system, you
+   can use this command instead:
+
+   .. code-block:: console
+
+      $ ./download_data.py log.dryrun geoschem+aws
+
+   This will use the AWS CLI data download protocol instead, which
+   should be faster than regular HTTP connections.  This is the
+   command you should use if you are running GEOS-Chem Classic in an
+   AWS EC2 instance.
+
+We also maintain :ref:`separate data portals <gcid-special-portals>`
+for special nested-grid domains as well as the GCAP 2.0 meteorology.
 
 For more information about dry-run simulations, please see our
 :ref:`dry-run` chapter.

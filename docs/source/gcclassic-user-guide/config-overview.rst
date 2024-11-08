@@ -27,9 +27,9 @@ edit most (if not all) of these configuration files:
 .. toctree::
    :maxdepth: 1
 
-   geoschem-config.rst
-   hemco-config.rst
-   hemco-diagn.rst
+   ../geos-chem-shared-docs/doc/geoschem-config.rst
+   ../geos-chem-shared-docs/doc/hemco-config.rst
+   ../geos-chem-shared-docs/doc/hemco-diagn.rst
    history.rst
 
 All of the above-mentioned files are included in your :ref:`GEOS-Chem
@@ -52,5 +52,5 @@ you'll need to edit these configuration files:
 .. toctree::
    :maxdepth: 1
 
-   spec-db.rst
-   phot-chem.rst
+   ../geos-chem-shared-docs/doc/spec-db.rst
+   ../geos-chem-shared-docs/doc/phot-chem.rst

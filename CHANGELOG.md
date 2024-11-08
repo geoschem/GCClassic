@@ -7,14 +7,18 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - TBD
+## [14.5.0] - 2024-11-08
 ### Changed
 - Updated GEOS-Chem to 14.5.0
 - Updated HEMCO to 3.10.0
 - Updated Cloud-J to 8.0.1
+- Updated `docs/source/geos-chem-shared-docs/spack/packages.yaml` to use GCC 12.2.0 compilers
+- Updated documentation for version 14.5.0
+- Moved several doc files (not supplemental guides) that are used in both GCClassic and GCHP the to `geos-chem-shared-docs/doc` folder
 
 ### Fixed
 - Fixed formatting error in `.github/workflows/stale.yml` that caused the Mark Stale Issues action not to run
+- Updated to Python package `jinja2==3.1.4` in `docs/requirements.txt` (fixes a security issue)
 
 ## [14.4.3] - 2024-08-13
 ### Changed
