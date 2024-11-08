@@ -138,6 +138,17 @@ GEOS-Chem full-chemistry simulation.
    :command:`1` followed by :command:`ENTER`. |br|
    |br|
 
+   .. important::
+
+      The convection scheme used for GEOS-FP met generation changed
+      from RAS to Grell-Freitas with impact on GEOS-FP meteorology
+      files starting June 1, 2020. For this reason we recommend
+      using MERRA-2 instead of GEOS-FP if running a simulation
+      across June 1, 2020 to avoid unexpected
+      discontinuities. Additional information about the impact of
+      the convection change is at `geoschem/geos-chem#1409
+      <https://github.com/geoschem/geos-chem/issues/1409>`_.
+
 #. The next menu will prompt you for the horizontal resolution that
    you wish to use:
 

@@ -6,15 +6,6 @@ Execute a dry-run simulation
 
 Follow the steps below to perform a GEOS-Chem Classic dry-run simulation:
 
-.. tip::
-
-   Also be sure to watch our video tutorial `Using the updated
-   dry-run capability in GEOS-Chem 13.2.1 and later versions
-   <https://www.youtube.com/watch?v=ZLSXrjHqJAs&t=35s>`_
-   at our `GEOS-Chem Youtube Channel
-   <https://youtube.com/c/geoschem/>`_, which will guide you
-   through these steps.
-
 ==========================
 Complete preliminary setup
 ==========================
@@ -32,9 +23,21 @@ files <cfg>`:
 
    #. :option:`start_date`: Set the start date and time for your simulation.
    #. :option:`end_date`: Set the end date and time for your simulation.
-   #. :option:`met_field`: Check if the meteorology setting 
+   #. :option:`met_field`: Check if the meteorology setting
       (:option:`GEOS-FP`, :option:`MERRA2`, :option:`GCAP2`) is
       correct for your simulation.
+
+      .. important::
+
+	 The convection scheme used for GEOS-FP met generation changed
+	 from RAS to Grell-Freitas with impact on GEOS-FP meteorology
+	 files starting June 1, 2020. For this reason we recommend
+	 using MERRA-2 instead of GEOS-FP if running a simulation
+	 across June 1, 2020 to avoid unexpected
+	 discontinuities. Additional information about the impact of
+	 the convection change is at `geoschem/geos-chem#1409
+	 <https://github.com/geoschem/geos-chem/issues/1409>`_.
+
    #. :option:`root_data_dir`: Make sure that the path to
       :file:`ExtData` is correct.
 
@@ -57,7 +60,7 @@ files <cfg>`:
       sets for your simulation have been switched on.
 
    .. tip::
- 
+
       You can reduce the amount of data that needs to be downloaded for
       your simulation by turning off inventories that you don't need.
 

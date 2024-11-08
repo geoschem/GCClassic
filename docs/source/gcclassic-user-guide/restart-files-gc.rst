@@ -134,8 +134,7 @@ Where can I get a restart file for my simulation?
 
 GEOS-Chem Classic :ref:`run directories <rundir>` are configured to
 use sample GEOS-Chem restart files in :program:`netCDF` format.  These
-files are available for download at the :option:`WashU` and
-:option:`Amazon` data portals.
+files are available for download at the :ref:`gcid-data` portal.
 
 .. tip::
 

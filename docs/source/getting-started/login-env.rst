@@ -12,6 +12,13 @@ Customize your login environment
    Machine Images  (AMIs) all of the required software libraries will be
    automatically loaded.
 
+.. tip::
+
+   If your computer system lacks the required software packages for
+   :program:`GEOS-Chem Classic`, you can build them with the Spack
+   package manager.  For detailed instructions, please see our
+   :ref:`spackguide` supplemental guide.
+
 Each time you log in to your computer system, you'll need to load
 the :ref:`software libraries <req-soft>` needed by
 GEOS-Chem into your environment. You can do this with a script known

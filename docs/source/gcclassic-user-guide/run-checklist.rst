@@ -55,14 +55,32 @@ Each-time setup
 
    .. attention::
 
-      Prior to running with :option:`GEOS-FP` meteorology, be aware
-      that it is an operational (i.e. evolving) product
-      that is subject to assimilation system updates.
+      Be aware that GEOS-FP meteorology is an operational
+      (i.e. evolving) product that is subject to assimilation
+      system updates.
 
-      On the other hand, the :option:`MERRA-2` meterology is a 40+
+      On the other hand, the MERRA-2 meteorology is a 40+
       year reanalysis product performed with a "frozen" version of the
-      NASA GEOS assimilation system.  Thus, :option:`MERRA-2` is
-      preferable for studies ranging over multiple years or decades.
+      NASA GEOS assimilation system.  Thus, `MERRA-2
+      <http://wiki.geos-chem.org/MERRA-2>`_ is preferable for studies
+      ranging over multiple years or decades.
+
+   .. important::
+
+      The convection scheme used for GEOS-FP met generation changed
+      from RAS to Grell-Freitas with impact on GEOS-FP meteorology
+      files starting June 1, 2020, specifically enhanced vertical
+      transport. In addition, there is a bug in convective
+      precipitation flux following the switch where all values are
+      zero. While this bug is automatically fixed by computing fluxes
+      online for runs starting on or after June 1 2020, the fix
+      assumes meteorology year corresponds to simulation year. Due to
+      these issues we recommend splitting up GEOS-FP runs in time such
+      that a single simulation does not run across June
+      1, 2020. Instead. set one run to stop on June 1 2020 and then
+      restart a new run from there. If you wish to use a GEOS-FP
+      meteorology year different from your simulation year please
+      create a GEOS-Chem GitHub issue for assistance.
 
 #. :ref:`Configure and build <compile>` the source code into an
    executable file. |br|

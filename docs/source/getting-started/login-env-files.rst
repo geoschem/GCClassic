@@ -30,7 +30,7 @@ command such as:
 
    Keep a separate environment file for each combination of
    modules that you will use.  Example environment files
-   for :ref:`GNU <env-files-gnu10>` and :ref:`Intel <env-files-intel19>`
+   for :ref:`GNU <env-files-gnu>` and :ref:`Intel <env-files-intel>`
    compilers and related software are provided in the following sections.
 
 For general information about how libraries are loaded, see

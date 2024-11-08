@@ -1,36 +1,64 @@
-.. _env-files-gnu10:
+.. _env-files-gnu:
 
 ################################################
-Sample environment file for GNU 10.2.0 compilers
+Sample environment file for GNU 12.2.0 compilers
 ################################################
 
 Below is a sample environment file (based on an enviroment file for
 the Harvard Cannon computer cluster).  This file will load software
-libraries built with the GNU 10.2.0 compilers.
+libraries built with the `GNU 12.2.0 compilers
+<https://gcc.gnu.org/onlinedocs/12.2.0/>`_.
+
+.. note::
+
+   This environment file shown below assumes that required software
+   packages for :program:`GEOS-Chem Classic` are available as
+   pre-built modules.  If your computer system does not have these
+   packages pre-installed, you can build them with Spack.  Please see
+   our :ref:`spackguide` supplemental guide for detailed instructions.
 
 Save the code below (with any appropriate modifications for your own
-computer system) to a file named :file:`~/gcclassic.gnu10.env`.
+computer system) to a file named :file:`~/gcclassic.gnu12.env`.
 
 .. code-block:: bash
 
+   ###############################################################################
+   #
+   # Environment file for GCClassic + GNU Compiler Collection 12.2.0
+   #
+   ###############################################################################
+
+   # Display message (if we are in a terminal window)
+   if [[ $- = *i* ]] ; then
+     echo "Loading modules for GEOS-Chem Classic, please wait ..."
+   fi
+
    #==============================================================================
-   # Load software packages (EDIT AS NEEDED)
+   # Unload all previously-unloaded software
    #==============================================================================
 
-   # Unload all modules first
+   # Unload packages loaded with "module load"
    module purge
 
-   # Load modules
-   module load gcc/10.2.0-fasrc01             # gcc / g++ / gfortran
-   module load openmpi/4.1.0-fasrc01          # MPI
-   module load netcdf-c/4.8.0-fasrc01         # netcdf-c
-   module load netcdf-fortran/4.5.3-fasrc01   # netcdf-fortran
+   #==============================================================================
+   # Load software packages for GNU 12.2.0
+   #==============================================================================
+   if [[ $- = *i* ]] ; then
+     echo "... Loading FASRC-built software, please wait ..."
+   fi
+
+   # Pre-built modules needed for GEOS-Chem
+   # (NOTE: These may be named differently on your system)
+   module load gcc/12.2.0-fasrc01             # gcc / g++ / gfortran
+   module load openmpi/4.1.4-fasrc01          # MPI
+   module load netcdf-c/4.9.2-fasrc01         # netcdf-c
+   module load netcdf-fortran/4.6.0-fasrc02   # netcdf-fortran
    module load flex/2.6.4-fasrc01             # Flex lexer (needed for KPP)
    module load cmake/3.25.2-fasrc01           # CMake (needed to compile)
 
    #==============================================================================
    # Environment variables and related settings
-   # (NOTE: Lmod will define <module>_HOME variables for each loaded module
+   # (NOTE: Lmod will define <module>_HOME variables for each loaded module)
    #==============================================================================
 
    # Make all files world-readable by default
@@ -55,13 +83,13 @@ computer system) to a file named :file:`~/gcclassic.gnu10.env`.
 
    # netCDF
    if [[ "x${NETCDF_HOME}" == "x" ]]; then
-      export NETCDF_HOME="${NETCDF_C_HOME}"
+       export NETCDF_HOME="${NETCDF_C_HOME}"
    fi
    export NETCDF_C_ROOT="${NETCDF_HOME}"
-   export NETCDF_FORTRAN_ROOT="${NETCDF_FORTRAN_HOME}"
+   export NETCDF_FORTRAN_ROOT=${NETCDF_FORTRAN_HOME}
 
    # KPP 3.0.0+
-   export KPP_FLEX_LIB_DIR="${FLEX_HOME}/lib64"
+   export KPP_FLEX_LIB_DIR=${FLEX_HOME}/lib64
 
    #==============================================================================
    # Set limits
@@ -75,20 +103,28 @@ computer system) to a file named :file:`~/gcclassic.gnu10.env`.
    #==============================================================================
    # Print information
    #==============================================================================
+
    module list
 
-.. tip::
+   echo ""
+   echo "Environment:"
+   echo ""
+   echo "CC                  : ${CC}"
+   echo "CXX                 : ${CXX}"
+   echo "FC                  : ${FC}"
+   echo "KPP_FLEX_LIB_DIR    : ${KPP_FLEX_LIB_DIR}"
+   echo "MPI_HOME            : ${MPI_HOME}"
+   echo "NETCDF_HOME         : ${NETCDF_HOME}"
+   echo "NETCDF_FORTRAN_HOME : ${NETCDF_FORTRAN_HOME}"
+   echo "OMP_NUM_THREADS     : ${OMP_NUM_THREADS}"
+   echo ""
+   echo "Done sourcing ${BASH_SOURCE[0]}"
 
-   Ask your sysadmin how to load software libraries.  If you are using
-   your institution's computer cluster, then chances are there will
-   be a software module system installed, with commands similar to
-   those listed above.
-
-Then you can activate these seetings from the command line by typing:
+To activate the settings contained in the environment file, type:
 
 .. code-block:: console
 
-   $ . ~/gcclassic.gnu10.env
+   $ . ~/gcclassic.gnu12.env
 
 You may also place the above command within your :ref:`GEOS-Chem run script
 <run-script>`, which will be discussed in a subsequent chapter.

@@ -24,8 +24,8 @@ shared-memory (aka serial) parallelization.
    <https://gchp.readthedocs.io>`_ for more computationally-intensive
    simulations.
 
-In the the sample environment files for :ref:`GNU <env-files-gnu10>` and
-:ref:`Intel <env-files-intel19>`, we define the following **environment
+In the the sample environment files for :ref:`GNU <env-files-gnu>` and
+:ref:`Intel <env-files-intel>`, we define the following **environment
 varaiables** for OpenMP parallelization:
 
 .. option:: OMP_NUM_THREADS
