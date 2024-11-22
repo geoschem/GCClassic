@@ -98,6 +98,7 @@ foreach(INSTALL_PATH ${COMBINED_INSTALL_DIRS})
       # Installation path is a GEOS-Chem run directory,
       # Therefore we will install the executable there.
       install(TARGETS ${EXE_FILE_NAME} RUNTIME DESTINATION ${INSTALL_PATH})
+      install(TARGETS ${KPPSA_FILE_NAME} RUNTIME DESTINATION ${INSTALL_PATH})
     endif()
 
 endforeach()
