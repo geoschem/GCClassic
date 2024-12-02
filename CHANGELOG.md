@@ -5,7 +5,13 @@ This file documents all notable changes to the GEOS-Chem Classic wrapper reposit
 - src/HEMCO/CHANGELOG.md
 - src/Cloud-J/CHANGELOG.md
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a
+Changelog](https://keepachangelog.com/en/1.0.0/), and this project
+adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - TBD
+### Added
+- Added code to `src/CMakeLists.txt` to build & install the KPP standalone executable when `fullchem` or `custom` mechanisms are selected
 
 ## [14.5.0] - 2024-11-08
 ### Changed
