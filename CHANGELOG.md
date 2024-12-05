@@ -13,6 +13,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 - Added code to `src/CMakeLists.txt` to build & install the KPP standalone executable when `fullchem` or `custom` mechanisms are selected
 
+### Changed
+- Changed `submodules: true` to `submodules: recursive` in `.ci-pipelines/*.yml` files, which will fetch all levels of submodules in Azure CI tests.
+
 ## [14.5.0] - 2024-11-08
 ### Changed
 - Updated GEOS-Chem to 14.5.0
