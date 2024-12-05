@@ -46,7 +46,7 @@ container: $[ variables['containerImage'] ]
 # Try building GEOS-Chem (this is run for each "matrix" entry above)
 steps:
 - checkout: self
-  submodules: true
+  submodules: recursive
 - script: |
     . /opt/spack/share/spack/setup-env.sh
     export CC=gcc
