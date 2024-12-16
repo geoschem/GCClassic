@@ -16,6 +16,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 - Changed `submodules: true` to `submodules: recursive` in `.ci-pipelines/*.yml` files, which will fetch all levels of submodules in Azure CI tests.
 
+### Fixed
+- Fixed logic error in `src/CMakeLists.txt` that attempted to build the KPP standalone for the carbon simulation (see geoschem/GCClassic #78)
+
 ## [14.5.0] - 2024-11-08
 ### Changed
 - Updated GEOS-Chem to 14.5.0
