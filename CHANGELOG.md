@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - Added ReadTheDocs Supplemental Guide on using the KPP-Standalone Box Model and KPP-Standalone Interface in GEOS-Chem
 
+### Fixed
+- Fixed broken links in ReadTheDocs documentation
+
 ## [14.5.0] - 2024-11-08
 ### Changed
 - Updated GEOS-Chem to 14.5.0
