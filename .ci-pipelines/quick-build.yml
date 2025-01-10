@@ -31,7 +31,7 @@ container: geoschem/buildmatrix:netcdf-ubuntu
 # Try building GEOS-Chem
 steps:
 - checkout: self
-  submodules: true
+  submodules: recursive
 - script: |
     . /opt/spack/share/spack/setup-env.sh
     export CC=gcc
