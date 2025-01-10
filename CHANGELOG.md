@@ -19,6 +19,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 - Fixed logic error in `src/CMakeLists.txt` that attempted to build the KPP standalone for the carbon simulation (see geoschem/GCClassic #78)
 
+## [Unreleased] - TBD
+### Added
+- Added ReadTheDocs Supplemental Guide on using the KPP-Standalone Box Model and KPP-Standalone Interface in GEOS-Chem
+
+### Fixed
+- Fixed broken links in ReadTheDocs documentation
+
 ## [14.5.0] - 2024-11-08
 ### Changed
 - Updated GEOS-Chem to 14.5.0

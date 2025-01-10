@@ -88,9 +88,7 @@ Be on the lookout for these errors:
 
   #. If :option:`OMP_STACKSIZE` environment variable is not included
      in your environment file (or if it is set to a very low value),
-     you might encounter a `segmentation fault error after the TPCORE
-     transport module is initialized
-     <Segmentation_faults#Segmentation_fault_encountered_after_TPCORE_initialization>`_.
-     In this case, GEOS-Chem Classic "thinks" that it does
-     not have enough memory to perform the simulation, even though
-     sufficient memory may be present.
+     you might encounter a :ref:`errguide-segfault-tpcore` error.  In
+     this case, GEOS-Chem Classic "thinks" that it does not have
+     enough memory to perform the simulation, even though sufficient
+     memory may be present.
