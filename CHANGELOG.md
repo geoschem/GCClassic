@@ -15,6 +15,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added warning for users to preprocess ObsPack GLOBALVIEWplus CH4 data files before reading into GEOS-Chem in RTD documentation
 - Added text to RTD stating that data download from `s3://geos-chem` is and `s3://gcgrid` is free
 
+### Changed
+- Updated RTD documentation to state that older Intel compilers may cause unexpected results; Also updated to recommend GCC 10 and later.
+
 ## [14.5.1] - 2025-01-10
 ### Added
 - Added code to `src/CMakeLists.txt` to build & install the KPP standalone executable when `fullchem` or `custom` mechanisms are selected
