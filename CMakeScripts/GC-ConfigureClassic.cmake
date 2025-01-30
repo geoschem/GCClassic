@@ -176,6 +176,14 @@ function(configureGCClassic)
     gc_pretty_print(VARIABLE HCOSA IS_BOOLEAN)
 
     #-------------------------------------------------------------------------
+    # Build the KPP-Standalone?
+    #-------------------------------------------------------------------------
+    set(KPPSA OFF CACHE BOOL
+      "Switch to build the KPP-Standalone Box Model"
+    )
+    gc_pretty_print(VARIABLE KPP_STANDALONE IS_BOOLEAN)
+
+    #-------------------------------------------------------------------------
     # Build Luo et al wetdep scheme?
     # (Currently a research option... turn OFF by default)
     #-------------------------------------------------------------------------
@@ -208,7 +216,7 @@ function(configureGCClassic)
             INTERFACE FASTJX
         )
     endif()
-
+    
     #-------------------------------------------------------------------------
     # Export the following variables to GEOS-Chem directory's scope
     #-------------------------------------------------------------------------
