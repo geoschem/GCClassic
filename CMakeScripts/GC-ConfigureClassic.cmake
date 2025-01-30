@@ -181,7 +181,7 @@ function(configureGCClassic)
     set(KPPSA OFF CACHE BOOL
       "Switch to build the KPP-Standalone Box Model"
     )
-    gc_pretty_print(VARIABLE KPP_STANDALONE IS_BOOLEAN)
+    gc_pretty_print(VARIABLE KPPSA IS_BOOLEAN)
 
     #-------------------------------------------------------------------------
     # Build Luo et al wetdep scheme?
