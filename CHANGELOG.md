@@ -17,6 +17,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 - Updated RTD documentation to state that older Intel compilers may cause unexpected results; Also updated to recommend GCC 10 and later.
+- Updated RTD documentation for fullchem rundir creation, which now asks users if they wish to build KPP-Standalone
 
 ## [14.5.1] - 2025-01-10
 ### Added
