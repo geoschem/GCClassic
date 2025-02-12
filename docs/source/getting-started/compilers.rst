@@ -27,19 +27,19 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 - 23.0.0
 - 19.0.5.281
 - 19.0.4
-- 18.0.5
-- 17.0.4
-- 15.0.0
-- 13.0.079
-- 11.1.069
+
+Older compiler versions than these may either be incompatible with
+GEOS-Chem, or may cause unexpected results.  We hope to be able to
+port GEOS-Chem to the latest Intel 2024 compiler suite (:literal:`icx`
+for C, C++ and :literal:`ifx` for Fortran) in the near future.
 
 **Best way to install:**  `Direct from Intel
 <https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html>`_
-(may require purchase of a site license or a student license)
+(Older versions may require purchase of a site license or a student license)
 
 .. tip::
 
-   Intel 2021 may be obtained for free, or installed with a
+   Intel 2021 and later may be obtained for free, or installed with a
    package manager such as `Spack <https://spack.readthedocs.io>`_.
 
 .. _req-soft-compilers-gnu:
@@ -69,6 +69,10 @@ The GCST has tested :program:`GEOS-Chem Classic` with these versions
 - 7.1.0
 - 6.2.0
 
+We recommend using GCC 10 or later if possible.  We have not
+thoroughly tested GEOS-Chem with compiler versions more recent than
+GCC 12 as of January 2025.
+
 **Best way to install:**  :ref:`With Spack <spackguide>`.
 
 
@@ -81,7 +85,7 @@ Other compilers
 We currently have no plans to port GEOS-Chem to compilers
 other than :ref:`req-soft-compilers-intel` and
 :ref:`req-soft-compilers-gnu`. But when we interface
-GEOS-Chem into external models (such as `CESM 
+GEOS-Chem into external models (such as `CESM
 <https://wiki.seas.harvard.edu/geos-chem/index.php/GEOS-Chem_in_CESM>`_);
 all compilers used by the parent model can successfully parse
 GEOS-Chem source code.

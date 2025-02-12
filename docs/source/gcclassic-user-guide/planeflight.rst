@@ -10,7 +10,7 @@ along flight tracks or at the position of ground observations.  This
 can be more efficient in terms of storage than saving out 3-D data
 files via the :ref:`GEOS-Chem History diagnostics <history-diagnostics>`.
 
-.. attention::
+.. important::
 
    Several diagnostic quantities were disabled when the SMVGEAR
    chemistry solver was replaced with the FlexChem implementation of
@@ -214,34 +214,42 @@ you will specify the points that make up the flight track.
 .. table::
    :align: center
 
-   +---------------+-----------------------------------------------+
-   | Quantity      | Description                                   |
-   +===============+===============================================+
-   | ``POINT``     | A sequential index of flight track points.    |
-   +---------------+-----------------------------------------------+
-   | ``TYPE``      | Identifier for the plane (or station)         |
-   +---------------+-----------------------------------------------+
-   | ``DD``        | Day of the observation                        |
-   +---------------+-----------------------------------------------+
-   | ``MM``        | Month of the observation                      |
-   +---------------+-----------------------------------------------+
-   | ``YYYY``      | Year of the observation                       |
-   +---------------+-----------------------------------------------+
-   | ``HH``        | Hour of the observation (UTC)                 |
-   +---------------+-----------------------------------------------+
-   | ``MM``        | Minute of the observation (UTC)               |
-   +---------------+-----------------------------------------------+
-   | ``LAT``       | Latitude (deg), range -90 to +90              |
-   +---------------+-----------------------------------------------+
-   | ``LON``       | Longitude (deg), range -180 to +180           |
-   +---------------+-----------------------------------------------+
-   | ``ALT/PRE``   | Altitude [m] or Pressure [hPa] of             |
-   |               | the observation                               |
-   +---------------+-----------------------------------------------+
-   | ``OBS``       | Value of the observation (if known),          |
-   |               | used to compare to model output               |
-   +---------------+-----------------------------------------------+
+   +--------------+-----------------------------------------------+
+   | Quantity     | Description                                   |
+   +==============+===============================================+
+   | ``POINT``    | A sequential index of flight track points.    |
+   +--------------+-----------------------------------------------+
+   | ``TYPE``     | Identifier for the plane (or station)         |
+   +--------------+-----------------------------------------------+
+   | ``DD``       | Day of the observation                        |
+   +--------------+-----------------------------------------------+
+   | ``MM``       | Month of the observation                      |
+   +--------------+-----------------------------------------------+
+   | ``YYYY``     | Year of the observation                       |
+   +--------------+-----------------------------------------------+
+   | ``HH``       | Hour of the observation (UTC)                 |
+   +--------------+-----------------------------------------------+
+   | ``MM``       | Minute of the observation (UTC)               |
+   +--------------+-----------------------------------------------+
+   | ``LAT``      | Latitude (deg), range -90 to +90              |
+   +--------------+-----------------------------------------------+
+   | ``LON``      | Longitude (deg), range -180 to +180           |
+   +--------------+-----------------------------------------------+
+   | ``ALT/PRE``  | Altitude [m] or Pressure [hPa] of             |
+   |              | the observation [#A]_                         |
+   +--------------+-----------------------------------------------+
+   | ``OBS``      | Value of the observation (if known),          |
+   |              | used to compare to model output               |
+   +--------------+-----------------------------------------------+
 
+.. rubric::
+
+.. [#] Altitude is only supported for CCGG or tower data.  All other
+       observations must specify pressure in hPa.  This can be
+       obtained from the "static pressure" field as measured by the
+       aircraft.  See this `code block in planeflight_mod.F90
+       <https://github.com/geoschem/geos-chem/blob/b0e03cc0f7c06b899824a69744b67e9632675cbd/GeosCore/planeflight_mod.F90#L1061-L1114>`_
+       for details.
 
 .. important::
 
