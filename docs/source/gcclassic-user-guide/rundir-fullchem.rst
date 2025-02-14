@@ -263,7 +263,7 @@ GEOS-Chem full-chemistry simulation.
 
    |br|
 
-#. The last menu will prompt you with:
+#. The next menu will prompt you with:
 
    .. code-block:: console
 
@@ -281,6 +281,35 @@ GEOS-Chem full-chemistry simulation.
    .. code-block:: console
 
       Initialized empty Git repository in /path/to/gc_4x5_merra2_fullchem/.git/
+
+   |br|
+
+#. The next (and final) menu will ask you:
+
+   .. code-block:: console
+
+      -----------------------------------------------------------
+      Do you want to build the KPP-Standalone Box Model? (y/n)
+      -----------------------------------------------------------
+      >>>
+
+
+   Type :program:`y` and then :command:`ENTER` you wish to build the
+   :program:`KPP-Standalone Box Model`, or :program:`n` then
+   :program:`ENTER` to skip this step. If you choose to build
+   KPP-Standalone, you will be given this reminder:
+
+   .. code-block:: console
+
+      >>>> REMINDER: You must compile with options: -DKPPSA=y <<<<
+
+   Please see the Supplemental Guide entitled :ref:`kppsa-guide`
+   for further usage instructions.
+
+   Lastly, you will see a message to indicate that run directory
+   creation has completed successfully.
+
+   .. code-block:: console
 
       Created /path/to/gc_4x5_merra2_fullchem
 

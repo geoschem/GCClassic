@@ -11,6 +11,30 @@ measurements). This feature was written by Andy Jacobson of NOAA and
 Andrew Schuh of Colorado State University and implemented in GEOS-Chem
 12.2.0.
 
+.. attention::
+
+   The GEOS-Chem ObsPack diagnostic was originally developed for use
+   with the `ObsPack GLOBALVIEWplus CO2 product
+   <https://commons.datacite.org/doi.org/10.25925/20241101>`_.  The
+   data files in this product contain a particular netCDF variable
+   named :literal:`CT_sampling_strategy` that GEOS-Chem uses to
+   quickly determine the time-averaging window for aggregating
+   observations.
+
+   We have recently learned that the `ObsPack GLOBALVIEWplus CH4 data
+   product <https://commons.datacite.org/doi.org/10.25925/20241001>`_
+   currently lacks the :literal:`CT_sampling_strategy` variable, and
+   thus is incompatible with GEOS-Chem.
+
+   The best workaround for now is to preprocess ObsPack GLOBALVIEWplus
+   CH4 data files with one of the following Python tools before
+   attempting to read them into GEOS-Chem:
+
+   - `process_obspack <https://github.com/eastjames/process_obspack>`_
+     by James East
+   - `gcpy_campaigns <https://github.com/jhaskinsPhD/gcpy_campaigns>`_
+     by Jessica Haskins
+
 .. _specifying_obspack_diagnostic_options:
 
 =====================================
@@ -47,9 +71,9 @@ YYYY/MM/DD date on which you would like to obtain ObsPack diagnostic
 output from GEOS-Chem. (The ObsPack diagnostic will skip over days on
 which it cannot find an input file.)
 
-ObsPack input files can be downloaded from NOAA (see
-`https://www.esrl.noaa.gov/gmd/ccgg/obspack/
-<https://www.esrl.noaa.gov/gmd/ccgg/obspack/>`_).
+ObsPack input files can be downloaded the NOAA website:
+`https://gml.noaa.gov/ccgg/obspack/
+<https://gml.noaa.gov/ccgg/obspack/>`_.
 
 .. attention::
 
