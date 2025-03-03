@@ -242,14 +242,14 @@ you will specify the points that make up the flight track.
    |              | used to compare to model output               |
    +--------------+-----------------------------------------------+
 
-.. rubric::
+.. rubric:: Notes
 
-.. [#] Altitude is only supported for CCGG or tower data.  All other
-       observations must specify pressure in hPa.  This can be
-       obtained from the "static pressure" field as measured by the
-       aircraft.  See this `code block in planeflight_mod.F90
-       <https://github.com/geoschem/geos-chem/blob/b0e03cc0f7c06b899824a69744b67e9632675cbd/GeosCore/planeflight_mod.F90#L1061-L1114>`_
-       for details.
+.. [#A] Altitude is only supported for CCGG or tower data.  All other
+        observations must specify pressure in hPa.  This can be
+        obtained from the "static pressure" field as measured by the
+        aircraft.  See this `code block in planeflight_mod.F90
+        <https://github.com/geoschem/geos-chem/blob/b0e03cc0f7c06b899824a69744b67e9632675cbd/GeosCore/planeflight_mod.F90#L1061-L1114>`_
+        for details.
 
 .. important::
 
