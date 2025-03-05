@@ -9,6 +9,17 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.5.3] - 2025-03-05
+### Added
+- Updated RTD docs to state that users wishing not to open AWS account can use AWS CLI commands with `--no-sign-request1`
+
+### Changed
+- Updated GEOS-Chem submodule to 14.5.3
+- Updated HEMCO submodule to 3.10.2
+
+### Fixed
+- Fixed error with the `rubric` section in the RTD planeflight documentation
+
 ## [14.5.2] - 2025-02-12
 ### Added
 - Added clarifying text about which types of data can use altitude coordinates for the Planeflight diagnostic in RTD documentation 
