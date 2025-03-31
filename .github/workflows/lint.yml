@@ -10,10 +10,7 @@ on:
   # Triggers the workflow on pushes to open pull requests with code changes
   pull_request:
     paths:
-      - '.github/workflows/cloud-benchmarking-workflow.yml'
-      - '.github/workflows/gcclassic-compile-tests.yml'
-      - '.github/workflows/lint.yml'
-      - '.github/workflows/stale.yml'
+      - '.github/workflows/*.yml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
