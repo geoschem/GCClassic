@@ -7,7 +7,7 @@ name: Mark stale issues
 
 on:
   schedule:
-  - cron: '0 0 * * *' # Run every night at midnight
+    - cron: '0 0 * * *'  # Run every night at midnight
 
 jobs:
   stale:
