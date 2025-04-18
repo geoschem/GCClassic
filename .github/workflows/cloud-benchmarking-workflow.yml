@@ -33,6 +33,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Set Initial Variables
         # By default we use 1Hr benchmarks
         run: |
