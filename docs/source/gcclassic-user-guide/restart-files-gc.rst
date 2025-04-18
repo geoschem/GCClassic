@@ -150,9 +150,7 @@ your run directory when you :ref:`generate a new GEOS-Chem classic run
 directory <rundir>`.
 
 Monthly GEOS-Chem restart files from the GEOS-Chem 14.0.0 10-year
-benchmark may be found at
-`http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/14.0.0/GCClassic/restarts
-<http://ftp.as.harvard.edu/gcgrid/geos-chem/10yr_benchmarks/14.0.0/GCClassic/restarts>`_.
+benchmark `may be found here <http://geoschemdata.wustl.edu/ExternalShare/geos-chem/10yr_benchmarks/14.0.0/GCClassic/Restarts/>`_.
 
 .. attention::
 
@@ -173,7 +171,7 @@ simulations.  We recommend ten years for ozone, carbon dioxide, and
 methane simulations, and four years for radon-lead-beryllium
 simulations. If you are in doubt about how long your spin up should be
 for your simulation, we recommend contacting the `GEOS-Chem Working
-Group <http://acmg.seas.harvard.edu/geos/geos_working_groups.html>`_
+Group <https://geoschem.github.io/working-groups.html>`_
 that specializes in your area of research.
 
 You may spin up the model starting at any year for which there is met
@@ -187,9 +185,6 @@ example, if you want to do a production simulation starting on
 GEOS-FP restart file dated 2019/07/01 and then use the new restart
 file to spin up the model for five additional months, from 2019/07/01
 to 2019/12/01.
-
-See also this discussion on our Github page for further guidance:
-https://github.com/geoschem/geos-chem/discussions/911.
 
 .. _restart-files-gc-check:
 
@@ -235,9 +230,6 @@ How are GEOS-Chem restart files written?
 ========================================
 
 GEOS-Chem restart files are now saved via the History component. A
-**Restart collection** has been defined in `HISTORY.rc <history>`_ and
-fields saved out to the restart file can be modified in that file.
-
-For more information, please see our documentation about the
-:ref:`Restart collection <histguide-restart>` in our
-:ref:`histguide` supplemental guide.
+:ref:`Restart collection <histguide-restart>` has been defined in
+:ref:`HISTORY.rc <histguide-configfile>` and fields saved out to the
+restart file can be modified in that file.

@@ -66,8 +66,20 @@ modifications to GEOS-Chem Classic source code.
    gcclassic-user-guide/diagnostics.rst
 
 .. toctree::
+   :caption: GEOS-Chem Simulations
+   :maxdepth: 4
+
+   geos-chem-shared-docs/simulations/aerosol-only.rst
+   geos-chem-shared-docs/simulations/carbon.rst
+   geos-chem-shared-docs/simulations/fullchem.rst
+   geos-chem-shared-docs/simulations/hg.rst
+   geos-chem-shared-docs/simulations/metals.rst
+   geos-chem-shared-docs/simulations/tago3.rst
+   geos-chem-shared-docs/simulations/transport-tracers.rst
+
+.. toctree::
    :caption: Supplemental guides
-   :maxdepth: 1
+   :maxdepth: 4
 
    supplemental-guides/directory-structure.rst
    supplemental-guides/run-script-examples.rst
