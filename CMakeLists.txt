@@ -71,13 +71,22 @@ set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
     -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
     CACHE STRING "GEOSChem compiler flags for build type Debug with Intel compilers"
 )
-
-set(GEOSChem_Fortran_FLAGS_GNU
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
+    # arm based processors only support mcmodels of large small tiny
+    set(GEOSChem_Fortran_FLAGS_GNU
+    -cpp -w -std=legacy -fautomatic -fno-align-commons
+    -fconvert=big-endian -fno-range-check -mcmodel=small
+    -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
+    CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
+    )
+else()
+    set(GEOSChem_Fortran_FLAGS_GNU
     -cpp -w -std=legacy -fautomatic -fno-align-commons
     -fconvert=big-endian -fno-range-check -mcmodel=medium
     -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
     CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
-)
+    )
+endif()
 set(GEOSChem_Fortran_FLAGS_RELEASE_GNU
    -O3 -funroll-loops
    CACHE STRING "GEOSChem compiler flags for build type Release with GNU compilers"
