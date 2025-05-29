@@ -9,6 +9,10 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.6.1] - 2025-05-29
+### Added
+- Added RTD documentation updates for GEOS-Chem 14.6.1
+
 ## [14.6.0] - 2025-04-18
 ### Added
 - Added a CI workflow that checks for issues in GCClassic's CI workflows
