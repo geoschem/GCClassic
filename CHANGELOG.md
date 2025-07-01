@@ -10,6 +10,9 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
+### Added
+- Added `-DDEBUG` flag to `GEOSChem_Fortran_FLAGS_DEBUG_Intel` and `GEOSChem_Fortran_FLAGS_DEBUG_GNU` to toggle debug-only code
+
 ### Changed
 - Updated `CMakeLists.txt` to set compilation option `mcmodel=small` for ARM-based CPUs, as ARM does not support `mcmodel=medium`
 
