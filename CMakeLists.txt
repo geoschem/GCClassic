@@ -79,7 +79,7 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
     CACHE STRING "GEOSChem compiler flags for build type RelWithdDebInfo with Intel compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
-    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
+    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds -DDEBUG
     CACHE STRING "GEOSChem compiler flags for build type Debug with Intel compilers"
 )
 
@@ -111,7 +111,7 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU
 set(GEOSChem_Fortran_FLAGS_DEBUG_GNU
     -g -O0 -Wall -Wextra -Wconversion -Warray-temporaries
     -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan
-    -fcheck=bounds -fcheck=pointer
+    -fcheck=bounds -fcheck=pointer -DDEBUG
     CACHE STRING "GEOSChem compiler flags for build type Debug with GNU compilers"
 )
 
