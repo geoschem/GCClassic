@@ -16,29 +16,57 @@ These `bug reports (on GitHub)
 <https://github.com/geoschem/geos-chem/issues?q=is%3Aissue+is%3Aopen+label%3A%22category%3A+Bug%22>`_
 are currently unresolved. We hope to fix these in future releases.
 
-.. attention::
+=======================================
+Other issues that you should know about
+=======================================
 
-   It has been brought to our attention that the
-   :ref:`histguide-rxnconst` and the :ref:`histguide-rxnrates`
-   diagnostic collection may not be working as expected.  We are
-   currently investigating.
+.. _gc-known-bugs-gcc12:
 
-.. important::
+GCC 12.2.0 is discontinued in Spack v1.0.0
+------------------------------------------
 
-    The convection scheme used for GEOS-FP met generation changed
-    from RAS to Grell-Freitas with impact on GEOS-FP meteorology
-    files starting June 1, 2020, specifically enhanced vertical
-    transport. In addition, there is a bug in convective
-    precipitation flux following the switch where all values are
-    zero. While this bug is automatically fixed by computing fluxes
-    online for runs starting on or after June 1 2020, the fix
-    assumes meteorology year corresponds to simulation year. Due to
-    these issues we recommend splitting up GEOS-FP runs in time such
-    that a single simulation does not run across June
-    1, 2020. Instead. set one run to stop on June 1 2020 and then
-    restart a new run from there. If you wish to use a GEOS-FP
-    meteorology year different from your simulation year please
-    create a GEOS-Chem GitHub issue for assistance.
+As of Spack v1.0, `spack-packages <https://packages.spack.io/>`_ has
+been split off into its own separate repository. This change includes
+the unfortunate deprecation of the :program:`GNU Compiler Collection
+(GCC)` version 12.2.0. It appears that only the most recent minor
+release in each major release is now treated as stable. These
+deprecations are updated promptly for example, GCC 12.4.0 is already
+marked as deprecated just 10 days after the release of GCC 12.5.0.
+
+Deprecated GCC versions are no longer listed with the :command:`spack
+info` command, so rather than warning users about deprecation, Spack
+simply fails with an unhelpful error message about not being able to
+satisfy the request.
+
+For the time being, we recommend that you use `Spack release v0.23.1
+<https://github.com/spack/spack/releases/tag/v0.23.1>`_ which still
+supports GCC 12.2.0 and related libraries.  Please see our
+:ref:`spackguide` Supplemental Guide for an updated Spack
+installation workflow.
+
+Discontinuity in GEOS-FP convection at 01 Jun 2020
+--------------------------------------------------
+
+The convection scheme used for GEOS-FP met generation changed from RAS
+to Grell-Freitas with impact on GEOS-FP meteorology files starting
+June 1, 2020, specifically enhanced vertical transport. In addition,
+there is a bug in convective precipitation flux following the switch
+where all values are zero. While this bug is automatically fixed by
+computing fluxes online for runs starting on or after June 1 2020, the
+fix assumes meteorology year corresponds to simulation year. Due to
+these issues we recommend splitting up GEOS-FP runs in time such that
+a single simulation does not run across June 1, 2020. Instead. set one
+run to stop on June 1 2020 and then restart a new run from there. If
+you wish to use a GEOS-FP meteorology year different from your
+simulation year please create a GEOS-Chem GitHub issue for assistance.
+
+Reaction rate diagnostics may not work as advertized
+----------------------------------------------------
+
+It has been brought to our attention that the
+:ref:`histguide-rxnconst` and the :ref:`histguide-rxnrates`
+diagnostic collection may not be working as expected.  We are
+currently investigating.
 
 ============================
 Bugs that have been resolved

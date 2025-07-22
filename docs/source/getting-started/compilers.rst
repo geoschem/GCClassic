@@ -54,24 +54,18 @@ Because the GNU Compiler Collection is free and open source, this is a
 good choice if your institution lacks an Intel site license, or if you
 are running GEOS-Chem on the Amazon EC2 cloud environment.
 
-The GCST has tested :program:`GEOS-Chem Classic` with these versions
-(but others may work as well):
+While all Linux distributions ship with a pre-installed version of
+GCC, we recommend that you use GCC 10 or later.  Older GCC versions
+may have trouble parsing certain GEOS-Chem source code.
 
-- 12.2.0
-- 11.2.0
-- 11.1.0
-- 10.2.0
-- 9.3.0
-- 9.2.0
-- 8.2.0
-- 7.4.0
-- 7.3.0
-- 7.1.0
-- 6.2.0
+.. attention::
 
-We recommend using GCC 10 or later if possible.  We have not
-thoroughly tested GEOS-Chem with compiler versions more recent than
-GCC 12 as of January 2025.
+   If you plan to build :ref:`required software libraries <req-soft>`
+   with Spack, please use `Spack release v0.23.1
+   <https://github.com/spack/spack/releases/tag/v0.23.1>`_ until
+   further notice.  For more information, please see the section
+   entitled :ref:`gc-known-bugs-gcc12` at our :ref:`gc-known-bugs`
+   reference page.
 
 **Best way to install:**  :ref:`With Spack <spackguide>`.
 
