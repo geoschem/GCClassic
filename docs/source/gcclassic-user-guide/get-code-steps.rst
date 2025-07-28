@@ -256,8 +256,11 @@ See additional resources
 For more information about downloading the GEOS-Chem source code,
 please see the following Youtube video tutorials:
 
-  - `Getting started with GEOS-Chem 13
-    <https://www.youtube.com/watch?v=BV4BIj8WAxE>`_ (by Melissa Sulprizio)
+  - `Getting Started with GEOS-Chem
+    <https://www.youtube.com/watch?v=CTvE2T2HZXM>`_
+
+  - `GEOS-Chem Classic Quickstart Guide (with dry-run)
+    <https://www.youtube.com/watch?v=da2WPW4K7Pg>`_
 
   - `Managing branches between superproject and submodules
-    <https://www.youtube.com/watch?v=1fhI-HObyV4>`_ (by Bob Yantosca)
+    <https://www.youtube.com/watch?v=1fhI-HObyV4>`_

@@ -15,6 +15,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 - Updated `CMakeLists.txt` to set compilation option `mcmodel=small` for ARM-based CPUs, as ARM does not support `mcmodel=medium`
+- Updated ReadTheDocs documentation to state that we are using Spack v0.23.1 in the Spack installation guide
+- Updated GEOS-Chem submodule to 14.6.3
+- Updated HEMCO submodule to 3.11.2
 
 ## [14.6.2] - 2025-06-12
 ### Changed
