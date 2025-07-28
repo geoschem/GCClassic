@@ -54,11 +54,22 @@ set(GEOSChem_DETECTED_FORTRAN_COMPILER_VERSION ${CMAKE_Fortran_COMPILER_VERSION}
     CACHE INTERNAL "Logging the compiler version to CMakeCache.txt"
 )
 
-set(GEOSChem_Fortran_FLAGS_Intel
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
+  # ARM based processors support mcmodel=large, mcmodel=small, mcmodel=tiny
+  set(GEOSChem_Fortran_FLAGS_Intel
+    -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
+    -mcmodel=small -shared-intel -traceback -DLINUX_IFORT
+    CACHE STRING "GEOSChem compiler flags for all build types with Intel compilers"
+    )
+else()
+  # x86_64 processors also support mcmodel=medium
+  set(GEOSChem_Fortran_FLAGS_Intel
     -cpp -w -auto -noalign "SHELL:-convert big_endian" "SHELL:-fp-model source"
     -mcmodel=medium -shared-intel -traceback -DLINUX_IFORT
     CACHE STRING "GEOSChem compiler flags for all build types with Intel compilers"
-)
+    )
+endif()
+  
 set(GEOSChem_Fortran_FLAGS_RELEASE_Intel
    -O2
     CACHE STRING "GEOSChem compiler flags for build type Release with Intel compilers"
@@ -68,16 +79,27 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_Intel
     CACHE STRING "GEOSChem compiler flags for build type RelWithdDebInfo with Intel compilers"
 )
 set(GEOSChem_Fortran_FLAGS_DEBUG_Intel
-    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds
+    -g -O0 "SHELL:-check arg_temp_created" "SHELL:-debug all" -fpe0 -ftrapuv -check,bounds -DDEBUG
     CACHE STRING "GEOSChem compiler flags for build type Debug with Intel compilers"
 )
 
-set(GEOSChem_Fortran_FLAGS_GNU
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
+  # ARM based processors support mcmodel=large, mcmodel=small, mcmodel=tiny
+  set(GEOSChem_Fortran_FLAGS_GNU
+    -cpp -w -std=legacy -fautomatic -fno-align-commons
+    -fconvert=big-endian -fno-range-check -mcmodel=small
+    -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
+    CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
+    )
+else()
+  # x86_64 processors also support mcmodel=medium
+  set(GEOSChem_Fortran_FLAGS_GNU
     -cpp -w -std=legacy -fautomatic -fno-align-commons
     -fconvert=big-endian -fno-range-check -mcmodel=medium
     -fbacktrace -g -DLINUX_GFORTRAN -ffree-line-length-none
     CACHE STRING "GEOSChem compiler flags for all build types with GNU compilers"
-)
+    )
+endif()
 set(GEOSChem_Fortran_FLAGS_RELEASE_GNU
    -O3 -funroll-loops
    CACHE STRING "GEOSChem compiler flags for build type Release with GNU compilers"
@@ -89,7 +111,7 @@ set(GEOSChem_Fortran_FLAGS_RELWITHDEBINFO_GNU
 set(GEOSChem_Fortran_FLAGS_DEBUG_GNU
     -g -O0 -Wall -Wextra -Wconversion -Warray-temporaries
     -fcheck=array-temps -ffpe-trap=invalid,zero,overflow -finit-real=snan
-    -fcheck=bounds -fcheck=pointer
+    -fcheck=bounds -fcheck=pointer -DDEBUG
     CACHE STRING "GEOSChem compiler flags for build type Debug with GNU compilers"
 )
 
