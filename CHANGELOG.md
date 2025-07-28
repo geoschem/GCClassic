@@ -9,6 +9,16 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.6.3] - 2025-07-28
+### Added
+- Added `-DDEBUG` flag to `GEOSChem_Fortran_FLAGS_DEBUG_Intel` and `GEOSChem_Fortran_FLAGS_DEBUG_GNU` to toggle debug-only code
+
+### Changed
+- Updated `CMakeLists.txt` to set compilation option `mcmodel=small` for ARM-based CPUs, as ARM does not support `mcmodel=medium`
+- Updated ReadTheDocs documentation to state that we are using Spack v0.23.1 in the Spack installation guide
+- Updated GEOS-Chem submodule to 14.6.3
+- Updated HEMCO submodule to 3.11.2
+
 ## [14.6.2] - 2025-06-12
 ### Changed
 - Updated GEOS-Chem submodule to 14.6.2
