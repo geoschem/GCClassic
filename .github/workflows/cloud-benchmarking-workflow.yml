@@ -18,12 +18,12 @@ name: cloud_benchmarking
 on:
   push:
     branches:
-      - dev**
+      - dev/*
     tags:
       - '*'
   pull_request:
     branches:
-      - dev**
+      - dev/*
 
 jobs:
   trigger_step_function:
@@ -54,7 +54,7 @@ jobs:
           GITHUB_SHA_SHORT: ${PR_SHA:0:7}
         run: |
           echo "GITHUB_SHA_SHORT=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
-          echo "COMMIT_NAME=${GITHUB_HA_SHORT}" >> $GITHUB_ENV
+          echo "COMMIT_NAME=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
 
       # We do a 1Month benchmark for tags
       - name: Reset Variables For Tags
