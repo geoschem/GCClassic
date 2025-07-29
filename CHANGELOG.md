@@ -10,6 +10,9 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
+### Changed
+- Updated `lint-ci-workflows` to run on `main` and `dev/*` branches
+
 ### Fixed
 - Fixed security issues in GitHub Actions that caused the `lint-ci-workflows` action to fail
 
