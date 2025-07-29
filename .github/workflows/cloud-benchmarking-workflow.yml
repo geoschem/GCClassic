@@ -31,33 +31,37 @@ jobs:
     steps:
 
       # for now both use Spot instances -- may need to update to use on demand
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
 
       # By default we use 1Hr benchmarks
       - name: Set Initial Variables
+        env:
+          GITHUB_SHA_SHORT: ${GITHUB_SHA:0:7}
         run: |
           echo "TIME_PERIOD=1Hr" >> $GITHUB_ENV
           echo "RESOLUTION=4x5" >> $GITHUB_ENV
-          echo "GITHUB_SHA_SHORT=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
-          echo "COMMIT_NAME=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+          echo "GITHUB_SHA_SHORT=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
+          echo "COMMIT_NAME=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
 
       # Conditionally overwrite variables if a tag was the triggering event
       - name: Reset Initial Variables for pull request
-        run: |
-          GITHUB_SHA_SHORT="${{ github.event.pull_request.head.sha }}"
-          echo "GITHUB_SHA_SHORT=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
-          echo "COMMIT_NAME=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
         if: github.event_name == 'pull_request'
+        env:
+          PR_SHA: ${{ github.event.pull_request.head.sha }}
+          GITHUB_SHA_SHORT: ${PR_SHA:0:7}
+        run: |
+          echo "GITHUB_SHA_SHORT=${GITHUB_SHA_SHORT}" >> $GITHUB_ENV
+          echo "COMMIT_NAME=${GITHUB_HA_SHORT}" >> $GITHUB_ENV
 
       # We do a 1Month benchmark for tags
       - name: Reset Variables For Tags
+        if: startsWith(github.ref, 'refs/tags/')
         run: |
           echo "TIME_PERIOD=1Mon" >> $GITHUB_ENV
           echo "COMMIT_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
-        if: startsWith(github.ref, 'refs/tags/')
 
       - name: Generate Primary Key
         env:
