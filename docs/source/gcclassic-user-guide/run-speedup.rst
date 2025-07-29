@@ -127,6 +127,21 @@ of the file contents, which is computationally intensive.  Reducing
 the number of times that GEOS-Chem has to open and close netCDF files
 can substantially improve performance.
 
+.. _run-speedup-hemco-standalone:
+
+====================================================
+Preprocess emissions with the HEMCO Standalone model
+====================================================
+
+If your simulation needs to read and regrid many data files
+(especially those at very fine resolution), you can use the `HEMCO
+Standalone model
+<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html#>`_ to
+preprocess those emissions into daily or monthly files.
+This can significantly speed up your simulations, as it will reduce
+the amount of files that need to be opened and the number of times
+data needs to be regridded.
+
 .. _run-speedup-nested:
 
 =====================================================

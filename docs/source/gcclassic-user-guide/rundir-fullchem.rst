@@ -117,12 +117,6 @@ GEOS-Chem full-chemistry simulation.
    simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_, `MERRA-2
    <http://wiki-geos-chem.org/MERRA-2>`_), or GCAP 2.0).
 
-   .. attention::
-
-      We are still evaluating GEOS-Chem with the new NASA GEOS-IT
-      meterorology product.  Please select one of the other
-      meteorology options for the time being.
-
    .. code-block:: console
 
       -----------------------------------------------------------
@@ -130,24 +124,37 @@ GEOS-Chem full-chemistry simulation.
       -----------------------------------------------------------
         1. MERRA-2 (Recommended)
         2. GEOS-FP
-        3. GEOS-IT (Beta release)
+        3. GEOS-IT
         4. GISS ModelE2.1 (GCAP 2.0)
       >>>
 
    You should use the recommended option (MERRA-2) if possible. Type
-   :command:`1` followed by :command:`ENTER`. |br|
-   |br|
+   :command:`1` followed by :command:`ENTER`.
 
-   .. important::
+   .. attention::
 
-      The convection scheme used for GEOS-FP met generation changed
-      from RAS to Grell-Freitas with impact on GEOS-FP meteorology
-      files starting June 1, 2020. For this reason we recommend
-      using MERRA-2 instead of GEOS-FP if running a simulation
-      across June 1, 2020 to avoid unexpected
-      discontinuities. Additional information about the impact of
-      the convection change is at `geoschem/geos-chem#1409
-      <https://github.com/geoschem/geos-chem/issues/1409>`_.
+      The convection scheme used to generate archived GEOS-FP
+      meteorology files changed from RAS to Grell-Freitas starting 01
+      June 2020 with impact on vertical transport. Discussion and
+      analysis of the impact is available at
+      https://github.com/geoschem/geos-chem/issues/1409.
+
+      To fix this issue, different GEOS-Chem convection schemes are
+      called based on simulation start time. This ensures
+      comparability in GEOS-Chem runs using GEOS-FP fields generated
+      using the RAS convection scheme and fields generated using
+      Grell-Freitas, but only if the simulation does not cross the 01
+      June 2020 boundary. We therefore recommend splitting up GEOS-FP
+      runs in time such that a single simulation does not span this
+      date. For example, configure one run to end on 01 June 2020 and
+      then use its output restart to start another run on 01 June
+      2020.. Alternatively consider using MERRA2 which was entirely
+      generated with RAS, or GEOS-IT which was entirely generated with
+      Grell-Freitas. If you wish to use a GEOS-FP meteorology year
+      different from your simulation year please create a GEOS-Chem
+      GitHub issue for assistance to avoid accidentally using zero
+      convective precipitation flux.
+
 
 #. The next menu will prompt you for the horizontal resolution that
    you wish to use:
