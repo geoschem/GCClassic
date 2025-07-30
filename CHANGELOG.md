@@ -9,6 +9,17 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - TBD
+### Changed
+- Updated `lint-ci-workflows` to run on `main` and `dev/*` branches
+- Updated badges on `README.md` and `docs/source/index.rst`
+
+### Fixed
+- Fixed security issues in GitHub Actions that caused the `lint-ci-workflows` action to fail
+
+### Removed
+- Removed the Azure Dev Pipelines workflows; these are now superseded by the `gcclassic-compile-tests` GitHub action
+
 ## [14.6.3] - 2025-07-28
 ### Added
 - Added `-DDEBUG` flag to `GEOSChem_Fortran_FLAGS_DEBUG_Intel` and `GEOSChem_Fortran_FLAGS_DEBUG_GNU` to toggle debug-only code
