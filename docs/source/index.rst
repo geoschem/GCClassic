@@ -82,6 +82,7 @@ modifications to GEOS-Chem Classic source code.
    :maxdepth: 4
 
    supplemental-guides/directory-structure.rst
+   supplemental-guides/vertical-grids.rst
    supplemental-guides/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/load-libraries-guide.rst
    geos-chem-shared-docs/supplemental-guides/spack-guide.rst
@@ -108,4 +109,3 @@ modifications to GEOS-Chem Classic source code.
    help-and-reference/CONTRIBUTING.md
    help-and-reference/SUPPORT.md
    geos-chem-shared-docs/editing_these_docs.rst
-
