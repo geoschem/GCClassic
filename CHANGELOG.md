@@ -11,7 +11,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
 ### Added
-- Added "GEOS-Chem Classic vertical grids" supplemental guide in ReadTheDocs (migrated from the GEOS-Chem wiki).
+- Added "GEOS-Chem Classic vertical grids" supplemental guide in ReadTheDocs
+- Added "GEOS-Chem Classic horiziontal grids" supplemental guide in ReadTheDocs
 
 ## [14.6.3] - 2025-07-28
 ### Added
