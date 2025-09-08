@@ -43,12 +43,6 @@ computed as the average of the pressures at successive vertical edges:
 
    P_{midpoint}(I,J,L) = \frac{P_{edge}(I,J,L) + P_{edge}(I,J,L+1)}{2}
 
-For the GMAO meteorological products, the :math:`P_{edge}(I,J,L)` and
-:math:`P_{midpoint}(I,J,L)` meteorological products vary with the
-topography up to 170 hPa.  Skyward of 170 hPa, :math:`P_{edge}(I,J,L)`
-and :math:`P_{midpoint}(I,J,L)` remain constant for all longitudes
-and latitudes :math:`(I,J)`.
-
 An :math:`\eta` coordinate can be constructed from
 :math:`P_{edge}(I,J,L)` and :math:`P_{midpoint}(I,J,L)` as follows:
 
@@ -61,7 +55,18 @@ An :math:`\eta` coordinate can be constructed from
    \eta_{midpoint}(I,J,L) = \frac{P_{midpoint}(I,J,L) - P_{top}}{P_{surface}(I,J) - P_{top}}
 
 where :math:`P_{top}` is pressure at the top level of the vertical
-grid.  GMAO meteorological products use a model top of 0.01 hPa.
+grid.
+
+
+Specifics for GMAO vertical grids
+---------------------------------
+
+The the :math:`P_{edge}(I,J,L)` and :math:`P_{midpoint}(I,J,L)` values
+in GMAO meteorological products vary with the topography up to 170
+hPa.  Skyward of 170 hPa, :math:`P_{edge}(I,J,L)` and
+:math:`P_{midpoint}(I,J,L)` remain constant for all longitudes and
+latitudes :math:`(I,J)`.  GMAO meteorological products use a model top
+of 0.01 hPa.
 
 .. _gcc-vgrids_gmao:
 
