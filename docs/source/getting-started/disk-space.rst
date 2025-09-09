@@ -39,49 +39,108 @@ The amount of disk space that you will need depends on two things:
 
 .. _merra2-size-table:
 
-.. table:: Disk space needed for 1-year of MERRA-2 data
+MERRA-2
+~~~~~~~
 
-   +--------------------------------------------+------------------+--------+
-   | Resolution                                 | Type             | Size   |
-   |                                            |                  | GB/yr  |
-   +============================================+==================+========+
-   | :math:`1^{\circ}{\times}1.25^{\circ}`      | Global           | ~30    |
-   +--------------------------------------------+------------------+--------+
-   | :math:`2^{\circ}{\times}2.5^{\circ}`       | Global           | ~110   |
-   +--------------------------------------------+------------------+--------+
-   | :math:`0.5^{\circ}{\times}0.625^{\circ}`   | Nested Asia      | ~115   |
-   |                                            | (aka AS)         |        |
-   +--------------------------------------------+------------------+--------+
-   | :math:`0.5^{\circ}{\times}0.625^{\circ}`   | Nested Europe    | ~58    |
-   |                                            | (aka EU)         |        |
-   +--------------------------------------------+------------------+--------+
-   | :math:`0.5^{\circ}{\times}0.625^{\circ}`   | Nested North     | ~110   |
-   |                                            | America (aka NA) |        |
-   +--------------------------------------------+------------------+--------+
+.. list-table:: Disk space needed for 1-year of MERRA-2 data
+   :header-rows: 1
+   :widths: 60 40
+
+   * - Grid
+     - Approzimate Size (GB/yr)
+   * - :ref:`gcc-hgrids-global-4x5`
+     - 30
+   * - :ref:`gcc-hgrids-global-2x25`
+     - 110
+   * - :ref:`gcc-hgrids-nested-05-as`
+     - 115
+   * - :ref:`gcc-hgrids-nested-05-eu`
+     - 60
+   * - :ref:`gcc-hgrids-nested-05-na`
+     - 110
 
 .. _geosfp-size-table:
 
-.. table:: Disk space needed for 1-year of GEOS-FP data
+GEOS-FP
+~~~~~~~
 
-   +--------------------------------------------+------------------+--------+
-   | Resolution                                 | Type             | Size   |
-   |                                            |                  | GB/yr  |
-   +============================================+==================+========+
-   | :math:`1^{\circ}{\times}1.25^{\circ}`      | Global           | ~30    |
-   +--------------------------------------------+------------------+--------+
-   | :math:`2^{\circ}{\times}2.5^{\circ}`       | Global           | ~120   |
-   +--------------------------------------------+------------------+--------+
-   | :math:`0.25^{\circ}{\times}0.3125^{\circ}` | Nested Asia      | ~175   |
-   |                                            | (aka AS)         |        |
-   +--------------------------------------------+------------------+--------+
-   | :math:`0.25^{\circ}{\times}0.3125^{\circ}` | Nested Europe    | ~175   |
-   |                                            | (aka EU)         |        |
-   +--------------------------------------------+------------------+--------+
-   | :math:`0.25^{\circ}{\times}0.3125^{\circ}` | Nested North     | ~175   |
-   |                                            | America (aka NA) |        |
-   +--------------------------------------------+------------------+--------+
+.. list-table:: Disk space needed for 1-year of GEOS-FP data
+   :header-rows: 1
+   :widths: 60 40
 
-GCAP 2.0: to be added
+   * - Grid
+     - Approximate Size (GB/yr)
+   * - :ref:`gcc-hgrids-global-4x5`
+     - 30
+   * - :ref:`gcc-hgrids-global-2x25`
+     - 120
+   * - :ref:`gcc-hgrids-nested-025-af`
+     - 434
+   * - :ref:`gcc-hgrids-nested-025-as`
+     - 380
+   * - :ref:`gcc-hgrids-nested-025-eu`
+     - 125
+   * - :ref:`gcc-hgrids-nested-025-me`
+     - 175
+   * - :ref:`gcc-hgrids-nested-025-na`
+     - 200
+   * - :ref:`gcc-hgrids-nested-025-oc`
+     - 240
+   * - :ref:`gcc-hgrids-nested-025-sa`
+     - 250
+   * - :ref:`gcc-hgrids-nested-025-ru`
+     - 375
+   * - :ref:`gcc-hgrids-nested-0125-af`
+     - 2,100 [#A]_
+   * - :ref:`gcc-hgrids-nested-0125-as`
+     - 2,200 [#B]_
+   * - :ref:`gcc-hgrids-nested-0125-na`
+     - 1,250 [#C]_
+   * - :ref:`gcc-hgrids-nested-025-sa`
+     - 1,900 [#D]_
+
+.. rubric:: Notes
+
+.. [#A] Winds, pressures, and specific humidity are read at 0.125° x
+        0.15625° over the nested Africa domain.  Other met fields are
+        taken from the GEOS-FP  :ref:`gcc-hgrids-nested-025-af` archive.
+
+.. [#B] Winds, pressures, and specific humidity are read at 0.125° x
+        0.15625° over the nested Asia domain.  Other met fields are
+        taken from the GEOS-FP :ref:`gcc-hgrids-nested-025-as` archive.
+
+.. [#C] Winds, pressures, and specific humidity are read at 0.125° x
+        0.15625° over the nested North America domain.  Other met
+        fields are taken from the GEOS-FP
+        :ref:`gcc-hgrids-nested-025-na` archive.
+
+.. [#D] Winds, pressures, and specific humidity are read at 0.125° x
+        0.15625° over the nested South America domain.  Other met
+        fields are taken from the GEOS-FP
+        :ref:`gcc-hgrids-nested-025-sa` archive.
+
+.. _geosit-size-table:
+
+GEOS-IT
+~~~~~~~
+
+.. list-table:: Disk space needed for 1-year of GEOS-IT data
+   :header-rows: 1
+   :widths: 60 40
+
+   * - Grid
+     - Approximate Size (GB/yr)
+   * - :ref:`gcc-hgrids-global-4x5`
+     - 26
+   * - :ref:`gcc-hgrids-global-2x25`
+     - 78
+
+.. _gcap2-size-table:
+
+GCAP 2.0
+~~~~~~~~
+
+See the U. Rochester data portal: http://atmos.earth.rochester.edu/input/gc/ExtData/
 
 .. _obtaining-emissions-data-and-met-fields:
 

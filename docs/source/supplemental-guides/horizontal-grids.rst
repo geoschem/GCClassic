@@ -13,7 +13,7 @@ The FlexGrid feature of GEOS-Chem Classic allows you to specify the
 global GEOS-Chem grid definitions (listed below), as well as
 custom grids, at runtime.
 
-.. _gcc-hgrids-global-4x5:
+.. _gcc-hgrids-global:
 
 ============
 Global grids
