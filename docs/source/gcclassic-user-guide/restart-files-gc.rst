@@ -10,10 +10,42 @@ GEOS-Chem restart files
 How are restart files read into GEOS-Chem?
 ==========================================
 
-GEOS-Chem restart files are read via `HEMCO
-<https://hemco.readthedocs.io>`_. The entries listed below have been
-added to :file:`HEMCO_Config.rc` (and may vary slightly for different
-simulation types). These fields are obtained from HEMCO and copied to
+GEOS-Chem restart files may be read via `HEMCO<https://hemco.readthedocs.io>`_ or via GEOS-Chem.
+If using HEMCO then all fields are read as single precision floating point (REAL4).
+If using GEOS-Chem then all fields are read with the native precision stored in the file,
+e.g. double precision floating point (REAL8) for species concentrations. Using HEMCO is
+on by default, but you may choose to use GEOS-Chem instead by updating the
+:file:`geoschem_config.yml` configuration file entry :literal:`read_restart_as_real8`
+to :literal:`true`.
+
+There are pros and cons to both methods of reading the GEOS-Chem restart file.
+Using HEMCO allows forcing the timestamp of the restart file to match run start date
+and time as well as doing custom alterations such as changing the names of the expected
+variables in the file. It also allows online regridding and cropping of restart files
+at run-time, a requirement for nested grid simulations if using a global restart file.
+However, using HEMCO to read the restart file prevents bit-for-bit
+reproducibility when restarting a run and also prevents restart file mass conservation.
+This is because of the precision loss associated with reading restart fields as REAL4
+when they are stored internally in the model as REAL8.
+
+Using GEOS-Chem to read restart files enables bit-for-bit reproducibility upon
+restart as well as file mass conservation. However, it prevents using HEMCO read
+features. In particular it is not appropriate to use if the restart file horizontal
+grid does not match the run horizontal grid or if the restart file needs to be cropped.
+In both cases the model will fail. The model will also exit with an error message if
+using the mercury simulation since this feature has not yet been validated for that
+simulation.
+
+================================
+Using HEMCO to read restart file
+================================
+
+This section pertains only to using HEMCO to read the GEOS-Chem restart file.
+All fields are read in as REAL4. See the section above if you instead wish to read
+fields at their native precision.
+
+The entries for restart files are stored in :file:`HEMCO_Config.rc`. They may vary slightly for different
+simulation types. These fields are obtained from HEMCO and copied to
 the appropriate :code:`State_Chm` and :code:`State_Met` fields in
 routine :code:`Get_GC_Restart` (located in
 :file:`GeosCore/hcoi_gc_main_mod.F90`).
@@ -115,7 +147,8 @@ When reading **other restart file fields** (time cycle flag:
 How can I determine the date of a restart file?
 ===============================================
 
-To determine the date of a netCDF restart file, you may use :command:`ncdump`.
+The date of the restart file is in the filename. It is also stored in the
+file metadata. You may check the metadata using :command:`ncdump`.
 For example:
 
 .. code-block:: console
@@ -125,6 +158,13 @@ For example:
 The :command:`-t` option will return the time value in human-readable
 date-time strings rather than numerical values in unit such as :code:`"hours
 since 1985-1-1 00:00:0.0.`
+
+If using HEMCO to read the restart file then the timestamp in the
+filename and within the file must match the simulation start date and time.
+You can change this by modifying :file:`HEMCO_Config.rc` (see earlier section
+on using HEMCO to read restart files). If using GEOS-Chem
+to read the restart file then only the date and time in the filename must
+match the simulation start.
 
 .. _restart-files-gc-where:
 
@@ -193,8 +233,14 @@ How do I check my initial conditions?
 =====================================
 
 To ensure you are using the expected initial conditions for your
-simulation, please check the GEOS-Chem log file. You should see
-something like:
+simulation please check the GEOS-Chem log file. You should see
+min, max, and sum of all fields stored in the GEOS-Chem restart file
+printed to log. If you enable the :literal:`verbose` option in configuration
+file :file:`geoschem_config.yml` and your restart file contains meteorology
+field :literal:`Met_DELPDRY` then you will also see the global mass per
+species computed entirely from restart file values printed to log. This
+mass can be compared to global mass printed at the start of each timestep
+when in :literal:`verbose` mode to check mass conservation.
 
 .. code-block:: console
 
