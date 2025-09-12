@@ -1,7 +1,13 @@
+#
+# GitHub Actions configuration file to perform "compile-only"
+# integration tests for GEOS-Chem Classic that are triggered by
+# push or pull requests.
+#
 name: gcclassic-compile-tests
 
 on: [pull_request, push]
 
+# Cancel running jobs if new commits are pushed
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
   cancel-in-progress: true
