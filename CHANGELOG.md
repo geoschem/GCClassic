@@ -13,6 +13,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 - Added "GEOS-Chem Classic vertical grids" supplemental guide in ReadTheDocs
 - Added "GEOS-Chem Classic horiziontal grids" supplemental guide in ReadTheDocs
+- Added "Particulate matter in GEOS-Chem" supplemental guide in ReadTheDocs
 
 ## [14.6.3] - 2025-07-28
 ### Added
