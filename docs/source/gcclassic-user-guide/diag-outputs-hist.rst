@@ -21,9 +21,6 @@ The filenames listed below correspond to the default diagnostic
 collections in the  :ref:`HISTORY.rc configuration file
 <histguide-configfile>`.
 
-.. table:: GEOS-Chem History diagnostics output files
-   :align: center
-
 .. list-table:: GEOS-Chem History diagnostics output files
    :header-rows: 1
    :widths: 40 30 30

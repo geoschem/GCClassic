@@ -55,15 +55,15 @@ Save this code to a file named :file:`geoschem.run.slurm`:
 
 .. important::
 
-   If you forget to define :envvar:`OMP_NUM_THREADS` in your run
-   script, then :program:`GEOS-Chem Classic` will execute using one
-   core.  This can cause your simulations to take much longer than is
-   necessary!
+   If you forget to define  :ref:`env-files-envvars-parallel-threads`
+   in your run script, then :program:`GEOS-Chem Classic` will execute
+   using one core.  This can cause your simulations to take much
+   longer than is necessary!
 
 Then make :file:`geoschem.run.slurm` executable:
 
 .. code-block:: console
- 
+
    $ chmod 755 geoschem.run.slurm
 
 For more information about how Slurm is set up on your particular

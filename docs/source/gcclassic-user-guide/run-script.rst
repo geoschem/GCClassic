@@ -161,4 +161,5 @@ the :file:`gcclassic` executable.
 .. option:: srun -c $OMP_NUM_THREADS
 
    Tells SLURM to run the GEOS-Chem Classic executable using the
-   number of cores specified in :option:`OMP_NUM_THREADS`.
+   number of cores specified in
+   :ref:`env-files-envvars-parallel-threads`.

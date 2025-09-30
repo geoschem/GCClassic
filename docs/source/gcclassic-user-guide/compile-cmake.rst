@@ -290,7 +290,7 @@ values are:
    Activates OpenMP parallelization.  **(Default option)**
 
    GEOS-Chem Classic will execute on as many computational cores as
-   is specified with :option:`OMP_NUM_THREADS`.
+   is specified with :ref:`env-files-envvars-parallel-threads`.
 
 .. option:: n
 
