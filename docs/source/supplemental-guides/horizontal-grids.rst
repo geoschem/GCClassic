@@ -140,6 +140,7 @@ Select this grid by specifying these in :ref:`cfg-gc-yml`:
     54.0000    56.0000    58.0000    60.0000    62.0000    64.0000    66.0000    68.0000
     70.0000    72.0000    74.0000    76.0000    78.0000    80.0000    82.0000    84.0000
     86.0000    88.0000    89.5000
+
 .. _gcc-hgrids-global-05:
 
 0.5° x 0.625° global grid
@@ -171,6 +172,9 @@ from GMAO. The grid coordinates are computed as follows:
 .. math::
 
    Lat_{center}(I) =  -90° + 0.25°   \times ( J - 1 ),~~~~J = 1..721
+
+
+.. _gcc-hgrids-nested:
 
 ============
 Nested grids
