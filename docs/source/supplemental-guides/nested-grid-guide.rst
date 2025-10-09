@@ -9,10 +9,11 @@ Run nested-grid simulations
 ###########################
 
 A **nested-grid simulation** is a GEOS-Chem Classic simulation running
-at the native horizontal resolution of the GEOS-FP (0.25° x 0.3125°)
-or MERRA-2 (0.5° x 0.6125°) meteorology fields over a subset of
+at the native horizontal resolution of the :option:`GEOS-FP` (0.25° x
+0.3125° or 0.125° x 0.15625°), :option:`GEOS-IT` (0.5° x 0.625°), or
+:option:`MERRA2` (0.5° x 0.625°) meteorology fields over a subset of
 the globe.  Nested-grid simulations use boundary conditions for
-transport that are archived from a global simulatoin.
+transport that are archived from a global simulation.
 
 Follow these steps to set up a GEOS-Chem Classic nested-grid
 simulation:
@@ -241,18 +242,24 @@ How can I find which data are available for nested grid simulations?
 You can browse the contents of the GEOS-Chem data portals by pointing
 your browser to one of the following links:
 
-- :ref:`GEOS-Chem Input Data <gcid>`
+.. list-table::
+   :header-rows: 1
 
-  - https://geos-chem.s3.amazonaws.com/index.html
+   * - Portal
+     - Link
+   * - :ref:`GEOS-Chem Input Data <gcid>`
+     - https://geos-chem.s3.amazonaws.com/index.html
+   * - :ref:`GEOS-Chem Nested Input Data <gcid-special-portals-nested>`
+     - https://gcgrid.s3.amazonaws.com/index.html
+   * - :ref:`GCAP 2.0 meteorology @ U. Rochester  <gcid-special-portals-gcap2>`
+     - http://atmos.earth.rochester.edu/input/gc/ExtData/
 
-- :ref:`GEOS-Chem Nested Input Data <gcid-special-portals-nested>`
-
-  -  https://gcgrid.s3.amazonaws.com/index.html
-
-- :ref:`GCAP 2.0 meteorology @ U. Rochester  <gcid-special-portals-gcap2>`
-
-  - http://atmos.earth.rochester.edu/input/gc/ExtData/
-
+As of October 2025, the GEOS-Chem Nested Input Data portal stores
+:option:`GEOS-FP`, :option:`GEOS-IT`, and :option:`MERRA2` meteorology
+fields that have been cropped to one of the 
+:ref:`traditional nested-grid domains <gcc-hgrids-nested>`.  These
+data have since been removed from the main GEOS-Chem Input Data portal. 
+       
 .. _nestgrid-faq-errors:
 
 Where can I find out more info about nested grid errors?
