@@ -33,11 +33,11 @@ collections in the  :ref:`HISTORY.rc configuration file
      - :option:`fullchem`
    * - :file:`GEOSChem.AerosolMass.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-aerosolmass`
-     - :option:`fullchem`  
+     - :option:`fullchem`
        :option:`aerosol`
    * - :file:`GEOSChem.Aerosols.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-aerosols`
-     - :option:`fullchem`  
+     - :option:`fullchem`
        :option:`aerosol`
    * - :file:`GEOSChem.BoundaryConditions.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-boundaryconditions`
@@ -65,7 +65,7 @@ collections in the  :ref:`HISTORY.rc configuration file
      - :option:`fullchem`
    * - :file:`GEOSChem.DryDep.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-drydep`
-     - All simulations with dry-
+     - All simulations with dry-depositing species
    * - :file:`GEOSChem.JValues.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-jvalues`
      - :option:`fullchem`
@@ -89,9 +89,9 @@ collections in the  :ref:`HISTORY.rc configuration file
      - :option:`fullchem`
    * - :file:`GEOSChem.ProdLoss.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-prodloss`
-     - :option:`fullchem`  
-       :option:`aerosol`  
-       :option:`tagCO`  
+     - :option:`fullchem`
+       :option:`aerosol`
+       :option:`tagCO`
        :option:`tagO3`
    * - :file:`GEOSChem.RadioNuclide.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-radionuclide`
@@ -104,13 +104,13 @@ collections in the  :ref:`HISTORY.rc configuration file
      - All simulations
    * - :file:`GEOSChem.RxnConst.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-rxnconst`
-     - :option:`fullchem`  
-       :option:`CH4`  
+     - :option:`fullchem`
+       :option:`CH4`
        :option:`Hg`
    * - :file:`GEOSChem.RxnRates.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-rxnrates`
-     - :option:`fullchem`  
-       :option:`CH4`  
+     - :option:`fullchem`
+       :option:`CH4`
        :option:`Hg`
    * - :file:`GEOSChem.SatDiagn.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-satdiagn`
@@ -141,9 +141,7 @@ collections in the  :ref:`HISTORY.rc configuration file
      - All simulations
    * - :file:`GEOSChem.WetLossConv.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-wetlossconv`
-     - All simulations with  
-       wet-deposited species
+     - All simulations with wet-depositing species
    * - :file:`GEOSChem.WetLossLS.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-wetlossls`
-     - All simulations with  
-       wet-deposited species
+     - All simulations with wet-depositing species
