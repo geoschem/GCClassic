@@ -218,6 +218,25 @@ function(configureGCClassic)
     endif()
     
     #-------------------------------------------------------------------------
+    # Build for Jacobian carbon run?
+    #-------------------------------------------------------------------------
+    set(JACOBIAN OFF CACHE BOOL
+      "Switch to build the Jacobian carbon run"
+    )
+    gc_pretty_print(VARIABLE JACOBIAN IS_BOOLEAN)
+    if(${JACOBIAN})
+        #---------------------------------------------------------------------
+        # Throw an error unless we are using the carbon mechanism
+        if(NOT ${MECH} MATCHES "carbon")
+          message(FATAL_ERROR "JACOBIAN can only be used with the carbon mechanism!")
+        endif()
+        #---------------------------------------------------------------------
+        target_compile_definitions(GEOSChemBuildProperties
+            INTERFACE JACOBIAN
+        )
+    endif()
+
+    #-------------------------------------------------------------------------
     # Export the following variables to GEOS-Chem directory's scope
     #-------------------------------------------------------------------------
     set(GCHP                    FALSE                       PARENT_SCOPE)
@@ -230,6 +249,7 @@ function(configureGCClassic)
     set(LUO_WETDEP              ${LUO_WETDEP}               PARENT_SCOPE)
     set(SANITIZE                ${SANITIZE}                 PARENT_SCOPE)
     set(FASTJX                  ${FASTJX}                   PARENT_SCOPE)
+    set(JACOBIAN                ${JACOBIAN}                 PARENT_SCOPE)
 
     #-------------------------------------------------------------------------
     # Export information about Git status
