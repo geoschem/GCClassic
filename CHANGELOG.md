@@ -14,6 +14,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added "GEOS-Chem Classic vertical grids" supplemental guide in ReadTheDocs
 - Added "GEOS-Chem Classic horiziontal grids" supplemental guide in ReadTheDocs
 - Added "Particulate matter in GEOS-Chem" supplemental guide in ReadTheDocs
+- Added `docs/read_the_docs_environment.yml` Conda environment file
+
+### Changed
+- Updated `geos-chem-shared-docs/editing_these_docs.rst` with instructions for using a Conda environment to build RTD doc
 
 ## [14.6.3] - 2025-07-28
 ### Added
@@ -23,7 +27,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `CMakeLists.txt` to set compilation option `mcmodel=small` for ARM-based CPUs, as ARM does not support `mcmodel=medium`
 - Updated ReadTheDocs documentation to state that we are using Spack v0.23.1 in the Spack installation guide
 - Updated GEOS-Chem submodule to 14.6.3
-- Updated HEMCO submodule to 3.11.2
+- Updated HEMCO submodule to 3.11.
 
 ## [14.6.2] - 2025-06-12
 ### Changed
