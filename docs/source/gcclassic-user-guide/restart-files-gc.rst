@@ -145,10 +145,10 @@ When reading **other restart file fields** (time cycle flag:
 
    Skipped species will be assigned the initial concentration
    (units: :math:`mol\ mol^{-1}` w/r/t dry air) specified by its
-   :option:`BackgroundVV` entry in :ref:`species_database.yml
-   <cfg-spec-db>`.   If the species does not have a
-   :option:`BackgroundVV` value specified, then its initial
-   concentration will be set to :math:`1.0{\times}10^{-20}`
+   :ref:`spcguide-defs-other-bkgdvv` entry in
+   :ref:`species_database.yml <cfg-spec-db>`.  If the species does not
+   have a :ref:`spcguide-defs-other-bkgdvv` value specified, then its
+   initial concentration will be set to :math:`1.0{\times}10^{-20}`
    instead.
 
 .. _restart-files-gc-date:

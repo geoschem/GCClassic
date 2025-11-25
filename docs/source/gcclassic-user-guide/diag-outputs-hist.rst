@@ -45,18 +45,9 @@ collections in the  :ref:`HISTORY.rc configuration file
    * - :file:`GEOSChem.Carbon.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-carbon`
      - :option:`carbon`
-   * - :file:`GEOSChem.CH4.YYYYMMDD_hhhmmz.nc4`
-     - :ref:`histguide-ch4`
-     - :option:`CH4`
    * - :file:`GEOSChem.CloudConvFlux.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-cloudconvflux`
      - All simulations
-   * - :file:`GEOSChem.CO.YYYYMMDD_hhhmmz.nc4`
-     - :ref:`histguide-co`
-     - :option:`CH4`
-   * - :file:`GEOSChem.CO2.YYYYMMDD_hhhmmz.nc4`
-     - :ref:`histguide-co2`
-     - :option:`CH4`
    * - :file:`GEOSChem.ConcAboveSfc.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-concabovesfc`
      - :option:`fullchem`
@@ -91,7 +82,6 @@ collections in the  :ref:`HISTORY.rc configuration file
      - :ref:`histguide-prodloss`
      - :option:`fullchem`
        :option:`aerosol`
-       :option:`tagCO`
        :option:`tagO3`
    * - :file:`GEOSChem.RadioNuclide.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-radionuclide`
@@ -105,12 +95,12 @@ collections in the  :ref:`HISTORY.rc configuration file
    * - :file:`GEOSChem.RxnConst.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-rxnconst`
      - :option:`fullchem`
-       :option:`CH4`
+       :option:`carbon`
        :option:`Hg`
    * - :file:`GEOSChem.RxnRates.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-rxnrates`
      - :option:`fullchem`
-       :option:`CH4`
+       :option:`carbon`
        :option:`Hg`
    * - :file:`GEOSChem.SatDiagn.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-satdiagn`

@@ -22,13 +22,13 @@ GEOS-Chem Classic reside.
    |       +---geos-chem-shared-docs          # Submodule containing shared documentation files
    |       |                                  # (such as common supplemental guides)
    |       |
-   |       +---getting-started                # Markup files (ReST format) for ReadTheDocs
+   |       +---getting-started                # Markup files (reST format) for ReadTheDocs
    |       |
-   |       +---help-and-reference             # Markup files (ReST format) for ReadTheDocs
+   |       +---help-and-reference             # Markup files (reST format) for ReadTheDocs
    |       |
    |       +---_static                        # Static content (e.g. images) for ReadTheDocs
    |       |
-   |       +---supplemental-guides            # Markup files (ReST format) for ReadTheDocs
+   |       +---supplemental-guides            # Markup files (reST format) for ReadTheDocs
    |                                          # (Content specific to GEOS-Chem Classic)
    |
    +---run                                    # Link to src/GEOS-Chem/run/GCClassic
@@ -138,11 +138,11 @@ GEOS-Chem Classic reside.
    |   |   |       +---geos-chem-shared-docs  # Submodule containing shared documentation files
    |   |   |       |		              # (such as common supplemental guides)
    |   |   |       |
-   |   |   |       +---hco-ref-guide          # Markup files (ReST format) for ReadTheDocs
+   |   |   |       +---hco-ref-guide          # Markup files (reST format) for ReadTheDocs
    |   |   |       |
-   |   |   |       +---hco-sa-guide 	      # Markup files (ReST format) for ReadTheDocs
+   |   |   |       +---hco-sa-guide 	      # Markup files (reST format) for ReadTheDocs
    |   |   |       |
-   |   |   |       +---reference              # Markup files (ReST format) for ReadTheDocs
+   |   |   |       +---reference              # Markup files (reST format) for ReadTheDocs
    |   |   |       |
    |   |   |       +---_static 		      # Static content (e.g. images) for ReadTheDocs
    |   |   |
