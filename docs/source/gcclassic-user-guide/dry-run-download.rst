@@ -11,32 +11,7 @@ Download data from dry-run output
 Once you have successfully executed a GEOS-Chem dry-run, you
 can use the output from the dry-run (contained in the :file:`log.dryrun` file)
 to download the data files that GEOS-Chem will need to perform the
-corresponding "production" simulation. You may download from different
-:ref:`data repositories <dry-run-data-download-portal>`.
-
-.. important::
-
-   Before you use the :file:`download_data.py` script, make sure to
-   initialize a Mamba or Conda environment with the relevant command
-   shown below:
-
-   .. code-block:: console
-
-      $ mamba activate ENV-NAME   # If using Mamba
-
-      $ conda activate ENV-NAME   # If using Conda
-
-   Here :literal:`ENV-NAME` is the name of your environment.
-
-   Also make sure that you have installed the PyYAML module to your
-   conda environment.  PyYAML will allow the :file:`download_data.py`
-   script to read certain configurable settings from a YAML file in
-   your run directory.
-
-   The Python environment for GCPy has all of the proper packages
-   that you need to download data from a dry-run simulation.  For
-   more information, please see `gcpy.readthedocs.io
-   <gcpy.readthedocs.io.>`_.
+corresponding "production" simulation.
 
 .. _dry-run-data-download-portal:
 
@@ -76,18 +51,47 @@ listed below.
      - No
      - No
 
+Most of the data that you will need is contained in the
+:ref:`GEOS-Chem Input Data <gcid-data>` portal.
+
+.. _dry-run-download-activate:
+
+====================================
+Activate the GCPy Python environment
+====================================
+
+You will need to activate a Python environment before you can start
+downloading data.  We recommend using the Python environment for `GCPy
+<https://gcpy.readthedocs.io>`_, as it has all of the relevant
+packages installed. If you `installed GCPy from PyPI
+<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-pypi>`_,
+then no further action is needed.  On the other hand, if you
+`installed GCPy from conda-forge
+<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-conda-forge>`_,
+you will need to activate the GCPy Python environment with this
+command:
+
+.. code-block:: console
+
+   $ conda activate gcpy_env
+   (gcpy_env) $
+
+The prefix :literal:`(gcpy_env)` will be added to the command prompt,
+which lets you know that the Python environment is active.  (If you
+installed GCPy from PyPI, you will not see this prefix.)
+
 .. _dry-run-download-py:
 
 ==============================================================
 Run the :file:`download_data.py` script on the dryrun log file
 ==============================================================
 
-Navigate to your GEOS-Chem run directory where you executed the dry-run
-and type.
+Navigate to your GEOS-Chem run directory.  The command that you will
+use to download data takes the form:
 
 .. code-block:: console
 
-   $ ./download_data.py log.dryrun PORTAL-NAME
+   (gcpy_env) $ ./download_data.py log.dryrun PORTAL-NAME
 
 where:
 
@@ -132,21 +136,33 @@ where:
        - :ref:`GCAP 2.0 met data @ Rochester <gcid-special-portals-gcap2>`
        - :command:`wget`
        - HTTP
+     * - skip-download
+       - :ref:`Skips downloading data <dry-run-download-skip>`
+       - N/A
+       - N/A
 
 For example, to download data from the :ref:`GEOS-Chem Input Data
-<gcid-data>` portal using the AWS CLI download (which is faster than
-HTTP download), use this command:
+<gcid-data>` portal, use this command:
 
 .. code-block:: console
 
-   $ ./download_data.py log.dryrun geoschem+s3
+   (gcpy_env) $ ./download_data.py log.dryrun geoschem+http
 
-.. note::
+But if you have `AWS CLI (command-line interface)
+<https://aws.amazon.com/cli/>`_ set up on your machine, use
+this command instead:
 
-   You must have the `AWS CLI (command-line interface)
-   <https://aws.amazon.com/cli/>`_ software installed on your system
-   before in order to use the :literal:`geoschem+aws` or
-   :literal:`nested+aws` options in the table listed above.
+.. code-block:: console
+
+   (gcpy_env) $ ./download_data.py log.dryrun geoschem+aws
+
+This will result in a much faster data transfer than by HTTP.  This is
+also the command you will use if you are running GEOS-Chem Classic on
+an AWS EC2 cloud instance.
+
+===============================================
+(Optional) Examine the log of unique data files
+===============================================
 
 The :file:`download_data.py` program will generate a **log of
 unique data files** (i.e. with all duplicate listings removed), which
@@ -187,13 +203,7 @@ example, we passed :file:`log.dryrun` to :file:`download_data.py`, so
 the "unique" log file will be named :file:`log.dryrun.unique`. This
 "unique" log file can be very useful for documentation purposes.
 
-.. _dry-run-download-skip:
-
-=============================================
-Skip download, but create log of unique files
-=============================================
-
-If you wish to only produce the \*log of unique data files without
+If you wish to only produce the **log of unique data files** without
 downloading any data, then type the following command from within your
 GEOS-Chem run directory:
 
@@ -210,3 +220,63 @@ or for short:
 This can be useful if you already have the necessary data downloaded to
 your system but wish to create the log of unique files for documentation
 purposes (such as for benchmark simulations, etc.)
+
+.. _dry-run-download-deactivate:
+
+======================================
+Deactivate the GCPy Python environment
+======================================
+
+Once you have downloaded all of the data needed for your GEOS-Chem
+Classic simulation, you can deactivate the GCPy Python environment.
+
+.. code-block:: console
+
+   (gcpy_env) $ conda deactivate
+   $
+
+This will remove the :literal:`(gcpy_env)` prefix from the command prompt.
+
+===============================================
+(Optional) Download additional meteorology data
+===============================================
+
+You may need to perform a subsequent dry-run simulation to download
+additional data that are stored separately from the :ref:`GEOS-Chem
+Input Data portal <gcid-data>`:
+
+#. If you plan to run a :ref:`GEOS-Chem Classic nested-grid simulation
+   <nestgrid-guide>` with meteorology fields that have been cropped to a
+   :ref:`specific nested grid domain <gcc-hgrids-nested>`, then follow
+   these steps:
+
+   .. code-block:: console
+
+      $ ./gcclassic --dryrun | tee log.dryrun.nested
+
+      $ conda activate gcpy_env                                      # Skip if using GCPy from PyPI
+
+      (gcpy_env) $ ./download_data.py log.dryrun.nested nested+http  # or nested+aws if you have AWSCLI
+
+      (gcpy_env) $ conda deactivate                                  # Skip if using GCPy from PyPI
+
+   This will download the cropped meteorology fields from our
+   :ref:`GEOS-Chem Nested Input Data portal
+   <gcid-special-portals-nested>` to your computer system or EC2 instance.
+
+#. If you plan to perform a GEOS-Chem Classic simulation drven by GCAP
+   2.0 meteorology, follow these steps:
+
+   .. code-block:: console
+
+      $ ./gcclassic --dryrun | tee log.dryrun.gcap2
+
+      $ conda activate gcpy_env                                      # Skip if using GCPy from PyPI
+
+      (gcpy_env) $ ./download_data.py log.dryrun.gcap2 rochester
+
+      (gcpy_env) $ conda deactivate                                  # Skip if using GCPy from PyPI
+
+   This will download the GCAP 2.0 meteorology data from the
+   :ref:`GCAP 2.0 data portal hosted at U. Rochester
+   <gcid-special-portals-gcap2>` to your computer system or EC2 instance.
