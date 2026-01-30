@@ -81,6 +81,7 @@ modifications to GEOS-Chem Classic source code.
    :caption: Supplemental guides
    :maxdepth: 4
 
+   supplemental-guides/run-gcc-on-aws-ec2.rst
    supplemental-guides/directory-structure.rst
    supplemental-guides/horizontal-grids.rst
    supplemental-guides/vertical-grids.rst
