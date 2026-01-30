@@ -17,7 +17,7 @@ ami-096e8e151989dbfc5       GCC-12.3-GEOSChem      alinux2023      x86_64
 
 It contains a dedicated storage volume mounted at :literal:`/data` which contains the software environment for creating a GC Classic run directory and compiling the model. 
 
-.._launching_instance:
+.. _launching_instance:
 
 1. Launch your EC2 Instance
 ----------------------------
@@ -47,7 +47,7 @@ It contains a dedicated storage volume mounted at :literal:`/data` which contain
 
 9. **Launch the instance**. You should see your instance in the EC2 console with a status of "running".
 
-.._connecting_and_setup:
+.. _connecting_and_setup:
 
 2. Connect and Storage Setup
 --------------------------------
@@ -67,7 +67,7 @@ SSH into your instance:
 3. Download Code and Data
 ---------------------------
 
-Now you can download the GC Classic source code and data files to your instance's :literal:`/data` directory. You can follow :ref:`quick-start` to run GCClassic with Slurm scheduler.
+Now you can download the GC Classic source code and data files to your instance's :literal:`/data` directory. You can follow :ref:`quick` to run GCClassic.
 
 .. warning::
 
