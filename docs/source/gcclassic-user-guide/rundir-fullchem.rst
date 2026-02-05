@@ -71,9 +71,6 @@ GEOS-Chem full-chemistry simulation.
          6. Tagged O3
          7. Trace metals
          8. TransportTracers
-         9. CH4
-        10. CO2
-        11. Tagged CO
       >>>
 
    To create a run directory for the full-chemistry simulation, type

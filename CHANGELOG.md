@@ -10,9 +10,16 @@ Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
+### Added
+- Added "GEOS-Chem Classic vertical grids" supplemental guide in ReadTheDocs
+- Added "GEOS-Chem Classic horiziontal grids" supplemental guide in ReadTheDocs
+- Added "Particulate matter in GEOS-Chem" supplemental guide in ReadTheDocs
+- Added `docs/read_the_docs_environment.yml` Conda environment file
+
 ### Changed
 - Updated `lint-ci-workflows` to run on `main` and `dev/*` branches
 - Updated badges on `README.md` and `docs/source/index.rst`
+- Updated `geos-chem-shared-docs/editing_these_docs.rst` with instructions for using a Conda environment to build RTD doc
 
 ### Fixed
 - Fixed security issues in GitHub Actions that caused the `lint-ci-workflows` action to fail
@@ -28,7 +35,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `CMakeLists.txt` to set compilation option `mcmodel=small` for ARM-based CPUs, as ARM does not support `mcmodel=medium`
 - Updated ReadTheDocs documentation to state that we are using Spack v0.23.1 in the Spack installation guide
 - Updated GEOS-Chem submodule to 14.6.3
-- Updated HEMCO submodule to 3.11.2
+- Updated HEMCO submodule to 3.11.
 
 ## [14.6.2] - 2025-06-12
 ### Changed

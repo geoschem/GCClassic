@@ -74,9 +74,6 @@ simulation. We'll use the carbon gases simulation as an example.
          6. Tagged O3
          7. Trace metals
          8. TransportTracers
-         9. CH4
-        10. CO2
-        11. Tagged CO
       >>>
 
    To select the GEOS-Chem carbon gases specialty simulation, type

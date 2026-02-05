@@ -81,7 +81,10 @@ modifications to GEOS-Chem Classic source code.
    :caption: Supplemental guides
    :maxdepth: 4
 
+   supplemental-guides/run-gcc-on-aws-ec2.rst
    supplemental-guides/directory-structure.rst
+   supplemental-guides/horizontal-grids.rst
+   supplemental-guides/vertical-grids.rst
    supplemental-guides/run-script-examples.rst
    geos-chem-shared-docs/supplemental-guides/load-libraries-guide.rst
    geos-chem-shared-docs/supplemental-guides/spack-guide.rst
@@ -97,6 +100,7 @@ modifications to GEOS-Chem Classic source code.
    supplemental-guides/nested-grid-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-standalone.rst
+   geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide.rst
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
 .. toctree::
@@ -108,4 +112,3 @@ modifications to GEOS-Chem Classic source code.
    help-and-reference/CONTRIBUTING.md
    help-and-reference/SUPPORT.md
    geos-chem-shared-docs/editing_these_docs.rst
-

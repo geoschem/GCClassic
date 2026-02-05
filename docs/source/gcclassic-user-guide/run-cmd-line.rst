@@ -56,7 +56,8 @@ The modifications entail:
          export OMP_NUM_THREADS=`ncpus`
 
       to the run script.  This will automatically set
-      :option:`OMP_NUM_THREADS` to the available number of cores.
+      :ref:`env-files-envvars-parallel-threads` to the available
+      number of cores.
 
 To run GEOS-Chem interactively, type:
 

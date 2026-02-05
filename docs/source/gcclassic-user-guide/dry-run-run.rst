@@ -1,3 +1,7 @@
+.. |br| raw:: html
+
+   <br/>
+
 .. _dry-run-run:
 
 ############################
@@ -19,59 +23,71 @@ Make sure that you have done the following steps;
 Then doublecheck these settings in the following :ref:`configuration
 files <cfg>`:
 
-.. option:: geoschem_config.yml
 
-   #. :option:`start_date`: Set the start date and time for your simulation.
-   #. :option:`end_date`: Set the end date and time for your simulation.
-   #. :option:`met_field`: Check if the meteorology setting
-      (:option:`GEOS-FP`, :option:`MERRA2`, :option:`GCAP2`) is
-      correct for your simulation.
+geoschem_config.yml
+-------------------
 
-      .. attention::
+#. :ref:`gc-yml-simulation-start`: Set the start date and time for
+   your simulation. |br|
+   |br|
 
-         The convection scheme used to generate archived GEOS-FP
-	 meteorology files changed from RAS to Grell-Freitas starting
-	 01 June 2020 with impact on vertical transport. Discussion
-	 and analysis of the impact is available at
-         https://github.com/geoschem/geos-chem/issues/1409.
+#. :ref:`gc-yml-simulation-end`: Set the end date and time for your
+   simulation. |br|
+   |br|
 
-         To fix this issue, different GEOS-Chem convection schemes are
-	 called based on simulation start time. This ensures
-	 comparability in GEOS-Chem runs using GEOS-FP fields
-	 generated using the RAS convection scheme and fields
-	 generated using Grell-Freitas, but only if the simulation
-	 does not cross the 01 June 2020 boundary. We therefore
-	 recommend splitting up GEOS-FP runs in time such that a
-	 single simulation does not span this date. For example,
-	 configure one run to end on 01 June 2020 and then use  its
-	 output restart to start another run on 01 June
-	 2020.. Alternatively consider using MERRA2 which was entirely
-	 generated with RAS, or GEOS-IT which was entirely generated
-	 with Grell-Freitas. If you wish to use a GEOS-FP meteorology
-	 year different from your simulation year please create a
-	 GEOS-Chem GitHub issue for assistance to avoid accidentally
-	 using zero convective precipitation flux.
+#. :ref:`gc-yml-simulation-met`: Check if the meteorology setting
+   (:option:`GEOS-FP`, :option:`GEOS-IT`, :option:`MERRA2`,
+   :option:`GCAP2`) is correct for your simulation.
 
-   #. :option:`root_data_dir`: Make sure that the path to
-      :file:`ExtData` is correct.
+   .. attention::
 
-.. option:: HISTORY.rc
+      The convection scheme used to generate archived GEOS-FP
+      meteorology files changed from RAS to Grell-Freitas starting
+      01 June 2020 with impact on vertical transport. Discussion
+      and analysis of the impact is available at
+      https://github.com/geoschem/geos-chem/issues/1409.
 
-   #. Set the frequency and duration for each :ref:`diagnostic
-      collection <histguide-collections>` to be consistent with the
-      settings in :option:`geoschem_config.yml`.
+      To fix this issue, different GEOS-Chem convection schemes are
+      called based on simulation start time. This ensures
+      comparability in GEOS-Chem runs using GEOS-FP fields
+      generated using the RAS convection scheme and fields
+      generated using Grell-Freitas, but only if the simulation
+      does not cross the 01 June 2020 boundary. We therefore
+      recommend splitting up GEOS-FP runs in time such that a
+      single simulation does not span this date. For example,
+      configure one run to end on 01 June 2020 and then use  its
+      output restart to start another run on 01 June
+      2020.. Alternatively consider using MERRA2 which was entirely
+      generated with RAS, or GEOS-IT which was entirely generated
+      with Grell-Freitas. If you wish to use a GEOS-FP meteorology
+      year different from your simulation year please create a
+      GEOS-Chem GitHub issue for assistance to avoid accidentally
+      using zero convective precipitation flux.
 
-.. option:: HEMCO_Config.rc
+#. :ref:`gc-yml-simulation-root`: Make sure that the path to
+   :file:`ExtData` is correct.
 
-   #. Check the `Settings section
-      <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#settings>`_
-      to make sure that diagnostic frequency :envvar:`DiagnFreq`: is
-      set to the interval that you wish (e.g. :envvar:`Monthly`,
-      :envvar:`Daily`, :envvar:`YYYYMMDD hhmmss`, etc).
-   #. Check the `Extension Settings section
-      <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#extension-switches>`_,
-      to make sure all of the required emissions inventories and data
-      sets for your simulation have been switched on.
+HISTORY.rc
+----------
+
+#. Set the frequency and duration for each :ref:`diagnostic
+   collection <histguide-collections>` to be consistent with the
+   settings in :ref:`cfg-gc-yml`.
+
+HEMCO_Config.rc
+---------------
+
+#. Check the `Settings section
+   <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#settings>`_
+   to make sure that diagnostic frequency :envvar:`DiagnFreq`: is
+   set to the interval that you wish (e.g. :envvar:`Monthly`,
+   :envvar:`Daily`, :envvar:`YYYYMMDD hhmmss`, etc). |br|
+   |br|
+
+#. Check the `Extension Settings section
+   <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#extension-switches>`_,
+   to make sure all of the required emissions inventories and data
+   sets for your simulation have been switched on.
 
    .. tip::
 
