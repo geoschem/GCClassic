@@ -257,10 +257,10 @@ For more information about downloading the GEOS-Chem source code,
 please see the following Youtube video tutorials:
 
   - `Getting Started with GEOS-Chem
-    <https://www.youtube.com/watch?v=CTvE2T2HZXM>`_
+    <https://www.youtube.com/watch?v=CTvE2T2HZXM&t=1284s>`_
 
-  - `GEOS-Chem Classic Quickstart Guide (with dry-run)
-    <https://www.youtube.com/watch?v=da2WPW4K7Pg>`_
+  - `GEOS-Chem Classic Quickstart Guide (with dry-run simulation)
+    <https://www.youtube.com/watch?v=da2WPW4K7Pg&t=3721s&pp=0gcJCcYJAYcqIYzv>`_
 
   - `Managing branches between superproject and submodules
     <https://www.youtube.com/watch?v=1fhI-HObyV4>`_

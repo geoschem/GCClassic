@@ -132,7 +132,7 @@ generate output similar to this:
    =================================================================
    =================================================================
    Cloud-J G.H.I
-   Current status: 8.0.2
+   Current status: G.H.I
    =================================================================
    =================================================================
    GEOS-Chem X.Y.Z (science codebase)
@@ -290,7 +290,7 @@ values are:
    Activates OpenMP parallelization.  **(Default option)**
 
    GEOS-Chem Classic will execute on as many computational cores as
-   is specified with :option:`OMP_NUM_THREADS`.
+   is specified with :ref:`env-files-envvars-parallel-threads`.
 
 .. option:: n
 
