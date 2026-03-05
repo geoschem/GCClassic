@@ -67,8 +67,9 @@ modifications to GEOS-Chem Classic source code.
 
 .. toctree::
    :caption: GEOS-Chem Simulations
-   :maxdepth: 4
+   :maxdepth: 1
 
+   gcclassic-user-guide/gcclassic-simulations.rst
    geos-chem-shared-docs/simulations/aerosol-only.rst
    geos-chem-shared-docs/simulations/carbon.rst
    geos-chem-shared-docs/simulations/fullchem.rst
@@ -78,14 +79,22 @@ modifications to GEOS-Chem Classic source code.
    geos-chem-shared-docs/simulations/transport-tracers.rst
 
 .. toctree::
-   :caption: Supplemental guides
-   :maxdepth: 4
+   :maxdepth: 1
+   :caption: Supplemental Science Guides
 
-   supplemental-guides/run-gcc-on-aws-ec2.rst
+   geos-chem-shared-docs/supplemental-guides/science-guides.rst
+   geos-chem-shared-docs/supplemental-guides/physical-constants.rst
+   geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide.rst
+
+.. toctree::
+   :caption: Supplemental Technical Guides
+   :maxdepth: 1
+
    supplemental-guides/directory-structure.rst
    supplemental-guides/horizontal-grids.rst
    supplemental-guides/vertical-grids.rst
    supplemental-guides/run-script-examples.rst
+   supplemental-guides/run-gcc-on-cloud.rst
    geos-chem-shared-docs/supplemental-guides/load-libraries-guide.rst
    geos-chem-shared-docs/supplemental-guides/spack-guide.rst
    geos-chem-shared-docs/supplemental-guides/customize-guide.rst
@@ -100,7 +109,6 @@ modifications to GEOS-Chem Classic source code.
    supplemental-guides/nested-grid-guide.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
    geos-chem-shared-docs/supplemental-guides/using-kpp-standalone.rst
-   geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide.rst
    geos-chem-shared-docs/supplemental-guides/related-docs.rst
 
 .. toctree::
