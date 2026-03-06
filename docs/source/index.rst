@@ -83,6 +83,10 @@ modifications to GEOS-Chem Classic source code.
    :caption: Supplemental Science Guides
 
    geos-chem-shared-docs/supplemental-guides/science-guides.rst
+   geos-chem-shared-docs/supplemental-guides/aer-thermodyn-equilib.rst
+   geos-chem-shared-docs/supplemental-guides/cloud-convection.rst
+   geos-chem-shared-docs/supplemental-guides/photolysis.rst
+   geos-chem-shared-docs/supplemental-guides/rrtmg-guide.rst
    geos-chem-shared-docs/supplemental-guides/physical-constants.rst
    geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide.rst
 
@@ -90,6 +94,7 @@ modifications to GEOS-Chem Classic source code.
    :caption: Supplemental Technical Guides
    :maxdepth: 1
 
+   supplemental-guides/technical-guides.rst
    supplemental-guides/directory-structure.rst
    supplemental-guides/horizontal-grids.rst
    supplemental-guides/vertical-grids.rst

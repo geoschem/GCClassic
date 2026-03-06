@@ -160,6 +160,8 @@ This will result in a much faster data transfer than by HTTP.  This is
 also the command you will use if you are running GEOS-Chem Classic on
 an AWS EC2 cloud instance.
 
+.. _dry-run-download-skip:
+
 ===============================================
 (Optional) Examine the log of unique data files
 ===============================================
@@ -203,9 +205,9 @@ example, we passed :file:`log.dryrun` to :file:`download_data.py`, so
 the "unique" log file will be named :file:`log.dryrun.unique`. This
 "unique" log file can be very useful for documentation purposes.
 
-If you wish to only produce the **log of unique data files** without
-downloading any data, then type the following command from within your
-GEOS-Chem run directory:
+If you wish to only produce the **log of unique data files**
+without downloading any data, then type the following command from
+within your GEOS-Chem run directory:
 
 .. code-block:: console
 
