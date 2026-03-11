@@ -75,8 +75,6 @@ bibtex_footbibliography_header = bibtex_bibliography_header
 
 bibtex_bibfiles = [
     'geos-chem-shared-docs/biblio/geos-chem.bib',
-    'geos-chem-shared-docs/biblio/apm-guide.bib',
-    'geos-chem-shared-docs/biblio/aerosols-guide.bib',
 ]
 
 

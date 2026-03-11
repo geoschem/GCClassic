@@ -30,5 +30,8 @@ detailed model description.  It is suitable as an original reference for the mod
 #. :cite:t:`Miller_et_al._2024` for HETerogeneous vectorized or
    Parallel (HETPv1.0).
 
-.. bibliography:: ../geos-chem-shared-docs/biblio/geos-chem.bib
-   :cited:
+=====================
+Complete bibliography
+=====================
+
+.. bibliography::
