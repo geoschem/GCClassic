@@ -87,6 +87,7 @@ modifications to GEOS-Chem Classic source code.
    geos-chem-shared-docs/supplemental-guides/ate-guide.rst
    geos-chem-shared-docs/supplemental-guides/aerosols-guide.rst
    geos-chem-shared-docs/supplemental-guides/cloud-conv-guide.rst
+   geos-chem-shared-docs/supplemental-guides/drydep-guide.rst
    geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide.rst
    geos-chem-shared-docs/supplemental-guides/pbl-mixing-guide.rst
    geos-chem-shared-docs/supplemental-guides/photolysis-guide.rst
