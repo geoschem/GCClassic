@@ -92,6 +92,7 @@ modifications to GEOS-Chem Classic source code.
    geos-chem-shared-docs/supplemental-guides/photolysis-guide.rst
    geos-chem-shared-docs/supplemental-guides/phys-consts-guide.rst
    geos-chem-shared-docs/supplemental-guides/rrtmg-guide.rst
+   geos-chem-shared-docs/supplemental-guides/wetdep-guide.rst
 
 .. toctree::
    :caption: Supplemental Technical Guides
