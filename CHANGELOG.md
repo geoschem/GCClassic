@@ -12,6 +12,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased] - TBD
 ### Changed
 - Added CMake options MECH, USE_REAL8, and SANITIZE to `CMakeScripts/summarize_build`
+- Updated GitHub Actions to the latest versions
 
 ## [14.7.0] - 2026-02-06
 ### Added
