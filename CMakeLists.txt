@@ -217,8 +217,8 @@ if(NOT GC_EXTERNAL_CONFIG)
 
     # This conditional block configures the GEOS-Chem build
     # for GEOS-Chem Classic. As mentioned above, it sets
-    # GCCLASSIC_EXE_TARGETS, RRTMG, GTMM, TOMAS, MECH, and
-    # GCHP, and it configures the GEOSChemBuildProperties.
+    # GCCLASSIC_EXE_TARGETS and it configures the GEOSChemBuildProperties,
+    # including build options set by the user during CMake configure.
 
     # Set CMAKE_BUILD_TYPE to Release by default
     if(NOT CMAKE_BUILD_TYPE)
