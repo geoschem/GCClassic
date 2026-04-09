@@ -1,5 +1,5 @@
 List of Developers for GEOS-Chem, HEMCO, and Related Software
-(12 Feb 2026)
+(08 Apr 2026)
 ===============================================================================
 
 ADAMS, Peter
@@ -167,6 +167,7 @@ LE SAGER, Philippe
 LEE, Chulkyu
 LEE, Colin
 LEE, Meemong
+LEE, Tabitha
 LEHMANN, Ralph
 LEIBENSPERGER, Eric
 LERICHE, Maud
@@ -230,6 +231,7 @@ MURPHY, Killian
 MURRAY, Lee
 NAM, Jun
 NASSAR, Ray
+NASSAU, Racine
 NATHAN, Brian
 NENES, Athanasios
 NESSER, Hannah
@@ -299,6 +301,7 @@ STRODE, Sarah
 STURM, Obin
 SU, Flora
 SULPRIZIO, Melissa
+SUN, Jordan
 SUN, Minmin
 SUNDERLAND, Elsie
 SUNTHARALINGAM, Parvada
@@ -335,12 +338,13 @@ VOHRA, Karn
 WAGSTROM, Kristina
 WALKER, Thomas
 WALLWORK, Joe
+WANG, Daisy
 WANG, James
 WANG, Jun
 WANG, Qiaoqiao
-WANG, Xuan
 WANG, Xiaoli
 WANG, Xiaolin
+WANG, Xuan
 WANG, Yi
 WANG, Yuhang
 WANG, Yuting
@@ -390,7 +394,3 @@ ZHU, Liye
 ZHUANG, Jiawei
 ZHUANG, Quanlai
 ZOOGMAN, Peter
-
-
-
-
