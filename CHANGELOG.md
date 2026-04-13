@@ -16,6 +16,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 - Updated GitHub Actions to the latest versions
+- Added several supplemental science guides to ReadTheDocs
+- Added splash pages for "Supplemental Science Guides" and "Supplemental Technical Guides" to ReadTheDocs
 
 ## [14.7.0] - 2026-02-06
 ### Added

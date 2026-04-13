@@ -19,7 +19,7 @@ master_doc = 'index'
 # -- Project information -----------------------------------------------------
 
 project = 'GEOS-Chem Classic'
-copyright = '2023, GEOS-Chem Support Team'
+copyright = '2026, GEOS-Chem Support Team'
 author = 'GEOS-Chem Support Team'
 
 # The full version, including alpha/beta/rc tags
@@ -74,7 +74,7 @@ bibtex_bibliography_header = ".. rubric:: References"
 bibtex_footbibliography_header = bibtex_bibliography_header
 
 bibtex_bibfiles = [
-    'geos-chem-shared-docs/biblio/geos-chem.bib'
+    'geos-chem-shared-docs/biblio/geos-chem.bib',
 ]
 
 
