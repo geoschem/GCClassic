@@ -63,6 +63,12 @@ print_item_highlight "HEMCO_Fortran_FLAGS_${COMPILER_ID}" $(scrape_cache HEMCO_F
 print_item_highlight "HEMCO_Fortran_FLAGS_${BUILD_TYPE_UPPER}_${COMPILER_ID}" $(scrape_cache HEMCO_Fortran_FLAGS_${BUILD_TYPE_UPPER}_${COMPILER_ID})
 echo "" 
 
+echo "## GEOS-Chem General Settings"
+print_item_highlight MECH $(scrape_cache MECH)
+print_item_highlight USE_REAL8 $(scrape_cache USE_REAL8)
+print_item_highlight SANITIZE $(scrape_cache SANITIZE)
+echo ""
+
 echo "## GEOS-Chem Components Settings"
 print_item_highlight TOMAS $(scrape_cache TOMAS)
 print_item_highlight TOMAS_BINS $(scrape_cache TOMAS_BINS)
@@ -72,6 +78,7 @@ print_item_highlight GTMM $(scrape_cache GTMM)
 print_item_highlight HCOSA $(scrape_cache HCOSA)
 print_item_highlight LUO_WETDEP $(scrape_cache LUO_WETDEP)
 print_item_highlight FASTJX $(scrape_cache FASTJX)
+print_item_highlight JACOBIAN $(scrape_cache JACOBIAN)
 echo ""
 
 # grep --color "GEOSChem_Fortran_FLAGS_[A-Z_]*${COMPILER_ID}" $CACHEFILE
