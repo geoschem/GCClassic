@@ -9,6 +9,8 @@ the files and folders listed below. The :ref:`GEOS-Chem and HEMCO
 configuration files <cfg>` in the run directory will be appropriate to
 the type of simulation that you have selected.
 
+.. _rundir-files-archive:
+
 =============
 archiveRun.sh
 =============
@@ -23,12 +25,16 @@ Run this script with:
 Where :file:`directory-name` is the name of the archive folder.
 This can be either a relative path or an absolute path.
 
+.. _rundir-files-build:
+
 ======
 build/
 ======
 
 This is a blank directory where you can direct :program:`CMake` to
 :ref:`configure and build <compile>` the GEOS-Chem source code.
+
+.. _rundir-files-build-info:
 
 ===========
 build_info/
@@ -38,6 +44,8 @@ This folder is created when you :ref:`compile GEOS-Chem
 <compile>`.  It contains information about the options
 that were passed to :program:`CMake` during the configuration and
 build process.
+
+.. _rundir-files-clean:
 
 ==============
 cleanRunDir.sh
@@ -52,12 +60,16 @@ Typing
 will remove log files and diagnostic output files left over from a
 previous GEOS-Chem simulation.
 
+.. _rundir-files-codedir:
+
 =======
 CodeDir
 =======
 
 Symbolic link to the top-level source code folder (i.e. the
 :file:`GCClassic` superproject folder).
+
+.. _rundir-files-rundir-vars:
 
 ================================
 CreateRunDirLogs/rundir_vars.txt
@@ -67,6 +79,8 @@ Log file containing environment variable settings used in run
 directory creation.  Running the :file:`init_rd.sh` script on this
 file will create a duplicate run directory.
 
+.. _rundir-files-download-py:
+
 ================
 download_data.py
 ================
@@ -75,11 +89,15 @@ Use this Python script to download data from one of the GEOS-Chem
 data portals to your disk space. See our :ref:`dry-run` chapter for
 more information.
 
+.. _rundir-files-download-yml:
+
 =================
 download_data.yml
 =================
 
 Configuration file for :file:`download_data.py`.
+
+.. _rundir-files-gc-cfg:
 
 ===================
 geoschem_config.yml
@@ -92,12 +110,16 @@ option:: getRunInfo
 
 This file is now deprecated and will be removed in a future version.
 
+.. _rundir-files-hco-cfg:
+
 ===============
 HEMCO_Config.rc
 ===============
 
 The main HEMCO configuration file (see :ref:`Configure your
 simulation <cfg>`).
+
+.. _rundir-files-hco-cfg-met:
 
 ==============================
 HEMCO_Config.rc.gmao_metfields
@@ -108,6 +130,8 @@ GMAO meteorological fields.  This file will only be present if you
 are using GEOS-FP or MERRA-2 meteorology to drive your GEOS-Chem
 simulation.
 
+.. _rundir-files-hco-cfg-gcap2:
+
 ===============================
 HEMCO_Config.rc.gcap2_metfields
 ===============================
@@ -116,6 +140,8 @@ HEMCO configuration file snippet containing entries for reading the
 GCAP2 meteorological fields.  This file will only be present if you
 are using GCAP2  meteorology to drive your GEOS-Chem simulation.
 
+.. _rundir-files-hco-dgn:
+
 ==============
 HEMCO_Diagn.rc
 ==============
@@ -123,12 +149,16 @@ HEMCO_Diagn.rc
 Configuration file for HEMCO diagnostics (see :ref:`Configure your
 simulation <cfg>`).
 
+.. _rundir-files-history:
+
 ==========
 HISTORY.rc
 ==========
 
 Configuration file for GEOS-Chem History diagnostics (see
 :ref:`Configure your simulation <cfg>`).
+
+.. _rundir-files-metrics:
 
 ==========
 metrics.py
@@ -158,6 +188,9 @@ will generate output such as:
 
    CH4 lifetime w/r/t tropospheric OH     = 10.6590 years
 
+
+.. _rundir-files-outputdir:
+
 ==========
 OutputDir/
 ==========
@@ -165,12 +198,16 @@ OutputDir/
 Blank directory where GEOS-Chem diagnostic output files will be
 created.
 
+.. _rundir-files-readme:
+
 =========
 README.md
 =========
 
 README file (in Markdown format) with containing links to
 information about GEOS-Chem.
+
+.. _rundir-files-restarts:
 
 =========
 Restarts/
@@ -193,6 +230,8 @@ for the GEOS-Chem simulation.
    that you "spin up" your simulation for at least 6 months to a year
    in order to remove the signature of the initial conditions.
 
+.. _rundir-files-samples:
+
 ================
 runScriptSamples
 ================
@@ -202,6 +241,8 @@ Symbolic link to the folder in the `GEOS-Chem "Science Codebase"
 repository that contains `sample scripts
 <https://github.com/geoschem/geos-chem/tree/main/run/GCClassic/runScriptSamples>`_
 for running GEOS-Chem.
+
+.. _rundir-files-spc-db:
 
 ====================
 species_database.yml

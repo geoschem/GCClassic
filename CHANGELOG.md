@@ -9,6 +9,19 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.7.1] - 2026-04-13
+### Added
+- Added CMake options MECH, USE_REAL8, and SANITIZE to `CMakeScripts/summarize_build`
+- Added CMake build switch called JACOBIAN for carbon Jacobian runs
+
+### Changed
+- Updated GitHub Actions to the latest versions
+- Added several supplemental science guides to ReadTheDocs
+- Added splash pages for "Supplemental Science Guides" and "Supplemental Technical Guides" to ReadTheDocs
+- Updated Cloud-J submodule to commit 16d18b0 ("Fixed issues in format statements for verbose output")
+- Updated GEOS-Chem submodule to 14.7.1
+- Updated HEMCO submodule to 3.12.1
+
 ## [14.7.0] - 2026-02-06
 ### Added
 - Added "GEOS-Chem Classic vertical grids" supplemental guide in ReadTheDocs
