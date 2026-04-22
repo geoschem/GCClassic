@@ -20,6 +20,26 @@ are currently unresolved. We hope to fix these in future releases.
 Other issues that you should know about
 =======================================
 
+.. _gc-known-bugs-47-lev:
+
+Bias in tropospheric J-Values when using 47 vertical levels
+-----------------------------------------------------------
+
+GEOS-Chem Classic simulations focused on the troposphere can reduce
+the number of vertical levels from 72 to 47 by coarsening the vertical
+resolution in the stratosphere and mesosphere.  Recent work shows that
+this vertical remapping `does not affect tropospheric transport
+<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-Chem_14.7.0#1-year_transport_GEOS-Chem_Classic_version_comparison_(14.7.0_on_72_levels_vs_14.7.0_on_47_levels)>`_,
+but it has a slight effect on `tropospheric photolysis rate constants
+<https://github.com/geoschem/geos-chem/issues/3238>`_.
+
+To avoid this issue, we recommend one of the following solutions:
+
+#. Use 72 vertical levels with all :ref:`GEOS-Chem Classic fullchem
+   simulations <fullchem-sim>`,
+#. Use `GCHP <https://gchp.readthedocs.io>`_  (either normal grid or
+   stretched grid) fullchem simulations.
+
 .. _gc-known-bugs-gcc12:
 
 GCC 12.2.0 is discontinued in Spack v1.0.0
