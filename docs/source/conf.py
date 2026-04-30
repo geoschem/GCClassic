@@ -34,7 +34,7 @@ release = '14.7.1'
 extensions = [
     "sphinx_rtd_theme",   
     "sphinxcontrib.bibtex",
-    "recommonmark",
+    "myst_parser",
 ]
 bibtex_default_style = 'gcrefstyle'
 bibtex_reference_style = "author_year"
