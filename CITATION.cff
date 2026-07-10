@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "GCClassic: GEOS-Chem Classic"
+type: software
+authors:
+  - name: "The International GEOS-Chem User Community"
+version: 14.7.1
+date-released: 2026-04-13
+doi: 10.5281/zenodo.4437678
+url: "https://geos-chem.readthedocs.io"
+repository-code: "https://github.com/geoschem/GCClassic"
+license: MIT
+keywords:
+  - atmospheric-chemistry
+  - atmospheric-composition
+  - atmospheric-modeling
+  - aws
+  - climate-modeling
+  - cloud-computing
+  - geos-chem
+  - atmospheric-computing
+  - scientific-computing
