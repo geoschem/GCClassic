@@ -42,6 +42,13 @@ access to the latest available versions of GEOS-Chem Classic, provides
 additional compile-time options, and allows you to make your own
 modifications to GEOS-Chem Classic source code.
 
+.. note::
+
+   **Try it on your own computer.** GEOS-Chem Classic can be built and run at
+   coarse resolution (e.g. 4° x 5°) on a personal laptop using the prebuilt
+   dependency image ``billzhuge/geos-chem-deps`` on Docker Hub — no manual
+   library setup required.
+
 .. toctree::
    :caption: Getting Started
    :maxdepth: 2
