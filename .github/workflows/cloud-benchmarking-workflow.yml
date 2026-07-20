@@ -74,7 +74,10 @@ jobs:
       - name: Trigger Step Function
         env:
           # Set config options for aws cli
-          NUM_CORES: 62
+	  # Note that 96 cores are requested but this does not necessarily mean
+	  # 96 will be used. See gc-cloud-infrastructure for actual number of
+	  # cores used for the GC-Classic benchmark runs, set as OMP_NUM_THREADS.
+          NUM_CORES: 96
           EC2_TYPE: SPOT # SPOT or DEMAND
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

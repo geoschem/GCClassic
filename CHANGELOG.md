@@ -9,6 +9,10 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - TBD
+### Changed
+- Changed number of requested cores for benchmarking on AWS from 62 to 96, of which only 48 will be used
+
 ## [14.7.1] - 2026-04-13
 ### Added
 - Added CMake options MECH, USE_REAL8, and SANITIZE to `CMakeScripts/summarize_build`
