@@ -11,7 +11,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
 ### Changed
-- Changed number of requested cores for benchmarking on AWS from 62 to 96, of which only 48 will be used
+- Require 48 vcpus for AWS instance used for GC-Classic benchmark runs
 
 ## [14.7.1] - 2026-04-13
 ### Added
