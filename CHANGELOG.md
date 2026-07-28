@@ -12,6 +12,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased] - TBD
 ### Changed
 - Updated `.github/workflows/gcclassic-compile-tests` to run as a build matrix using GCC compiler versions 10 through 16
+- Require 48 vcpus for AWS instance used for GC-Classic benchmark runs
 
 ## [14.7.1] - 2026-04-13
 ### Added
