@@ -15,6 +15,7 @@ Classic.
 - :ref:`libguide`
 - :ref:`spackguide`
 - :ref:`customguide`
+- :ref:`custom-emis-guide`
 - :ref:`errguide`
 - :ref:`debug-guide`
 - :ref:`bashdatacatalog`
