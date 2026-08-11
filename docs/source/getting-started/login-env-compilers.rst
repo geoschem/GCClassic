@@ -1,4 +1,4 @@
-.. _env-iles-envvars-compilers:
+.. _env-files-envvars-compilers:
 
 #######################################
 Set environment variables for compilers

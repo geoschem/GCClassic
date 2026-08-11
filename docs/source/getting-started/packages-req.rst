@@ -9,17 +9,17 @@ Required software packages
 ===
 Git
 ===
-`Git <https://git-scm.com>`_ is the de-facto software industry
+`Git <https://git-scm.com>`__ is the de-facto software industry
 standard package for source code management. A version of Git usually
 ships with most Linux OS builds.
 
 The GEOS-Chem source code can be downloaded using the Git source code
 management system. GEOS-Chem software repositories are stored at the
-`https://github.com/geoschem <https://github.com/geoschem>`_
+`https://github.com/geoschem <https://github.com/geoschem>`__
 organization page.
 
 **Best way to install:** `git-scm.com/downloads
-<https://git-scm.com/downloads>`_.  But first check if you have a version of
+<https://git-scm.com/downloads>`__.  But first check if you have a version of
 Git pre-installed.
 
 .. _req-soft-cmake:
@@ -27,7 +27,7 @@ Git pre-installed.
 =====
 CMake
 =====
-`CMake <https://cmake.org/>`_ is software that directs how the
+`CMake <https://cmake.org/>`__ is software that directs how the
 GEOS-Chem source code is compiled into an executable.  You will need
 :program:`CMake` version 3.13 or later to build GEOS-Chem Classic.
 

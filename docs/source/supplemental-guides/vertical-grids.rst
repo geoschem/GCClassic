@@ -80,11 +80,11 @@ Vertical grids for GMAO meteorology
 ----------------------
 
 This grid is used by the `GEOS-FP
-<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-FP>`_,
+<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-FP>`__,
 `GEOS-IT
-<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-IT>`_,
+<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-IT>`__,
 and `MERRA-2
-<https://wiki.seas.harvard.edu/geos-chem/index.php?title=MERRA-2>`_
+<https://wiki.seas.harvard.edu/geos-chem/index.php?title=MERRA-2>`__
 meteorological field products from NASA GMAO.  It has 72 vertical
 levels and 73 edges.
 

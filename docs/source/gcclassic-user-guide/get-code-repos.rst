@@ -16,8 +16,8 @@ integrated into several modeling contexts, such as:
 - GEOS-Chem withn WRF (aka WRF-GC)
 
 This repository setup also aligns with our `GEOS-Chem Vision
-<http://geos-chem.org/overview>`_ and `Mission
-<http://geos-chem.org/>`_ statements.
+<http://geos-chem.org/overview>`__ and `Mission
+<http://geos-chem.org/>`__ statements.
 
 .. _get-code-repos-gc:
 
@@ -34,7 +34,7 @@ GEOS-Chem "Science Codebase"
 
 The :program:`GEOS-Chem "Science Codebase"` repository
 (`https://github.com/geoschem/geos-chem
-<https://github.com/geoschem/geos-chem>`_) contains the GEOS-Chem
+<https://github.com/geoschem/geos-chem>`__) contains the GEOS-Chem
 science routines, plus:
 
   - Scripts to create GEOS-Chem run directories, plus template
@@ -51,8 +51,8 @@ HEMCO
 -----
 
 The :program:`HEMCO` repository (`https://github.com/geoschem/HEMCO
-<https://github.com/geoschem/HEMCO>`_) contains the source code for
-the `Harmonized Emissions Component <https://hemco.readthedocs.io>`_,
+<https://github.com/geoschem/HEMCO>`__) contains the source code for
+the `Harmonized Emissions Component <https://hemco.readthedocs.io>`__,
 which is used to read and regrid emissions, met fields, and other
 inputs to GEOS-Chem.
 
@@ -63,7 +63,7 @@ GCClassic
 
 The :program:`GCClassic` repository
 (`https://github.com/geoschem/GCClassic
-<https://github.com/geoschem/GCClassic>`_) is a lightweight wrapper
+<https://github.com/geoschem/GCClassic>`__) is a lightweight wrapper
 that encompasses GEOS-Chem and HEMCO. We say that GCClassic is the
 **superproject** (i.e. top-level source code folder), and that
 GEOS-Chem (science codebase) and HEMCO are **submodules**.
@@ -111,7 +111,7 @@ geos-chem-shared-docs
 The :program:`geos-chem-shared-docs` repository
 (https://github.com/geoschem/geos-chem-shared-docs) contains common
 documentation files that are shared by the `GEOS-Chem
-<https://geos-chem.readthedocs.io>`_, `GCHP
-<https://gchp.readathedocs.io>`_, and `HEMCO
-<https://hemco.readthedocs.io>`_ ReadTheDocs pages. This repository is
+<https://geos-chem.readthedocs.io>`__, `GCHP
+<https://gchp.readathedocs.io>`__, and `HEMCO
+<https://hemco.readthedocs.io>`__ ReadTheDocs pages. This repository is
 maintained by the GEOS-Chem Support Team.

@@ -78,14 +78,14 @@ HEMCO_Config.rc
 ---------------
 
 #. Check the `Settings section
-   <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#settings>`_
+   <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#settings>`__
    to make sure that diagnostic frequency :envvar:`DiagnFreq`: is
    set to the interval that you wish (e.g. :envvar:`Monthly`,
    :envvar:`Daily`, :envvar:`YYYYMMDD hhmmss`, etc). |br|
    |br|
 
 #. Check the `Extension Settings section
-   <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#extension-switches>`_,
+   <https://hemco.readthedocs.io/en/latest/hco-ref-guide/hemco-config.html#extension-switches>`__,
    to make sure all of the required emissions inventories and data
    sets for your simulation have been switched on.
 

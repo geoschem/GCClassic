@@ -10,7 +10,7 @@ Optional but recommended software packages
 GCPy
 ====
 
-`GCPy <https://gcpy.readthedocs.io>`_ is our recommended python
+`GCPy <https://gcpy.readthedocs.io>`__ is our recommended python
 companion software to GEOS-Chem.
 
 While :program:`GCPy` is not a general-purpose plotting package, it
@@ -26,8 +26,8 @@ generate plots and tables from GEOS-Chem benchmark simulations.
 ============
 gdb and cgdb
 ============
-`The GNU debugger (gdb) <https://gnu.org/software/GDB>`_  and `its
-graphical interface (cgdb) <https://cgdb.github.io/>`_ are very useful
+`The GNU debugger (gdb) <https://gnu.org/software/GDB>`__  and `its
+graphical interface (cgdb) <https://cgdb.github.io/>`__ are very useful
 tools for tracking down the source of GEOS-Chem errors, such
 as segmentation faults, out-of-bounds errors, etc.
 
@@ -38,7 +38,7 @@ as segmentation faults, out-of-bounds errors, etc.
 ======
 ncview
 ======
-The `ncview <http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`_
+The `ncview <http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`__
 program is a netCDF file viewer. While it does not produce
 publication-quality output, ncview can let you easily examine the
 contents of a netCDF data file (such as those which are input and
@@ -49,7 +49,7 @@ output by GEOS-Chem). Ncview is very useful for debugging and development.
 ===
 nco
 ===
-`The netCDF operators (nco) <https://nco.sourceforge.net/>`_ are
+`The netCDF operators (nco) <https://nco.sourceforge.net/>`__ are
 powerful command-line tools for editing and manipulating data in
 netCDF format.
 
@@ -61,7 +61,7 @@ netCDF format.
 cdo
 ===
 `The Climate Data Operators (cdo)
-<https://code.mpimet.mpg.de/projects/cdo/l>`_ are powerful
+<https://code.mpimet.mpg.de/projects/cdo/l>`__ are powerful
 command-line utilities for editing and manipulating data in netCDF
 format.
 
@@ -72,24 +72,24 @@ format.
 ===
 KPP
 ===
-`The Kinetic PreProcessor (KPP) <https://kpp.readthedocs.io>`_
+`The Kinetic PreProcessor (KPP) <https://kpp.readthedocs.io>`__
 translates a chemical mechanism specification from user-configurable
 input files to Fortran-90 source code.  You will need to use
 :program:`KPP` if you plan on updating any of the chemical mechanisms
 that ship with GEOS-Chem.
 
 **Best way to install:**  `Clone from github.com/KineticPreProcessor/KPP
-<https://github.com/KineticPreProcessor/KPP>`_ and `build the the KPP
+<https://github.com/KineticPreProcessor/KPP>`__ and `build the the KPP
 executable from source
-<https://kpp.readthedocs.io/en/stable/getting_started/01_installation.html>`_.
+<https://kpp.readthedocs.io/en/stable/getting_started/01_installation.html>`__.
 
 .. _req-soft-flex:
 
 ==============
 flex and bison
 ==============
-`Flex <https://github.com/westes/flex>`_ is the Fast Lexical
-Analyzer, and `bison <https://www.gnu.org/software/bison/>`_ is a
+`Flex <https://github.com/westes/flex>`__ is the Fast Lexical
+Analyzer, and `bison <https://www.gnu.org/software/bison/>`__ is a
 general purpose parser-generator.  :ref:`req-soft-kpp` uses both
 :program:`flex` and :program:`bison` to parse chemical mechanism
 definition files.  Depending on your setup, these packages might have

@@ -111,8 +111,8 @@ GEOS-Chem full-chemistry simulation.
    |br|
 
 #. You will then be asked to specify the meteorology type for the
-   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_, `MERRA-2
-   <http://wiki-geos-chem.org/MERRA-2>`_), or GCAP 2.0).
+   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`__, `MERRA-2
+   <http://wiki-geos-chem.org/MERRA-2>`__), or GCAP 2.0).
 
    .. code-block:: console
 

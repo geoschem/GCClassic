@@ -8,7 +8,7 @@
 Configure with CMake
 ####################
 
-You should think of `CMake <http://cmake.org>`_ as an interactive tool
+You should think of `CMake <http://cmake.org>`__ as an interactive tool
 for configuring GEOS-Chem Classic's build. For example,
 compile-time options like disabling multithreading and turning on
 components (e.g. APM, RRTMG) are all configured with CMake commands.
@@ -21,7 +21,7 @@ print an error message that describes the problem.
 
 If you are new to CMake and would like a rundown of how to use the
 :command:`cmake` command, check out `Liam Bindle's Cmake Tutorial
-<https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`_. This
+<https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`__. This
 tutorial is not necessary, but it will make you more
 familiar with using CMake and help you better understand what is going
 on.
@@ -154,7 +154,7 @@ build's configuration.
    The text :literal:`X.Y.Z`, :literal:`A.B.C`, :literal:`D.E.F.`,
    and :literal:`G.H.I`
    refer to the version numbers (in `semantic versioning
-   <https://semver.org>`_ style) of the :ref:`get-code-repos-gcclassic`,
+   <https://semver.org>`__ style) of the :ref:`get-code-repos-gcclassic`,
    :ref:`get-code-repos-hemco`, :ref:`get-code-repos-other-hetp`, and
    :ref:`get-code-repos-other-cloudj` repositories, respectively.
 
@@ -282,7 +282,7 @@ OMP
 ---
 
 Determines if GEOS-Chem Classic will activate `OpenMP parallelization
-<http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_.  Accepted
+<http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`__.  Accepted
 values are:
 
 .. option:: y
@@ -302,7 +302,7 @@ TOMAS
 
 Configure GEOS-Chem with the `TOMAS aerosol
 microphysics package
-<http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`_.  Accepted
+<http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`__.  Accepted
 values are:
 
 .. option:: y
@@ -331,7 +331,7 @@ APM
 ---
 
 Configures GEOS-Chem to use the `APM microphysics package
-<http://wiki.geos-chem.org/APM_aerosol_microphysics>`_. Accepted
+<http://wiki.geos-chem.org/APM_aerosol_microphysics>`__. Accepted
 values are:
 
 .. option:: y
@@ -346,7 +346,7 @@ RRTMG
 -----
 
 Configures GEOS-Chem to use the `RRTMG radiative transfer model
-<https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`_.
+<https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`__.
 Accepted values are:
 
 .. option:: y
@@ -362,7 +362,7 @@ HCOSA
 -----
 
 Compiles the `HEMCO Standalone Model
-<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html>`_
+<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html>`__
 executable.
 
 
@@ -376,7 +376,7 @@ LUO_WETDEP
 ----------
 
 Configures GEOS-Chem to use the `Luo et al., 2020
-<https://gmd.copernicus.org/articles/13/2879/2020/>`_ wet deposition
+<https://gmd.copernicus.org/articles/13/2879/2020/>`__ wet deposition
 scheme.
 
 .. note::
@@ -446,7 +446,7 @@ Understand CMake output
 As you can see from the example CMake output listed above, GEOS-Chem
 Classic contains code from the various repositories:
 
-#. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`_:
+#. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`__:
 
    .. code-block:: none
 
@@ -471,7 +471,7 @@ Classic contains code from the various repositories:
 
       We will explain these formats below.
 
-#. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
+#. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`__:
 
    .. code-block:: none
 
@@ -486,7 +486,7 @@ Classic contains code from the various repositories:
    considered a separate package. |br|
    |br|
 
-#. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
+#. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`__:
 
    .. code-block:: none
 
@@ -523,7 +523,7 @@ where
 .. option:: TAG
 
     Indicates the most recent tag in the `GCClassic superproject
-    repository <https://github.com/geoschem/GCClassic>`_.
+    repository <https://github.com/geoschem/GCClassic>`__.
 
     Tags may use the following notations:
 

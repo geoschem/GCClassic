@@ -14,7 +14,7 @@ GEOS-Chem.
 
 A sample run script for the `Simple Linux Utility for Resource
 Management (SLURM)
-<https://slurm.schedmd.com/documentation.html>`_ is shown
+<https://slurm.schedmd.com/documentation.html>`__ is shown
 below.  SLURM is a "scheduler"---a root-level program that decides
 if there are sufficient resources (cores, memory, available time) for
 a job to run.  If not, SLURM will delay starting the job until
@@ -84,7 +84,7 @@ Important commands in the run script are listed below:
    .. important::
 
       GEOS-Chem Classic uses `OpenMP
-      <https://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_, which is
+      <https://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`__, which is
       a  shared-memory parallelization model.  Using OpenMP limits
       GEOS-Chem Classic to one computational node.
 

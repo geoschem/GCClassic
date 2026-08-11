@@ -15,14 +15,14 @@ Andrew Schuh of Colorado State University and implemented in GEOS-Chem
 
    The GEOS-Chem ObsPack diagnostic was originally developed for use
    with the `ObsPack GLOBALVIEWplus CO2 product
-   <https://commons.datacite.org/doi.org/10.25925/20241101>`_.  The
+   <https://commons.datacite.org/doi.org/10.25925/20241101>`__.  The
    data files in this product contain a particular netCDF variable
    named :literal:`CT_sampling_strategy` that GEOS-Chem uses to
    quickly determine the time-averaging window for aggregating
    observations.
 
    We have recently learned that the `ObsPack GLOBALVIEWplus CH4 data
-   product <https://commons.datacite.org/doi.org/10.25925/20241001>`_
+   product <https://commons.datacite.org/doi.org/10.25925/20241001>`__
    currently lacks the :literal:`CT_sampling_strategy` variable, and
    thus is incompatible with GEOS-Chem.
 
@@ -30,9 +30,9 @@ Andrew Schuh of Colorado State University and implemented in GEOS-Chem
    CH4 data files with one of the following Python tools before
    attempting to read them into GEOS-Chem:
 
-   - `process_obspack <https://github.com/eastjames/process_obspack>`_
+   - `process_obspack <https://github.com/eastjames/process_obspack>`__
      by James East
-   - `gcpy_campaigns <https://github.com/jhaskinsPhD/gcpy_campaigns>`_
+   - `gcpy_campaigns <https://github.com/jhaskinsPhD/gcpy_campaigns>`__
      by Jessica Haskins
 
 .. _specifying_obspack_diagnostic_options:
@@ -41,7 +41,7 @@ Andrew Schuh of Colorado State University and implemented in GEOS-Chem
 Specifying ObsPack diagnostic options
 =====================================
 
-`The ObsPack Menu section of input.geos <http://wiki.geos-chem.org/The_input.geos_file#ObsPack_diagnostic>`_ is where you define the following settings:
+The :ref:`ObsPack section of geoschem_config.yml <gc-yml-xdiag-obspack>` is where you define the following settings:
 
 #. Turning ObsPack or off
 
@@ -73,7 +73,7 @@ which it cannot find an input file.)
 
 ObsPack input files can be downloaded the NOAA website:
 `https://gml.noaa.gov/ccgg/obspack/
-<https://gml.noaa.gov/ccgg/obspack/>`_.
+<https://gml.noaa.gov/ccgg/obspack/>`__.
 
 .. attention::
 
@@ -178,11 +178,11 @@ Output file format
 The ObsPack diagnostic will produce a file called
 :file:`GEOSChem.ObsPack.YYYYMMDD_hhmmz.nc4` for each day where an
 :ref:`input file <input_file_format>` has been specified. (You can change
-the output file name in the ObsPack Menu in :file:`input.geos`.
+the output file name in the :ref:`ObsPack section of geoschem_config.yml <gc-yml-xdiag-obspack>`.
 
 Below is shown an ObsPack output file for the
 `GEOS-Chem methane simulation
-<http://wiki.geos-chem.org/CH4_simulation>`_. If you are using
+<http://wiki.geos-chem.org/CH4_simulation>`__. If you are using
 the ObsPack diagnostic with other GEOS-Chem simulations, your output
 files will look similar to this, except for the species names.
 

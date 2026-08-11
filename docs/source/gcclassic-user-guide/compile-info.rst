@@ -54,6 +54,7 @@ You will get output similar to this:
    -DRRTMG="OFF"
    -DGTMM="OFF"
    -DHCOSA="OFF"
+   -DKPPSA="OFF"
    -DLUO_WETDEP="OFF"
    -DFASTJX="OFF"
 

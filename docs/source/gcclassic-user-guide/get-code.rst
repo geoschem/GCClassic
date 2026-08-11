@@ -10,5 +10,5 @@ GEOS-Chem source code from Github.
 .. toctree::
    :maxdepth: 2
 
-   get-code-repos.rst
-   get-code-steps.rst     
+   get-code-repos
+   get-code-steps

@@ -106,7 +106,11 @@ geoschem_config.yml
 The main GEOS-Chem configuration file (see :ref:`Configure your
 simulation <cfg>`).
 
-option:: getRunInfo
+.. _rundir-files-getruninfo:
+
+===========
+getRunInfo*
+===========
 
 This file is now deprecated and will be removed in a future version.
 
@@ -237,9 +241,9 @@ runScriptSamples
 ================
 
 Symbolic link to the folder in the `GEOS-Chem "Science Codebase"
-<https://github.com/geoschem/geos-chem>`_"
+<https://github.com/geoschem/geos-chem>`__"
 repository that contains `sample scripts
-<https://github.com/geoschem/geos-chem/tree/main/run/GCClassic/runScriptSamples>`_
+<https://github.com/geoschem/geos-chem/tree/main/run/GCClassic/runScriptSamples>`__
 for running GEOS-Chem.
 
 .. _rundir-files-spc-db:
@@ -248,7 +252,7 @@ for running GEOS-Chem.
 species_database.yml
 ====================
 
-`YAML <https://yaml.org>`_ file containing metadata (e.g. molecular
+`YAML <https://yaml.org>`__ file containing metadata (e.g. molecular
 weight, Henry's law constants, wetdep and drydep parameters, etc.)
 for each species used in the various GEOS-Chem simulations.  You
 should not have to edit this file unless you are adding new species

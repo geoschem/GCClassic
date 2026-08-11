@@ -6,7 +6,7 @@ Speed up a slow simulation
 
 GEOS-Chem Classic performance is continuously monitored by the
 `GEOS-Chem Support Team
-<http://wiki.geos-chem.org/GEOS-Chem_Support_Team>`_ by means of
+<http://wiki.geos-chem.org/GEOS-Chem_Support_Team>`__ by means of
 benchmark simulations and ad-hoc timing tests.  In this chapter, we
 provide some practical tips that you can use to speed up your
 simulations.
@@ -35,12 +35,12 @@ settings.
 +----------------------------------------------+-------------+--------------+
 
 The `Courant limit
-<https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition>`_
+<https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition>`__
 on the latitude-longitude grid constrains the choice of transport
 timestep for a given horizontal resolution.  We choose a chemistry
 timestep that is double the transport timestep (i.e.
 `Strang operator splitting
-<https://hplgit.github.io/fdm-book/doc/pub/book/sphinx/._book018.html#strang-splitting-for-odes>`_).
+<https://hplgit.github.io/fdm-book/doc/pub/book/sphinx/._book018.html#strang-splitting-for-odes>`__).
 
 If you wish to speed up your simulation, try increasing the chemistry
 timestep.  Chemistry is the GEOS-Chem operation that takes the longest
@@ -60,7 +60,7 @@ Use the Rosenbrock solver with auto-reduction
 
 The GEOS-Chem full-chemistry mechanism uses the KPP Rosenbrock solver,
 which has an `automatic mechanism reduction option
-<https://kpp.readthedocs.io/en/stable/tech_info/07_numerical_methods.html#rosenbrock-with-mechanism-auto-reduction>`_
+<https://kpp.readthedocs.io/en/stable/tech_info/07_numerical_methods.html#rosenbrock-with-mechanism-auto-reduction>`__
 as described in :cite:t:`Lin_et_al._2023`.  This automatic mechanism
 reduction feature separates species into "fast" and "slow"
 categories based on their chemical production or loss rates. "Fast"
@@ -136,7 +136,7 @@ Preprocess emissions with the HEMCO Standalone model
 If your simulation needs to read and regrid many data files
 (especially those at very fine resolution), you can use the `HEMCO
 Standalone model
-<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html#>`_ to
+<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html#>`__ to
 preprocess those emissions into daily or monthly files.
 This can significantly speed up your simulations, as it will reduce
 the amount of files that need to be opened and the number of times

@@ -62,7 +62,7 @@ Each-time setup
       On the other hand, the MERRA-2 meteorology is a 40+
       year reanalysis product performed with a "frozen" version of the
       NASA GEOS assimilation system.  Thus, `MERRA-2
-      <http://wiki.geos-chem.org/MERRA-2>`_ is preferable for studies
+      <http://wiki.geos-chem.org/MERRA-2>`__ is preferable for studies
       ranging over multiple years or decades.
 
    .. attention::

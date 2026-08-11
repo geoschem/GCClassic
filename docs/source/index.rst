@@ -16,7 +16,7 @@ GEOS-Chem Classic
 
 This site provides instructions for :program:`GEOS-Chem Classic`,
 the single-node mode of operation of the
-`GEOS-Chem model <http://geos-chem.org/>`_.  We provide
+`GEOS-Chem model <http://geos-chem.org/>`__.  We provide
 instruction for downloading and compiling GEOS-Chem Classic, plus its
 required software libraries.
 
@@ -24,18 +24,18 @@ required software libraries.
 
    If you would like to run GEOS-Chem on more than one node of a
    computing system, consider using
-   `GEOS-Chem High Performance (GCHP) <https://gchp.readthedocs.io>`_.
+   `GEOS-Chem High Performance (GCHP) <https://gchp.readthedocs.io>`__.
 
 GEOS-Chem is a global 3-D model of atmospheric composition driven by
 assimilated meteorological observations from the Goddard Earth
 Observing System (GEOS) of the `NASA Global Modeling and Assimilation
-Office <http://gmao.gsfc.nasa.gov/>`_.
+Office <http://gmao.gsfc.nasa.gov/>`__.
 It is applied by `research groups around the world
-<http://acmg.seas.harvard.edu/geos/geos_people.html>`_  to a wide
+<http://acmg.seas.harvard.edu/geos/geos_people.html>`__  to a wide
 range of atmospheric composition problems.
 
-* `GEOS-Chem Overview <http://geos-chem.org/geos-overview>`_
-* `Narrative description of GEOS-Chem <http://geos-chem.org/geos-chem-narrative>`_
+* `GEOS-Chem Overview <http://geos-chem.org/geos-overview>`__
+* `Narrative description of GEOS-Chem <http://geos-chem.org/geos-chem-narrative>`__
 
 Cloning and building from source code ensures you will have direct
 access to the latest available versions of GEOS-Chem Classic, provides
@@ -53,89 +53,89 @@ modifications to GEOS-Chem Classic source code.
    :caption: Getting Started
    :maxdepth: 2
 
-   getting-started/quick-start.rst
-   getting-started/system-req-hard.rst
-   getting-started/system-req-soft.rst
-   getting-started/login-env.rst
-   getting-started/key-references.rst
+   getting-started/quick-start
+   getting-started/system-req-hard
+   getting-started/system-req-soft
+   getting-started/login-env
+   getting-started/key-references
 
 .. toctree::
    :caption: GEOS-Chem Classic User Guide
    :maxdepth: 2
 
-   gcclassic-user-guide/get-code.rst
-   gcclassic-user-guide/create-rundir.rst
-   gcclassic-user-guide/compile.rst
-   gcclassic-user-guide/config-overview.rst
-   gcclassic-user-guide/download-data.rst
-   gcclassic-user-guide/run.rst
-   gcclassic-user-guide/output-files.rst
-   gcclassic-user-guide/diagnostics.rst
+   gcclassic-user-guide/get-code
+   gcclassic-user-guide/create-rundir
+   gcclassic-user-guide/compile
+   gcclassic-user-guide/config-overview
+   gcclassic-user-guide/download-data
+   gcclassic-user-guide/run
+   gcclassic-user-guide/output-files
+   gcclassic-user-guide/diagnostics
 
 .. toctree::
    :caption: GEOS-Chem Simulations
    :maxdepth: 1
 
-   supplemental-guides/gcclassic-simulations.rst
-   geos-chem-shared-docs/simulations/aerosol-only.rst
-   geos-chem-shared-docs/simulations/carbon.rst
-   geos-chem-shared-docs/simulations/fullchem.rst
-   geos-chem-shared-docs/simulations/hg.rst
-   geos-chem-shared-docs/simulations/metals.rst
-   geos-chem-shared-docs/simulations/tago3.rst
-   geos-chem-shared-docs/simulations/transport-tracers.rst
+   supplemental-guides/gcclassic-simulations
+   geos-chem-shared-docs/simulations/aerosol-only
+   geos-chem-shared-docs/simulations/carbon
+   geos-chem-shared-docs/simulations/fullchem
+   geos-chem-shared-docs/simulations/hg
+   geos-chem-shared-docs/simulations/metals
+   geos-chem-shared-docs/simulations/tago3
+   geos-chem-shared-docs/simulations/transport-tracers
 
 .. toctree::
    :maxdepth: 1
    :caption: Supplemental Science Guides
 
-   geos-chem-shared-docs/supplemental-guides/science-guides.rst
-   geos-chem-shared-docs/supplemental-guides/apm-guide.rst
-   geos-chem-shared-docs/supplemental-guides/ate-guide.rst
-   geos-chem-shared-docs/supplemental-guides/aerosols-guide.rst
-   geos-chem-shared-docs/supplemental-guides/cloud-conv-guide.rst
-   geos-chem-shared-docs/supplemental-guides/drydep-guide.rst
-   geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide.rst
-   geos-chem-shared-docs/supplemental-guides/pbl-mixing-guide.rst
-   geos-chem-shared-docs/supplemental-guides/photolysis-guide.rst
-   geos-chem-shared-docs/supplemental-guides/phys-consts-guide.rst
-   geos-chem-shared-docs/supplemental-guides/rrtmg-guide.rst
-   geos-chem-shared-docs/supplemental-guides/tomas-guide.rst
-   geos-chem-shared-docs/supplemental-guides/wetdep-guide.rst
+   geos-chem-shared-docs/supplemental-guides/science-guides
+   geos-chem-shared-docs/supplemental-guides/apm-guide
+   geos-chem-shared-docs/supplemental-guides/ate-guide
+   geos-chem-shared-docs/supplemental-guides/aerosols-guide
+   geos-chem-shared-docs/supplemental-guides/cloud-conv-guide
+   geos-chem-shared-docs/supplemental-guides/drydep-guide
+   geos-chem-shared-docs/supplemental-guides/pm25-pm10-guide
+   geos-chem-shared-docs/supplemental-guides/pbl-mixing-guide
+   geos-chem-shared-docs/supplemental-guides/photolysis-guide
+   geos-chem-shared-docs/supplemental-guides/phys-consts-guide
+   geos-chem-shared-docs/supplemental-guides/rrtmg-guide
+   geos-chem-shared-docs/supplemental-guides/tomas-guide
+   geos-chem-shared-docs/supplemental-guides/wetdep-guide
 
 .. toctree::
    :caption: Supplemental Technical Guides
    :maxdepth: 1
 
-   supplemental-guides/technical-guides.rst
-   supplemental-guides/directory-structure.rst
-   supplemental-guides/horizontal-grids.rst
-   supplemental-guides/vertical-grids.rst
-   supplemental-guides/run-script-examples.rst
-   supplemental-guides/run-gcc-on-cloud.rst
-   geos-chem-shared-docs/supplemental-guides/load-libraries-guide.rst
-   geos-chem-shared-docs/supplemental-guides/spack-guide.rst
-   geos-chem-shared-docs/supplemental-guides/customize-guide.rst
-   geos-chem-shared-docs/supplemental-guides/custom-emissions-guide.rst
-   geos-chem-shared-docs/supplemental-guides/error-guide.rst
-   geos-chem-shared-docs/supplemental-guides/debug-guide.rst
-   geos-chem-shared-docs/supplemental-guides/bashdatacatalog.rst
-   geos-chem-shared-docs/supplemental-guides/history-diag-guide.rst
-   geos-chem-shared-docs/supplemental-guides/netcdf-guide.rst
-   geos-chem-shared-docs/supplemental-guides/coards-guide.rst
-   geos-chem-shared-docs/supplemental-guides/species-guide.rst
-   geos-chem-shared-docs/supplemental-guides/parallel-guide.rst
-   supplemental-guides/nested-grid-guide.rst
-   geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc.rst
-   geos-chem-shared-docs/supplemental-guides/using-kpp-standalone.rst
-   geos-chem-shared-docs/supplemental-guides/related-docs.rst
+   supplemental-guides/technical-guides
+   supplemental-guides/directory-structure
+   supplemental-guides/horizontal-grids
+   supplemental-guides/vertical-grids
+   supplemental-guides/run-script-examples
+   supplemental-guides/run-gcc-on-cloud
+   geos-chem-shared-docs/supplemental-guides/load-libraries-guide
+   geos-chem-shared-docs/supplemental-guides/spack-guide
+   geos-chem-shared-docs/supplemental-guides/customize-guide
+   geos-chem-shared-docs/supplemental-guides/custom-emissions-guide
+   geos-chem-shared-docs/supplemental-guides/error-guide
+   geos-chem-shared-docs/supplemental-guides/debug-guide
+   geos-chem-shared-docs/supplemental-guides/bashdatacatalog
+   geos-chem-shared-docs/supplemental-guides/history-diag-guide
+   geos-chem-shared-docs/supplemental-guides/netcdf-guide
+   geos-chem-shared-docs/supplemental-guides/coards-guide
+   geos-chem-shared-docs/supplemental-guides/species-guide
+   geos-chem-shared-docs/supplemental-guides/parallel-guide
+   supplemental-guides/nested-grid-guide
+   geos-chem-shared-docs/supplemental-guides/using-kpp-with-gc
+   geos-chem-shared-docs/supplemental-guides/using-kpp-standalone
+   geos-chem-shared-docs/supplemental-guides/related-docs
 
 .. toctree::
    :maxdepth: 1
    :caption: Help & Reference
 
-   help-and-reference/version-history.rst
-   help-and-reference/known-bugs.rst
+   help-and-reference/version-history
+   help-and-reference/known-bugs
    help-and-reference/CONTRIBUTING.md
    help-and-reference/SUPPORT.md
-   geos-chem-shared-docs/editing_these_docs.rst
+   geos-chem-shared-docs/editing_these_docs

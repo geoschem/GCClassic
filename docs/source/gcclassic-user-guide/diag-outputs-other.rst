@@ -11,7 +11,7 @@ HEMCO diagnostic output
 =======================
 
 `HEMCO diagnostics
-<https://hemco.readthedocs.io/en/latest/hco-ref-guide/diagnostics.html>`_
+<https://hemco.readthedocs.io/en/latest/hco-ref-guide/diagnostics.html>`__
 generate :ref:`netCDF-format <coards-guide>` files in the :file:`OutputDir/`
 subdirectory of your :ref:`GEOS-Chem run directory <rundir>`.  You may
 change this filepath by editing the :ref:`cfg-hco-cfg` configuration
@@ -23,7 +23,7 @@ and :literal:`hhmm` refer to the model date and time at which each
 file was created.
 
 For more information, please see our HEMCO user manual at
-`hemco.readthedocs.io <https://hemco.readthedocs.io>`_.
+`hemco.readthedocs.io <https://hemco.readthedocs.io>`__.
 
 .. _outfiles-other-plane:
 

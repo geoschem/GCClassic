@@ -62,12 +62,12 @@ Activate the GCPy Python environment
 
 You will need to activate a Python environment before you can start
 downloading data.  We recommend using the Python environment for `GCPy
-<https://gcpy.readthedocs.io>`_, as it has all of the relevant
+<https://gcpy.readthedocs.io>`__, as it has all of the relevant
 packages installed. If you `installed GCPy from PyPI
-<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-pypi>`_,
+<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-pypi>`__,
 then no further action is needed.  On the other hand, if you
 `installed GCPy from conda-forge
-<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-conda-forge>`_,
+<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-conda-forge>`__,
 you will need to activate the GCPy Python environment with this
 command:
 
@@ -149,7 +149,7 @@ For example, to download data from the :ref:`GEOS-Chem Input Data
    (gcpy_env) $ ./download_data.py log.dryrun geoschem+http
 
 But if you have `AWS CLI (command-line interface)
-<https://aws.amazon.com/cli/>`_ set up on your machine, use
+<https://aws.amazon.com/cli/>`__ set up on your machine, use
 this command instead:
 
 .. code-block:: console

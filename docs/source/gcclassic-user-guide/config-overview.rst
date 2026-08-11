@@ -27,10 +27,10 @@ edit most (if not all) of these configuration files:
 .. toctree::
    :maxdepth: 1
 
-   ../geos-chem-shared-docs/doc/geoschem-config.rst
-   ../geos-chem-shared-docs/doc/hemco-config.rst
-   ../geos-chem-shared-docs/doc/hemco-diagn.rst
-   history.rst
+   ../geos-chem-shared-docs/doc/geoschem-config
+   ../geos-chem-shared-docs/doc/hemco-config
+   ../geos-chem-shared-docs/doc/hemco-diagn
+   history
 
 All of the above-mentioned files are included in your :ref:`GEOS-Chem
 Classic run directory <rundir>`.
@@ -52,5 +52,5 @@ you'll need to edit these configuration files:
 .. toctree::
    :maxdepth: 1
 
-   ../geos-chem-shared-docs/doc/spec-db.rst
-   ../geos-chem-shared-docs/doc/phot-chem.rst
+   ../geos-chem-shared-docs/doc/spec-db
+   ../geos-chem-shared-docs/doc/phot-chem

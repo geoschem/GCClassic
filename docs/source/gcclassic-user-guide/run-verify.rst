@@ -35,5 +35,5 @@ If your run stopped with an error, please see the following resources:
 - :ref:`errguide`
 - :ref:`debug-guide`
 -  `Submitting GEOS-Chem support
-   requests <https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html>`_
+   requests <https://geos-chem.readthedocs.io/en/stable/help-and-reference/SUPPORT.html>`__
 

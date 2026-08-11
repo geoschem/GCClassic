@@ -17,7 +17,7 @@ An environment file is a script that:
 
 #. Stores settings for GEOS-Chem and its dependent libraries in
    shell variables called `environment variables
-   <https://www.networkworld.com/article/3215965/all-you-need-to-know-about-unix-environment-variables.html>`_.
+   <https://www.networkworld.com/article/3215965/all-you-need-to-know-about-unix-environment-variables.html>`__.
 
 You will **source** the environment file each time you log in with a
 command such as:

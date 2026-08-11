@@ -32,5 +32,6 @@ using the output from a dry-run simulation:
 .. toctree::
    :maxdepth: 2
 
-   dry-run-run.rst
-   dry-run-download.rst
+   dry-run-run
+   dry-run-download
+   dry-run-limitations

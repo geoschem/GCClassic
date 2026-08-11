@@ -96,7 +96,7 @@ GEOS-FP
      - 2,200 [#B]_
    * - :ref:`gcc-hgrids-nested-0125-na`
      - 1,250 [#C]_
-   * - :ref:`gcc-hgrids-nested-025-sa`
+   * - :ref:`gcc-hgrids-nested-0125-sa`
      - 1,900 [#D]_
 
 .. rubric:: Notes
@@ -154,11 +154,11 @@ sections.
 #. Perform a :ref:`GEOS-Chem dry-run simulation <dry-run>`;
 #. Download and manage data with the :ref:`bashdatacatalog tool
    <bashdatacatalog>`;
-#. Transfer data with `Globus <https://www.globus.org/data-transfer>`_
+#. Transfer data with `Globus <https://www.globus.org/data-transfer>`__
    **GEOS-Chem data (WashU)** endpoint;
 #. Direct FTP access from the `WashU data portal
-   <https://geoschemdata.wustl.edu>`_;
-#. Direct access from the `Amazon data portal using AWS S3 Explorer <https://s3.amazonaws.com/gcgrid/index.html>`_.
+   <https://geoschemdata.wustl.edu>`__;
+#. Direct access from the `Amazon data portal using AWS S3 Explorer <https://s3.amazonaws.com/gcgrid/index.html>`__.
 
 Also see our :ref:`data` chapter for more data download options.
 
@@ -177,7 +177,7 @@ We can look to the :program:`GEOS-Chem Classic` full-chemistry
 benchmark simulations for a rough upper limit of how much disk space
 is needed for diagnostic output.  The `GEOS-Chem 13.0.0 vs. 12.9.0
 1-month benchmark simulation
-<https://wiki.geos-chem.org/GEOS-Chem_13.0.0#GEOS-Chem_Classic_13.0.0_vs_12.9.0>`_
+<https://wiki.geos-chem.org/GEOS-Chem_13.0.0#GEOS-Chem_Classic_13.0.0_vs_12.9.0>`__
 generated approximately 837 MB/month of output.  Of this amount,
 diagnostic output files accounted for ~646 MB and restart files
 accounted for ~191 MB.

@@ -25,7 +25,7 @@ printed in this log file.
 
 In GEOS-Chem 14.1.0 and later versions, information about emissions,
 met fields, and other relevant data that are read from disk and
-processed by `HEMCO <https://hemco.readthedocs.io>`_ is now sent to
+processed by `HEMCO <https://hemco.readthedocs.io>`__ is now sent to
 this log file (instead of to :file:`HEMCO.log`).
 
 .. _outfiles-logs-dryrun:
@@ -62,7 +62,7 @@ Timers log file
 ===============
 
 File name: :file:`gcclassic_timers.json` (in `JSON
-<https://www.w3schools.com/js/js_json_intro.asp>`_ format).
+<https://www.w3schools.com/js/js_json_intro.asp>`__ format).
 
 The timers log file is created when you set :code:`use_gcclassic_timers:
 true` in :ref:`the Simulation Settings section of geoschem_config.yml

@@ -95,7 +95,7 @@ quantities properly, or you will get an input error.
    may find that not all of the planeflight diagnostic quantities
    listed below are still functional.  Please report any issues to the
    GEOS-Chem Support Team by `opening a new Github issue
-   <https://github.com/geoschem/issues/new/choose>`_.
+   <https://github.com/geoschem/issues/new/choose>`__.
 
 .. table:: Planeflight diagnostic archivable quantities
    :align: center
@@ -248,7 +248,7 @@ you will specify the points that make up the flight track.
         observations must specify pressure in hPa.  This can be
         obtained from the "static pressure" field as measured by the
         aircraft.  See this `code block in planeflight_mod.F90
-        <https://github.com/geoschem/geos-chem/blob/b0e03cc0f7c06b899824a69744b67e9632675cbd/GeosCore/planeflight_mod.F90#L1061-L1114>`_
+        <https://github.com/geoschem/geos-chem/blob/b0e03cc0f7c06b899824a69744b67e9632675cbd/GeosCore/planeflight_mod.F90#L1061-L1114>`__
         for details.
 
 .. important::
@@ -259,7 +259,7 @@ you will specify the points that make up the flight track.
    The planeflight diagnostic will automatically set :literal:`L=1` if
    it does not recognize :file:`TYPE`. When using a new flight track,
    make sure to add your :file:`TYPE` `to this IF statement
-   <https://github.com/geoschem/geos-chem/blob/d7baeb8fe51a66914408e9d1f655dd062bd5d4df/GeosCore/planeflight_mod.F90#L1057-L1126>`_
+   <https://github.com/geoschem/geos-chem/blob/d7baeb8fe51a66914408e9d1f655dd062bd5d4df/GeosCore/planeflight_mod.F90#L1057-L1126>`__
    if you do not wish to use L=1 for that type value.
 
 .. _plane_log_file:

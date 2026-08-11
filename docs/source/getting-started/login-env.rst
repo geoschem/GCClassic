@@ -27,8 +27,8 @@ as an **environment file**, as described in the following chapters:
 .. toctree::
    :maxdepth: 1
 
-   login-env-files.rst
-   login-env-files-gnu.rst
-   login-env-files-intel.rst
-   login-env-compilers.rst
-   login-env-parallel.rst
+   login-env-files
+   login-env-files-gnu
+   login-env-files-intel
+   login-env-compilers
+   login-env-parallel

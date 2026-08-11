@@ -11,6 +11,6 @@ software requirements. These are described in the following chapters.
 .. toctree::
    :maxdepth: 2
 
-   compilers.rst
-   packages-req.rst
-   packages-opt.rst
+   compilers
+   packages-req
+   packages-opt
