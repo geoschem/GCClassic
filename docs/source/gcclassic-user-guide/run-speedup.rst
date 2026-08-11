@@ -20,19 +20,28 @@ Use a coarser chemistry timestep
 The table below contains our recommended GEOS-Chem Classic timestep
 settings.
 
-+----------------------------------------------+-------------+--------------+
-| GEOS-Chem Classic Resolution                 | Transport   | Chemistry    |
-+==============================================+=============+==============+
-| :math:`4^{\circ}{\times}5^{\circ}`           | 600s (10m)  | 1200s (20m)  |
-+----------------------------------------------+-------------+--------------+
-| :math:`2^{\circ}{\times}2.5^{\circ}`         | 600s (10m)  | 1200s (20m)  |
-+----------------------------------------------+-------------+--------------+
-| :math:`0.5^{\circ}{\times}0.625^{\circ}`     | 300s (5m)   | 600s (10m)   |
-+----------------------------------------------+-------------+--------------+
-| :math:`0.25^{\circ}{\times}0.3125^{\circ}`   | 300s (5m)   | 600s (10m)   |
-+----------------------------------------------+-------------+--------------+
-| :math:`0.125^{\circ}{\times}0.15625^{\circ}` | 150s (2.5m) | 300s (5m)    |
-+----------------------------------------------+-------------+--------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 40 30 30
+
+   * - GEOS-Chem Classic Resolution
+     - Transport
+     - Chemistry
+   * - 4\ :math:`^{\circ}` x 5\ :math:`^{\circ}`
+     - 600s (10m)
+     - 1200s (20m)
+   * - 2\ :math:`^{\circ}` x 2.5\ :math:`^{\circ}`
+     - 600s (10m)
+     - 1200s (20m)
+   * - 0.5\ :math:`^{\circ}` x 0.625\ :math:`^{\circ}`
+     - 300s (5m)
+     - 600s (10m)
+   * - 0.25\ :math:`^{\circ}` x 0.3125\ :math:`^{\circ}`
+     - 300s (5m)
+     - 600s (10m)
+   * - 0.125\ :math:`^{\circ}` x 0.15625\ :math:`^{\circ}`
+     - 150s (2.5m)
+     - 300s (5m)
 
 The `Courant limit
 <https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition>`__
@@ -95,9 +104,10 @@ not wish to archive can result in a faster simulation.
 Disable debugging options
 =========================
 
-If you previously configured GEOS-Chem with the :
-:option:`CMAKE_BUILD_TYPE` option set to :envvar:`Debug`, then several
-run-time debugging checks will be activated.  These include:
+If you previously configured GEOS-Chem with the
+:ref:`compile-cmake-step4-cmake-build-type` option set to
+:envvar:`Debug`, then several run-time debugging checks will be
+activated.  These include:
 
 - Checking for array-out-of-bounds errors
 - Checking for floating-point math exceptions (e.g. div-by-zero)
@@ -107,7 +117,8 @@ These options can be useful in detecting errors in your GEOS-Chem
 Classic simulation, but result in a much slower simulation.  If you
 plan on running a long Classic simulation, make sure that
 you :ref:`configure and build GEOS-Chem Classic <compile>`
-so that :option:`CMAKE_BUILD_TYPE` is set to :envvar:`Release`.
+so that :option:`compile-cmake-step4-cmake-build-type` is set to
+:envvar:`Release`.
 
 .. _run-speedup-combine-files:
 
@@ -156,7 +167,7 @@ Crop nested-grid meteorology inputs
 -----------------------------------
 
 Your simulation should not read global high-resolution
-(:math:`0.5^{\circ}{\times}0.625^{\circ}` or finer) meteorology
+(0.5\ :math:`^{\circ}` x 0.625\ :math:`^{\circ}` or finer) meteorology
 fields.   The overhead in reading and regridding these global fields
 can significantly impact your simulation. Instead, consider cropping
 high-resolution meteorology fields to the extent of your nested domain.

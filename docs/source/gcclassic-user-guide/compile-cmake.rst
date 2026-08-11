@@ -212,6 +212,8 @@ The table below contains the list of GEOS-Chem build options that you
 can pass to :program:`CMake`. GEOS-Chem will be compiled with the
 default build options, unless you explicitly specify otherwise.
 
+.. _compile-cmake-step4-rundir:
+
 RUNDIR
 ------
 
@@ -233,6 +235,8 @@ not look like a run directory. Run directory paths can be relative
 paths or absolute paths. Relative paths are interpreted as relative to
 your build directory.
 
+.. _compile-cmake-step4-cmake-build-type:
+
 CMAKE_BUILD_TYPE
 ----------------
 
@@ -249,6 +253,8 @@ CMAKE_BUILD_TYPE
    Turns on several runtime error checks.  This will make it easier
    to find errors but will adversely impact performance. Only use
    this option if you are actively debugging.
+
+.. _compile-cmake-step4-mech:
 
 MECH
 ----
@@ -278,6 +284,8 @@ Specifies the chemical mechanism that you wish to use:
    source code files that define this mechanism are stored in
    :file:`KPP/custom`.
 
+.. _compile-cmake-step4-omp:
+
 OMP
 ---
 
@@ -297,6 +305,8 @@ values are:
    Deactivates OpenMP parallelization.  GEOS-Chem Classic will
    execute on a single computational core.  Useful for debugging.
 
+.. _compile-cmake-step4-tomas:
+
 TOMAS
 -----
 
@@ -313,6 +323,8 @@ values are:
 
    Deactivate TOMAS microphysics **(Default option)**
 
+.. _compile-cmake-step4-tomas-bins:
+
 TOMAS_BINS
 ----------
 
@@ -326,6 +338,8 @@ values are:
 .. option:: 40
 
    Use 40 size-resolved bins with TOMAS simulations.
+
+.. _compile-cmake-step4-apm:
 
 APM
 ---
@@ -342,6 +356,8 @@ values are:
 
    Deactivate APM microphysics. **(Default option)**
 
+.. _compile-cmake-step4-rrtmg:
+
 RRTMG
 -----
 
@@ -357,6 +373,7 @@ Accepted values are:
 
    Deactivates the RRTMG radiative transfer model. **(Default option)**
 
+.. _compile-cmake-step4-hcosa:
 
 HCOSA
 -----
@@ -365,12 +382,14 @@ Compiles the `HEMCO Standalone Model
 <https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html>`__
 executable.
 
+.. _compile-cmake-step4-kppsa:
 
 KPPSA
 -----
 
 Compiles the :ref:`KPP-Standalone Box Model <kppsa-guide>` executable.
 
+.. _compile-cmake-step4-luowd:
 
 LUO_WETDEP
 ----------
@@ -397,6 +416,8 @@ Accepted values are:
    Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
    option)**
 
+.. _compile-cmake-step4-fastjx:
+
 FASTJX
 ------
 
@@ -422,6 +443,8 @@ Accepted values are:
 
    Uses the Cloud-J photolyis scheme rather than legacy FAST-JX. **(Default
    option)**
+
+.. _compile-cmake-step4-sanitize:
 
 SANITIZE
 --------

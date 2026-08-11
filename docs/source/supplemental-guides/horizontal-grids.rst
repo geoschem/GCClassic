@@ -1664,6 +1664,7 @@ Select this grid by specifying these settings in :ref:`cfg-gc-yml`:
       activate: true
       buffer_zone_NSEW: [3, 3, 3, 3]  # or [6, 6, 6, 6] if you encounter
                                       # non-convergence errors in chemistry
+
 0.125° x 0.15625° ME longitudes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
