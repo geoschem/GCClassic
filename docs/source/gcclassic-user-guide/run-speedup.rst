@@ -117,7 +117,7 @@ These options can be useful in detecting errors in your GEOS-Chem
 Classic simulation, but result in a much slower simulation.  If you
 plan on running a long Classic simulation, make sure that
 you :ref:`configure and build GEOS-Chem Classic <compile>`
-so that :option:`compile-cmake-step4-cmake-build-type` is set to
+so that :ref:`compile-cmake-step4-cmake-build-type` is set to
 :envvar:`Release`.
 
 .. _run-speedup-combine-files:
