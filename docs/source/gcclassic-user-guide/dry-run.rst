@@ -34,4 +34,3 @@ using the output from a dry-run simulation:
 
    dry-run-run
    dry-run-download
-   dry-run-limitations

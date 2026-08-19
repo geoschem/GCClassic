@@ -3,7 +3,7 @@
 <p>
   <a href="https://github.com/geoschem/GCClassic/releases"><img src="https://img.shields.io/github/v/release/geoschem/GCClassic?label=Latest%20Stable%20Release" alt="Latest release"></a>
   <a href="https://github.com/geoschem/GCClassic/releases/"><img src="https://img.shields.io/github/release-date/geoschem/GCClassic" alt="Release date"></a>
-  <a href="https://doi.org/10.5281/zenodo.4437678"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4437678.svg" alt="DOI"></a><br/>
+  <a href="https://doi.org/10.5281/zenodo.4437678"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4437678-blue" alt="DOI"></a><br/>
   <a href="https://github.com/geoschem/GCClassic/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
   <a href="https://github.com/geoschem/GCClassic/actions/workflows/gcclassic-compile-tests.yml"><img src="https://github.com/geoschem/GCClassic/actions/workflows/gcclassic-compile-tests.yml/badge.svg" alt="gcclassic-compile-tests"></a>
   <a href="https://geos-chem.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/geos-chem?label=ReadTheDocs"  alt="ReadTheDocs"></a>

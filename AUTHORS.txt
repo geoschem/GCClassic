@@ -1,5 +1,5 @@
 List of Developers for GEOS-Chem, HEMCO, and Related Software
-(08 Apr 2026)
+(12 Aug 2026)
 ===============================================================================
 
 ADAMS, Peter
@@ -59,11 +59,13 @@ CHEN, Zichong
 CHRISTIAN, Kenneth
 CLARIZIO, Tessa
 CLUNE, Tom
+COLEY, Jackson
 COOPER, Matt
 CORBITT, Bess
 CROFT, Betty
 CRUZ, Xochitl
 CURCI, Gabriele
+DABBY, Sierra
 DACHS, Jordi
 DAVILA, Yanko
 DELWICHE, Kyle
@@ -115,6 +117,7 @@ HAMMER, Melanie
 HANCOCK, Sarah
 HASKINS, Jessica
 HE, Cenlin
+HE, Megan
 HE, Jourdan
 HEALD, Colette
 HENDERSON, Barron
@@ -141,6 +144,7 @@ JIN, Lixu
 JISKRA, Martin
 JOHNSON, Matthew
 JONES, Dylan
+JONGEBLOED, Ursula
 JUNG, Jaegun
 KASIBHATLA, Prasad
 HUDMAN KAY, Rynda
@@ -210,6 +214,7 @@ MARKUS, Arjen
 MARTIN, Randall
 MARVIN, Maggie
 MAYHEW, Alfred
+MCDONALD, Helena
 MCDUFFIE, Erin
 MCGUFFIN, Dana
 MCLINDEN, Chris
@@ -221,6 +226,7 @@ MICKLEY, Loretta
 MILLET, Dylan
 MING, Kai
 MOCH, Jonathan
+MOON, Allison
 MOORE, Neil
 MOORING, Todd
 MORENA, Jessica
@@ -238,7 +244,9 @@ NESSER, Hannah
 NEVISON, Cynthia
 NIELSEN, Eric
 NOTHOLT, Justus
+NOVA, Gordon
 O'DELL, Kate
+O'DONNELL, Sam
 OKAMOTO, Sachiko
 PAGE, Neil
 PAI, Sidhant
@@ -289,6 +297,7 @@ SINGH, Inderjeet
 SMITH-DOWNEY, Nicole
 SOERENSEN, Anne Laerke
 SOFEN, Eric
+SOLMON, Fabien
 SONG, Shaojie
 SONG, Yu
 SPRACKLEN, Dominick
