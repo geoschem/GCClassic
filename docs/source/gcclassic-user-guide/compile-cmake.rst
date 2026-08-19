@@ -394,14 +394,20 @@ Compiles the :ref:`KPP-Standalone Box Model <kppsa-guide>` executable.
 LUO_WETDEP
 ----------
 
-Configures GEOS-Chem to use the `Luo et al., 2020
-<https://gmd.copernicus.org/articles/13/2879/2020/>`__ wet deposition
-scheme.
+Configures GEOS-Chem to use the :cite:t:`Luo_and_Yu_2023`
+wet deposition scheme.
+
+.. note::
+
+   The :cite:t:`Luo_and_Yu_2023` wet deposition scheme will eventually
+   become the default wet deposition scheme in GEOS-Chem.  We have
+   made it an option for the time being while further evaluation is
+   being done.
 
 .. note::
 
    The Luo et al 2020 wet deposition scheme will eventually
-   become the default wet deposition schem in GEOS-Chem.  We
+   become the default wet deposition scheme in GEOS-Chem.  We
    have made it an option for the time being while further
    evaluation is being done.
 
