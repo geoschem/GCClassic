@@ -293,14 +293,14 @@ Determines if GEOS-Chem Classic will activate `OpenMP parallelization
 <http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`__.  Accepted
 values are:
 
-.. option:: y
+.. describe:: y
 
    Activates OpenMP parallelization.  **(Default option)**
 
    GEOS-Chem Classic will execute on as many computational cores as
    is specified with :ref:`env-files-envvars-parallel-threads`.
 
-.. option:: n
+.. describe:: n
 
    Deactivates OpenMP parallelization.  GEOS-Chem Classic will
    execute on a single computational core.  Useful for debugging.
@@ -315,13 +315,13 @@ microphysics package
 <http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`__.  Accepted
 values are:
 
-.. option:: y
-
-   Activate TOMAS microphysics.
-
-.. option:: n
+.. describe:: n
 
    Deactivate TOMAS microphysics **(Default option)**
+
+.. describe:: y
+
+   Activate TOMAS microphysics.
 
 .. _compile-cmake-step4-tomas-bins:
 
@@ -348,13 +348,13 @@ Configures GEOS-Chem to use the `APM microphysics package
 <http://wiki.geos-chem.org/APM_aerosol_microphysics>`__. Accepted
 values are:
 
-.. option:: y
-
-   Activate APM microphysics.
-
-.. option:: n
+.. describe:: n
 
    Deactivate APM microphysics. **(Default option)**
+
+.. describe:: y
+
+   Activate APM microphysics.
 
 .. _compile-cmake-step4-rrtmg:
 
@@ -365,56 +365,81 @@ Configures GEOS-Chem to use the `RRTMG radiative transfer model
 <https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`__.
 Accepted values are:
 
-.. option:: y
-
-   Activates the RRTMG radiative transfer model.
-
-.. option:: n
+.. describe:: n
 
    Deactivates the RRTMG radiative transfer model. **(Default option)**
+
+.. describe:: y
+
+   Activates the RRTMG radiative transfer model.
 
 .. _compile-cmake-step4-hcosa:
 
 HCOSA
 -----
 
-Compiles the `HEMCO Standalone Model
+Configures GEOS-Chem to compile the `HEMCO Standalone Model
 <https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html>`__
-executable.
+executable. Accepted values are:
+
+.. describe:: n
+
+   Does not compile the HEMCO Standalone Model executable. **(Default
+   option)**
+
+.. describe:: y
+
+   Compiles the HEMCO Standalone Model executable.
 
 .. _compile-cmake-step4-kppsa:
 
 KPPSA
 -----
 
-Compiles the :ref:`KPP-Standalone Box Model <kppsa-guide>` executable.
+Configures GEOS-Chem to compile the :ref:`KPP-Standalone Box Model
+<kppsa-guide>` executable. Accepted values are:
+
+.. describe:: n
+
+   Does not compile the KPP-Standalone Box Model executable. **(Default
+   option)**
+
+.. describe:: y
+
+   Compiles the KPP-Standalone Box Model executable.
 
 .. _compile-cmake-step4-luowd:
 
 LUO_WETDEP
 ----------
 
-Configures GEOS-Chem to use the `Luo et al., 2020
-<https://gmd.copernicus.org/articles/13/2879/2020/>`__ wet deposition
-scheme.
+Configures GEOS-Chem to use the :cite:t:`Luo_and_Yu_2023`
+wet deposition scheme.
+
+.. note::
+
+   The :cite:t:`Luo_and_Yu_2023` wet deposition scheme will eventually
+   become the default wet deposition scheme in GEOS-Chem.  We have
+   made it an option for the time being while further evaluation is
+   being done.
 
 .. note::
 
    The Luo et al 2020 wet deposition scheme will eventually
-   become the default wet deposition schem in GEOS-Chem.  We
+   become the default wet deposition scheme in GEOS-Chem.  We
    have made it an option for the time being while further
    evaluation is being done.
 
 Accepted values are:
 
-.. option:: y
-
-   Activates the Luo et al., 2020 wet deposition scheme.
-
-.. option:: n
+.. describe:: n
 
    Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
    option)**
+
+.. describe:: y
+
+   Activates the Luo et al., 2020 wet deposition scheme.
 
 .. _compile-cmake-step4-fastjx:
 
@@ -435,14 +460,14 @@ mechanism instead of its successor
 
 Accepted values are:
 
-.. option:: y
-
-   Uses the legacy FAST-JX v7.0 photolysis scheme rather than Cloud-J.
-
-.. option:: n
+.. describe:: n
 
    Uses the Cloud-J photolyis scheme rather than legacy FAST-JX. **(Default
    option)**
+
+.. describe:: y
+
+   Uses the legacy FAST-JX v7.0 photolysis scheme rather than Cloud-J.
 
 .. _compile-cmake-step4-sanitize:
 
@@ -452,13 +477,13 @@ SANITIZE
 Activates the AddressSanitizer/LeakSanitizer functionality in GNU Fortran to
 identify memory leaks.  Accepted values are:
 
-.. option:: y
-
-   Activates AddressSanitizer/LeakSanitizer
-
-.. option:: n
+.. describe:: n
 
    Deactivates AddressSanitizer/LeakSanitizer **(Default option)**.
+
+.. describe:: y
+
+   Activates AddressSanitizer/LeakSanitizer
 
 .. _compile-cmake-understand:
 
