@@ -123,6 +123,7 @@ generate output similar to this:
      * KPPSA:        ON  *OFF*
      * LUO_WETDEP:   ON  *OFF*
      * FASTJX:       ON  *OFF*
+     * JACOBIAN:     ON  *OFF*
    =================================================================
    HEMCO A.B.C
    Current status: A.B.C
@@ -468,6 +469,47 @@ Accepted values are:
 .. describe:: y
 
    Uses the legacy FAST-JX v7.0 photolysis scheme rather than Cloud-J.
+
+.. _compile-cmake-step4-jacobian:
+
+JACOBIAN
+--------
+
+Configures GEOS-Chem to build the carbon Jacobian tracer simulation,
+which is used by the `Integrated Methane Inversion
+<https://imi.readthedocs.io>`__ to compute Jacobian columns for CH4
+analytical inversions.
+
+.. attention::
+
+   :literal:`JACOBIAN` may only be used together with
+   :literal:`MECH=carbon` (see :ref:`compile-cmake-step4-mech`).
+   Configuring it with any other mechanism will halt CMake with the
+   error :literal:`JACOBIAN can only be used with the carbon
+   mechanism!`.
+
+   The KPP mechanism must also contain a matching set of CH4 Jacobian
+   tracers.  Use the :file:`KPP/carbon/util/expand_carbon_eqn.py`
+   script to expand :file:`KPP/carbon/carbon.eqn.default` to the
+   number of Jacobian tracers that you need:
+
+   .. code-block:: console
+
+      $ ./expand_carbon_eqn.py carbon.eqn.default 5
+
+   A pre-expanded 5-tracer mechanism is shipped as
+   :file:`KPP/carbon/carbon.eqn.jacobian.5`.
+
+Accepted values are:
+
+.. describe:: n
+
+   Deactivates the carbon Jacobian tracer simulation. **(Default
+   option)**
+
+.. describe:: y
+
+   Activates the carbon Jacobian tracer simulation.
 
 .. _compile-cmake-step4-sanitize:
 

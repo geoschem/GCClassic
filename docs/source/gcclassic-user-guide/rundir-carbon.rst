@@ -72,8 +72,8 @@ simulation. We'll use the carbon gases simulation as an example.
          4. Hg
          5. POPs
          6. Tagged O3
-         7. Trace metals
-         8. TransportTracers
+         7. TransportTracers
+         8. Trace metals
       >>>
 
    To select the GEOS-Chem carbon gases specialty simulation, type
@@ -110,7 +110,8 @@ simulation. We'll use the carbon gases simulation as an example.
 
 #. You will then be asked to specify the meteorology type for the
    simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`__,  `MERRA-2
-   <http://wiki-geos-chem.org/MERRA-2>`__), or GCAP 2.0):
+   <http://wiki-geos-chem.org/MERRA-2>`__, `GEOS-IT
+   <http://wiki.geos-chem.org/GEOS-IT>`__, or GCAP 2.0):
 
    .. code-block:: console
 
@@ -167,8 +168,8 @@ simulation. We'll use the carbon gases simulation as an example.
    :command:`1` or :command:`2` followed by :command:`ENTER`.
 
    If you wish to set up a nested-grid simulation, type
-   :command:`3` and hit :command:`ENTER`. Then you will be followed by a
-   nested-grid menu:
+   :command:`3` and hit :command:`ENTER`.  You will then be presented
+   with a nested-grid menu:
 
    .. code-block:: console
 
@@ -179,8 +180,13 @@ simulation. We'll use the carbon gases simulation as an example.
         2. Asia
         3. Europe
         4. North America
-        5. Custom
       >>>
+
+   .. note::
+
+      Additional nested-grid options are available at 0.25° x 0.3125°
+      and 0.125° x 0.15625° resolution. See :ref:`gcc-hgrids` for more
+      information.
 
    Type the number of your preferred option and then hit
    :command:`ENTER`. |br|

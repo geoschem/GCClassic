@@ -47,6 +47,11 @@ You will get output similar to this:
    -DHEMCO_Fortran_FLAGS_GNU="-cpp;-w;-std=legacy;-fautomatic;-fno-align-commons;-fconvert=big-endian;-fno-range-check;-mcmodel=medium;-fbacktrace;-g;-DLINUX_GFORTRAN;-ffree-line-length-none"
    -DHEMCO_Fortran_FLAGS_RELEASE_GNU="-O3;-funroll-loops"
 
+   ## GEOS-Chem General Settings
+   -DMECH="fullchem"
+   -DUSE_REAL8="ON"
+   -DSANITIZE="OFF"
+
    ## GEOS-Chem Components Settings
    -DTOMAS="OFF"
    -DTOMAS_BINS="NA"
@@ -54,9 +59,9 @@ You will get output similar to this:
    -DRRTMG="OFF"
    -DGTMM="OFF"
    -DHCOSA="OFF"
-   -DKPPSA="OFF"
    -DLUO_WETDEP="OFF"
    -DFASTJX="OFF"
+   -DJACOBIAN="OFF"
 
 Here you can see the compiler flags that were used as well as the
 options that were selected.
