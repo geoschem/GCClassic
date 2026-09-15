@@ -9,7 +9,7 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - TBD
+## [14.8.0] - 2026-09-15
 ### Added
 - Added "Customize emissions with HEMCO" ReadTheDocs page
 
@@ -20,7 +20,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated ReadTheDocs documentation for 14.8.0
 - Updated GEOS-Chem submodule to version 14.8.0
 - Updated HEMCO submodule to version 3.13.0
-- Updated geos-chem-shared-docs submodule to commit f882128 ("Added several last minute doc updates for 14.8.0")
+- Updated HETP submodule to commit df2f942 (`Merge PR #4 ...`)
+- Updated geos-chem-shared-docs submodule to commit f882128 (`Added several last minute doc updates for 14.8.0`)
 
 ## [14.7.1] - 2026-04-13
 ### Added
