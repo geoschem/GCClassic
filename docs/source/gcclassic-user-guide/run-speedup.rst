@@ -6,7 +6,7 @@ Speed up a slow simulation
 
 GEOS-Chem Classic performance is continuously monitored by the
 `GEOS-Chem Support Team
-<http://wiki.geos-chem.org/GEOS-Chem_Support_Team>`_ by means of
+<http://wiki.geos-chem.org/GEOS-Chem_Support_Team>`__ by means of
 benchmark simulations and ad-hoc timing tests.  In this chapter, we
 provide some practical tips that you can use to speed up your
 simulations.
@@ -20,27 +20,36 @@ Use a coarser chemistry timestep
 The table below contains our recommended GEOS-Chem Classic timestep
 settings.
 
-+----------------------------------------------+-------------+--------------+
-| GEOS-Chem Classic Resolution                 | Transport   | Chemistry    |
-+==============================================+=============+==============+
-| :math:`4^{\circ}{\times}5^{\circ}`           | 600s (10m)  | 1200s (20m)  |
-+----------------------------------------------+-------------+--------------+
-| :math:`2^{\circ}{\times}2.5^{\circ}`         | 600s (10m)  | 1200s (20m)  |
-+----------------------------------------------+-------------+--------------+
-| :math:`0.5^{\circ}{\times}0.625^{\circ}`     | 300s (5m)   | 600s (10m)   |
-+----------------------------------------------+-------------+--------------+
-| :math:`0.25^{\circ}{\times}0.3125^{\circ}`   | 300s (5m)   | 600s (10m)   |
-+----------------------------------------------+-------------+--------------+
-| :math:`0.125^{\circ}{\times}0.15625^{\circ}` | 150s (2.5m) | 300s (5m)    |
-+----------------------------------------------+-------------+--------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 40 30 30
+
+   * - GEOS-Chem Classic Resolution
+     - Transport
+     - Chemistry
+   * - 4\ :math:`^{\circ}` x 5\ :math:`^{\circ}`
+     - 600s (10m)
+     - 1200s (20m)
+   * - 2\ :math:`^{\circ}` x 2.5\ :math:`^{\circ}`
+     - 600s (10m)
+     - 1200s (20m)
+   * - 0.5\ :math:`^{\circ}` x 0.625\ :math:`^{\circ}`
+     - 300s (5m)
+     - 600s (10m)
+   * - 0.25\ :math:`^{\circ}` x 0.3125\ :math:`^{\circ}`
+     - 300s (5m)
+     - 600s (10m)
+   * - 0.125\ :math:`^{\circ}` x 0.15625\ :math:`^{\circ}`
+     - 150s (2.5m)
+     - 300s (5m)
 
 The `Courant limit
-<https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition>`_
+<https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition>`__
 on the latitude-longitude grid constrains the choice of transport
 timestep for a given horizontal resolution.  We choose a chemistry
 timestep that is double the transport timestep (i.e.
 `Strang operator splitting
-<https://hplgit.github.io/fdm-book/doc/pub/book/sphinx/._book018.html#strang-splitting-for-odes>`_).
+<https://hplgit.github.io/fdm-book/doc/pub/book/sphinx/._book018.html#strang-splitting-for-odes>`__).
 
 If you wish to speed up your simulation, try increasing the chemistry
 timestep.  Chemistry is the GEOS-Chem operation that takes the longest
@@ -60,7 +69,7 @@ Use the Rosenbrock solver with auto-reduction
 
 The GEOS-Chem full-chemistry mechanism uses the KPP Rosenbrock solver,
 which has an `automatic mechanism reduction option
-<https://kpp.readthedocs.io/en/stable/tech_info/07_numerical_methods.html#rosenbrock-with-mechanism-auto-reduction>`_
+<https://kpp.readthedocs.io/en/stable/tech_info/07_numerical_methods.html#rosenbrock-with-mechanism-auto-reduction>`__
 as described in :cite:t:`Lin_et_al._2023`.  This automatic mechanism
 reduction feature separates species into "fast" and "slow"
 categories based on their chemical production or loss rates. "Fast"
@@ -95,9 +104,10 @@ not wish to archive can result in a faster simulation.
 Disable debugging options
 =========================
 
-If you previously configured GEOS-Chem with the :
-:option:`CMAKE_BUILD_TYPE` option set to :envvar:`Debug`, then several
-run-time debugging checks will be activated.  These include:
+If you previously configured GEOS-Chem with the
+:ref:`compile-cmake-step4-cmake-build-type` option set to
+:envvar:`Debug`, then several run-time debugging checks will be
+activated.  These include:
 
 - Checking for array-out-of-bounds errors
 - Checking for floating-point math exceptions (e.g. div-by-zero)
@@ -107,7 +117,8 @@ These options can be useful in detecting errors in your GEOS-Chem
 Classic simulation, but result in a much slower simulation.  If you
 plan on running a long Classic simulation, make sure that
 you :ref:`configure and build GEOS-Chem Classic <compile>`
-so that :option:`CMAKE_BUILD_TYPE` is set to :envvar:`Release`.
+so that :ref:`compile-cmake-step4-cmake-build-type` is set to
+:envvar:`Release`.
 
 .. _run-speedup-combine-files:
 
@@ -136,7 +147,7 @@ Preprocess emissions with the HEMCO Standalone model
 If your simulation needs to read and regrid many data files
 (especially those at very fine resolution), you can use the `HEMCO
 Standalone model
-<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html#>`_ to
+<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html#>`__ to
 preprocess those emissions into daily or monthly files.
 This can significantly speed up your simulations, as it will reduce
 the amount of files that need to be opened and the number of times
@@ -156,7 +167,7 @@ Crop nested-grid meteorology inputs
 -----------------------------------
 
 Your simulation should not read global high-resolution
-(:math:`0.5^{\circ}{\times}0.625^{\circ}` or finer) meteorology
+(0.5\ :math:`^{\circ}` x 0.625\ :math:`^{\circ}` or finer) meteorology
 fields.   The overhead in reading and regridding these global fields
 can significantly impact your simulation. Instead, consider cropping
 high-resolution meteorology fields to the extent of your nested domain.

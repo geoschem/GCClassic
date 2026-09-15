@@ -7,7 +7,7 @@ Sample environment file for GNU 12.2.0 compilers
 Below is a sample environment file (based on an enviroment file for
 the Harvard Cannon computer cluster).  This file will load software
 libraries built with the `GNU 12.2.0 compilers
-<https://gcc.gnu.org/onlinedocs/12.2.0/>`_.
+<https://gcc.gnu.org/onlinedocs/12.2.0/>`__.
 
 .. note::
 

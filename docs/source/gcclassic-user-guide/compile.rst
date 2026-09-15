@@ -13,6 +13,6 @@ The compilation process involves the following steps:
 .. toctree::
    :maxdepth: 2
 
-   compile-cmake.rst
-   compile-make.rst
-   compile-info.rst
+   compile-cmake
+   compile-make
+   compile-info

@@ -42,9 +42,6 @@ collections in the  :ref:`HISTORY.rc configuration file
    * - :file:`GEOSChem.BoundaryConditions.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-boundaryconditions`
      - Nested-grid simulations
-   * - :file:`GEOSChem.Carbon.YYYYMMDD_hhhmmz.nc4`
-     - :ref:`histguide-carbon`
-     - :option:`carbon`
    * - :file:`GEOSChem.CloudConvFlux.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-cloudconvflux`
      - All simulations
@@ -83,6 +80,7 @@ collections in the  :ref:`HISTORY.rc configuration file
      - :option:`fullchem`
        :option:`aerosol`
        :option:`tagO3`
+       :option:`carbon`
    * - :file:`GEOSChem.RadioNuclide.YYYYMMDD_hhhmmz.nc4`
      - :ref:`histguide-radionuclide`
      - :option:`TransportTracers`

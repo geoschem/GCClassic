@@ -10,10 +10,10 @@ Classic simulation on your computer system.
 .. toctree::
    :maxdepth: 1
 
-   run-script.rst
-   run-checklist.rst
-   run-batch.rst
-   run-cmd-line.rst
-   run-verify.rst
-   run-diffs.rst
-   run-speedup.rst
+   run-script
+   run-checklist
+   run-batch
+   run-cmd-line
+   run-verify
+   run-diffs
+   run-speedup

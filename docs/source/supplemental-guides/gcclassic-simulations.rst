@@ -4,7 +4,7 @@
 Simulations overview
 ####################
 
-GEOS-Chem Classic currently supports 7 different simulations, several
+GEOS-Chem Classic currently supports 8 different simulations, several
 of which have extra options from which you can choose.  For more
 information, please visit these chapters.
 
@@ -15,3 +15,5 @@ information, please visit these chapters.
 - :ref:`tago3-sim`
 - :ref:`metals-sim`
 - :ref:`transport-sim`
+- POPs (persistent organic pollutants; currently stale -- see the
+  :file:`geoschem_config.yml` :ref:`cfg` reference)

@@ -220,7 +220,7 @@ the nature of your updates (e.g. :file:`feature/new_reactions`, etc.).
 .. note::
 
    This naming convention adheres to the `Github Flow
-   <https://guides.github.com/introduction/flow/>`_
+   <https://guides.github.com/introduction/flow/>`__
    conventions (i.e. new feature branches start with
    :file:`feature/`, bug fix branches start with :file:`bugfix/`, etc.
 
@@ -257,10 +257,10 @@ For more information about downloading the GEOS-Chem source code,
 please see the following Youtube video tutorials:
 
   - `Getting Started with GEOS-Chem
-    <https://www.youtube.com/watch?v=CTvE2T2HZXM&t=1284s>`_
+    <https://www.youtube.com/watch?v=CTvE2T2HZXM&t=1284s>`__
 
   - `GEOS-Chem Classic Quickstart Guide (with dry-run simulation)
-    <https://www.youtube.com/watch?v=da2WPW4K7Pg&t=3721s&pp=0gcJCcYJAYcqIYzv>`_
+    <https://www.youtube.com/watch?v=da2WPW4K7Pg&t=3721s&pp=0gcJCcYJAYcqIYzv>`__
 
   - `Managing branches between superproject and submodules
-    <https://www.youtube.com/watch?v=1fhI-HObyV4>`_
+    <https://www.youtube.com/watch?v=1fhI-HObyV4>`__
