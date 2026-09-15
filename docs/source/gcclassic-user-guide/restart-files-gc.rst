@@ -11,7 +11,7 @@ How are restart files read into GEOS-Chem?
 ==========================================
 
 GEOS-Chem restart files may be read via `HEMCO
-<https://hemco.readthedocs.io>`_ or via GEOS-Chem. If using HEMCO then
+<https://hemco.readthedocs.io>`__ or via GEOS-Chem. If using HEMCO then
 all fields are read as single precision floating point
 (:code:`REAL*4`). If using  GEOS-Chem then all fields are read with
 the native precision stored in the file, e.g. double precision
@@ -189,9 +189,9 @@ files are available for download at the :ref:`gcid-data` portal.
 .. tip::
 
    We recommend that you download restart files to your disk space
-   with either a `dry-run simulation <dry-run-simulation>`_ or with
+   with either a :ref:`dry-run simulation <dry-run>` or with
    the `bashdatacatalog
-   <https://github.com/liambindle/bashdatacatalog>`_.  This will
+   <https://github.com/liambindle/bashdatacatalog>`__.  This will
    ensure that the proper files will be downloaded.
 
 If you have the :file:`ExtData/GEOSCHEM_RESTARTS` folder in your
@@ -200,7 +200,7 @@ your run directory when you :ref:`generate a new GEOS-Chem classic run
 directory <rundir>`.
 
 Monthly GEOS-Chem restart files from the GEOS-Chem 14.0.0 10-year
-benchmark `may be found here <http://geoschemdata.wustl.edu/ExternalShare/geos-chem/10yr_benchmarks/14.0.0/GCClassic/Restarts/>`_.
+benchmark `may be found here <http://geoschemdata.wustl.edu/ExternalShare/geos-chem/10yr_benchmarks/14.0.0/GCClassic/Restarts/>`__.
 
 .. attention::
 
@@ -221,7 +221,7 @@ simulations.  We recommend ten years for ozone, carbon dioxide, and
 methane simulations, and four years for radon-lead-beryllium
 simulations. If you are in doubt about how long your spin up should be
 for your simulation, we recommend contacting the `GEOS-Chem Working
-Group <https://geoschem.github.io/working-groups.html>`_
+Group <https://geoschem.github.io/working-groups.html>`__
 that specializes in your area of research.
 
 You may spin up the model starting at any year for which there is met

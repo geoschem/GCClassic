@@ -8,7 +8,7 @@
 Configure with CMake
 ####################
 
-You should think of `CMake <http://cmake.org>`_ as an interactive tool
+You should think of `CMake <http://cmake.org>`__ as an interactive tool
 for configuring GEOS-Chem Classic's build. For example,
 compile-time options like disabling multithreading and turning on
 components (e.g. APM, RRTMG) are all configured with CMake commands.
@@ -21,7 +21,7 @@ print an error message that describes the problem.
 
 If you are new to CMake and would like a rundown of how to use the
 :command:`cmake` command, check out `Liam Bindle's Cmake Tutorial
-<https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`_. This
+<https://github.com/LiamBindle/An-Introduction-to-Using-CMake/wiki>`__. This
 tutorial is not necessary, but it will make you more
 familiar with using CMake and help you better understand what is going
 on.
@@ -123,6 +123,7 @@ generate output similar to this:
      * KPPSA:        ON  *OFF*
      * LUO_WETDEP:   ON  *OFF*
      * FASTJX:       ON  *OFF*
+     * JACOBIAN:     ON  *OFF*
    =================================================================
    HEMCO A.B.C
    Current status: A.B.C
@@ -154,7 +155,7 @@ build's configuration.
    The text :literal:`X.Y.Z`, :literal:`A.B.C`, :literal:`D.E.F.`,
    and :literal:`G.H.I`
    refer to the version numbers (in `semantic versioning
-   <https://semver.org>`_ style) of the :ref:`get-code-repos-gcclassic`,
+   <https://semver.org>`__ style) of the :ref:`get-code-repos-gcclassic`,
    :ref:`get-code-repos-hemco`, :ref:`get-code-repos-other-hetp`, and
    :ref:`get-code-repos-other-cloudj` repositories, respectively.
 
@@ -212,6 +213,8 @@ The table below contains the list of GEOS-Chem build options that you
 can pass to :program:`CMake`. GEOS-Chem will be compiled with the
 default build options, unless you explicitly specify otherwise.
 
+.. _compile-cmake-step4-rundir:
+
 RUNDIR
 ------
 
@@ -233,6 +236,8 @@ not look like a run directory. Run directory paths can be relative
 paths or absolute paths. Relative paths are interpreted as relative to
 your build directory.
 
+.. _compile-cmake-step4-cmake-build-type:
+
 CMAKE_BUILD_TYPE
 ----------------
 
@@ -249,6 +254,8 @@ CMAKE_BUILD_TYPE
    Turns on several runtime error checks.  This will make it easier
    to find errors but will adversely impact performance. Only use
    this option if you are actively debugging.
+
+.. _compile-cmake-step4-mech:
 
 MECH
 ----
@@ -278,40 +285,46 @@ Specifies the chemical mechanism that you wish to use:
    source code files that define this mechanism are stored in
    :file:`KPP/custom`.
 
+.. _compile-cmake-step4-omp:
+
 OMP
 ---
 
 Determines if GEOS-Chem Classic will activate `OpenMP parallelization
-<http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`_.  Accepted
+<http://wiki.geos-chem.org/Parallelizing_GEOS-Chem>`__.  Accepted
 values are:
 
-.. option:: y
+.. describe:: y
 
    Activates OpenMP parallelization.  **(Default option)**
 
    GEOS-Chem Classic will execute on as many computational cores as
    is specified with :ref:`env-files-envvars-parallel-threads`.
 
-.. option:: n
+.. describe:: n
 
    Deactivates OpenMP parallelization.  GEOS-Chem Classic will
    execute on a single computational core.  Useful for debugging.
+
+.. _compile-cmake-step4-tomas:
 
 TOMAS
 -----
 
 Configure GEOS-Chem with the `TOMAS aerosol
 microphysics package
-<http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`_.  Accepted
+<http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`__.  Accepted
 values are:
 
-.. option:: y
+.. describe:: n
+
+   Deactivate TOMAS microphysics **(Default option)**
+
+.. describe:: y
 
    Activate TOMAS microphysics.
 
-.. option:: n
-
-   Deactivate TOMAS microphysics **(Default option)**
+.. _compile-cmake-step4-tomas-bins:
 
 TOMAS_BINS
 ----------
@@ -327,75 +340,109 @@ values are:
 
    Use 40 size-resolved bins with TOMAS simulations.
 
+.. _compile-cmake-step4-apm:
+
 APM
 ---
 
 Configures GEOS-Chem to use the `APM microphysics package
-<http://wiki.geos-chem.org/APM_aerosol_microphysics>`_. Accepted
+<http://wiki.geos-chem.org/APM_aerosol_microphysics>`__. Accepted
 values are:
 
-.. option:: y
+.. describe:: n
+
+   Deactivate APM microphysics. **(Default option)**
+
+.. describe:: y
 
    Activate APM microphysics.
 
-.. option:: n
-
-   Deactivate APM microphysics. **(Default option)**
+.. _compile-cmake-step4-rrtmg:
 
 RRTMG
 -----
 
 Configures GEOS-Chem to use the `RRTMG radiative transfer model
-<https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`_.
+<https://wiki.geos-chem.org/Coupling_RRTMG_to_GEOS-Chem>`__.
 Accepted values are:
 
-.. option:: y
-
-   Activates the RRTMG radiative transfer model.
-
-.. option:: n
+.. describe:: n
 
    Deactivates the RRTMG radiative transfer model. **(Default option)**
 
+.. describe:: y
+
+   Activates the RRTMG radiative transfer model.
+
+.. _compile-cmake-step4-hcosa:
 
 HCOSA
 -----
 
-Compiles the `HEMCO Standalone Model
-<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html>`_
-executable.
+Configures GEOS-Chem to compile the `HEMCO Standalone Model
+<https://hemco.readthedocs.io/en/stable/hco-sa-guide/intro.html>`__
+executable. Accepted values are:
 
+.. describe:: n
+
+   Does not compile the HEMCO Standalone Model executable. **(Default
+   option)**
+
+.. describe:: y
+
+   Compiles the HEMCO Standalone Model executable.
+
+.. _compile-cmake-step4-kppsa:
 
 KPPSA
 -----
 
-Compiles the :ref:`KPP-Standalone Box Model <kppsa-guide>` executable.
+Configures GEOS-Chem to compile the :ref:`KPP-Standalone Box Model
+<kppsa-guide>` executable. Accepted values are:
 
+.. describe:: n
+
+   Does not compile the KPP-Standalone Box Model executable. **(Default
+   option)**
+
+.. describe:: y
+
+   Compiles the KPP-Standalone Box Model executable.
+
+.. _compile-cmake-step4-luowd:
 
 LUO_WETDEP
 ----------
 
-Configures GEOS-Chem to use the `Luo et al., 2020
-<https://gmd.copernicus.org/articles/13/2879/2020/>`_ wet deposition
-scheme.
+Configures GEOS-Chem to use the :cite:t:`Luo_and_Yu_2023`
+wet deposition scheme.
+
+.. note::
+
+   The :cite:t:`Luo_and_Yu_2023` wet deposition scheme will eventually
+   become the default wet deposition scheme in GEOS-Chem.  We have
+   made it an option for the time being while further evaluation is
+   being done.
 
 .. note::
 
    The Luo et al 2020 wet deposition scheme will eventually
-   become the default wet deposition schem in GEOS-Chem.  We
+   become the default wet deposition scheme in GEOS-Chem.  We
    have made it an option for the time being while further
    evaluation is being done.
 
 Accepted values are:
 
-.. option:: y
-
-   Activates the Luo et al., 2020 wet deposition scheme.
-
-.. option:: n
+.. describe:: n
 
    Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
    option)**
+
+.. describe:: y
+
+   Activates the Luo et al., 2020 wet deposition scheme.
+
+.. _compile-cmake-step4-fastjx:
 
 FASTJX
 ------
@@ -414,14 +461,57 @@ mechanism instead of its successor
 
 Accepted values are:
 
-.. option:: y
-
-   Uses the legacy FAST-JX v7.0 photolysis scheme rather than Cloud-J.
-
-.. option:: n
+.. describe:: n
 
    Uses the Cloud-J photolyis scheme rather than legacy FAST-JX. **(Default
    option)**
+
+.. describe:: y
+
+   Uses the legacy FAST-JX v7.0 photolysis scheme rather than Cloud-J.
+
+.. _compile-cmake-step4-jacobian:
+
+JACOBIAN
+--------
+
+Configures GEOS-Chem to build the carbon Jacobian tracer simulation,
+which is used by the `Integrated Methane Inversion
+<https://imi.readthedocs.io>`__ to compute Jacobian columns for CH4
+analytical inversions.
+
+.. attention::
+
+   :literal:`JACOBIAN` may only be used together with
+   :literal:`MECH=carbon` (see :ref:`compile-cmake-step4-mech`).
+   Configuring it with any other mechanism will halt CMake with the
+   error :literal:`JACOBIAN can only be used with the carbon
+   mechanism!`.
+
+   The KPP mechanism must also contain a matching set of CH4 Jacobian
+   tracers.  Use the :file:`KPP/carbon/util/expand_carbon_eqn.py`
+   script to expand :file:`KPP/carbon/carbon.eqn.default` to the
+   number of Jacobian tracers that you need:
+
+   .. code-block:: console
+
+      $ ./expand_carbon_eqn.py carbon.eqn.default 5
+
+   A pre-expanded 5-tracer mechanism is shipped as
+   :file:`KPP/carbon/carbon.eqn.jacobian.5`.
+
+Accepted values are:
+
+.. describe:: n
+
+   Deactivates the carbon Jacobian tracer simulation. **(Default
+   option)**
+
+.. describe:: y
+
+   Activates the carbon Jacobian tracer simulation.
+
+.. _compile-cmake-step4-sanitize:
 
 SANITIZE
 --------
@@ -429,13 +519,13 @@ SANITIZE
 Activates the AddressSanitizer/LeakSanitizer functionality in GNU Fortran to
 identify memory leaks.  Accepted values are:
 
-.. option:: y
-
-   Activates AddressSanitizer/LeakSanitizer
-
-.. option:: n
+.. describe:: n
 
    Deactivates AddressSanitizer/LeakSanitizer **(Default option)**.
+
+.. describe:: y
+
+   Activates AddressSanitizer/LeakSanitizer
 
 .. _compile-cmake-understand:
 
@@ -446,7 +536,7 @@ Understand CMake output
 As you can see from the example CMake output listed above, GEOS-Chem
 Classic contains code from the various repositories:
 
-#. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`_:
+#. `GCClassic wrapper (aka "the superproject") <https://github.com/geoschem/GCClassic.git>`__:
 
    .. code-block:: none
 
@@ -471,7 +561,7 @@ Classic contains code from the various repositories:
 
       We will explain these formats below.
 
-#. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`_:
+#. `HEMCO (Harmonized Emissions Component) submodule <https://github.com/geoschem/hemco.git>`__:
 
    .. code-block:: none
 
@@ -486,7 +576,7 @@ Classic contains code from the various repositories:
    considered a separate package. |br|
    |br|
 
-#. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`_:
+#. `GEOS-Chem submodule <https://github.com/geoschem/geos-chem.git>`__:
 
    .. code-block:: none
 
@@ -523,7 +613,7 @@ where
 .. option:: TAG
 
     Indicates the most recent tag in the `GCClassic superproject
-    repository <https://github.com/geoschem/GCClassic>`_.
+    repository <https://github.com/geoschem/GCClassic>`__.
 
     Tags may use the following notations:
 

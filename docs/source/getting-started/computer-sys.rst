@@ -21,7 +21,7 @@ Unix (including MacOS X, which is a BSD derivative).
 
    While it is possible to run a Linux instance on a PC with the
    `Windows Subsystem for Linux
-   <https://learn.microsoft.com/en-us/windows/wsl/about>`_, we have
+   <https://learn.microsoft.com/en-us/windows/wsl/about>`__, we have
    found that PCs typically lack the memory and disk space to run most
    GEOS-Chem simulations.  We therefore recommend using a
    computational cluster or the :ref:`Amazon cloud
@@ -50,4 +50,4 @@ the following advantages:
 - You will avoid GEOS-Chem compilation errors due to library incompatibilities.
 - You will be charged for the computational time that you use, and if you download data off the cloud.
 
-You can learn more about how to use GEOS-Chem on the cloud by `visiting this tutorial (cloud.geos-chem.org) <http://cloud.geos-chem.org>`_.
+You can learn more about how to use GEOS-Chem on the cloud by `visiting this tutorial (cloud.geos-chem.org) <http://cloud.geos-chem.org>`__.

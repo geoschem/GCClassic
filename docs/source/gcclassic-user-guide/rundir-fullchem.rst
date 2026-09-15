@@ -69,8 +69,8 @@ GEOS-Chem full-chemistry simulation.
          4. Hg
          5. POPs
          6. Tagged O3
-         7. Trace metals
-         8. TransportTracers
+         7. TransportTracers
+         8. Trace metals
       >>>
 
    To create a run directory for the full-chemistry simulation, type
@@ -107,12 +107,16 @@ GEOS-Chem full-chemistry simulation.
 
    To add an option to the full-chemistry simulation, type a number
    between :command:`2` and :command:`8` and press
-   :command:`ENTER`. |br|
+   :command:`ENTER`. (Depending on which option you select, you may be
+   asked to select an option from one or more sub-menus.  We will omit
+   these here for the sake of brevity.) |br|
    |br|
 
+   
 #. You will then be asked to specify the meteorology type for the
-   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`_, `MERRA-2
-   <http://wiki-geos-chem.org/MERRA-2>`_), or GCAP 2.0).
+   simulation (`GEOS-FP  <http://wiki.geos-chem.org/GEOS_FP>`__, `MERRA-2
+   <http://wiki-geos-chem.org/MERRA-2>`__, `GEOS-IT
+   <http://wiki.geos-chem.org/GEOS_FP>`__, or GCAP 2.0).
 
    .. code-block:: console
 
@@ -170,7 +174,7 @@ GEOS-Chem full-chemistry simulation.
    :command:`1` or :command:`2` followed by :command:`ENTER`.
 
    If you wish to set up a nested-grid simulation, type :command:`3`
-   and hit :command:`ENTER`. Then you will be followed by a
+   and hit :command:`ENTER`.  You will then be presented with a
    nested-grid menu:
 
    .. code-block:: console
@@ -182,8 +186,13 @@ GEOS-Chem full-chemistry simulation.
         2. Asia
         3. Europe
         4. North America
-        5. Custom
       >>>
+
+   .. note::
+
+      Additional nested-grid options are available at 0.25° x 0.3125°
+      and 0.125° x 0.15625° resolution. See :ref:`gcc-hgrids` for more
+      information.
 
    Select your preferred horizontal domain, followed by
    :command:`ENTER`. |br|

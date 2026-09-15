@@ -221,8 +221,8 @@ Can I run nested GEOS-Chem simulations on the AWS cloud?
 
 Yes, you can run the nested grid simulations on AWS cloud. Please see
 the `Running GEOS-Chem on AWS cloud online
-tutorial <https://cloud-gc.readthedocs.io/en/latest/>`_ and contact the
-`GEOS-Chem Support Team <GEOS-Chem_Support_Team>`_ with any questions.
+tutorial <https://cloud-gc.readthedocs.io/en/latest/>`__ and contact the
+`GEOS-Chem Support Team <GEOS-Chem_Support_Team>`__ with any questions.
 
 .. _nestgrid-faq-multiple-bcs:
 

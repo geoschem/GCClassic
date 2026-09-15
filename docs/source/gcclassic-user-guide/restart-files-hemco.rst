@@ -31,6 +31,6 @@ For more information
 ====================
 
 Please see `HEMCO diagnostics (at hemco.readthedocs.io)
-<https://hemco.readthedocs.io/en/latest/hco-ref-guide/diagnostics.html>`_
+<https://hemco.readthedocs.io/en/latest/hco-ref-guide/diagnostics.html>`__
 for more information about restart files and other diagnostic
 outputs from HEMCO.

@@ -9,7 +9,7 @@ Set environment variables for parallelization
 #############################################
 
 :program:`GEOS-Chem Classic` uses `OpenMP parallelization
-<Parallelizing_GEOS-Chem>`_, which is an implementation of
+<Parallelizing_GEOS-Chem>`__, which is an implementation of
 shared-memory (aka serial) parallelization.
 
 .. important::
@@ -21,7 +21,7 @@ shared-memory (aka serial) parallelization.
    not be able to take advantage of more cores than these.
 
    We recommend that you consider using `GCHP
-   <https://gchp.readthedocs.io>`_ for more computationally-intensive
+   <https://gchp.readthedocs.io>`__ for more computationally-intensive
    simulations.
 
 In the the sample environment files for :ref:`GNU <env-files-gnu>` and
@@ -60,7 +60,7 @@ OMP_STACKSIZE
 -------------
 
 In order to use :program:`GEOS-Chem Classic` with
-`OpenMP parallelization <Parallelizing_GEOS-Chem>`_, you must
+`OpenMP parallelization <Parallelizing_GEOS-Chem>`__, you must
 request the maximum amount of stack memory in your Unix environment.
 (The stack memory is where local automatic variables and temporary
 :envvar:`!$OMP PRIVATE` variables will be created.)

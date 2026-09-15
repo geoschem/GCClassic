@@ -34,13 +34,13 @@ port GEOS-Chem to the latest Intel 2024 compiler suite (:literal:`icx`
 for C, C++ and :literal:`ifx` for Fortran) in the near future.
 
 **Best way to install:**  `Direct from Intel
-<https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html>`_
+<https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html>`__
 (Older versions may require purchase of a site license or a student license)
 
 .. tip::
 
    Intel 2021 and later may be obtained for free, or installed with a
-   package manager such as `Spack <https://spack.readthedocs.io>`_.
+   package manager such as `Spack <https://spack.readthedocs.io>`__.
 
 .. _req-soft-compilers-gnu:
 
@@ -62,7 +62,7 @@ may have trouble parsing certain GEOS-Chem source code.
 
    If you plan to build :ref:`required software libraries <req-soft>`
    with Spack, please use `Spack release v0.23.1
-   <https://github.com/spack/spack/releases/tag/v0.23.1>`_ until
+   <https://github.com/spack/spack/releases/tag/v0.23.1>`__ until
    further notice.  For more information, please see the section
    entitled :ref:`gc-known-bugs-gcc12` at our :ref:`gc-known-bugs`
    reference page.
@@ -80,6 +80,6 @@ We currently have no plans to port GEOS-Chem to compilers
 other than :ref:`req-soft-compilers-intel` and
 :ref:`req-soft-compilers-gnu`. But when we interface
 GEOS-Chem into external models (such as `CESM
-<https://wiki.seas.harvard.edu/geos-chem/index.php/GEOS-Chem_in_CESM>`_);
+<https://wiki.seas.harvard.edu/geos-chem/index.php/GEOS-Chem_in_CESM>`__);
 all compilers used by the parent model can successfully parse
 GEOS-Chem source code.

@@ -10,6 +10,6 @@ how they are used.
 .. toctree::
    :maxdepth: 2
 
-   restart-files-what.rst
-   restart-files-gc.rst
-   restart-files-hemco.rst
+   restart-files-what
+   restart-files-gc
+   restart-files-hemco

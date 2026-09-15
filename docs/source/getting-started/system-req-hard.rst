@@ -11,6 +11,6 @@ software requirements. These are described in the following chapters.
 .. toctree::
    :maxdepth: 2
 
-   computer-sys.rst
-   memory.rst
-   disk-space.rst
+   computer-sys
+   memory
+   disk-space
