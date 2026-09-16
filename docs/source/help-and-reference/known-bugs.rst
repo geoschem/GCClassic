@@ -5,7 +5,7 @@ Known bugs and issues
 #####################
 
 Please see our `Issue tracker on GitHub
-<https://github.com/geoschem/geos-chem/issues>`_ for a list of recent
+<https://github.com/geoschem/geos-chem/issues>`__ for a list of recent
 bugs and fixes.
 
 ===================
@@ -13,7 +13,7 @@ Current bug reports
 ===================
 
 These `bug reports (on GitHub)
-<https://github.com/geoschem/geos-chem/issues?q=is%3Aissue+is%3Aopen+label%3A%22category%3A+Bug%22>`_
+<https://github.com/geoschem/geos-chem/issues?q=is%3Aissue+is%3Aopen+label%3A%22category%3A+Bug%22>`__
 are currently unresolved. We hope to fix these in future releases.
 
 =======================================
@@ -29,15 +29,15 @@ GEOS-Chem Classic simulations focused on the troposphere can reduce
 the number of vertical levels from 72 to 47 by coarsening the vertical
 resolution in the stratosphere and mesosphere.  Recent work shows that
 this vertical remapping `does not affect tropospheric transport
-<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-Chem_14.7.0#1-year_transport_GEOS-Chem_Classic_version_comparison_(14.7.0_on_72_levels_vs_14.7.0_on_47_levels)>`_,
+<https://wiki.seas.harvard.edu/geos-chem/index.php?title=GEOS-Chem_14.7.0#1-year_transport_GEOS-Chem_Classic_version_comparison_(14.7.0_on_72_levels_vs_14.7.0_on_47_levels)>`__,
 but it has a slight effect on `tropospheric photolysis rate constants
-<https://github.com/geoschem/geos-chem/issues/3238>`_.
+<https://github.com/geoschem/geos-chem/issues/3238>`__.
 
 To avoid this issue, we recommend one of the following solutions:
 
 #. Use 72 vertical levels with all :ref:`GEOS-Chem Classic fullchem
    simulations <fullchem-sim>`,
-#. Use `GCHP <https://gchp.readthedocs.io>`_  (either normal grid or
+#. Use `GCHP <https://gchp.readthedocs.io>`__  (either normal grid or
    stretched grid) fullchem simulations.
 
 .. _gc-known-bugs-gcc12:
@@ -45,7 +45,7 @@ To avoid this issue, we recommend one of the following solutions:
 GCC 12.2.0 is discontinued in Spack v1.0.0
 ------------------------------------------
 
-As of Spack v1.0, `spack-packages <https://packages.spack.io/>`_ has
+As of Spack v1.0, `spack-packages <https://packages.spack.io/>`__ has
 been split off into its own separate repository. This change includes
 the unfortunate deprecation of the :program:`GNU Compiler Collection
 (GCC)` version 12.2.0. It appears that only the most recent minor
@@ -59,7 +59,7 @@ simply fails with an unhelpful error message about not being able to
 satisfy the request.
 
 For the time being, we recommend that you use `Spack release v0.23.1
-<https://github.com/spack/spack/releases/tag/v0.23.1>`_ which still
+<https://github.com/spack/spack/releases/tag/v0.23.1>`__ which still
 supports GCC 12.2.0 and related libraries.  Please see our
 :ref:`spackguide` Supplemental Guide for an updated Spack
 installation workflow.
@@ -72,21 +72,20 @@ files changed from RAS to Grell-Freitas starting 01 June 2020 with
 impact on vertical transport. Discussion and analysis of the impact is
 available at https://github.com/geoschem/geos-chem/issues/1409.
 
-In addition, there is a bug in convective precipitation flux following
-the switch where all values are zero. While this bug is automatically
-fixed by calling different convection schemes in GEOS-Chem, the
-convection scheme called is based only on run start date. This means
-that using meteorology for a year different than simulation year may
-result in choosing the wrong convection scheme. It also means that
-simulations which span 01 June 2020 will incorrectly use the same
-convection scheme for the entire run.
-
-Due to these issues we recommend splitting up GEOS-FP runs in time
-such that a single simulation does not run across 01 June 2020.
-Instead. set one run to stop on 01 June 2020 and then restart a new
-run from there. If you wish to use a GEOS-FP meteorology year
+To fix this issue, different GEOS-Chem convection schemes are called
+based on simulation start time. This ensures comparability in
+GEOS-Chem runs using GEOS-FP fields generated using the RAS convection
+scheme and fields generated using Grell-Freitas, but only if the
+simulation does not cross the 01 June 2020 boundary. We therefore
+recommend splitting up GEOS-FP runs in time such that a single
+simulation does not span this date. For example, configure one run to
+end on 01 June 2020 and then use its output restart to start another
+run on 01 June 2020. Alternatively consider using MERRA-2 which was
+entirely generated with RAS, or GEOS-IT which was entirely generated
+with Grell-Freitas. If you wish to use a GEOS-FP meteorology year
 different from your simulation year please create a GEOS-Chem GitHub
-issue for assistance.
+issue for assistance to avoid accidentally using zero convective
+precipitation flux.
 
 Reaction rate diagnostics may not work as advertized
 ----------------------------------------------------
@@ -100,4 +99,4 @@ currently investigating.
 Bugs that have been resolved
 ============================
 
-These `bugs (reported on GitHub) <https://github.com/geoschem/geos-chem/issues?q=+label%3A%22category%3A+Bug+Fix%22+>`_ have been resolved.
+These `bugs (reported on GitHub) <https://github.com/geoschem/geos-chem/issues?q=+label%3A%22category%3A+Bug+Fix%22+>`__ have been resolved.

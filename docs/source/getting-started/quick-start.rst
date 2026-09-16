@@ -15,7 +15,7 @@ instance of GEOS-Chem.
 .. tip::
 
    Please also see our `GCHP Quickstart Guide
-   <https://gchp.readthedocs.io/en/stable/getting-started/quick-start.html>`_
+   <https://gchp.readthedocs.io/en/stable/getting-started/quick-start.html>`__
    if you would like to run GEOS-Chem across using more than one
    computational node.
 
@@ -98,7 +98,7 @@ scanning the output for tag.
    Please answer all of the questions, as it will help us to keep
    track of GEOS-Chem usage worldwide.  We will also add your
    information to the `GEOS-Chem Users web page
-   <https://geoschem.github.io/users.html>`_.
+   <https://geoschem.github.io/users.html>`__.
 
 Navigate to the :file:`run/` subdirectory.  To :ref:`create a run
 directory <rundir>`, run the script :file:`./createRunDir.sh`:
@@ -122,7 +122,7 @@ creating a run directory you can quit and start from scratch at any
 time.
 
 For demonstration purposes, we will use a full chemistry simulation
-run directory with the default name (:file:`gc_merra2_4x5_fullchem`).
+run directory with the default name (:file:`gc_4x5_merra2_fullchem`).
 The steps to setup and run other types of GEOS-Chem Classic
 simulations follow the same pattern as the examples shown below.
 
@@ -289,7 +289,7 @@ Now, navigate to your run directory:
 
 .. code-block:: console
 
-   $ cd /path/to/gcc_4x5_merra2_fullchem
+   $ cd /path/to/gc_4x5_merra2_fullchem
 
 You should review these files before starting a simulation:
 
@@ -305,11 +305,11 @@ You should review these files before starting a simulation:
    * - :ref:`HISTORY.rc <histguide-configfile>`
      - Controls GEOS-Chem diagnostic settings.
    * - :ref:`HEMCO_Diagn.rc <cfg-hco-diagn>`
-     - Controls emissions diagnostic settings via `HEMCO <https://hemco.readthedocs.io>`_.
+     - Controls emissions diagnostic settings via `HEMCO <https://hemco.readthedocs.io>`__.
    * - :ref:`HEMCO_Config.rc <cfg-hco-cfg>`
      - Controls which emissions inventories and other non-emissions data
        will be read from disk (via `HEMCO
-       <https://hemco.readthedocs.io>`_).
+       <https://hemco.readthedocs.io>`__).
 
 .. attention::
 
@@ -395,11 +395,11 @@ Once the dry-run simulation has finished, use the
 
 You will need to activate a Python environment before you can download
 the data.  We recommend using the Python environment for `GCPy
-<https://gcpy.readthedocs.io>`_, as it has all of the relevant
+<https://gcpy.readthedocs.io>`__, as it has all of the relevant
 packages installed. If you have `installed GCPy from PyPI
-<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-pypi>`_, then no further action is needed.  On the other hand, if you
+<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-pypi>`__, then no further action is needed.  On the other hand, if you
 `installed GCPy from conda-forge
-<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-conda-forge>`_,
+<https://gcpy.readthedocs.io/en/stable/Getting-Started-with-GCPy.html#install-gcpy-from-conda-forge>`__,
 you will need to activate the GCPy Python environment with this command:
 
 .. code-block:: console
@@ -418,7 +418,7 @@ You may now begin downloading data from the :ref:`GEOS-Chem Input Data
    (gcpy_env) $ ./download_data.py log.dryrun geoschem+http
 
 The data will be transfered using HTTP protocol. But if you have `AWS
-CLI (command line interface) <https://aws.amazon.com/cli/>`_ installed
+CLI (command line interface) <https://aws.amazon.com/cli/>`__ installed
 on your system, you can this command instead:
 
 .. code-block:: console
