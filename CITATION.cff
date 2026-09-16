@@ -4,8 +4,8 @@ title: "GCClassic: GEOS-Chem Classic"
 type: software
 authors:
   - name: "The International GEOS-Chem User Community"
-version: 14.7.1
-date-released: 2026-04-13
+version: 14.8.0
+date-released: 2026-09-15
 doi: 10.5281/zenodo.4437678
 url: "https://geos-chem.readthedocs.io"
 repository-code: "https://github.com/geoschem/GCClassic"
