@@ -1,13 +1,18 @@
 # Changelog
 
 This file documents all notable changes to the GEOS-Chem Classic wrapper repository since version 13.4.1. See also CHANGELOG files for individual submodules:
-- src/geos-chem/CHANGELOG.md
+- src/GEOS-Chem/CHANGELOG.md
 - src/HEMCO/CHANGELOG.md
 - src/Cloud-J/CHANGELOG.md
+- src/HETP/CHANGELOG.md
 
 The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - TBD
+### Changed
+- Changed default setting of `LUO_WETDEP` to `ON` in `CMakeScripts/GC-ConfigureClassic.cmake`
 
 ## [14.8.0] - 2026-09-15
 ### Added
