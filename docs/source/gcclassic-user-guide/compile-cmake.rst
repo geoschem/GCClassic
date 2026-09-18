@@ -121,7 +121,7 @@ generate output similar to this:
      * GTMM:         ON  *OFF*
      * HCOSA:        ON  *OFF*
      * KPPSA:        ON  *OFF*
-     * LUO_WETDEP:   ON  *OFF*
+     * LUO_WETDEP:   *ON* OFF
      * FASTJX:       ON  *OFF*
      * JACOBIAN:     ON  *OFF*
    =================================================================
@@ -417,30 +417,17 @@ LUO_WETDEP
 Configures GEOS-Chem to use the :cite:t:`Luo_and_Yu_2023`
 wet deposition scheme.
 
-.. note::
-
-   The :cite:t:`Luo_and_Yu_2023` wet deposition scheme will eventually
-   become the default wet deposition scheme in GEOS-Chem.  We have
-   made it an option for the time being while further evaluation is
-   being done.
-
-.. note::
-
-   The Luo et al 2020 wet deposition scheme will eventually
-   become the default wet deposition scheme in GEOS-Chem.  We
-   have made it an option for the time being while further
-   evaluation is being done.
-
 Accepted values are:
-
-.. describe:: n
-
-   Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
-   option)**
 
 .. describe:: y
 
-   Activates the Luo et al., 2020 wet deposition scheme.
+   Activates the Luo et al., 2020 wet deposition scheme. **(Default
+   option)**
+
+.. describe:: n
+
+   Deactivates the Luo et al., 2020 wet deposition scheme and uses the
+   Jacob et al. (2000) wet deposition scheme instead.
 
 .. _compile-cmake-step4-fastjx:
 
