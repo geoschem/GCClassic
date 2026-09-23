@@ -17,3 +17,5 @@ CMakeScripts/summarize_build text eol=lf
 *.gif binary
 *.ico binary
 *.pdf binary
+*.nc binary
+*.nc4 binary

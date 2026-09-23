@@ -22,9 +22,9 @@ The [GEOS-Chem Support Team](https://geoschem.github.io/support-team.html), base
 
 2. The Working Group forwards the request to the GCSC, which sets its priority and target version at a quarterly meeting.
 
-3. The contributor submits the update as a pull request (see `CONTRIBUTING.md` for the checklist covering coding conventions, `CHANGELOG.md` entries, and — for structural changes — difference testing).
+3. The contributor submits the update as a pull request against the appropriate development branch (not `main`). Updates that do not change model output ("zero-diff" updates) go to `dev/no-diff-to-benchmark`. Updates that change model output go to the development branch for the target version, `dev/X.Y.Z` (for example `dev/14.9.0`). Science and structural changes are made in the submodule repositories (GEOS-Chem, HEMCO, Cloud-J, HETP), which use the same branch names; GCClassic then picks them up as submodule updates (see `CONTRIBUTING.md` for the checklist covering coding conventions, `CHANGELOG.md` entries, and — for structural changes — difference testing).
 
-4. The GCST reviews, merges, and benchmarks the update, then includes it in the next tagged release.
+4. The GCST reviews, merges, and benchmarks the update, then includes it in the next tagged release. `main` receives only released versions.
 
 ## Sponsors
 

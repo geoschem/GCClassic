@@ -50,6 +50,8 @@ The actual model code lives in the submodules under `src/`:
 | `src/HETP` | `geoschem/HETerogeneous-vectorized-or-Parallel` | **aerosol thermodynamics** (the ISORROPIA replacement) |
 | `docs/source/geos-chem-shared-docs` | `geoschem/geos-chem-shared-docs` | docs shared with GCHP, and the `spack/` tree this repo symlinks to its top level |
 
+These paths are GCClassic's. GCHP vendors the same repos under `src/GCHP_GridComp/GEOSChem_GridComp/` (`geos-chem`, `HEMCO/HEMCO`, `Cloud-J`, `HETP`), so a path or script written for one superproject does not carry over to the other. The GCHP-side scripts in the shared `test/` tree (`test/integration/GCHP/`) use the GCHP paths.
+
 Note the HETP submodule's *name* (`src/HETerogeneous-vectorized-or-Parallel`) differs from its *path* (`src/HETP`). Commands that take the submodule **name** rather than the path — `git config submodule.<name>.*`, `git submodule set-url`, `.git/modules/<name>` — need the long form.
 
 ### The three root symlinks
@@ -149,7 +151,7 @@ Intel and GNU only: `set(GEOSChem_SUPPORTED_COMPILER_IDS "Intel" "GNU")` in the 
 
 ## CI
 
-Four workflows in `.github/workflows/`, plus one helper script. CLAUDE.md previously described only the first.
+Four workflows in `.github/workflows/`, plus one helper script.
 
 - **`gcclassic-compile-tests.yml`** — triggers on every `push` and `pull_request` (unfiltered). A **7-job GNU matrix**: `gcc-version: [10, 11, 12, 13, 14, 15, 16]`. It runs:
   ```console
@@ -200,15 +202,15 @@ Note that a doc page listed in this repo's `CHANGELOG.md` may actually live in t
   cd .release
   ./changeVersionNumbers.sh 14.9.0
   ```
-  It edits exactly **four** files: `CMakeLists.txt` and `docs/source/conf.py` (the `X.Y.Z` string), `CHANGELOG.md` (rewriting `[Unreleased] - TBD` to `[X.Y.Z] - <date>`), and `CITATION.cff` (`version:` and `date-released:`). It does **not** touch `.zenodo.json`, which has no version field. Two caveats: it stamps **today's** date via `date -Idate`, not the release date; and its internal error check is dead code, because `sed -i` exits 0 whether or not the pattern matched — so it will report success for a file it never changed. After a bump, `git grep` the old version to confirm nothing was missed.
+  It edits exactly **four** files: `CMakeLists.txt` and `docs/source/conf.py` (the `X.Y.Z` string), `CHANGELOG.md` (rewriting `[Unreleased] - TBD` to `[X.Y.Z] - <date>`), and `CITATION.cff` (`version:` and `date-released:`). It does **not** touch `.zenodo.json`, which has no version field. Two caveats: it stamps **today's** date via `date -Idate`, not the release date; and `sed -i` exits 0 whether or not the pattern matched, so the `$? -ne 0` checks after the `CMakeLists.txt`, `conf.py`, and `CHANGELOG.md` edits are dead code and it will report success for a file it never changed. Only the `CITATION.cff` edits are verified (with `grep`, exiting with an error if they did not land). The `X.Y.Z` substitution also applies to every line of `CMakeLists.txt` and `conf.py`; each has exactly one such line today, but any other dotted three-part number added to either would be rewritten too. After a bump, `git grep` the old version to confirm nothing was missed.
 - Commit-message conventions are **not** uniform — roughly half of recent history follows `<Component> update: Merge PR #NNNN (<summary>)`, and only for GEOS-Chem and HEMCO pointer bumps merged from upstream PRs. Direct wrapper-repo commits, `geos-chem-shared-docs submod update to <sha>` bumps, and release commits all use other forms. Match the neighbouring commits rather than assuming one pattern.
 
 ## Contributing
 
-- `CONTRIBUTING.md` targets **geoschem/geos-chem**, and its step 6 says to branch off **`main`**. The repo's actual history, though, merges into `dev/X.Y.Z` and `release/X.Y.Z` branches, and CI triggers are built around `dev/*` — so confirm the intended target branch rather than assuming either.
+- **Target a development branch, not `main`.** Updates that do not change model output ("zero-diff" updates) go to `dev/no-diff-to-benchmark`. Updates that change model output go to the target version's branch, `dev/X.Y.Z` (e.g. `dev/14.9.0`). `main` receives only released versions. This is stated in `GOVERNANCE.md`. Note that `CONTRIBUTING.md` targets **geoschem/geos-chem** and its step 6 still says to branch off **`main`**, and that a PR into any `dev/*` branch triggers the cloud benchmark workflow (see CI above).
 - Substantive science/structural updates to GEOS-Chem/HEMCO go through the upstream submodule repos and the Working Group → GEOS-Chem Steering Committee process described in `GOVERNANCE.md`, not as direct GCClassic PRs. `GOVERNANCE.md` also names the GEOS-Chem Support Team (Harvard + WashU) as the group that reviews, merges and benchmarks.
 - `CONTRIBUTING.md`'s checklist: a `CHANGELOG.md` entry (stated twice), Fortran-90 free format, full citations in module headers, no extraneous changes, and matching GCHP config/code files alongside GEOS-Chem Classic ones. For structural (non-science) updates it **recommends** — it does not mandate — a difference test against the prior version to confirm identical results. There is also an 8-item data-file checklist plus three GCHP netCDF requirements.
 - `.github/PULL_REQUEST_TEMPLATE.md` asks for name and institution, a description, **expected changes** (how it affects model output, with plots or tables), references for science updates, the related GitHub issue, and an **AI disclosure** section: "Please disclose if AI tools (e.g. Claude, ChatGPT) were used in the preparation of this pull request." Fill that in on any PR prepared with Claude Code. It is a disclosure request, not a prohibition.
-- `.gitattributes` sets `* text=auto eol=lf`. Never introduce CRLF into `.sh`, `.cmake`, `.rc`, `.yml`, or `.py` files — they break shebangs and compilation on the Linux/HPC systems this is built on. The one exception is `docs/make.bat` (`*.bat text eol=crlf`).
+- `.gitattributes` sets `* text=auto eol=lf`. Never introduce CRLF into `.sh`, `.cmake`, `.rc`, `.yml`, or `.py` files — they break shebangs and compilation on the Linux/HPC systems this is built on. The one exception is `docs/make.bat` (`*.bat text eol=crlf`): it is stored with LF in the repository and checked out with CRLF.
 - Issue reports go through the forms in `.github/ISSUE_TEMPLATE/`; blank issues are disabled.
-- Security issues go through `SECURITY.md` (private GitHub advisory), which covers this repo and the GEOS-Chem/HEMCO/Cloud-J/HETP submodules, and explicitly excludes scientific-correctness and numerical bugs — those are ordinary issues.
+- Security issues go through `SECURITY.md` (private GitHub advisory), which covers this repo and the GEOS-Chem/HEMCO/Cloud-J/HETP submodules, names arbitrary code execution when reading a data/config file as the primary threat class, and explicitly excludes scientific-correctness and numerical bugs — those are ordinary issues.
