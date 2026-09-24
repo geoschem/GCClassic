@@ -1,13 +1,30 @@
 # Changelog
 
 This file documents all notable changes to the GEOS-Chem Classic wrapper repository since version 13.4.1. See also CHANGELOG files for individual submodules:
-- src/geos-chem/CHANGELOG.md
+- src/GEOS-Chem/CHANGELOG.md
 - src/HEMCO/CHANGELOG.md
 - src/Cloud-J/CHANGELOG.md
+- src/HETP/CHANGELOG.md
 
 The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - TBD
+### Added
+- Added  `.gitattributes`, `GOVERNANCE.md`, `SECURITY.md`, and `CITATION.cff` files for GitHub
+- Added `CLAUDE.md`, which gives guidance to Claude Code AI
+- Added AI disclosure section to `.github/PULL_REQUEST_TEMPLATE.md`
+- Added `.github/dependabot.yml` to open monthly version-update PRs for GitHub Actions against `main`
+
+### Changed
+- Updated `.release/changeVersionNumbers.sh` to only update the version number and date in `CITATION.cff` and to only update changelog files in the GCClassic repo
+- Updated `.release/changeVersionNumbers.sh` to exit with an error if the `CITATION.cff` edits did not land
+- Renormalized `docs/make.bat` to LF in the repository (still checked out with CRLF, per `.gitattributes`)
+
+### Fixed
+- Fixed stale version number and release date in `CITATION.cff` (now 14.8.0)
+- Fixed the submodule changelog paths listed at the top of `CHANGELOG.md` (`src/GEOS-Chem` was listed as `src/geos-chem`) and added the missing `src/HETP/CHANGELOG.md`
 
 ## [14.8.0] - 2026-09-15
 ### Added
