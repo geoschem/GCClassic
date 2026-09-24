@@ -1,0 +1,22 @@
+---
+#
+# Dependabot version updates for GCClassic
+# See: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+#
+# Only GitHub Actions are version-updated here.  The Python pins in
+# docs/requirements.txt must be kept in sync with the conda file
+# docs/read_the_docs_environment.yml, which Dependabot cannot edit, so
+# those are left to Dependabot security updates plus manual bumps.
+# Submodules are pinned deliberately and are not managed by Dependabot.
+# No target-branch is set, so PRs open against the default branch (main).
+#
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"

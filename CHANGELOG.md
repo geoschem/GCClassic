@@ -15,6 +15,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added  `.gitattributes`, `GOVERNANCE.md`, `SECURITY.md`, and `CITATION.cff` files for GitHub
 - Added `CLAUDE.md`, which gives guidance to Claude Code AI
 - Added AI disclosure section to `.github/PULL_REQUEST_TEMPLATE.md`
+- Added `.github/dependabot.yml` to open monthly version-update PRs for GitHub Actions against `main`
 
 ### Changed
 - Updated `.release/changeVersionNumbers.sh` to only update the version number and date in `CITATION.cff` and to only update changelog files in the GCClassic repo
