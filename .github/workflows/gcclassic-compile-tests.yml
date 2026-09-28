@@ -12,6 +12,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
   cancel-in-progress: true
 
+# Give the GITHUB_TOKEN read-only access;
+# these jobs only check out and build code
+permissions:
+  contents: read
+
 jobs:
   gnu:
     runs-on: ubuntu-latest
