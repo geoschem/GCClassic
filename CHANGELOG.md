@@ -21,6 +21,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `.release/changeVersionNumbers.sh` to only update the version number and date in `CITATION.cff` and to only update changelog files in the GCClassic repo
 - Updated `.release/changeVersionNumbers.sh` to exit with an error if the `CITATION.cff` edits did not land
 - Renormalized `docs/make.bat` to LF in the repository (still checked out with CRLF, per `.gitattributes`)
+- Added read-only `permissions` blocks to the `gcclassic-compile-tests.yml` and `cloud-benchmarking-workflow.yml` GitHub Actions
 
 ### Fixed
 - Fixed stale version number and release date in `CITATION.cff` (now 14.8.0)
