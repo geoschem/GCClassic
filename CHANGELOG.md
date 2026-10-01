@@ -12,7 +12,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
 ### Changed
-- Changed default setting of `LUO_WETDEP` to `ON` in `CMakeScripts/GC-ConfigureClassic.cmake` and updated ReadTheDocs documentation accordingly
+- Changed `LUO_WETDEP` to `ON` by default (except for TOMAS, which dies upon compilation); Updated RTD docs accordingly
 
 ## [14.8.0] - 2026-09-15
 ### Added

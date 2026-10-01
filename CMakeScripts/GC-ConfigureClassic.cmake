@@ -184,17 +184,26 @@ function(configureGCClassic)
     gc_pretty_print(VARIABLE KPPSA IS_BOOLEAN)
 
     #-------------------------------------------------------------------------
-    # Build Luo et al wetdep scheme?
-    # This is now the default wetdep scheme in GEOS-Chem 14.9.0 and later
+    # Build Luo et al wetdep scheme?  ON by defaultin GC 14.9.0 and later.
+    #
+    # NOTE: TOMAS is not yet compatible with the Luo et al wetdep scheme,
+    # so force LUO_WETDEP=OFF when TOMAS=ON, at least for the time being.
     #-------------------------------------------------------------------------
     set(LUO_WETDEP ON CACHE BOOL
-        "Switch to build the Luo et al (2023) wetdep scheme into GEOS-Chem"
-    )
+      "Switch to build the Luo and Yu (2023) wetdep scheme into GEOS-Chem"
+      )
+    if(TOMAS AND LUO_WETDEP)
+      message(STATUS
+	"TOMAS is not yet compatible with the Luo and Yu (2023) wetdep "
+	"scheme; building with LUO_WETDEP=OFF."
+      )
+      set(LUO_WETDEP OFF)
+    endif()
     gc_pretty_print(VARIABLE LUO_WETDEP IS_BOOLEAN)
-    if(${LUO_WETDEP})
-        target_compile_definitions(GEOSChemBuildProperties
-            INTERFACE LUO_WETDEP
-        )
+    if(LUO_WETDEP)
+      target_compile_definitions(GEOSChemBuildProperties
+	INTERFACE LUO_WETDEP
+       )
     endif()
 
     #-------------------------------------------------------------------------
@@ -216,7 +225,7 @@ function(configureGCClassic)
             INTERFACE FASTJX
         )
     endif()
-    
+
     #-------------------------------------------------------------------------
     # Build for Jacobian carbon run?
     #-------------------------------------------------------------------------

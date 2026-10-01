@@ -313,8 +313,27 @@ TOMAS
 
 Configure GEOS-Chem with the `TOMAS aerosol
 microphysics package
-<http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`__.  Accepted
-values are:
+<http://wiki.geos-chem.org/TOMAS_aerosol_microphysics>`__.
+
+.. attention::
+
+   :ref:`tomas-guide` is currently incompatible with the
+   :cite:t:`Luo_and_Yu_2023` wet deposition scheme.  For the time
+    being, when you activate TOMAS aerosol microphysics, the
+    :ref:`compile-cmake-step4-luowd` switch will be automatically
+   toggled to :literal:`OFF`.  CMake will also print a status message
+   confirming this:
+
+   .. code-block:: none
+
+      -- TOMAS is not yet compatible with the Luo and Yu (2023) wetdep scheme; building with LUO_WETDEP=OFF.
+      * LUO_WETDEP:   ON  *OFF*
+
+   The TOMAS development team is working on making TOMAS compatible
+   with the :cite:t:`Luo_and_Yu_2023` wet deposition scheme.  These
+   compatibility updates will be added into a future version of GEOS-Chem.
+
+Accepted values are:
 
 .. describe:: n
 
