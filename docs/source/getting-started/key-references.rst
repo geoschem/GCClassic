@@ -27,6 +27,8 @@ detailed model description.  It is suitable as an original reference for the mod
    fields (GCAP 2.0);
 #. :cite:t:`Bukosa_et_al._2023` for the carbon simulation;
 #. :cite:t:`Lin_et_al._2023` for KPP 3.0.0 with adaptive auto-reduction solver;
+#. :cite:t:`Luo_and_Yu_2023` for the wet deposition scheme now used by
+   default in GEOS-Chem 14.9.0 and later versions.
 #. :cite:t:`Miller_et_al._2024` for HETerogeneous vectorized or
    Parallel (HETPv1.0).
 
