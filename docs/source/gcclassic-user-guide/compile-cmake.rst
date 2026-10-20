@@ -1,3 +1,4 @@
+
 .. |br| raw:: html
 
    <br/>
@@ -121,7 +122,7 @@ generate output similar to this:
      * GTMM:         ON  *OFF*
      * HCOSA:        ON  *OFF*
      * KPPSA:        ON  *OFF*
-     * LUO_WETDEP:   ON  *OFF*
+     * LUO_WETDEP:   *ON*  OFF
      * FASTJX:       ON  *OFF*
      * JACOBIAN:     ON  *OFF*
    =================================================================
@@ -324,6 +325,15 @@ values are:
 
    Activate TOMAS microphysics.
 
+.. attention::
+
+   :ref:`tomas-guide` is not yet compatible with the
+   :ref:`wetdep-guide-luo`.  When TOMAS is activated,
+   :ref:`compile-cmake-step4-luowd` is automatically set to
+   :literal:`OFF`, and the :ref:`wetdep-guide-jacob` is used instead.
+   The TOMAS developers are working on a fix for this, which will be
+   available in the near future.
+
 .. _compile-cmake-step4-tomas-bins:
 
 TOMAS_BINS
@@ -414,33 +424,24 @@ Configures GEOS-Chem to compile the :ref:`KPP-Standalone Box Model
 LUO_WETDEP
 ----------
 
-Configures GEOS-Chem to use the :cite:t:`Luo_and_Yu_2023`
-wet deposition scheme.
+Configures GEOS-Chem to use the :ref:`wetdep-guide-luo`.
 
 .. note::
 
-   The :cite:t:`Luo_and_Yu_2023` wet deposition scheme will eventually
-   become the default wet deposition scheme in GEOS-Chem.  We have
-   made it an option for the time being while further evaluation is
-   being done.
-
-.. note::
-
-   The Luo et al 2020 wet deposition scheme will eventually
-   become the default wet deposition scheme in GEOS-Chem.  We
-   have made it an option for the time being while further
-   evaluation is being done.
+   :cite:t:`Luo_and_Yu_2023` is now the default wet deposition
+   scheme in GEOS-Chem 14.9.0 and later versions.
 
 Accepted values are:
 
-.. describe:: n
-
-   Deactivates the Luo et al., 2020 wet deposition scheme. **(Default
-   option)**
-
 .. describe:: y
 
-   Activates the Luo et al., 2020 wet deposition scheme.
+   Activates the :cite:t:`Luo_and_Yu_2023` wet deposition
+   scheme. **(Default option)**
+
+.. describe:: n
+
+   Deactivates the :cite:t:`Luo_and_Yu_2023` wet deposition scheme.
+   The older :ref:`wetdep-guide-jacob` will be used instead.
 
 .. _compile-cmake-step4-fastjx:
 

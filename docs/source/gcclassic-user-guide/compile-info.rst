@@ -59,7 +59,7 @@ You will get output similar to this:
    -DRRTMG="OFF"
    -DGTMM="OFF"
    -DHCOSA="OFF"
-   -DLUO_WETDEP="OFF"
+   -DLUO_WETDEP="ON"
    -DFASTJX="OFF"
    -DJACOBIAN="OFF"
 
