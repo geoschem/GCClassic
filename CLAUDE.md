@@ -153,7 +153,7 @@ Intel and GNU only: `set(GEOSChem_SUPPORTED_COMPILER_IDS "Intel" "GNU")` in the 
 
 Four workflows in `.github/workflows/`, plus one helper script.
 
-- **`gcclassic-compile-tests.yml`** — triggers on every `push` and `pull_request` (unfiltered). A **7-job GNU matrix**: `gcc-version: [10, 11, 12, 13, 14, 15, 16]`. It runs:
+- **`gcclassic-compile-tests.yml`** — triggers on every `push` and `pull_request` (unfiltered). A **5-job GNU matrix** (`fail-fast: false`) pinned to `ubuntu-24.04`: `gcc-version: [12, 13, 14, 15, 16]`. The pin matters because the job apt-installs `gcc-N`/`gfortran-N`, and which versions exist differs by Ubuntu release (Ubuntu 26.04 has no `gfortran-10`). It runs:
   ```console
   git submodule update --init --recursive
   cd test/integration/GCClassic
