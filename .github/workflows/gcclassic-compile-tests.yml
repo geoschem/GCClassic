@@ -19,11 +19,14 @@ permissions:
 
 jobs:
   gnu:
-    runs-on: ubuntu-latest
+    # Pin the runner image: the gcc-N packages that apt can install
+    # differ between Ubuntu releases, so ubuntu-latest is not safe here
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         build_type: [Debug]
-        gcc-version: [10, 11, 12, 13, 14, 15, 16]
+        gcc-version: [12, 13, 14, 15, 16]
     env:
       CXX: g++
       CC: gcc
